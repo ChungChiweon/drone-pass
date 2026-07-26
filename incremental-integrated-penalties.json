@@ -1,0 +1,619 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-penalty",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "처벌기준"
+    },
+    {
+      "id": "cat-penalty-core",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "신고·인증·증명·준수사항 관련 벌칙",
+      "parentId": "cat-penalty"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-PEN-01",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "제재 유형 총칙",
+      "summary": "징역·벌금(형사처벌)과 과태료(행정질서벌)의 구분 — p.17~18 표의 3행 구조 기반"
+    },
+    {
+      "id": "C-PEN-02",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "신고 관련 벌칙",
+      "summary": "말소신고 미이행 과태료 30만원 이하 — 장치신고 위반(AF-015)·표시 위반(AF-016)과 함께 신고 계열 제재 3종 구성"
+    },
+    {
+      "id": "C-PEN-03",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "인증·승인 관련 벌칙",
+      "summary": "안전성인증검사 위반 과태료 500만원, 비행제한공역 승인 위반 벌금 200만원, 비행금지구역·관제권·150m 승인 위반 과태료 각 200만원"
+    },
+    {
+      "id": "C-PEN-04",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "증명 관련 벌칙",
+      "summary": "조종자증명 위반 과태료 300만원"
+    },
+    {
+      "id": "C-PEN-05",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "결합 위반 형사처벌",
+      "summary": "안전성인증 미취득 기체 + 조종자증명 미취득 상태 비행의 AND 결합 위반 — 1년 이하 징역 또는 1천만원 이하 벌금"
+    },
+    {
+      "id": "C-PEN-06",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "준수사항·보고 관련 벌칙",
+      "summary": "조종자 준수사항 위반 과태료 200만원, 사고 미보고·거짓보고 과태료 30만원 이하"
+    },
+    {
+      "id": "C-PEN-07",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "음주·사업자 관련 형사처벌",
+      "summary": "음주 상태 비행·비행 중 섭취·측정 거부 3년 이하 징역 또는 3천만원 이하 벌금, 사용사업자 안전개선명령 위반 1천만원 이하 벌금"
+    },
+    {
+      "id": "C-PEN-08",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "제재 체계 종합 비교",
+      "summary": "신고 계열 제재 사다리, 200만원 동액 제재의 벌금·과태료 분기, 행정처분과 형사처벌·과태료의 층위 구분"
+    },
+    {
+      "id": "C-PEN-09",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-penalty-core"
+      ],
+      "title": "????? ?? ??",
+      "summary": "????????????? ?????? ??? ?? ??"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-171",
+      "conceptId": "C-PEN-01",
+      "subject": "벌금 vs 과태료",
+      "predicate": "제재 유형 구분",
+      "value": "벌금·징역: 형사처벌(형벌) / 과태료: 행정질서벌",
+      "operator": "eq",
+      "statement": "이 문서의 제재는 징역·벌금(형사처벌)과 과태료(행정질서벌)로 구분되며, p.17~18 표도 징역·벌금·과태료를 별도 행으로 구분하여 표기한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "위반 시 처벌기준 표 구조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "위반 시 처벌기준 표 구조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.19",
+          "note": "벌칙 조문형 기재"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-134"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "표의 3행 구분(징역/벌금/과태료) 자체가 구분 근거 — AF-134와 crossReference 필수. 문서에 형벌·질서벌의 법리 설명은 없으므로 표 구조 기반 사실로 한정. 혼동 포인트: 벌금 = 형벌, 과태료 = 행정질서벌 — 조종자증명 취소 사유 제2호 '벌금 이상의 형'(AF-134)에 과태료는 미포함되는 근거, 같은 금액이라도 유형이 다르면 법적 효과가 다름"
+    },
+    {
+      "id": "AF-172",
+      "conceptId": "C-PEN-02",
+      "subject": "말소신고 미이행",
+      "predicate": "제재",
+      "value": 30,
+      "unit": "만원 (과태료, 이하)",
+      "operator": "lte",
+      "statement": "초경량비행장치의 말소신고를 하지 아니한 초경량비행장치소유자등은 30만원 이하의 과태료 대상이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.19",
+          "note": "벌칙 조문형 기재"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-015",
+        "AF-016",
+        "AF-027",
+        "AF-179"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "p.19 조문형 기재로 '이하' 명시 — 원문 보존. AF-015(신고 위반)와 crossReference로 신고 제재 3종(신고 500·표시 100·말소 30) 세트 완성. 혼동 포인트: 제재 대상은 소유자등 — 조종자 아님, 장치신고 위반(벌금 500만원)과 말소신고 미이행(과태료 30만원)의 제재 격차, 사고 미보고 30만원(AF-179)과 동액·동유형 — 사유 매칭 함정"
+    },
+    {
+      "id": "AF-173",
+      "conceptId": "C-PEN-03",
+      "subject": "안전성인증검사 위반",
+      "predicate": "제재",
+      "value": 500,
+      "unit": "만원 (과태료)",
+      "operator": "eq",
+      "statement": "안전성인증검사 위반 시 처벌기준은 과태료 500만원이다 (p.18 표 기재 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "위반 시 처벌기준 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-015",
+        "AF-038"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "p.17~18 표에는 '이하' 미표기 — 임의 추가하지 않고 원문 그대로 기록, 출제 시 '이하' 유무를 정답 판별 요소로 사용 금지 (AF-015 ReviewNote와 동일 원칙). 혼동 포인트: 장치신고 위반(벌금 500만원, AF-015)과 동액·다른 유형 — 500만원 벌금 vs 500만원 과태료의 대비 쌍, 인증 위반이 벌금이 아닌 과태료라는 점"
+    },
+    {
+      "id": "AF-174",
+      "conceptId": "C-PEN-03",
+      "subject": "비행제한공역 승인 위반",
+      "predicate": "제재",
+      "value": 200,
+      "unit": "만원 (벌금)",
+      "operator": "eq",
+      "statement": "비행제한공역 비행승인 위반 시 처벌기준은 벌금 200만원이다 (p.18 표 기재 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "위반 시 처벌기준 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-042",
+        "AF-175",
+        "AF-183"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "'이하' 미표기 — 동일 주의사항. 벌금(비행제한공역)과 과태료(기타 구역)의 분기 이유는 문서에 미기재 — 표 기재 사실만 보존. 혼동 포인트: 승인 위반 4종 중 유일한 벌금 — 나머지(비행금지구역·관제권·150m)는 과태료 200만원(AF-175), 동액 200만원의 유형 분기가 이 표 최대 함정"
+    },
+    {
+      "id": "AF-175",
+      "conceptId": "C-PEN-03",
+      "subject": "비행금지구역·관제권·150m 이상 승인 위반",
+      "predicate": "제재",
+      "value": 200,
+      "unit": "만원 (과태료, 각각)",
+      "operator": "eq",
+      "statement": "비행금지구역, 관제권, 고도 150m 이상에서의 비행승인 위반 시 처벌기준은 각각 과태료 200만원이다 (p.18 표 기재 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "위반 시 처벌기준 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-043",
+        "AF-174",
+        "AF-178",
+        "AF-183"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "'이하' 미표기 — 동일 주의사항. AF-042·043(승인 필요 여부)과 crossReference — 의무 팩트와 제재 팩트의 분리 유지. 혼동 포인트: 비행제한공역(벌금 200만원, AF-174)과 동액·다른 유형, 준수사항 위반 과태료 200만원(AF-178)과도 동액·동유형 — 사유만 다름, 3개 구역이 동일 제재로 묶임"
+    },
+    {
+      "id": "AF-176",
+      "conceptId": "C-PEN-04",
+      "subject": "조종자증명 위반",
+      "predicate": "제재",
+      "value": 300,
+      "unit": "만원 (과태료)",
+      "operator": "eq",
+      "statement": "조종자증명 위반 시 처벌기준은 과태료 300만원이다 (p.17 표 기재 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "위반 시 처벌기준 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-016",
+        "AF-047",
+        "AF-177"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "'이하' 미표기 — 동일 주의사항. AF-016과 crossReference로 과태료 사다리(30/100/200/300/500) 완성. 혼동 포인트: 신고 제재(벌금 500)·표시 제재(과태료 100)·준수사항 제재(과태료 200)와의 금액 사다리 — 100/200/300/500 매칭 함정, 무증명 단독 위반(과태료)과 무인증+무증명 결합 위반(형사처벌, AF-177)의 격차"
+    },
+    {
+      "id": "AF-177",
+      "conceptId": "C-PEN-05",
+      "subject": "무인증 + 무증명 비행",
+      "predicate": "제재",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "operator": "lte",
+      "statement": "안전성인증을 받지 아니한 초경량비행장치를 사용하여 초경량비행장치 조종자 증명을 받지 아니하고 비행을 한 사람은 1년 이하의 징역 또는 1천만원 이하의 벌금 대상이다",
+      "conditions": [
+        {
+          "id": "FC-177-1",
+          "statement": "안전성인증을 받지 아니한 초경량비행장치를 사용할 것 (AND)"
+        },
+        {
+          "id": "FC-177-2",
+          "statement": "조종자증명을 받지 아니하고 비행할 것 (AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.19",
+          "note": "벌칙 조문형 기재"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-036",
+        "AF-045",
+        "AF-176",
+        "AF-180"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "이 문서에서 유일하게 명시적인 2의무 AND 결합 형사처벌. p.19 조문형으로 '이하' 명시 — 원문 보존. 요건 누락(단독 위반으로 오인) 오답의 최적 원천. 혼동 포인트: AND 결합 위반 — 무증명 단독은 과태료 300만원(AF-176)인데 무인증 기체와 결합하면 형사처벌로 격상, '또는' 구조는 징역 또는 벌금의 선택형 — 병과 아님, 음주 3년/3천만원(AF-180)과의 형량 비교"
+    },
+    {
+      "id": "AF-178",
+      "conceptId": "C-PEN-06",
+      "subject": "조종자 준수사항 위반",
+      "predicate": "제재",
+      "value": 200,
+      "unit": "만원 (과태료)",
+      "operator": "eq",
+      "statement": "조종자 준수사항 위반 시 처벌기준은 과태료 200만원이다 (p.17 표 기재 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "위반 시 처벌기준 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-136",
+        "AF-143",
+        "AF-175",
+        "AF-183"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "'이하' 미표기 — 동일 주의사항. AF-136·AF-143과 crossReference — 의무·행정처분·과태료의 3층 연결. 혼동 포인트: 준수사항 위반의 3중 제재 트랙 — 과태료 200만원(본 팩트) + 증명 취소·정지 사유(AF-136) + 음주 등 일부 행위는 별도 형사처벌(AF-180), 승인 위반 과태료 200만원(AF-175)과 동액·동유형·다른 사유"
+    },
+    {
+      "id": "AF-179",
+      "conceptId": "C-PEN-06",
+      "subject": "사고 미보고·거짓보고",
+      "predicate": "제재",
+      "value": 30,
+      "unit": "만원 (과태료, 이하)",
+      "operator": "lte",
+      "statement": "초경량비행장치사고에 관한 보고를 하지 아니하거나 거짓으로 보고한 조종자 또는 소유자는 30만원 이하의 과태료 대상이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.19",
+          "note": "벌칙 조문형 기재"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-159",
+        "AF-160",
+        "AF-172"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "p.19 조문형으로 '이하' 명시 — 원문 보존. AF-159·160과 crossReference. 혼동 포인트: 제재 대상은 조종자 또는 소유자 — 보고 의무 구조(원칙 조종자·보충 소유자등)와 정합, 미보고와 거짓보고가 동일 제재, 말소신고 미이행 30만원(AF-172)과 동액·동유형 — 사유 매칭 함정"
+    },
+    {
+      "id": "AF-180",
+      "conceptId": "C-PEN-07",
+      "subject": "음주 상태 비행·비행 중 섭취·측정 거부",
+      "predicate": "제재",
+      "value": "3년 이하 징역 또는 3천만원 이하 벌금",
+      "operator": "lte",
+      "statement": "주류등 영향으로 비행을 정상 수행할 수 없는 상태에서 비행하거나, 비행 중 주류등을 섭취한 사람, 또는 측정 요구를 따르지 아니한 사람은 3년 이하의 징역 또는 3천만원 이하의 벌금 대상이다",
+      "conditions": [
+        {
+          "id": "FC-180-1",
+          "statement": "3개 행위 유형(영향 상태 비행·비행 중 섭취·측정 거부)은 OR — 어느 하나 해당 시 적용"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.19",
+          "note": "벌칙 조문형 기재"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-137",
+        "AF-138",
+        "AF-139",
+        "AF-154",
+        "AF-177",
+        "AF-178"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "p.19 조문형으로 '이하' 명시 — 원문 보존. 3개 행위 유형을 조문이 하나의 형량으로 묶고 있어 통합 팩트로 처리 — 행위별 분리는 AF-137~139(취소 사유)에서 이미 확보됨. 혼동 포인트: 이 문서 최고 형량 — 무인증+무증명(1년/1천만원, AF-177)의 3배 수준, 측정 거부도 실제 음주와 동일 형량, '또는' 선택형 — 병과 아님, 동일 행위의 3층 제재 — 형사처벌(본 팩트) + 증명 취소·정지(AF-137~139) + 준수사항 과태료 트랙(AF-154·178)"
+    },
+    {
+      "id": "AF-181",
+      "conceptId": "C-PEN-09",
+      "subject": "안전개선명령 위반",
+      "predicate": "제재",
+      "value": 1000,
+      "unit": "만원 (벌금, 이하)",
+      "operator": "lte",
+      "statement": "초경량비행장치사용사업자가 안전개선명령을 위반한 경우 1천만원 이하의 벌금 대상이다",
+      "conditions": [
+        {
+          "id": "FC-181-1",
+          "statement": "초경량비행장치사용사업자일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.19",
+          "note": "벌칙 조문형 기재"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-177"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "안전개선명령 제도 자체는 이 문서에 미설명 — 제재 사실만 존재. 사업자 대상 유일 제재로 주체 매트릭스 확장. Concept 배치는 C-PEN-07이나 음주와 무관 — 검수 시 별도 Concept(사업자 벌칙) 분리 검토. 혼동 포인트: 제재 대상은 사용사업자 — 조종자·소유자와 구분되는 제3의 제재 주체, 징역 없이 벌금 단독 — 1년/1천만원(AF-177)과 벌금액 동일하나 징역 선택지 부재"
+    },
+    {
+      "id": "AF-182",
+      "conceptId": "C-PEN-08",
+      "subject": "신고 계열 제재 3종 비교",
+      "predicate": "제재 사다리",
+      "value": "장치신고/변경신고 위반: 징역 6개월 또는 벌금 500만원 / 신고번호 표시 위반: 과태료 100만원 / 말소신고 미이행: 과태료 30만원 이하",
+      "operator": "eq",
+      "statement": "신고 계열 제재는 장치신고/변경신고 위반(징역 6개월 또는 벌금 500만원, p.17 표), 신고번호 표시 위반(과태료 100만원), 말소신고 미이행(과태료 30만원 이하)으로 위반 유형별 제재 격차가 크다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "위반 시 처벌기준 표 (기존 AF-015·AF-016 참조)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.19",
+          "note": "말소신고 미이행 과태료 (AF-172 참조)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": [
+        "AF-015",
+        "AF-016",
+        "AF-172"
+      ],
+      "crossReferences": [
+        "AF-015",
+        "AF-016",
+        "AF-172"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "AF-015·016(중복 생성 금지 대상)과 AF-172를 종합한 비교 팩트. p.17 표 항목은 '이하' 미표기, p.19 항목은 '이하' 명시 — 혼합 출처임을 보존. 혼동 포인트: 같은 '신고' 계열인데 형사처벌(신고 위반)과 과태료(표시·말소)로 유형 분기, 신고 위반만 징역 선택지 존재, 금액 사다리 500(벌금) > 100 > 30(과태료)"
+    },
+    {
+      "id": "AF-183",
+      "conceptId": "C-PEN-08",
+      "subject": "200만원 동액 제재의 유형 분기",
+      "predicate": "동액 비교",
+      "value": "벌금 200만원: 비행제한공역 승인 위반 / 과태료 200만원: 비행금지구역·관제권·150m 승인 위반, 준수사항 위반",
+      "operator": "eq",
+      "statement": "200만원 제재는 비행제한공역 승인 위반(벌금)과 비행금지구역·관제권·150m 승인 위반 및 준수사항 위반(과태료)으로 금액은 같으나 제재 유형이 갈린다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "위반 시 처벌기준 표"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "위반 시 처벌기준 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": [
+        "AF-174",
+        "AF-175",
+        "AF-178"
+      ],
+      "crossReferences": [
+        "AF-134",
+        "AF-174",
+        "AF-175",
+        "AF-178"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "같은 금액·다른 유형의 대표 사례. AF-134(벌금 이상 형 선고 = 취소 사유)와의 연쇄가 CASE_JUDGMENT 원천. 혼동 포인트: 벌금 200(형벌, 취소 사유 제2호의 '벌금 이상의 형' 해당 가능)과 과태료 200(질서벌, 미해당)의 파생 효과 차이"
+    },
+    {
+      "id": "AF-184",
+      "conceptId": "C-PEN-08",
+      "subject": "행정처분 vs 형사처벌·과태료",
+      "predicate": "제재 층위 구분",
+      "value": "행정처분(증명 취소·정지, 법 제125조②): 자격에 대한 처분 / 형사처벌(징역·벌금)·과태료: 행위에 대한 금전·신체형 제재 — 동일 행위에 병존 가능",
+      "operator": "eq",
+      "statement": "조종자증명 취소·정지(행정처분)와 징역·벌금·과태료(형사처벌·질서벌)는 제재의 층위가 달라 동일 행위(예: 음주비행)에 대해 증명 취소·정지와 3년 이하 징역 또는 3천만원 이하 벌금이 각각 적용될 수 있는 구조이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② (기존 AF-129~AF-140 참조)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "위반 시 처벌기준 표"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.19",
+          "note": "벌칙 조문형 기재"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": [
+        "AF-130",
+        "AF-137",
+        "AF-180"
+      ],
+      "crossReferences": [
+        "AF-130",
+        "AF-137",
+        "AF-180"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "AF-129~142(중복 생성 금지 대상)와 처벌 팩트들을 잇는 층위 팩트. 병존 '가능 구조'는 문서 내 병렬 기재 사실에서 도출 — 법리적 병과 원칙의 단정은 아님. 혼동 포인트: '처벌받았으니 취소는 면제' 또는 '취소됐으니 처벌 면제'라는 일사부재리 오적용, 음주비행의 3층(취소·정지 + 형사 + 준수사항 트랙) 구조가 대표 사례"
+    }
+  ]
+}

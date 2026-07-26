@@ -1,0 +1,842 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-aircraft-rental-business",
+      "title": "항공기대여업",
+      "subjectId": "kr-aviation-safety-act",
+      "parentId": "cat-aviation-business"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-BIZ-RENT-01",
+      "title": "항공기대여업 정의",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aircraft-rental-business"
+      ],
+      "summary": "항공기대여업 정의"
+    },
+    {
+      "id": "C-BIZ-RENT-02",
+      "title": "대여업 등록요건",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aircraft-rental-business"
+      ],
+      "summary": "대여업 등록요건"
+    },
+    {
+      "id": "C-BIZ-RENT-03",
+      "title": "대여업 보험요건",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aircraft-rental-business"
+      ],
+      "summary": "대여업 보험요건"
+    },
+    {
+      "id": "C-BIZ-RENT-04",
+      "title": "대여업 고유 결격사유",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aircraft-rental-business"
+      ],
+      "summary": "대여업 고유 결격사유"
+    },
+    {
+      "id": "C-BIZ-RENT-05",
+      "title": "대여업 등록신청",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aircraft-rental-business"
+      ],
+      "summary": "대여업 등록신청"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-275",
+      "conceptId": "C-BIZ-RENT-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "항공기대여업",
+      "predicate": "정의",
+      "operator": "eq",
+      "value": "유상 대여 사업",
+      "unit": null,
+      "statement": "항공기대여업이란 타인의 수요에 맞추어 유상으로 항공기, 경량항공기 또는 초경량비행장치를 대여하는 사업이다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-275-E1",
+          "statement": "항공사업법 제2조제26호나목의 항공레저스포츠 대여 서비스는 제외"
+        }
+      ],
+      "confusionPoint": "무상 대여는 해당 없음(유상), 레저스포츠용 대여는 별도 사업",
+      "distractorCandidates": [
+        "무상 대여 포함",
+        "레저용 대여도 대여업"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "제외 대상인 제2조제26호나목은 레저사업 대여 서비스 — 두 사업 경계가 핵심 출제 포인트. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-276",
+      "conceptId": "C-BIZ-RENT-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "항공기대여업",
+      "predicate": "대여대상",
+      "operator": "eq",
+      "value": "3종 기체",
+      "unit": null,
+      "statement": "항공기대여업의 대여 대상은 항공기, 경량항공기, 초경량비행장치이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "3종 모두 가능(항공기 한정 아님)",
+      "distractorCandidates": [
+        "항공기만 대여 가능"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-275"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-277",
+      "conceptId": "C-BIZ-RENT-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "등록요건(자본금)",
+      "predicate": "법인_자본금",
+      "operator": "gte",
+      "value": 25000,
+      "unit": "만원",
+      "statement": "법인이 항공기대여업을 등록하려면 자본금 2억5천만원 이상이어야 한다",
+      "conditions": [
+        {
+          "id": "AF-277-C1",
+          "statement": "법인일 것"
+        },
+        {
+          "id": "AF-277-C2",
+          "statement": "대여 대상에 항공기가 포함될 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "AF-277-E1",
+          "statement": "경량항공기 또는 초경량비행장치만 대여하면 AF-279 특례 적용"
+        }
+      ],
+      "confusionPoint": "사용사업 3천만/레저 가목 3억과 혼동",
+      "distractorCandidates": [
+        "3억원",
+        "3천만원",
+        "2억원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-278",
+        "AF-279"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "현행법 대조 필요(자본금 개정 이력 항목). 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-278",
+      "conceptId": "C-BIZ-RENT-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "등록요건(자산평가액)",
+      "predicate": "개인_자산평가액",
+      "operator": "gte",
+      "value": 37500,
+      "unit": "만원",
+      "statement": "개인이 항공기대여업을 등록하려면 자산평가액 3억7천5백만원 이상이어야 한다",
+      "conditions": [
+        {
+          "id": "AF-278-C1",
+          "statement": "개인일 것"
+        },
+        {
+          "id": "AF-278-C2",
+          "statement": "대여 대상에 항공기가 포함될 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "AF-278-E1",
+          "statement": "경량항공기 또는 초경량비행장치만 대여하면 AF-279 특례 적용"
+        }
+      ],
+      "confusionPoint": "법인 자본금(2.5억)과 개인 자산평가액(3.75억)의 비대칭, 레저 나목과 동일 수치",
+      "distractorCandidates": [
+        "2억5천만원",
+        "4억5천만원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-277",
+        "AF-279"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "개인 기준이 법인보다 높은 비대칭 구조 — 함정 출제 포인트. 현행법 대조 필요. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-279",
+      "conceptId": "C-BIZ-RENT-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "등록요건(자본금 특례)",
+      "predicate": "경량·초경량만_대여",
+      "operator": "gte",
+      "value": 3000,
+      "unit": "만원",
+      "statement": "경량항공기 또는 초경량비행장치만을 대여하는 경우 법인 자본금·개인 자산평가액 기준은 3천만원 이상이다",
+      "conditions": [
+        {
+          "id": "AF-279-C1",
+          "statement": "대여 기체가 경량항공기 또는 초경량비행장치로만 구성될 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "AF-279-E1",
+          "statement": "항공기가 한 대라도 포함되면 일반 기준 AF-277 또는 AF-278 적용"
+        }
+      ],
+      "confusionPoint": "특례 조건이 '만'(only) — 사용사업 25kg 예외(요건 면제)와 달리 감액 특례",
+      "distractorCandidates": [
+        "완전 면제",
+        "항공기 포함 시에도 3천만원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-225",
+        "AF-277",
+        "AF-278"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "대여업은 자본금 요건 면제가 아니라 3천만원으로 감액되는 특례이며, 사용사업 AF-225는 자본금·자산평가액 요건 면제이다. 법인·개인 동일 3천만원. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-280",
+      "conceptId": "C-BIZ-RENT-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "등록요건(기체)",
+      "predicate": "보유대수",
+      "operator": "gte",
+      "value": 1,
+      "unit": "대",
+      "statement": "항공기대여업 등록에는 항공기, 경량항공기 또는 초경량비행장치 1대 이상이 필요하다",
+      "conditions": [
+        {
+          "id": "AF-280-C1",
+          "statement": "항공기·경량항공기·초경량비행장치 중 어느 하나일 것"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "사용사업(무인비행장치 한정, AF-227)과 달리 기체 유형 제한 없음",
+      "distractorCandidates": [
+        "무인비행장치만 인정"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-227",
+        "AF-276"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-281",
+      "conceptId": "C-BIZ-RENT-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "등록요건(보험)",
+      "predicate": "가입보험",
+      "operator": "eq",
+      "value": "여객보험",
+      "unit": null,
+      "statement": "항공기대여업 등록에는 여객보험 가입이 필요하다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-281-E1",
+          "statement": "여객이 없는 초경량비행장치는 제외"
+        }
+      ],
+      "confusionPoint": "제외 조건이 '여객 없는 초경량비행장치'에 한정",
+      "distractorCandidates": [
+        "모든 무인 기체 제외"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-285"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-282",
+      "conceptId": "C-BIZ-RENT-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "등록요건(보험)",
+      "predicate": "가입보험",
+      "operator": "eq",
+      "value": "기체보험",
+      "unit": null,
+      "statement": "항공기대여업 등록에는 기체보험 가입이 필요하다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-282-E1",
+          "statement": "경량항공기는 제외"
+        },
+        {
+          "id": "AF-282-E2",
+          "statement": "초경량비행장치는 제외"
+        }
+      ],
+      "confusionPoint": "기체보험 제외 범위(경량+초경량)가 여객보험 제외 범위(여객 없는 초경량)보다 넓음",
+      "distractorCandidates": [
+        "초경량만 제외"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-285"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "보험 종류별 제외 조건이 각각 다름 — 표 형태 출제의 핵심. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-283",
+      "conceptId": "C-BIZ-RENT-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "항공기대여업 등록요건",
+      "predicate": "제3자보험 가입",
+      "operator": "eq",
+      "value": "제3자보험",
+      "unit": null,
+      "statement": "항공기대여업 등록에는 제3자보험 가입이 필요하다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "제3자보험은 원문상 제외 조건 없음 — 승무원보험의 제외 조건과 혼동 주의",
+      "distractorCandidates": [
+        "제3자보험도 무인기 제외"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-228",
+        "AF-261",
+        "AF-285"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "원문이 '제3자보험 및 승무원보험(승무원 없는 초경량비행장치 제외)'로 병기 — 제외 문언은 승무원보험에만 걸리는 것으로 해석하여 분리함. 검수 시 재확인 권장. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-284",
+      "conceptId": "C-BIZ-RENT-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "항공기대여업 등록요건",
+      "predicate": "승무원보험 가입",
+      "operator": "eq",
+      "value": "승무원보험",
+      "unit": null,
+      "statement": "항공기대여업 등록에는 승무원보험 가입이 필요하다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-284-E1",
+          "statement": "승무원이 없는 초경량비행장치는 제외"
+        }
+      ],
+      "confusionPoint": "승무원보험만 조건부 제외 — 제3자보험에는 제외 조건 없음",
+      "distractorCandidates": [
+        "제3자보험과 동일 제외 적용"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-285"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "AF-283과 원문 병기 문언에서 분리 생성. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-285",
+      "conceptId": "C-BIZ-RENT-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "DERIVED_FACT",
+      "subject": "등록요건(보험)",
+      "predicate": "보험종류_구성",
+      "operator": "eq",
+      "value": "4종 체계",
+      "unit": null,
+      "statement": "항공기대여업의 보험 요건은 여객보험, 기체보험, 제3자보험, 승무원보험의 4종으로 구성되며 기체 유형에 따라 일부가 제외된다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "사용사업(제3자보험 1종, AF-228)과의 대비",
+      "distractorCandidates": [
+        "대여업도 제3자보험만"
+      ],
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": [
+        "AF-281",
+        "AF-282",
+        "AF-283",
+        "AF-284"
+      ],
+      "crossReferences": [
+        "AF-228",
+        "AF-261",
+        "AF-281",
+        "AF-282",
+        "AF-283",
+        "AF-284"
+      ],
+      "sourceReference": "p.6",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "각 보험의 제외 조건이 서로 다름: 여객보험(여객 없는 초경량 제외), 기체보험(경량·초경량 제외), 제3자보험(제외 없음), 승무원보험(승무원 없는 초경량 제외). 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.6",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-286",
+      "conceptId": "C-BIZ-RENT-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "결격사유",
+      "predicate": "취소후_경과기간",
+      "operator": "lt",
+      "value": 2,
+      "unit": "년",
+      "statement": "항공기대여업 등록 취소처분을 받은 후 2년이 지나지 아니한 자는 결격사유에 해당한다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-286-E1",
+          "statement": "피성년후견인 또는 피한정후견인 사유로 제47조제8항에 따라 취소된 경우"
+        },
+        {
+          "id": "AF-286-E2",
+          "statement": "파산선고 후 복권되지 않은 사유로 제47조제8항에 따라 취소된 경우"
+        }
+      ],
+      "confusionPoint": "사용사업 고유 호(AF-238, 제49조제8항)와 조문 번호만 다른 병렬 구조",
+      "distractorCandidates": [
+        "제49조제8항(사용사업 조문 바꿔치기)",
+        "3년"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-230",
+        "AF-238"
+      ],
+      "sourceReference": "p.8",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "공통 결격사유 AF-230~AF-237에 더해지는 대여업 고유 호. p.7~8의 나머지 결격사유는 공통 팩트 재사용으로 신규 생성하지 않음. 제47조제8항 조문 유효성 현행법 대조 필요. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.8",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-287",
+      "conceptId": "C-BIZ-RENT-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "등록신청서",
+      "predicate": "서식",
+      "operator": "eq",
+      "value": "별지 제26호서식",
+      "unit": null,
+      "statement": "항공기대여업 등록신청서는 항공사업법 시행규칙 별지 제26호 서식에 따른다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "사용사업 등록신청(AF-239)과 동일 서식 번호",
+      "distractorCandidates": [
+        "별지 제13호"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-239"
+      ],
+      "sourceReference": "p.9",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "AF-239와 동일 서식이나 적용 사업이 달라 별도 유지. 서식 번호 현행 대조 필요. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.9",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-288",
+      "conceptId": "C-BIZ-RENT-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "첨부서류",
+      "predicate": "요건증명서류",
+      "operator": "eq",
+      "value": "자본금·기체",
+      "unit": null,
+      "statement": "등록신청 시 자본금 또는 자산평가액 및 기체 1대 이상 요건을 증명하거나 설명하는 서류를 첨부해야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.9",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.9",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-289",
+      "conceptId": "C-BIZ-RENT-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "사업계획서",
+      "predicate": "기재사항",
+      "operator": "eq",
+      "value": "자본금·상호·소재지",
+      "unit": null,
+      "statement": "항공기대여업 등록신청의 사업계획서에는 자본금, 상호·대표자 성명, 사업소의 명칭과 소재지를 기재해야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.9",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "원문 '상호대표자 성명'은 '상호·대표자 성명'으로 교정 표기. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.9",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-290",
+      "conceptId": "C-BIZ-RENT-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "사업계획서",
+      "predicate": "기재사항",
+      "operator": "eq",
+      "value": "수지·재원·시설",
+      "unit": null,
+      "statement": "사업계획서에는 예상 사업수지계산서, 재원조달방법, 사용시설 설비 및 장비개요를 기재해야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "사용사업 계획서의 안전관리대책(AF-242)은 대여업 원문에 없음",
+      "distractorCandidates": [
+        "대여업도 사고대응 매뉴얼 기재"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.9",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.9",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-291",
+      "conceptId": "C-BIZ-RENT-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "사업계획서",
+      "predicate": "기재사항",
+      "operator": "eq",
+      "value": "인력·개시일",
+      "unit": null,
+      "statement": "사업계획서에는 종사자 인력의 개요와 사업 개시 예정일을 기재해야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.9",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.9",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-292",
+      "conceptId": "C-BIZ-RENT-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "첨부서류",
+      "predicate": "부동산",
+      "operator": "eq",
+      "value": "사용권 증명",
+      "unit": null,
+      "statement": "항공기대여업 등록신청 시 타인 소유 부동산을 사용하는 경우 그 부동산을 사용할 수 있음을 증명하는 서류를 첨부해야 한다",
+      "conditions": [
+        {
+          "id": "AF-292-C1",
+          "statement": "항공기대여업 등록신청에서 타인 소유 부동산을 사용하는 경우"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "AF-292-E1",
+          "statement": "자기 소유 부동산만 사용하는 경우에는 해당 서류가 필요하지 않음"
+        }
+      ],
+      "confusionPoint": "AF-245(사용사업)와 동일 문언의 사업별 병렬 팩트",
+      "distractorCandidates": [
+        "모든 경우 제출"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-245"
+      ],
+      "sourceReference": "p.9",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "AF-245와 동일 취지이나 적용 사업이 달라 별도 생성. 향후 공통화 검토 대상. 공통 변경신고 AF-250~AF-258은 대여업(p.10)에도 동일 적용되므로 신규 생성하지 않음. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.9",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    }
+  ]
+}

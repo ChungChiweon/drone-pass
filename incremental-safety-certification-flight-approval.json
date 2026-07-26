@@ -1,0 +1,376 @@
+{
+  "targetPackId": "**ACTIVE**",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-safety-certification",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "안전성인증",
+      "parentId": "cat-device-registration"
+    },
+    {
+      "id": "cat-flight-approval",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "비행승인",
+      "parentId": "cat-device-registration"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-REG-14",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-safety-certification"
+      ],
+      "title": "안전성인증 의무 일반",
+      "summary": "초경량비행장치 안전성인증 의무의 내용과 시험비행 등 허가에 따른 예외"
+    },
+    {
+      "id": "C-REG-15",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-safety-certification"
+      ],
+      "title": "안전성인증 대상 기체",
+      "summary": "최대이륙중량 25kg 초과 무인비행장치 등 안전성인증 대상 기체의 범위와 경계 기준"
+    },
+    {
+      "id": "C-REG-16",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-safety-certification"
+      ],
+      "title": "안전성인증 검사기관",
+      "summary": "안전성인증 검사 수행 기관(항공안전기술원)과 기준 고시·허가 주체의 구분"
+    },
+    {
+      "id": "C-REG-17",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-flight-approval"
+      ],
+      "title": "안전성인증과 비행승인의 구분",
+      "summary": "기체 기술기준 인증(안전성인증)과 공역·고도별 비행 허가(비행승인)의 제도 구분 및 중량별 적용 차등"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-036",
+      "conceptId": "C-REG-14",
+      "subject": "안전성인증 의무",
+      "predicate": "의무 내용",
+      "value": "국토교통부장관이 정하여 고시하는 비행안전을 위한 기술상의 기준에 적합하다는 안전성인증을 받지 아니하고 비행하여서는 아니 됨",
+      "operator": "eq",
+      "statement": "국토교통부령으로 정하는 초경량비행장치를 사용하여 비행하려는 사람은 비행안전을 위한 기술상의 기준에 적합하다는 안전성인증을 받지 아니하고 비행하여서는 아니 된다",
+      "conditions": [
+        {
+          "id": "FC-036-1",
+          "statement": "국토교통부령으로 정하는 초경량비행장치를 사용하여 비행하려는 사람일 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "FE-036-1",
+          "statement": "시험비행 등 국토교통부령으로 정하는 경우로서 국토교통부장관의 허가를 받은 경우는 제외"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "법 제124조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-037",
+        "AF-041"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 인증 주체(기관·단체의 장)와 기준 고시 주체(국토교통부장관)의 구분, 의무 주체는 '비행하려는 사람'이지 소유자가 아님"
+    },
+    {
+      "id": "AF-037",
+      "conceptId": "C-REG-14",
+      "subject": "안전성인증 의무의 예외",
+      "predicate": "예외 요건",
+      "value": "시험비행 등 국토교통부령으로 정하는 경우 + 국토교통부장관의 허가",
+      "operator": "eq",
+      "statement": "시험비행 등 국토교통부령으로 정하는 경우로서 국토교통부장관의 허가를 받은 경우에는 안전성인증 없이 비행할 수 있다",
+      "conditions": [
+        {
+          "id": "FC-037-1",
+          "statement": "국토교통부령으로 정하는 시험비행 등의 경우일 것"
+        },
+        {
+          "id": "FC-037-2",
+          "statement": "국토교통부장관의 허가를 받을 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "법 제124조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-036",
+        "AF-041"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "예외이지만 요건이 2개(경우 해당 + 허가)인 복합 구조 — 요건 누락형 오답(CONDITION_OMISSION) 생성에 적합. 혼동 포인트: 허가권자는 국토교통부장관으로 검사기관(항공안전기술원, AF-041)과 다른 주체, '시험비행이면 무조건 예외'가 아니라 허가 필요, 조종자 준수사항의 예외 승인(특별비행승인 등, 본 범위 외)과 제도 혼동"
+    },
+    {
+      "id": "AF-038",
+      "conceptId": "C-REG-15",
+      "subject": "무인비행기·무인헬리콥터·무인멀티콥터",
+      "predicate": "안전성인증 대상 중량 기준",
+      "value": 25,
+      "unit": "kg (최대이륙중량)",
+      "operator": "gt",
+      "statement": "무인비행기, 무인헬리콥터 또는 무인멀티콥터 중에서 최대이륙중량이 25킬로그램을 초과하는 것은 안전성인증 대상이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "규칙 제305조① 4호 가목"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-039"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "p.12 조문과 p.18 표(25kg 초과 ○)가 일치 — 통합 처리. 경계값 25kg 정확히는 '이하'에 속해 비대상이라는 점이 핵심 출제 포인트. 혼동 포인트: 2kg(신고 제외)·250g(조종자증명 제외)과 제도별 수치 혼동, '25kg 이상'으로 잘못 기억, 최대이륙중량 기준(자체중량 아님), 조종자증명 1종 응시기준의 25kg 초과~자체중량 150kg 이하(p.22, 본 범위 외)와 수치 동일하여 제도 혼동"
+    },
+    {
+      "id": "AF-039",
+      "conceptId": "C-REG-15",
+      "subject": "최대이륙중량 25kg 이하 무인비행장치",
+      "predicate": "안전성인증검사 적용",
+      "value": 25,
+      "unit": "kg (최대이륙중량)",
+      "operator": "lte",
+      "statement": "최대이륙중량 25kg 이하의 무인비행장치는 안전성인증검사 대상이 아니다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": [
+        "AF-038"
+      ],
+      "crossReferences": [
+        "AF-038"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "p.18 표의 X 표기에서 도출. 조문(p.12) 반대해석과 표 명기가 일치함. 혼동 포인트: 인증 면제여도 신고(2kg 초과)·조종자증명(250g 초과)·비행승인(구역별)은 별도 적용, '25kg 이하 = 모든 규제 면제'라는 일반화 오류"
+    },
+    {
+      "id": "AF-040",
+      "conceptId": "C-REG-15",
+      "subject": "안전성인증 대상 기체 종류 (무인비행장치 외)",
+      "predicate": "포함 항목",
+      "value": "회전익비행장치, 동력패러글라이더, 무인비행선 중 일부",
+      "operator": "eq",
+      "statement": "안전성인증 대상에는 무인비행장치 외에 회전익비행장치(5호), 동력패러글라이더(6호), 무인비행선 중 일부(4호 나목)도 포함된다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "규칙 제305조① 4~6호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.7,
+      "reviewNote": "원문에서 1~3호 '<생략>', 무인비행선 나목 '<중략>' 처리되어 전체 목록·기준이 불완전 — 포함 관계로만 기술하고 confidence 하향. 무인비행선의 구체적 인증 기준은 이 문서로 출제 불가. 혼동 포인트: '안전성인증은 무인멀티콥터만 대상'이라는 오답 소재로 활용 가능"
+    },
+    {
+      "id": "AF-041",
+      "conceptId": "C-REG-16",
+      "subject": "안전성인증 검사기관",
+      "predicate": "지정 기관",
+      "value": "항공안전기술원",
+      "operator": "eq",
+      "statement": "안전성인증 검사기관은 항공안전기술원이다 (교육자료 주석 기준)",
+      "conditions": [
+        {
+          "id": "FC-041-1",
+          "statement": "규칙 제305조②의 '기술원 또는 별표 43에 따른 시설기준을 충족하는 기관 또는 단체 중에서 국토교통부장관이 정하여 고시하는 기관 또는 단체' 구조 안에서의 지정"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "규칙 제305조② 및 교육자료 주석"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-036",
+        "AF-037"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "조문 자체는 '기술원 또는 ... 고시하는 기관 또는 단체'로 복수 가능 구조이나, 교육자료의 빨간 주석이 '안전성인증 검사 기관은 항공안전기술원'으로 단정 — 주석 기준으로 팩트화하되 조문 구조를 FactCondition에 보존. 기관명 정식 명칭은 조문에 '기술원'으로만 표기되고 주석에서 '항공안전기술원'으로 보완됨. 혼동 포인트: 한국교통안전공단(신고·증명 관장)과의 기관 혼동이 최다 빈출, 검사기관(기술원)과 허가권자(국토교통부장관)의 구분, 기준 고시 주체(장관)와 검사 수행 기관(기술원)의 구분"
+    },
+    {
+      "id": "AF-042",
+      "conceptId": "C-REG-17",
+      "subject": "비행제한공역 비행승인",
+      "predicate": "적용 기준",
+      "value": "25kg 초과: 승인 필요(○) / 25kg 이하: 불필요(X)",
+      "operator": "eq",
+      "statement": "비행제한공역에서의 비행승인은 최대이륙중량 25kg 초과 기체만 필요하고 25kg 이하는 불필요하다 (p.18 표 기준)",
+      "conditions": [
+        {
+          "id": "FC-042-1",
+          "statement": "비행제한공역일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-043",
+        "AF-044"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "본 소분류의 핵심(안전성인증)과 인접한 비행승인 정보이나 '비행승인과 안전성인증의 차이' 추출 지시에 따라 포함. 추후 비행승인 소분류 확장 시 재배치 검토 대상. 표 외 조문 근거가 본 문서에 없어 감점. 혼동 포인트: 안전성인증과 비행제한공역 승인은 둘 다 25kg 경계이지만 서로 다른 제도, 중량별 차등이 있는 유일한 승인 항목"
+    },
+    {
+      "id": "AF-043",
+      "conceptId": "C-REG-17",
+      "subject": "비행금지구역·관제권·고도 150m 이상 비행승인",
+      "predicate": "적용 기준",
+      "value": "중량 무관 승인 필요(○)",
+      "operator": "eq",
+      "statement": "비행금지구역, 관제권, 고도 150m 이상에서의 비행승인은 최대이륙중량 25kg 초과·이하 관계없이 모두 필요하다 (p.18 표 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-042",
+        "AF-044"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "AF-042와 세트로 비행승인 체계의 중량별 차등/무차등 대비 구조. 추후 비행승인 소분류 확장 시 AF-042와 함께 재배치 검토 대상. 혼동 포인트: 비행제한공역(25kg 초과만)과의 차등 구분, '25kg 이하 소형기는 어디서든 승인 불필요'라는 오개념 교정, 고도 기준 150m는 조종자 준수사항의 최저비행고도 150m(p.15, 본 범위 외)와 동일 수치로 제도 혼동 유발"
+    },
+    {
+      "id": "AF-044",
+      "conceptId": "C-REG-17",
+      "subject": "안전성인증 vs 비행승인",
+      "predicate": "제도 구분",
+      "value": "안전성인증: 기체의 기술기준 적합성 검사 / 비행승인: 공역·고도별 비행 허가",
+      "operator": "eq",
+      "statement": "안전성인증은 기체가 기술상의 기준에 적합한지에 대한 인증이고, 비행승인은 특정 공역·고도에서의 비행에 대한 승인으로 서로 다른 제도이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "법 제124조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": [
+        "AF-036",
+        "AF-042",
+        "AF-043"
+      ],
+      "crossReferences": [
+        "AF-036",
+        "AF-042",
+        "AF-043"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "두 페이지의 구조를 종합한 구분 팩트 — 개별 조문의 직접 문장이 아니라 표·조문 구조에서 도출. 혼동 포인트: 두 제도 모두 p.18 표에 나란히 배치되어 하나의 절차로 오인하기 쉬움, 인증을 받아도 승인은 별도이고 승인을 받아도 인증은 별도"
+    }
+  ]
+}

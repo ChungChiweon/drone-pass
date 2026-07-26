@@ -1,0 +1,2354 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-aviation-business-common-rules",
+      "title": "항공사업법 준용규정",
+      "subjectId": "kr-aviation-safety-act",
+      "parentId": "cat-aviation-business"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-BIZ-COMMON-01",
+      "title": "준용규정 적용 범위",
+      "summary": "제32조~제41조가 항공기대여업·초경량비행장치사용사업·항공레저스포츠사업에 준용되는 범위와 제32조가 레저사업에는 적용되지 않는 예외",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-02",
+      "title": "사업계획 변경",
+      "summary": "제32조에 따른 사업계획 수행의무, 예외사유, 인가·신고 절차, 경미사항 목록, 변경인가 기준",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-03",
+      "title": "명의대여 금지",
+      "summary": "제33조에 따른 명의대여 및 등록증 대여 금지 의무",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-04",
+      "title": "양도·양수",
+      "summary": "제34조에 따른 사업 양도·양수 신고 절차, 서류, 수리불가사유, 공고, 지위승계 효력",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-05",
+      "title": "법인 합병",
+      "summary": "제35조에 따른 법인 합병 신고 절차, 서류, 지위승계 효력",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-06",
+      "title": "상속",
+      "summary": "제36조에 따른 사업자 사망 시 상속인의 지위승계, 신고기한, 결격 시 3개월 이내 양도 규정",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-07",
+      "title": "휴업·폐업",
+      "summary": "제37조·제38조에 따른 휴업 신고(5일 전, 6개월 상한)와 폐업 신고(15일 전, 폐업 가능 요건)",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-08",
+      "title": "사업개선명령",
+      "summary": "제39조에 따라 서비스 개선을 위해 명할 수 있는 사업계획 변경, 시설 개선, 보험계약 체결 등의 명령 내용",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-09",
+      "title": "사업정지·등록취소",
+      "summary": "제40조에 따른 사업정지 사유 12종과 등록취소 사유 5종, 정지기간 6개월 이내 규정",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    },
+    {
+      "id": "C-BIZ-COMMON-10",
+      "title": "과징금",
+      "summary": "제41조에 따른 사업정지 갈음 과징금의 부과요건, 사업별 상한(3억원/3천만원), 가중·경감, 납부기한, 행정처분으로서의 법적 성격",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-common-rules"
+      ]
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-372",
+      "conceptId": "C-BIZ-COMMON-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "DERIVED_FACT",
+      "subject": "준용규정",
+      "predicate": "적용대상",
+      "operator": "eq",
+      "value": "3개 사업",
+      "unit": null,
+      "statement": "제32조~제41조의 규정(사업계획 변경, 명의대여 금지, 양도·양수, 합병, 상속, 휴·폐업, 사업개선명령, 등록취소·사업정지, 과징금)은 항공기대여업, 항공레저스포츠사업, 초경량비행장치사용사업에 적용된다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-372-E1",
+          "statement": "제32조는 레저사업 제외(AF-373)"
+        }
+      ],
+      "confusionPoint": "원 조문은 항공기사용사업 규정이며 3개 사업에 준용되는 구조",
+      "distractorCandidates": [
+        "각 사업별 별도 조문 존재"
+      ],
+      "standaloneQuestionAllowed": false,
+      "derivedFrom": [
+        "AF-373",
+        "AF-374",
+        "AF-381",
+        "AF-382",
+        "AF-388",
+        "AF-391",
+        "AF-394",
+        "AF-396",
+        "AF-398",
+        "AF-399",
+        "AF-417"
+      ],
+      "crossReferences": [],
+      "sourceReference": "p.40",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "제32조는 레저사업에 적용되지 않는다는 예외가 있어 단순한 '3개 사업 전부 적용' 문제로 출제하지 않도록 한다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.40",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-373",
+      "conceptId": "C-BIZ-COMMON-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제32조 적용 예외",
+      "predicate": "적용제외",
+      "operator": "eq",
+      "value": "항공레저스포츠사업",
+      "unit": null,
+      "statement": "사업계획의 변경(제32조)은 항공레저스포츠사업에 대해서는 적용하지 않는다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "준용규정 중 유일하게 사업 하나가 통째로 빠지는 조문",
+      "distractorCandidates": [
+        "3개 사업 모두 적용"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-372",
+        "AF-426"
+      ],
+      "sourceReference": "p.40",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "준용규정 장의 대표 함정 — 레저사업만 제32조 제외. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.40",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-374",
+      "conceptId": "C-BIZ-COMMON-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제32조제1항",
+      "predicate": "수행의무",
+      "operator": "eq",
+      "value": "사업계획대로 수행",
+      "unit": null,
+      "statement": "등록할 때 제출한 사업계획에 따라 그 업무를 수행하여야 한다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-374-E1",
+          "statement": "예외 4종(AF-375) 적용 시 제외"
+        }
+      ],
+      "confusionPoint": "위반 시 1천만원 벌금(AF-353)과 짝",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-353",
+        "AF-375",
+        "AF-402"
+      ],
+      "sourceReference": "p.41",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.41",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-375",
+      "conceptId": "C-BIZ-COMMON-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제32조제1항 예외",
+      "predicate": "예외사유",
+      "operator": "eq",
+      "value": "4종",
+      "unit": null,
+      "statement": "사업계획대로 수행하지 않아도 되는 예외는 ①기상악화 ②안전운항을 위한 정비로서 예견하지 못한 정비 ③천재지변 ④제1호부터 제3호까지에 준하는 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "②는 '예견하지 못한' 정비에 한정(정기정비 아님)",
+      "distractorCandidates": [
+        "모든 정비",
+        "5종"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.41",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "4개의 예외를 묶은 열거형 팩트이므로 자동 단독 출제를 차단한다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.41",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-376",
+      "conceptId": "C-BIZ-COMMON-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제32조제2항",
+      "predicate": "변경절차",
+      "operator": "eq",
+      "value": "국토교통부장관 인가",
+      "unit": null,
+      "statement": "사업계획을 변경하려는 경우에는 국토교통부장관의 인가를 받아야 한다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-376-E1",
+          "statement": "경미한 사항은 신고로 갈음(AF-377)"
+        }
+      ],
+      "confusionPoint": "인가 주체 = 국토교통부장관(지방항공청장 아님), 원칙 인가·예외 신고 구조",
+      "distractorCandidates": [
+        "지방항공청장 인가",
+        "모두 신고"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-354",
+        "AF-377",
+        "AF-403"
+      ],
+      "sourceReference": "p.41",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.41",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-377",
+      "conceptId": "C-BIZ-COMMON-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제32조제2항 경미사항",
+      "predicate": "신고대상",
+      "operator": "eq",
+      "value": "7종",
+      "unit": null,
+      "statement": "경미한 사항의 신고 대상은 ①자본금의 변경 ②사업소의 신설 또는 변경 ③대표자 변경 ④대표자의 대표권 제한 및 그 제한의 변경 ⑤상호 변경 ⑥사업범위의 변경 ⑦항공기 등록 대수의 변경이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "AF-250~255(변경신고 6종)와 유사하나 별개 목록: ①이 감소가 아닌 변경이고 ⑦항공기 등록 대수가 추가된 7종",
+      "distractorCandidates": [
+        "자본금의 감소만",
+        "6종"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [
+        "AF-250",
+        "AF-251",
+        "AF-252",
+        "AF-253",
+        "AF-254",
+        "AF-255",
+        "AF-378"
+      ],
+      "sourceReference": "p.41",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "제32조 경미사항 7종과 기존 사업별 변경신고 6종은 문언과 항목 수가 다르다. 기존 AF-250~255와 중복 생성한 것이 아니다. 현행 조문 대조 전 자동 단독 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.41",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-378",
+      "conceptId": "C-BIZ-COMMON-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "변경인가·신고",
+      "predicate": "신청기한",
+      "operator": "lte",
+      "value": 30,
+      "unit": "일",
+      "statement": "변경인가 및 신고 신청기간은 변경 사유가 발생한 날부터 30일 이내이다",
+      "conditions": [
+        {
+          "id": "AF-378-C1",
+          "statement": "기산점 = 변경 사유 발생일"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "AF-256(변경신고 30일)과 같은 수치이나 제32조 인가·신고 절차의 기한",
+      "distractorCandidates": [
+        "14일",
+        "인가는 기한 없음"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.42",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.42",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-379",
+      "conceptId": "C-BIZ-COMMON-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "행정정보 공동이용",
+      "predicate": "확인사항",
+      "operator": "eq",
+      "value": "3종",
+      "unit": null,
+      "statement": "행정정보의 공동이용을 통하여 등기사항증명서로 확인할 수 있는 사항은 ①자본금의 변경 ②대표자 변경 ③상호 변경이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "경미신고 7종 중 등기로 확인되는 3종만 별도 취급",
+      "distractorCandidates": [
+        "7종 전부",
+        "사업소 포함"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.42",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "열거형 복합 팩트이므로 자동 단독 출제를 차단한다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.42",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-380",
+      "conceptId": "C-BIZ-COMMON-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제32조제3항",
+      "predicate": "변경인가 기준",
+      "operator": "eq",
+      "value": "2종",
+      "unit": null,
+      "statement": "사업계획 변경인가 기준은 ①해당 사업의 시작으로 항공교통의 안전에 지장을 줄 염려가 없을 것 ②사업자 간 과당경쟁의 우려가 없고 이용자의 편의에 적합할 것이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "안전 기준과 시장·이용자 기준의 2축 구조",
+      "distractorCandidates": [
+        "안전 기준만"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.42",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "열거형 복합 팩트이므로 자동 단독 출제를 차단한다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.42",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-381",
+      "conceptId": "C-BIZ-COMMON-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제33조",
+      "predicate": "금지의무",
+      "operator": "eq",
+      "value": "명의대여 금지",
+      "unit": null,
+      "statement": "타인에게 자기의 성명 또는 상호를 사용하여 사업을 경영하게 하거나 그 등록증을 빌려주어서는 아니 된다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "①성명·상호 사용 경영과 ②등록증 대여의 2가지 금지 행위",
+      "distractorCandidates": [
+        "등록증 대여만 금지"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-349",
+        "AF-350",
+        "AF-351",
+        "AF-352",
+        "AF-404"
+      ],
+      "sourceReference": "p.42",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "위반 시 벌칙은 AF-349~AF-352(사업유형별), 사업정지 사유는 AF-404 — 의무 팩트로 분리 생성. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.42",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-382",
+      "conceptId": "C-BIZ-COMMON-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제34조제1항",
+      "predicate": "신고절차",
+      "operator": "lte",
+      "value": 30,
+      "unit": "일",
+      "statement": "양도·양수 신청인은 계약일부터 30일 이내에 연명으로 지방항공청장에게 신고하여야 한다",
+      "conditions": [
+        {
+          "id": "AF-382-C1",
+          "statement": "양도·양수 계약일부터 기산"
+        },
+        {
+          "id": "AF-382-C2",
+          "statement": "양도인과 양수인이 연명"
+        },
+        {
+          "id": "AF-382-C3",
+          "statement": "지방항공청장에게 신고"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "신고 상대 = 지방항공청장(공고 주체인 국토교통부장관과 다름)",
+      "distractorCandidates": [
+        "국토교통부장관에게 신고",
+        "등기일부터"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-384",
+        "AF-387"
+      ],
+      "sourceReference": "p.43",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.43",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-383",
+      "conceptId": "C-BIZ-COMMON-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제34조제1항",
+      "predicate": "신고서류",
+      "operator": "eq",
+      "value": "4종",
+      "unit": null,
+      "statement": "양도·양수 신고 서류는 ①양도·양수 후 사업계획서 ②양수인이 제9조 결격사유에 해당하지 아니함을 증명하는 서류와 제30조제2항(등록요건) 기준 충족을 증명·설명하는 서류 ③양도·양수 계약서 사본 ④양도 또는 양수에 관한 의사결정을 증명하는 서류(법인인 경우만 해당)이다",
+      "conditions": [
+        {
+          "id": "AF-383-C1",
+          "statement": "④는 법인인 경우만 해당"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "결격 심사 대상은 양수인(양도인 아님)",
+      "distractorCandidates": [
+        "양도인 결격 증명"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.43",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "복수 서류를 묶은 팩트이므로 자동 단독 출제를 차단한다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.43",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-384",
+      "conceptId": "C-BIZ-COMMON-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제34조제2항",
+      "predicate": "수리불가사유",
+      "operator": "eq",
+      "value": "3종",
+      "unit": null,
+      "statement": "양도·양수 신고수리 불가 사유는 ①양수인이 제9조 결격사유에 해당하는 경우 ②양도인이 제40조에 따라 사업정지처분을 받고 그 처분기간 중에 있는 경우 ③양도인이 제40조에 따라 등록취소처분을 받았으나 행정심판법 또는 행정소송법에 따라 그 취소처분이 집행정지 중에 있는 경우이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "①은 양수인, ②③은 양도인 기준 — 주체가 갈림",
+      "distractorCandidates": [
+        "양도인 결격도 불가 사유"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.43",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "복수 불가사유를 묶은 팩트이므로 자동 단독 출제를 차단한다. AF-230~AF-237(결격) 참조 관계. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.43",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-385",
+      "conceptId": "C-BIZ-COMMON-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제34조제3항",
+      "predicate": "공고",
+      "operator": "eq",
+      "value": "국토교통부장관 공고·양도인 부담",
+      "unit": null,
+      "statement": "양도·양수 신고에 대한 공고는 국토교통부장관이 하며 비용은 양도인이 부담한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "신고(지방항공청장)와 공고(국토교통부장관)의 주체 분리, 비용은 양도인",
+      "distractorCandidates": [
+        "양수인 부담",
+        "지방항공청장 공고"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.44",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.44",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-386",
+      "conceptId": "C-BIZ-COMMON-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제34조제3항",
+      "predicate": "공고사항",
+      "operator": "eq",
+      "value": "4종",
+      "unit": null,
+      "statement": "공고사항은 ①양도·양수인의 성명(법인은 명칭 및 대표자 성명) 및 주소 ②양도·양수 대상 사업범위 ③양도·양수 사유 ④양도·양수 인가 신청일 및 예정일이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.44",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "복수 공고사항을 묶은 팩트이므로 자동 단독 출제를 차단한다. ④의 '인가 신청일' 문언은 신고 체계와 혼재되어 있어 원문대로 보존했으며 현행 조문 대조가 필요하다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.44",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-387",
+      "conceptId": "C-BIZ-COMMON-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제34조제4항",
+      "predicate": "지위승계 효력",
+      "operator": "eq",
+      "value": "신고 수리 시",
+      "unit": null,
+      "statement": "양도·양수에 따른 지위승계의 효력은 신고가 수리된 경우에 발생한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "단순 신고 접수가 아닌 '수리'가 효력 요건",
+      "distractorCandidates": [
+        "계약일에 승계",
+        "신고 제출 시 승계"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-382",
+        "AF-390"
+      ],
+      "sourceReference": "p.44",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "원문 오타 '수리돤' → '수리된' 교정. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.44",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-388",
+      "conceptId": "C-BIZ-COMMON-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제35조제1항",
+      "predicate": "신고절차",
+      "operator": "lte",
+      "value": 30,
+      "unit": "일",
+      "statement": "합병 신청인은 계약일부터 30일 이내에 연명으로 지방항공청장에게 신고(별지 제22호서식)하여야 한다",
+      "conditions": [
+        {
+          "id": "AF-388-C1",
+          "statement": "합병계약일부터 기산"
+        },
+        {
+          "id": "AF-388-C2",
+          "statement": "연명 신고"
+        },
+        {
+          "id": "AF-388-C3",
+          "statement": "지방항공청장에게 신고"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "합병 서식은 별지 22호(등록 26호·변경 13호와 구분)",
+      "distractorCandidates": [
+        "별지 제26호"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.44",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "합병 신고 서식은 별지 제22호서식이다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.44",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-389",
+      "conceptId": "C-BIZ-COMMON-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제35조제1항",
+      "predicate": "신고서류",
+      "operator": "eq",
+      "value": "5종",
+      "unit": null,
+      "statement": "합병 신고 서류는 ①합병의 방법과 조건에 관한 서류 ②당사자가 신청 당시 경영하고 있는 사업의 개요를 적은 서류 ③법인이 제9조 결격사유에 해당하지 아니함을 증명하는 서류와 제30조제2항(등록요건) 기준 충족을 증명·설명하는 서류 ④합병계약서 ⑤합병에 관한 의사결정을 증명하는 서류이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "양도·양수 4종과 합병 5종의 서류 수 차이",
+      "distractorCandidates": [
+        "4종"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.44~45",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.44~45",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-390",
+      "conceptId": "C-BIZ-COMMON-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제35조제2항",
+      "predicate": "지위승계 효력",
+      "operator": "eq",
+      "value": "신고 수리 시",
+      "unit": null,
+      "statement": "합병에 따른 지위승계의 효력은 신고가 수리된 경우에 발생한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "양도·양수와 동일한 수리 요건 구조",
+      "distractorCandidates": [
+        "합병등기 시"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-387",
+        "AF-388"
+      ],
+      "sourceReference": "p.45",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "원문 오타 '수리돤' 교정. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.45",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-391",
+      "conceptId": "C-BIZ-COMMON-06",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제36조제1항",
+      "predicate": "지위승계",
+      "operator": "eq",
+      "value": "상속인 승계",
+      "unit": null,
+      "statement": "사업자가 사망한 경우 그 상속인(2명 이상인 경우 협의에 의한 1명)이 피상속인의 사업자 지위를 승계한다",
+      "conditions": [
+        {
+          "id": "AF-391-C1",
+          "statement": "상속인 2명 이상이면 협의로 1명 결정"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "양도·합병(수리 시 승계)과 달리 상속은 승계가 먼저 발생하고 신고는 사후",
+      "distractorCandidates": [
+        "신고 수리 시 승계"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-392",
+        "AF-393"
+      ],
+      "sourceReference": "p.45",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "승계 시점의 유형 대비(양도/합병=수리 시, 상속=사망 시 구조)가 대표 출제 포인트. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.45",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-392",
+      "conceptId": "C-BIZ-COMMON-06",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제36조제2항",
+      "predicate": "신고기한",
+      "operator": "lte",
+      "value": 30,
+      "unit": "일",
+      "statement": "상속인은 피상속인이 사망한 날부터 30일 이내에 지방항공청장에게 신고하여야 한다",
+      "conditions": [
+        {
+          "id": "AF-392-C1",
+          "statement": "피상속인 사망일부터 기산"
+        },
+        {
+          "id": "AF-392-C2",
+          "statement": "지방항공청장에게 신고"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "양도·합병(계약일 기산)과 기산점이 다름",
+      "distractorCandidates": [
+        "상속개시 공고일부터"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.45",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.45",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-393",
+      "conceptId": "C-BIZ-COMMON-06",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제36조제3항",
+      "predicate": "결격 시 처리",
+      "operator": "lte",
+      "value": 3,
+      "unit": "개월",
+      "statement": "상속인이 제9조 각 호의 결격사유에 해당하는 경우 3개월 이내에 타인에게 양도할 수 있다",
+      "conditions": [
+        {
+          "id": "AF-393-C1",
+          "statement": "상속인이 제9조 결격사유에 해당할 것"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "원문 문언은 '양도 가능'(권리 부여형)이며, 3개월 내 미양도 시 등록취소로 이어지는 구조와 연결",
+      "distractorCandidates": [
+        "즉시 등록취소",
+        "양도 의무 없음"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-236",
+        "AF-414"
+      ],
+      "sourceReference": "p.45",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "'3개월 내 양도할 수 있다'는 원문 구조와 등록취소 예외 구조를 혼합하지 않는다. 이 3개월 규정은 제36조 양도 가능 규정, 제40조 취소 예외, 제9조 결격 예외의 세 곳에서 서로 다른 법적 효과로 등장한다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.45",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-394",
+      "conceptId": "C-BIZ-COMMON-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제37조제1항",
+      "predicate": "휴업신고",
+      "operator": "eq",
+      "value": 5,
+      "unit": "일 전",
+      "statement": "휴업 예정일 5일 전까지 지방항공청장에게 신고(별지 제24호서식)하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "휴업 5일 전 vs 폐업 15일 전 — 숫자 바꿔치기 최다 예상",
+      "distractorCandidates": [
+        "15일 전",
+        "30일 전"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.45",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "휴업 신고 서식은 별지 제24호서식이다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.45",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-395",
+      "conceptId": "C-BIZ-COMMON-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제37조제2항",
+      "predicate": "휴업기간 상한",
+      "operator": "lte",
+      "value": 6,
+      "unit": "개월",
+      "statement": "휴업기간은 6개월을 초과할 수 없다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "사업정지 6개월 이내(AF-399)와 동일 수치의 별개 제도",
+      "distractorCandidates": [
+        "1년",
+        "사업정지 기간과 동일 제도"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-399"
+      ],
+      "sourceReference": "p.45",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.45",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-396",
+      "conceptId": "C-BIZ-COMMON-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제38조제1항",
+      "predicate": "폐업신고",
+      "operator": "eq",
+      "value": 15,
+      "unit": "일 전",
+      "statement": "폐업 예정일 15일 전까지 지방항공청장에게 신고(별지 제25호서식)하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "휴업(5일 전·별지 24호)과 폐업(15일 전·별지 25호)의 쌍 구분",
+      "distractorCandidates": [
+        "5일 전",
+        "별지 24호"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.46",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "폐업 신고 서식은 별지 제25호서식이다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.46",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-397",
+      "conceptId": "C-BIZ-COMMON-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제38조제2항",
+      "predicate": "폐업 가능 요건",
+      "operator": "eq",
+      "value": "2종",
+      "unit": null,
+      "statement": "폐업을 할 수 있는 경우는 ①폐업일 이후 예약 사항이 없거나, 예약 사항이 있는 경우 대체 서비스 제공 등의 조치가 끝났을 것 ②폐업으로 항공시장의 건전한 질서를 침해하지 아니할 것이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "폐업이 신고만으로 자유롭지 않고 요건이 있는 구조",
+      "distractorCandidates": [
+        "신고만 하면 폐업 가능"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.46",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "복수 요건을 묶은 팩트이므로 자동 단독 출제를 차단한다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.46",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-398",
+      "conceptId": "C-BIZ-COMMON-08",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제39조",
+      "predicate": "명령내용",
+      "operator": "eq",
+      "value": "5종",
+      "unit": null,
+      "statement": "사업자의 서비스 개선을 위하여 필요한 경우 ①사업계획의 변경 ②항공기 및 그 밖의 시설의 개선 ③항공기사고로 인하여 지급할 손해배상을 위한 보험계약의 체결 ④항공에 관한 국제조약 이행에 필요한 사항 ⑤그 밖에 서비스 개선에 필요한 사항을 명할 수 있다",
+      "conditions": [
+        {
+          "id": "AF-398-C1",
+          "statement": "서비스 개선을 위하여 필요한 경우"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "위반 시 벌칙(AF-356~359)·사업정지 사유(AF-409)와 3중 연결",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [
+        "AF-356",
+        "AF-357",
+        "AF-358",
+        "AF-359",
+        "AF-409"
+      ],
+      "sourceReference": "p.46",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "복수 명령내용을 묶은 팩트이므로 자동 단독 출제를 차단한다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.46",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-399",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제40조제1항",
+      "predicate": "정지기간",
+      "operator": "lte",
+      "value": 6,
+      "unit": "개월",
+      "statement": "사업의 전부 또는 일부 정지는 6개월 이내 기간으로 명한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "휴업 상한 6개월(AF-395)과 동일 수치의 별개 제도 — 하나는 자발, 하나는 처분",
+      "distractorCandidates": [
+        "1년 이내",
+        "휴업과 동일 규정"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-395"
+      ],
+      "sourceReference": "p.47",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.47",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-400",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(등록기준 미달)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "등록기준 미달",
+      "unit": null,
+      "statement": "등록기준에 미달한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-400-E1",
+          "statement": "등록기준에 일시적으로 미달한 후 3개월 이내에 그 기준을 충족하는 경우"
+        },
+        {
+          "id": "AF-400-E2",
+          "statement": "법원이 회생절차개시 결정을 하고 그 절차가 진행 중인 경우"
+        },
+        {
+          "id": "AF-400-E3",
+          "statement": "금융채권자협의회가 채권금융기관 공동관리절차 개시 의결을 하고 그 절차가 진행 중인 경우"
+        }
+      ],
+      "confusionPoint": "예외 3종이 모두 회복 가능성 기반",
+      "distractorCandidates": [
+        "예외 없음",
+        "6개월 이내 충족"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.47",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "예외 3종을 묶은 팩트이므로 자동 단독 출제를 차단한다. 예외 ①의 3개월과 상속 3개월(AF-393)은 무관한 별개 기간이다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.47",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-401",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(보증보험)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "보증보험 미가입",
+      "unit": null,
+      "statement": "제30조의2제1항(비행훈련생 교육비 반환 등)을 위반하여 보증보험 등에 가입 또는 예치하지 아니한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "비행훈련생 보호 제도 — 항공보험(제70조)과 별개의 보증보험",
+      "distractorCandidates": [
+        "제70조 항공보험과 동일"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.47",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "제30조의2는 비교적 신설 조문으로 현행 유효성 대조가 필요하다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.47",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-402",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(사업계획 미이행)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "사업계획 미이행",
+      "unit": null,
+      "statement": "사업계획에 따라 사업을 하지 아니한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "동일 행위가 벌금(AF-353)과 사업정지 사유로 이중 규율",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-353",
+        "AF-374"
+      ],
+      "sourceReference": "p.47",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "정지사유 호수는 문서 내부 번호 체계 충돌로 미기재. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.47",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-403",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(무인가 변경)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "무인가·무신고 사업계획 변경",
+      "unit": null,
+      "statement": "인가를 받지 아니하거나 신고를 하지 아니하고 사업계획을 변경한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "벌금(AF-354)과 이중 규율",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-354",
+        "AF-376"
+      ],
+      "sourceReference": "p.47",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.47",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-404",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(명의대여)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "명의대여",
+      "unit": null,
+      "statement": "타인에게 자기의 성명 또는 상호를 사용하여 사업을 경영하게 하거나 등록증을 빌려 준 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "명의대여는 의무(AF-381)·벌칙(AF-349~352)·정지사유의 3중 구조",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-349",
+        "AF-350",
+        "AF-351",
+        "AF-352",
+        "AF-381"
+      ],
+      "sourceReference": "p.47",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.47",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-405",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(무신고 양도양수)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "무신고 양도·양수",
+      "unit": null,
+      "statement": "신고를 하지 아니하고 사업을 양도·양수한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.48",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.48",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-406",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(무신고 합병)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "합병신고 미이행",
+      "unit": null,
+      "statement": "합병신고를 하지 아니한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.48",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.48",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-407",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(무신고 상속)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "상속신고 미이행",
+      "unit": null,
+      "statement": "상속에 관한 신고를 하지 아니한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.48",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.48",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-408",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(무신고 휴업)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "무신고 휴업·미개시",
+      "unit": null,
+      "statement": "신고 없이 휴업한 경우 및 휴업기간이 지난 후에도 사업을 시작하지 아니한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "무신고 휴업과 휴업 후 미개시의 2가지 행위 포함",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-355",
+        "AF-394",
+        "AF-395"
+      ],
+      "sourceReference": "p.48",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.48",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-409",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(개선명령 미이행)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "사업개선명령 미이행",
+      "unit": null,
+      "statement": "사업개선명령을 이행하지 아니한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "벌금(AF-356~359)과 이중 규율",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-356",
+        "AF-357",
+        "AF-358",
+        "AF-359",
+        "AF-398"
+      ],
+      "sourceReference": "p.48",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.48",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-410",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(요금표)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "요금표 미비치·미열람",
+      "unit": null,
+      "statement": "요금표 등을 갖추어 두지 아니하거나 항공교통이용자가 열람할 수 있게 하지 아니한 경우 사업정지를 명할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "과태료(AF-365)와 이중 규율 — 벌칙은 과태료, 처분은 정지",
+      "distractorCandidates": [
+        "요금표 위반은 과태료만"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-365"
+      ],
+      "sourceReference": "p.48",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.48",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-411",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "정지사유(국가안전)",
+      "predicate": "정지사유",
+      "operator": "eq",
+      "value": "국가안전·사회안녕 위해",
+      "unit": null,
+      "statement": "국가의 안전이나 사회의 안녕질서에 위해를 끼칠 현저한 사유가 있는 경우 사업정지를 명할 수 있다",
+      "conditions": [
+        {
+          "id": "AF-411-C1",
+          "statement": "현저한 사유에 한정"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "유일한 포괄적 정지사유",
+      "distractorCandidates": [
+        "경미한 사유 포함"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.48",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.48",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-412",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "취소사유(부정등록)",
+      "predicate": "등록취소 사유",
+      "operator": "eq",
+      "value": "거짓·부정 등록",
+      "unit": null,
+      "statement": "거짓이나 그 밖의 부정한 방법으로 등록한 경우 등록취소 대상이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "취소 사유(제2항)와 정지 사유(제1항)의 구분",
+      "distractorCandidates": [
+        "사업정지 사유"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.49",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "교육자료만으로 등록취소가 의무인지 재량인지 확정할 수 없다. 현행 제40조 대조 전 자동 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.49",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-413",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "취소사유(등록사항 미이행)",
+      "predicate": "등록취소 사유",
+      "operator": "eq",
+      "value": "등록사항 미이행",
+      "unit": null,
+      "statement": "등록한 사항을 이행하지 아니한 경우 등록취소 대상이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "사업계획 미이행(정지사유, AF-402)과 구분",
+      "distractorCandidates": [
+        "사업계획 미이행과 동일"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.49",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "등록취소의 의무·재량이 불명확하므로 자동 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.49",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-414",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "취소사유(결격 해당)",
+      "predicate": "등록취소 사유",
+      "operator": "eq",
+      "value": "제9조 결격 해당",
+      "unit": null,
+      "statement": "항공사업법 제9조 각 호의 어느 하나에 해당하는 경우 등록취소 대상이다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-414-E1",
+          "statement": "결격 임원을 3개월 이내에 결격사유 없는 임원으로 교체"
+        },
+        {
+          "id": "AF-414-E2",
+          "statement": "피상속인 사망일부터 3개월 이내에 사업을 타인에게 양도"
+        }
+      ],
+      "confusionPoint": "두 예외 모두 3개월 — 임원 교체와 상속 양도의 혼동 위험",
+      "distractorCandidates": [
+        "6개월 이내 임원 교체"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [
+        "AF-230",
+        "AF-231",
+        "AF-232",
+        "AF-233",
+        "AF-234",
+        "AF-235",
+        "AF-236",
+        "AF-237",
+        "AF-393"
+      ],
+      "sourceReference": "p.49",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "AF-230~237(결격)·AF-393(상속 3개월)과 연결. 결격 발생 → 취소 → 취소 후 2년 결격의 순환 구조. 등록취소의 의무·재량이 불명확하므로 자동 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.49",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-415",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "취소사유(운항정지 위반)",
+      "predicate": "등록취소 사유",
+      "operator": "eq",
+      "value": "정지기간 중 운항",
+      "unit": null,
+      "statement": "항공기 운항의 정지명령을 위반하여 운항정지기간에 운항한 경우 등록취소 대상이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "운항정지(기체)와 사업정지(사업)의 구분",
+      "distractorCandidates": [
+        "사업정지 위반과 동일 호"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.49",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "등록취소의 의무·재량이 불명확하므로 자동 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.49",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-416",
+      "conceptId": "C-BIZ-COMMON-09",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "취소사유(사업정지 위반)",
+      "predicate": "등록취소 사유",
+      "operator": "eq",
+      "value": "정지기간 중 경영",
+      "unit": null,
+      "statement": "사업정지명령을 위반하여 사업정지기간에 사업을 경영한 경우 등록취소 대상이다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "동일 행위가 벌금(AF-360)과 등록취소로 이중 규율",
+      "distractorCandidates": [
+        "벌금만 부과"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [
+        "AF-360"
+      ],
+      "sourceReference": "p.49",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "등록취소의 의무·재량이 불명확하므로 자동 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.49",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-417",
+      "conceptId": "C-BIZ-COMMON-10",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제41조제1항",
+      "predicate": "부과요건",
+      "operator": "eq",
+      "value": "정지 갈음 요건",
+      "unit": null,
+      "statement": "사업자가 소정의 정지사유(교육자료 기준 제40조제1항제3호, 제4호의2, 제5호부터 제12호까지 또는 제14호)에 해당하여 사업정지를 명하여야 하는 경우로서, 사업을 정지하면 이용자 등에게 심한 불편을 주거나 공익을 해칠 우려가 있는 경우 과징금을 부과할 수 있다",
+      "conditions": [
+        {
+          "id": "AF-417-C1",
+          "statement": "제40조의 한정된 사업정지 사유에 해당할 것"
+        },
+        {
+          "id": "AF-417-C2",
+          "statement": "사업정지를 명해야 하는 경우일 것"
+        },
+        {
+          "id": "AF-417-C3",
+          "statement": "사업정지 시 이용자에게 심한 불편을 주거나 공익을 해칠 우려가 있을 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "AF-417-E1",
+          "statement": "대상 외 호(제1호 등록기준 미달 등)는 과징금 대체 불가"
+        }
+      ],
+      "confusionPoint": "모든 정지사유가 과징금 대체 가능한 것이 아님 — 대상 호가 한정됨",
+      "distractorCandidates": [
+        "모든 정지사유 대체 가능"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.50",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "p.47~48 열거번호와 p.50~51 법정 호수 체계가 충돌한다. 실제 과징금 대상 호수는 현행법 대조 전 확정하지 않는다. 모든 사업정지 사유가 과징금으로 대체되는 것은 아니다. 자동 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.50",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-418",
+      "conceptId": "C-BIZ-COMMON-10",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "과징금 상한(대여·레저)",
+      "predicate": "최대금액",
+      "operator": "lte",
+      "value": 30000,
+      "unit": "만원",
+      "statement": "항공기대여업과 항공레저스포츠사업의 과징금 최대 금액은 3억원이다",
+      "conditions": [
+        {
+          "id": "AF-418-C1",
+          "statement": "항공기대여업 또는 항공레저스포츠사업"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "사용사업(3천만원)과 10배 차이",
+      "distractorCandidates": [
+        "3천만원",
+        "5억원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-417",
+        "AF-419"
+      ],
+      "sourceReference": "p.40",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "현행법 대조 필요(과징금 상한 개정 이력 흔함). 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.40",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-419",
+      "conceptId": "C-BIZ-COMMON-10",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "과징금 상한(사용사업)",
+      "predicate": "최대금액",
+      "operator": "lte",
+      "value": 3000,
+      "unit": "만원",
+      "statement": "초경량비행장치사용사업의 과징금 최대 금액은 3천만원이다",
+      "conditions": [
+        {
+          "id": "AF-419-C1",
+          "statement": "초경량비행장치사용사업"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "대여·레저(3억원)와 10배 차이 — 드론 시험 최다 예상 출제 수치",
+      "distractorCandidates": [
+        "3억원",
+        "1천만원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-417",
+        "AF-418"
+      ],
+      "sourceReference": "p.40",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "현행법 대조 필요. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.40",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-420",
+      "conceptId": "C-BIZ-COMMON-10",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제41조제2항",
+      "predicate": "가중·경감",
+      "operator": "eq",
+      "value": "1/2 범위",
+      "unit": null,
+      "statement": "과징금 금액은 위반행위의 종류와 위반 정도에 따라 2분의 1 범위에서 가중 또는 경감할 수 있다",
+      "conditions": [
+        {
+          "id": "AF-420-C1",
+          "statement": "위반행위의 종류·정도 고려"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "가중·경감 대상이 과징금 금액이며 기준의 1/2 범위 내 조정 — 레저사업 자본금 1/2 특례와 무관",
+      "distractorCandidates": [
+        "상한 자체를 1/2로 축소",
+        "자본금 특례와 동일 규정"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.51",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "교육자료는 과징금 금액을 2분의 1 범위에서 가중·경감한다고 기재한다. 기준금액 대비인지 상한 대비인지 교육자료만으로 확정하지 않는다. 레저사업 자본금 2분의 1 특례와 다른 제도이다. 자동 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.51",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-421",
+      "conceptId": "C-BIZ-COMMON-10",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제41조제3항",
+      "predicate": "미납 시 조치",
+      "operator": "eq",
+      "value": "국세체납처분 예 징수",
+      "unit": null,
+      "statement": "납부기한까지 납부하지 않으면 국세체납처분의 예에 따라 징수한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "과징금은 행정처분이므로 미납 시 형사절차가 아닌 체납징수",
+      "distractorCandidates": [
+        "미납 시 형사고발"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.51",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.51",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-422",
+      "conceptId": "C-BIZ-COMMON-10",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "과징금 납부기한",
+      "predicate": "납부기한",
+      "operator": "lte",
+      "value": 20,
+      "unit": "일",
+      "statement": "과징금 납부기한은 20일 내이며, 천재지변 등 부득이한 사유가 있는 경우에는 그 사유가 없어진 날부터 7일 이내이다",
+      "conditions": [
+        {
+          "id": "AF-422-C1",
+          "statement": "원칙적으로 20일 내 납부"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "AF-422-E1",
+          "statement": "천재지변 등 부득이한 사유가 있으면 사유가 없어진 날부터 7일 이내"
+        }
+      ],
+      "confusionPoint": "20일의 기산점(처분일/통지일)이 원문에 명시되지 않음 — 확장 해석 금지. 보험신고 7일·보완요구 7일과 별개의 세 번째 7일",
+      "distractorCandidates": [
+        "30일",
+        "통지일부터 20일"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [
+        "AF-246",
+        "AF-266"
+      ],
+      "sourceReference": "p.51",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "20일의 기산점이 원문에 명시되지 않아 자동 출제를 차단한다. 원문 오타 '부득한' → '부득이한' 교정.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.51",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-423",
+      "conceptId": "C-BIZ-COMMON-10",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "과징금",
+      "predicate": "법적성격",
+      "operator": "eq",
+      "value": "행정처분",
+      "unit": null,
+      "statement": "과징금은 사업정지에 갈음하여 부과하는 행정처분이며 벌금·과태료 등 벌칙과 성격이 다르다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "과징금·벌금·과태료 3자 구분 — 동일 위반이 벌칙과 과징금 대상에 동시 해당 가능",
+      "distractorCandidates": [
+        "과징금은 형벌"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-171",
+        "AF-183",
+        "AF-345",
+        "AF-364",
+        "AF-417"
+      ],
+      "sourceReference": "p.50~51",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.50~51",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-424",
+      "conceptId": "C-BIZ-COMMON-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "항공기대여업 준용경로",
+      "predicate": "준용조문",
+      "operator": "eq",
+      "value": "제47조",
+      "unit": null,
+      "statement": "항공기대여업에 대한 제32조~제41조 준용은 제47조를 통해 이루어지는 것으로 문서상 추정된다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "사업별 준용 조문 번호가 준용규정 장 본문에 직접 명시되지 않음",
+      "distractorCandidates": [
+        "제49조",
+        "제51조"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.8, p.40",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "제47조 준용경로는 문서의 간접 근거에 따른 추론이며 현행법 대조가 필요하다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.8, p.40",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-425",
+      "conceptId": "C-BIZ-COMMON-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "사용사업 준용경로",
+      "predicate": "준용조문",
+      "operator": "eq",
+      "value": "제49조",
+      "unit": null,
+      "statement": "초경량비행장치사용사업에 대한 제32조~제41조 준용은 제49조를 통해 이루어지는 것으로 문서상 추정된다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "벌칙 장의 '제49조제2항에서 준용하는 제33조' 문언이 준용 구조의 직접 근거",
+      "distractorCandidates": [
+        "제47조"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [
+        "AF-351"
+      ],
+      "sourceReference": "p.32, p.56, p.40",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "제49조 준용경로는 간접 근거에 따른 추론이다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.32, p.56, p.40",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-426",
+      "conceptId": "C-BIZ-COMMON-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "레저사업 준용경로",
+      "predicate": "준용조문",
+      "operator": "eq",
+      "value": "제51조",
+      "unit": null,
+      "statement": "항공레저스포츠사업에 대한 준용은 제51조(항공레저스포츠사업에 대한 준용규정)를 통해 이루어지며, 제32조는 준용에서 제외된다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "AF-426-E1",
+          "statement": "제32조 사업계획 변경은 미준용(AF-373)"
+        }
+      ],
+      "confusionPoint": "벌칙 장의 '제51조제1항에서 준용하는 제33조' 문언과 조문 표제가 직접 근거",
+      "distractorCandidates": [
+        "제32조도 준용"
+      ],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [
+        "AF-352",
+        "AF-373"
+      ],
+      "sourceReference": "p.24, p.56, p.40",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "제51조 표제와 벌칙 문언으로 근거가 상대적으로 강하지만 현행법 대조 전 자동 출제를 차단한다.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.24, p.56, p.40",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    }
+  ]
+}

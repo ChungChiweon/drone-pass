@@ -1,0 +1,532 @@
+{
+  "targetPackId": "**ACTIVE**",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-report-change-transfer-cancel",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "변경·이전·말소신고",
+      "parentId": "cat-device-report"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-REG-10",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-report-change-transfer-cancel"
+      ],
+      "title": "변경신고",
+      "summary": "초경량비행장치의 용도, 소유자등의 성명·명칭·주소, 보관 장소 변경 시 행하는 신고의 대상·기한·주체"
+    },
+    {
+      "id": "C-REG-11",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-report-change-transfer-cancel"
+      ],
+      "title": "이전신고",
+      "summary": "초경량비행장치의 소유권이 이전된 경우 행하는 신고의 의미·기한·기산점"
+    },
+    {
+      "id": "C-REG-12",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-report-change-transfer-cancel"
+      ],
+      "title": "말소신고",
+      "summary": "멸실·해체, 존재 불분명, 외국 매도, 미신고 대상 전환 시 행하는 말소신고의 사유·기한·예외"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-021",
+      "conceptId": "C-REG-10",
+      "subject": "변경신고 대상 사항",
+      "predicate": "구성",
+      "value": "3종: ①용도 ②소유자등의 성명, 명칭 또는 주소 ③보관 장소(보관처)",
+      "operator": "eq",
+      "statement": "변경신고 대상 사항은 초경량비행장치의 용도, 소유자등의 성명·명칭 또는 주소, 보관 장소의 3가지이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.11",
+          "note": "규칙 제302조①"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제5조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "규칙은 '보관 장소', 세칙은 '보관처'로 표기 — 동일 대상의 표현 차이로 판단하여 통합. 두 페이지 내용 일치. 혼동 포인트: 소유자 성명·주소 변경(변경신고) vs 소유권 이전(이전신고), 신규신고 기재사항과의 범위 혼동"
+    },
+    {
+      "id": "AF-022",
+      "conceptId": "C-REG-10",
+      "subject": "변경신고",
+      "predicate": "신고 기한",
+      "value": 30,
+      "unit": "일",
+      "operator": "lte",
+      "statement": "변경신고는 그 사유가 있는 날(변경일)부터 30일 이내에 하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-022-1",
+          "statement": "기산점: 규칙 제302조②는 '사유가 있는 날부터', 세칙 제5조는 '변경일로부터'"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.11",
+          "note": "규칙 제302조②"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제5조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "규칙('사유가 있는 날')과 세칙('변경일')의 기산점 표현이 다르나 실질 동일 의미로 판단하여 통합. 표현 차이로 감점. 출제 시 어느 문언 기준인지 명시 권장. 혼동 포인트: 말소신고 15일, 기산점을 신고서 작성일·비행 개시일로 오인"
+    },
+    {
+      "id": "AF-023",
+      "conceptId": "C-REG-10",
+      "subject": "변경신고",
+      "predicate": "법률상 신고 상대방",
+      "value": "국토교통부장관",
+      "operator": "eq",
+      "statement": "법 제123조 문언상 변경신고는 국토교통부장관에게 하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-023-1",
+          "statement": "국토교통부령으로 정하는 바에 따름"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.11",
+          "note": "법 제123조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-024"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "기존 AF-002/AF-019(신규신고)와 동일한 이원 표현 패턴. crossReference로 AF-024와 쌍 관리 권장"
+    },
+    {
+      "id": "AF-024",
+      "conceptId": "C-REG-10",
+      "subject": "변경·이전신고서",
+      "predicate": "제출처",
+      "value": "한국교통안전공단이사장",
+      "operator": "eq",
+      "statement": "변경·이전신고서는 한국교통안전공단이사장에게 제출하여야 한다 (규칙·세칙 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.11",
+          "note": "규칙 제302조②"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제5조·제6조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-023"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "세칙 제5조는 '별지 제1호서식의 초경량비행장치 신고서'로 표기하고 규칙 제302조는 '변경·이전신고서'로 표기 — 서식 명칭 표현이 문서 내에서 불일치. 서식명은 정답 판별 요소로 사용하지 말 것. 혼동 포인트: AF-023(법률상 상대방)과 표현 상이, 변경과 이전이 하나의 서식"
+    },
+    {
+      "id": "AF-025",
+      "conceptId": "C-REG-11",
+      "subject": "이전신고",
+      "predicate": "신고 사유(의미)",
+      "value": "초경량비행장치의 소유권이 이전된 경우",
+      "operator": "eq",
+      "statement": "이전신고는 초경량비행장치의 소유권이 이전된 경우에 행하는 신고이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제6조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-031",
+        "AF-032"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "세칙 제2조 정의(p.32, 본 범위 외)에도 동일 정의 존재 — 범위 확장 시 SourceReference 병합 권장. 혼동 포인트: 소유자 성명·명칭·주소 변경(변경신고)과 소유권 이전(이전신고)의 구분, 소유자 변경으로 미신고 대상이 되면 말소신고(AF-032)라는 제3의 경로 존재"
+    },
+    {
+      "id": "AF-026",
+      "conceptId": "C-REG-11",
+      "subject": "이전신고",
+      "predicate": "신고 기한",
+      "value": 30,
+      "unit": "일",
+      "operator": "lte",
+      "statement": "이전신고는 소유권이 이전된 날로부터 30일 이내에 하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-026-1",
+          "statement": "기산점: 소유권이 이전된 날"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제6조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "기산점 '소유권이 이전된 날'이 원문에 명시되어 FactCondition으로 분리함. 혼동 포인트: 변경신고와 기한(30일)은 같으나 기산점이 다름, 말소신고 15일과 혼동"
+    },
+    {
+      "id": "AF-027",
+      "conceptId": "C-REG-12",
+      "subject": "말소신고",
+      "predicate": "신고 기한",
+      "value": 15,
+      "unit": "일",
+      "operator": "lte",
+      "statement": "말소신고는 그 사유가 발생한 날(사유가 있는 날)부터 15일 이내에 하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-027-1",
+          "statement": "기산점: 법 제123조②는 '사유가 발생한 날부터', 세칙 제7조는 '사유가 있는 날로부터'"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.11",
+          "note": "법 제123조②"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.34",
+          "note": "세칙 제7조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-030"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "법('발생한 날')과 세칙('있는 날')의 기산점 표현 차이는 실질 동일로 판단하여 통합. 세 신고 중 유일하게 15일인 점이 최고빈도 출제 포인트. 혼동 포인트: 변경·이전신고 30일과 혼동"
+    },
+    {
+      "id": "AF-028",
+      "conceptId": "C-REG-12",
+      "subject": "말소신고 사유 ①",
+      "predicate": "사유 내용",
+      "value": "초경량비행장치가 멸실되었거나 해체된 경우",
+      "operator": "eq",
+      "statement": "초경량비행장치가 멸실되었거나 해체된 경우는 말소신고 사유이다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "FE-028-1",
+          "statement": "정비등, 수송 또는 보관하기 위한 해체는 말소신고 사유에서 제외된다"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.11",
+          "note": "법 제123조②"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.34",
+          "note": "세칙 제7조① 1호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-029"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "분리 검토 결과: 법·세칙 모두 '멸실되었거나 해체된 경우'를 한 호로 규정하므로 하나의 사실로 유지. 단 해체에만 예외(AF-029)가 붙으므로 문제 생성 시 예외 자동 결합 필요. 혼동 포인트: 멸실과 해체를 각각 독립 사유로 오인, 해체의 예외 존재 누락"
+    },
+    {
+      "id": "AF-029",
+      "conceptId": "C-REG-12",
+      "subject": "해체 말소사유의 예외",
+      "predicate": "예외 범위",
+      "value": "정비등, 수송 또는 보관하기 위한 해체",
+      "operator": "eq",
+      "statement": "정비등, 수송 또는 보관하기 위한 해체는 말소신고 사유인 해체에서 제외된다",
+      "conditions": [
+        {
+          "id": "FC-029-1",
+          "statement": "AF-028(멸실·해체 말소사유)에 부속되는 예외"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.11",
+          "note": "법 제123조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [
+        "AF-028"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "세칙 제7조 1호에는 예외 문구가 없으나 법 문언(p.11)에 명시되어 있으므로 예외 팩트로 독립 생성. AF-028과 결합 출제 전제. 혼동 포인트: 예외 3종(정비·수송·보관)의 범위 — 이 외 목적 해체는 말소 대상"
+    },
+    {
+      "id": "AF-030",
+      "conceptId": "C-REG-12",
+      "subject": "말소신고 사유 ②",
+      "predicate": "사유 내용",
+      "value": 2,
+      "unit": "개월",
+      "operator": "gte",
+      "statement": "초경량비행장치의 존재 여부가 2개월 이상 불분명한 경우는 말소신고 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.34",
+          "note": "세칙 제7조① 2호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "사유 성립 기간(2개월 이상)과 신고 기한(15일 이내, AF-027)이 별개 수치임을 문제 생성 규칙에서 구분 필수. 혼동 포인트: 2개월을 신고 기한으로 오인, '이상'과 '초과' 구분"
+    },
+    {
+      "id": "AF-031",
+      "conceptId": "C-REG-12",
+      "subject": "말소신고 사유 ③",
+      "predicate": "사유 내용",
+      "value": "초경량비행장치가 외국에 매도된 경우",
+      "operator": "eq",
+      "statement": "초경량비행장치가 외국에 매도된 경우는 말소신고 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.34",
+          "note": "세칙 제7조① 3호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-025"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "이전신고 vs 말소신고 경계를 가르는 핵심 사실. 혼동 포인트: 국내 매도(소유권 이전)는 이전신고, 외국 매도는 말소신고 — 매도 상대에 따라 신고 종류가 갈림"
+    },
+    {
+      "id": "AF-032",
+      "conceptId": "C-REG-12",
+      "subject": "말소신고 사유 ④",
+      "predicate": "사유 내용",
+      "value": "신고대상 기체가 소유자 변경 등으로 인하여 미신고 대상이 된 경우",
+      "operator": "eq",
+      "statement": "신고대상 기체가 소유자 변경 등으로 인하여 미신고 대상이 된 경우는 말소신고 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.34",
+          "note": "세칙 제7조① 4호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-025",
+        "AF-005",
+        "AF-013"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "'등'으로 열거가 비완결적. 신고 대상/제외 소분류(AF-004·AF-005·AF-013)와의 연결로 사례 판단형(CASE_JUDGMENT) 문제의 좋은 원천. 혼동 포인트: 소유자 변경 = 무조건 이전신고라는 단순화 오류 — 변경 결과 신고 제외 대상이 되면 말소신고"
+    },
+    {
+      "id": "AF-033",
+      "conceptId": "C-REG-12",
+      "subject": "말소신고",
+      "predicate": "법률상 신고 상대방",
+      "value": "국토교통부장관",
+      "operator": "eq",
+      "statement": "법 제123조② 문언상 말소신고는 국토교통부장관에게 하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.11",
+          "note": "법 제123조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-034"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "AF-002/AF-019, AF-023/AF-024와 동일한 이원 표현 패턴 — 세 신고 유형 모두 동일 구조이므로 엔진에서 패턴화 가능"
+    },
+    {
+      "id": "AF-034",
+      "conceptId": "C-REG-12",
+      "subject": "말소신고서",
+      "predicate": "제출처",
+      "value": "이사장",
+      "operator": "eq",
+      "statement": "말소신고는 별지 제1호서식의 초경량비행장치 신고서에 말소사유를 기재하여 이사장에게 제출하여야 한다 (세칙 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.34",
+          "note": "세칙 제7조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-033"
+      ],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "문맥상 한국교통안전공단이사장으로 판단되나 원문은 이사장으로만 표기됨. AF-033과 crossReference 쌍 관리. 별도 말소신고서 서식이 아니라 신고서에 말소사유를 기재하는 방식이라는 점도 혼동 포인트"
+    },
+    {
+      "id": "AF-035",
+      "conceptId": "C-REG-07",
+      "subject": "신규·변경·이전·말소 신고",
+      "predicate": "접수 방법",
+      "value": "전산시스템 또는 e-mail·팩스·우편·방문",
+      "operator": "eq",
+      "statement": "신규·변경·이전·말소 신고 시 신고서 및 첨부서류는 전산시스템 또는 e-mail·팩스·우편·방문을 통하여 제출할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.34",
+          "note": "세칙 제8조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "신고 절차·서류 소분류(C-REG-07, cat-report-procedure)로 배치됨. 규칙 제301조①의 '팩스 또는 정보통신 제출'(p.10, 본 범위 외)과 내용 정합. 혼동 포인트: 접수 채널 5종의 범위 — 전화 접수는 미기재"
+    }
+  ]
+}

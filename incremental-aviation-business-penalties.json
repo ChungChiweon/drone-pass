@@ -1,0 +1,1100 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-aviation-business-penalties",
+      "title": "항공사업법 벌칙",
+      "subjectId": "kr-aviation-safety-act",
+      "parentId": "cat-aviation-business"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-BIZ-PEN-01",
+      "title": "보조금 부정수급죄",
+      "summary": "보조금·융자금을 거짓이나 부정한 방법으로 교부받은 자에 대한 5년 이하 징역 또는 5천만원 이하 벌금(제77조)",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-penalties"
+      ]
+    },
+    {
+      "id": "C-BIZ-PEN-02",
+      "title": "무등록 영업죄",
+      "summary": "항공기대여업·초경량비행장치사용사업·항공레저스포츠사업을 등록 없이 경영한 자에 대한 1년 이하 징역 또는 1천만원 이하 벌금(제46·48·50조)",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-penalties"
+      ]
+    },
+    {
+      "id": "C-BIZ-PEN-03",
+      "title": "명의대여 금지 위반죄",
+      "summary": "제33조 명의대여 금지를 사업유형별로 직접 또는 준용 적용하여 위반한 경우의 1년 이하 징역 또는 1천만원 이하 벌금",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-penalties"
+      ]
+    },
+    {
+      "id": "C-BIZ-PEN-04",
+      "title": "사업운영 의무 위반죄",
+      "summary": "사업계획 미이행·무인가 변경, 휴업 위반, 사업개선명령·사업정지명령 위반 등 징역 없이 1천만원 이하 벌금만 규정된 위반유형",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-penalties"
+      ]
+    },
+    {
+      "id": "C-BIZ-PEN-05",
+      "title": "영리목적 사용금지 위반죄",
+      "summary": "제71조를 위반해 경량항공기 또는 초경량비행장치를 영리목적으로 사용한 경우, 기체 종류에 따라 형량이 달라지는 위반유형",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-penalties"
+      ]
+    },
+    {
+      "id": "C-BIZ-PEN-06",
+      "title": "검사거부 등의 죄",
+      "summary": "제73조제2항·제3항에 따른 검사·출입을 거부·방해·기피한 자에 대한 500만원 이하 벌금(형벌)",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-penalties"
+      ]
+    },
+    {
+      "id": "C-BIZ-PEN-07",
+      "title": "과태료",
+      "summary": "폐업 위반, 요금표 미비치, 보험 미가입 비행, 자료 미제출, 보고 미이행, 질문 거짓진술 등에 대한 500만원 이하 과태료",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-penalties"
+      ]
+    },
+    {
+      "id": "C-BIZ-PEN-08",
+      "title": "양벌규정",
+      "summary": "제77조부터 제81조까지의 위반행위에 대해 행위자를 벌하는 외에 법인·개인에게 벌금형을 병과하되, 상당한 주의·감독을 게을리하지 않은 경우 면책되는 구조(제82조)",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business-penalties"
+      ]
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-345",
+      "conceptId": "C-BIZ-PEN-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제77조",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "5년 이하 징역 또는 5천만원 이하 벌금",
+      "unit": "선택형(징역·벌금)",
+      "statement": "보조금, 융자금을 거짓이나 그 밖의 부정한 방법으로 교부받은 자는 5년 이하의 징역 또는 5천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "항공사업법 벌칙 중 최고 형량",
+      "distractorCandidates": [
+        "3년/3천만원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.55",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "항공사업법 벌칙 중 교육자료상 최고 형량임. 발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.55",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-346",
+      "conceptId": "C-BIZ-PEN-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제46조",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제46조(항공기대여업의 등록)에 따른 등록을 하지 아니하고 항공기대여업을 경영한 자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-347",
+        "AF-348",
+        "AF-275"
+      ],
+      "sourceReference": "p.55",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.55",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-347",
+      "conceptId": "C-BIZ-PEN-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제48조제1항",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제48조(초경량비행장치사용사업의 등록)제1항에 따른 등록을 하지 아니하고 초경량비행장치사용사업을 경영한 자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "AF-346과 동일 형량, 조문·사업만 다름",
+      "distractorCandidates": [
+        "6개월/500만원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-346",
+        "AF-348",
+        "AF-216"
+      ],
+      "sourceReference": "p.55",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.55",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-348",
+      "conceptId": "C-BIZ-PEN-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제50조제1항",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제50조(항공레저스포츠사업의 등록)제1항에 따른 등록을 하지 아니하고 항공레저스포츠사업을 경영한 자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "3개 사업 무등록 경영이 동일 형량",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-346",
+        "AF-347",
+        "AF-293"
+      ],
+      "sourceReference": "p.56",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.56",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-349",
+      "conceptId": "C-BIZ-PEN-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제33조",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제33조(명의대여 등의 금지)에 따른 명의대여 등의 금지를 위반한 항공기사용사업자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.55",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "명의대여 위반죄는 사업 유형별로 개별 항으로 열거됨(AF-349~AF-352). 직접 적용과 준용 적용 경로가 다름. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.55",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-350",
+      "conceptId": "C-BIZ-PEN-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제33조",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제33조(명의대여 등의 금지)에 따른 명의대여 등의 금지를 위반한 항공기대여업자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.55",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "직접 적용과 준용 적용 경로가 다름. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.55",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-351",
+      "conceptId": "C-BIZ-PEN-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제49조제2항 준용 제33조",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제49조(초경량비행장치사용사업의 등록)제2항에서 준용하는 제33조(명의대여 등의 금지)에 따른 명의대여 등의 금지를 위반한 초경량비행장치사용사업자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "준용 조문(제49조제2항)이 원 조문(제33조)과 다름",
+      "distractorCandidates": [
+        "제33조 직접 적용"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-216"
+      ],
+      "sourceReference": "p.56",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "직접 적용과 준용 적용 경로가 다름. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.56",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-352",
+      "conceptId": "C-BIZ-PEN-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제51조제1항 준용 제33조",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제51조(항공레저스포츠사업에 대한 준용규정)제1항에서 준용하는 제33조(명의대여 등의 금지)에 따른 명의대여 등의 금지를 위반한 항공레저스포츠사업자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "준용 조문이 제51조제1항",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-293"
+      ],
+      "sourceReference": "p.56",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "직접 적용과 준용 적용 경로가 다름. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.56",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-353",
+      "conceptId": "C-BIZ-PEN-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제32조제1항",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "1천만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제32조(사업계획의 변경 등)제1항을 위반하여 등록할 때 제출한 사업계획대로 업무를 수행하지 아니한 자는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "징역형 없이 벌금만 규정된 유형(무등록·명의대여와 대비)",
+      "distractorCandidates": [
+        "1년 이하 징역도 가능"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.56",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "1천만원 이하 벌금만 규정되며 1년 이하 징역 선택지는 없다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.56",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-354",
+      "conceptId": "C-BIZ-PEN-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제32조제2항",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "1천만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제32조(사업계획의 변경 등)제2항에 따른 인가를 받지 아니하고 사업계획을 변경한 자는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "AF-353(제1항, 미이행)과 AF-354(제2항, 무인가 변경)는 별개 항",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.57",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "1천만원 이하 벌금만 규정되며 1년 이하 징역 선택지는 없다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.57",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-355",
+      "conceptId": "C-BIZ-PEN-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제37조",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "1천만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제37조(항공기사용사업의 휴업)를 위반하여 휴업 또는 휴지를 한 자는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.57",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "1천만원 이하 벌금만 규정되며 1년 이하 징역 선택지는 없다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.57",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-356",
+      "conceptId": "C-BIZ-PEN-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제39조",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "1천만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제39조(사업개선명령)에 따른 사업개선명령을 위반한 자는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "일반 조항이며 AF-357~AF-359는 사업유형별 별도 열거",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.57",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "1천만원 이하 벌금만 규정되며 1년 이하 징역 선택지는 없다. 이 팩트는 사업개선명령 위반의 일반 조항이며, AF-357~AF-359의 사업유형별 조항과 적용 범위가 다르다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.57",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-357",
+      "conceptId": "C-BIZ-PEN-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제39조",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "1천만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제39조(사업개선명령)에 따른 명령을 위반한 항공기대여업자는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "AF-356(일반)과 별도로 사업유형별 명시",
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-275"
+      ],
+      "sourceReference": "p.57",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "1천만원 이하 벌금만 규정되며 1년 이하 징역 선택지는 없다. 항공기대여업자에 대한 사업개선명령 위반 적용 맥락. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.57",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-358",
+      "conceptId": "C-BIZ-PEN-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제39조",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "1천만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제39조(사업개선명령)에 따른 명령을 위반한 초경량비행장치사용사업자는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-216"
+      ],
+      "sourceReference": "p.57",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "1천만원 이하 벌금만 규정되며 1년 이하 징역 선택지는 없다. 초경량비행장치사용사업자에 대한 사업개선명령 위반 적용 맥락. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.57",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-359",
+      "conceptId": "C-BIZ-PEN-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제39조",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "1천만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제39조(사업개선명령)에 따른 명령을 위반한 항공레저스포츠사업자는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-293"
+      ],
+      "sourceReference": "p.57",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "1천만원 이하 벌금만 규정되며 1년 이하 징역 선택지는 없다. 항공레저스포츠사업자에 대한 사업개선명령 위반 적용 맥락. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.57",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-360",
+      "conceptId": "C-BIZ-PEN-04",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제40조",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "1천만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제40조(항공기사용사업의 등록취소 등)에 따른 사업정지명령을 위반한 자는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "등록취소가 아닌 사업정지명령 위반에 대한 형벌 — 등록취소 자체는 형벌 아닌 행정처분",
+      "distractorCandidates": [
+        "등록취소도 형사처벌 대상"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.57",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "1천만원 이하 벌금만 규정되며 1년 이하 징역 선택지는 없다. 이 조항은 사업정지명령 위반에 대한 형벌이며, 등록취소 자체에 대한 형벌로 확대 해석하지 않는다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.57",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-361",
+      "conceptId": "C-BIZ-PEN-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제71조",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "1년 이하 징역 또는 1천만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제71조(경량항공기 등의 영리 목적 사용금지)를 위반하여 경량항공기를 영리목적으로 사용한 자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "경량항공기와 초경량비행장치의 형량이 다름(AF-362와 대비)",
+      "distractorCandidates": [
+        "6개월/500만원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-362"
+      ],
+      "sourceReference": "p.58",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.58",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-362",
+      "conceptId": "C-BIZ-PEN-05",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제71조",
+      "predicate": "제재(선택형)",
+      "operator": "lte",
+      "value": "6개월 이하 징역 또는 500만원 이하 벌금",
+      "unit": "선택형",
+      "statement": "제71조(경량항공기 등의 영리목적 사용금지)를 위반하여 초경량비행장치를 영리목적으로 사용한 자는 6개월 이하의 징역 또는 500만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "동일 조문(제71조)이지만 기체 종류에 따라 형량이 다른 유일한 사례",
+      "distractorCandidates": [
+        "1년/1천만원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-361",
+        "AF-162"
+      ],
+      "sourceReference": "p.58",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "같은 제71조라도 경량항공기와 초경량비행장치의 형량이 다름. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.58",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-363",
+      "conceptId": "C-BIZ-PEN-06",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제73조제2항·제3항",
+      "predicate": "제재(벌금만)",
+      "operator": "lte",
+      "value": "500만원 이하 벌금",
+      "unit": "벌금",
+      "statement": "제73조(보고, 출입 및 검사)제2항 또는 제3항에 따른 검사 또는 출입을 거부·방해하거나 기피한 자는 500만원 이하의 벌금에 처한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "벌금(형벌)이며 과태료가 아님 — 제73조제1항 위반(보고 미이행)은 과태료로 별개 제재",
+      "distractorCandidates": [
+        "500만원 이하 과태료"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-368",
+        "AF-369"
+      ],
+      "sourceReference": "p.58",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "검사·출입 거부·방해·기피는 500만원 이하 벌금이며, 보고 미이행·거짓보고 및 질문 거짓진술은 500만원 이하 과태료로 구분된다. 동일 500만원 금액이지만 벌금(형벌)과 과태료(행정질서벌)로 성격이 다른 대표 사례. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.58",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-364",
+      "conceptId": "C-BIZ-PEN-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제38조",
+      "predicate": "제재(과태료)",
+      "operator": "lte",
+      "value": 500,
+      "unit": "만원 (과태료)",
+      "statement": "제38조(항공기사용사업의 폐업)를 위반하여 폐업하거나 폐업 신고를 하지 아니하거나 거짓으로 신고한 자는 500만원 이하의 과태료를 부과한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.59",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.59",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-365",
+      "conceptId": "C-BIZ-PEN-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제62조제6항",
+      "predicate": "제재(과태료)",
+      "operator": "lte",
+      "value": 500,
+      "unit": "만원 (과태료)",
+      "statement": "제62조(운송약관 등의 비치 등)제6항에 따른 요금표 등을 갖추어 두지 아니하거나 거짓 사항을 적은 요금표 등을 갖추어 둔 자는 500만원 이하의 과태료를 부과한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.59",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.59",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-366",
+      "conceptId": "C-BIZ-PEN-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제70조제3항·제4항",
+      "predicate": "제재(과태료)",
+      "operator": "lte",
+      "value": 500,
+      "unit": "만원 (과태료)",
+      "statement": "제70조(항공보험 등의 가입의무)제3항 또는 제4항을 위반하여 보험 또는 공제에 가입하지 아니하고 경량항공기 또는 초경량비행장치를 사용하여 비행한 자는 500만원 이하의 과태료를 부과한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "보험 미가입 비행은 형벌이 아닌 과태료 대상",
+      "distractorCandidates": [
+        "1년 이하 징역"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-259",
+        "AF-261",
+        "AF-263",
+        "AF-265",
+        "AF-266"
+      ],
+      "sourceReference": "p.59",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "항공보험 공통 규정(AF-259~AF-274)의 가입의무 위반 시 제재. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.59",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-367",
+      "conceptId": "C-BIZ-PEN-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제70조제5항",
+      "predicate": "제재(과태료)",
+      "operator": "lte",
+      "value": 500,
+      "unit": "만원 (과태료)",
+      "statement": "제70조제5항에 따른 자료를 제출하지 아니하거나 거짓으로 제출한 자는 500만원 이하의 과태료를 부과한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": null,
+      "distractorCandidates": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [],
+      "sourceReference": "p.59",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "발행연도 미상 교육자료 기반. 현행법 단정 금지.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.59",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-368",
+      "conceptId": "C-BIZ-PEN-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제73조제1항",
+      "predicate": "제재(과태료)",
+      "operator": "lte",
+      "value": 500,
+      "unit": "만원 (과태료)",
+      "statement": "제73조(보고, 출입 및 검사 등)제1항에 따른 보고 등을 하지 아니하거나 거짓 보고 등을 한 자는 500만원 이하의 과태료를 부과한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "제73조제2항·3항 위반(AF-363)은 벌금인데 제1항 위반은 과태료 — 같은 조문 내 항별 제재 유형이 다름",
+      "distractorCandidates": [
+        "제1항 위반도 벌금"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-363",
+        "AF-369"
+      ],
+      "sourceReference": "p.59",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "원문 항 번호 표기가 마침표가 아닌 쉼표로 되어 있는 통상적 오탈자로 추정되며 법률 내용에는 영향 없음. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.59",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-369",
+      "conceptId": "C-BIZ-PEN-07",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제73조제2항·제3항",
+      "predicate": "제재(과태료)",
+      "operator": "lte",
+      "value": 500,
+      "unit": "만원 (과태료)",
+      "statement": "제73조제2항 또는 제3항에 따른 질문에 대하여 거짓으로 진술한 자는 500만원 이하의 과태료를 부과한다",
+      "conditions": [],
+      "exceptions": [],
+      "confusionPoint": "같은 항(제2항·3항) 위반이라도 검사·출입 거부는 벌금(AF-363), 질문에 거짓 진술은 과태료(AF-369)로 나뉨",
+      "distractorCandidates": [
+        "거짓 진술도 벌금 500만원"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-363",
+        "AF-368"
+      ],
+      "sourceReference": "p.59",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "같은 제73조제2항·제3항이라도 행위 유형에 따라 벌금과 과태료가 갈린다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.59",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-370",
+      "conceptId": "C-BIZ-PEN-08",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제82조",
+      "predicate": "책임구조",
+      "operator": "eq",
+      "value": "행위자 처벌 + 법인·개인 벌금 병과",
+      "unit": null,
+      "statement": "법인의 대표자나 법인 또는 개인의 대리인, 사용인, 종업원이 그 법인 또는 개인의 업무에 관하여 제77조부터 제81조까지의 어느 하나에 해당하는 위반행위를 하면 그 행위자를 벌하는 외에 그 법인 또는 개인에게도 벌금형을 부과한다",
+      "conditions": [
+        {
+          "id": "AF-370-C1",
+          "statement": "법인의 대표자, 법인 또는 개인의 대리인·사용인·종업원일 것"
+        },
+        {
+          "id": "AF-370-C2",
+          "statement": "법인 또는 개인의 업무에 관하여 위반행위를 했을 것"
+        },
+        {
+          "id": "AF-370-C3",
+          "statement": "제77조부터 제81조까지의 위반행위 중 하나일 것"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "'벌하는 외에'이므로 행위자 처벌과 법인·개인 벌금이 병존(대체 아님)",
+      "distractorCandidates": [
+        "행위자 처벌 없이 법인만 처벌",
+        "법인 처벌이 행위자 처벌을 대체"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-345",
+        "AF-371"
+      ],
+      "sourceReference": "p.59",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "행위자 처벌과 법인·개인 벌금이 병존하며 대체 관계가 아니다. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.59",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-371",
+      "conceptId": "C-BIZ-PEN-08",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "제82조 단서",
+      "predicate": "면책조건",
+      "operator": "eq",
+      "value": "상당한 주의·감독",
+      "unit": null,
+      "statement": "법인 또는 개인이 그 위반행위를 방지하기 위하여 해당 업무에 관하여 상당한 주의와 감독을 게을리하지 아니한 경우에는 양벌규정에 따른 처벌을 받지 아니한다",
+      "conditions": [
+        {
+          "id": "AF-371-C1",
+          "statement": "법인 또는 개인이 위반행위 방지를 위해 상당한 주의와 감독을 게을리하지 않았을 것"
+        }
+      ],
+      "exceptions": [],
+      "confusionPoint": "무과실 면책 조항 — 자동 처벌이 아님",
+      "distractorCandidates": [
+        "법인은 무조건 처벌"
+      ],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-370"
+      ],
+      "sourceReference": "p.59",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "양벌규정의 면책 조건임. 발행연도 미상 교육자료 기반.",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.59",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    }
+  ]
+}

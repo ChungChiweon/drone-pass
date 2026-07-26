@@ -1,0 +1,47 @@
+{
+  "targetPackId": "REPLACE_WITH_ACTIVE_PACK_ID",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "test-incremental-category-001",
+      "subjectId": "kr-drone-law",
+      "title": "증분 Import 테스트 카테고리"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "test-incremental-concept-001",
+      "subjectId": "kr-drone-law",
+      "categoryIds": ["test-incremental-category-001"],
+      "title": "증분 Import 테스트 개념",
+      "summary": "실제 법률 지식이 아닌 증분 병합 구조 검증용 개념입니다."
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "test-incremental-fact-001",
+      "conceptId": "test-incremental-concept-001",
+      "factType": "SOURCE_FACT",
+      "subject": "증분 Import 테스트",
+      "predicate": "구조 검증",
+      "value": "테스트 전용 draft fact",
+      "statement": "이 문장은 실제 법률 내용이 아닌 Incremental Import 병합 검증용 테스트 문장입니다.",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "sample-drone-study-note",
+          "revisionId": "sample-drone-study-note-v1",
+          "locator": "incremental import test fixture",
+          "note": "기존 샘플 source document/revision을 재사용하는 테스트 참조입니다."
+        }
+      ],
+      "version": "incremental-test-v1",
+      "status": "draft",
+      "confidence": 0,
+      "reviewNote": "증분 Import 기능 검증용 데이터입니다. 실제 법률 콘텐츠로 사용하지 않습니다."
+    }
+  ]
+}

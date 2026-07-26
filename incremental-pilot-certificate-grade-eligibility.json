@@ -1,0 +1,899 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-pilot-certificate-grade",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "조종자증명 종별 구분·응시기준",
+      "parentId": "cat-pilot-certificate"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-LIC-07",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-grade"],
+      "title": "조종자증명 종류 체계",
+      "summary": "기체 종류별(무인비행기·무인헬리콥터·무인멀티콥터·무인비행선) 조종자증명 종류와 4종 온라인교육 취득 체계"
+    },
+    {
+      "id": "C-LIC-08",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-grade"],
+      "title": "응시 연령 기준",
+      "summary": "조종자증명 응시 공통 연령(만 14세 이상)과 4종 특례(만 10세 이상)"
+    },
+    {
+      "id": "C-LIC-09",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-grade"],
+      "title": "무인멀티콥터 종별 중량 범위",
+      "summary": "무인멀티콥터 1종~4종의 무게범위 상한·하한 경계 (250g·2kg·7kg·25kg·150kg)"
+    },
+    {
+      "id": "C-LIC-10",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-grade"],
+      "title": "무인멀티콥터 종별 응시 경력",
+      "summary": "무인멀티콥터 1종~3종 응시를 위한 비행경력 시간 요건과 보유 자격별 단축 경로, 4종 응시기준 없음"
+    },
+    {
+      "id": "C-LIC-11",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-grade"],
+      "title": "종별 체계와 타 제도 경계 비교",
+      "summary": "종별 무게 경계(250g·25kg)와 조종자증명 제외·안전성인증 기준의 수치 접점 및 제도 구분"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-056",
+      "conceptId": "C-LIC-07",
+      "subject": "조종자증명의 종류",
+      "predicate": "구성",
+      "value": "무인비행기·무인헬리콥터·무인멀티콥터: 각 1종~4종 / 무인비행선: 종 구분 없음",
+      "operator": "eq",
+      "statement": "조종자 증명의 종류는 무인비행기, 무인헬리콥터, 무인멀티콥터(각 1종~4종)와 무인비행선(종 구분 없음)의 4개 기체 종류로 구성된다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.21",
+          "note": "세칙 제5조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 기체 종류(4개)와 등급(4종)의 이중 '4' 혼동, 무인비행선에도 1~4종이 있다고 오인"
+    },
+    {
+      "id": "AF-057",
+      "conceptId": "C-LIC-07",
+      "subject": "이 운영세칙의 적용 범위",
+      "predicate": "한정 대상",
+      "value": "초경량비행장치 중 무인비행장치에 한정",
+      "operator": "eq",
+      "statement": "조종자증명 운영세칙은 초경량비행장치 중 무인비행장치에 한정하여 조종자 증명 자격기준·시험 절차를 규정한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.20",
+          "note": "세칙 제1조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 법 제125조·규칙 제306조는 유인 장치(동력비행장치 등)도 포함하나 이 세칙은 무인에 한정"
+    },
+    {
+      "id": "AF-058",
+      "conceptId": "C-LIC-07",
+      "subject": "4종 조종자 증명 취득 방법",
+      "predicate": "취득 요건",
+      "value": "공단 이사장이 정하는 온라인 교육 이수 + 교육이수증명서(전자 형태 포함) 발급",
+      "operator": "eq",
+      "statement": "4종 조종자 증명을 받으려는 사람은 공단 이사장이 정하는 온라인 교육을 이수하고 별지 제1호 서식의 교육이수증명서를 발급받아야 한다",
+      "conditions": [
+        {
+          "id": "FC-058-1",
+          "statement": "4종에 해당하는 조종자 증명을 받으려는 사람일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.21",
+          "note": "세칙 제5조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-055", "AF-060", "AF-078"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "4종을 증명 면제로 해석하지 않음 — 시험 대신 온라인교육으로 취득하는 것이지 증명 자체는 필요. 혼동 포인트: 교육 이수만으로 끝이 아니라 증명서 발급까지가 요건, 온라인교육 이수와 비행경력 시간(AF-078: 4종 응시기준 없음)의 구분"
+    },
+    {
+      "id": "AF-059",
+      "conceptId": "C-LIC-08",
+      "subject": "조종자증명 응시 연령 (공통)",
+      "predicate": "연령 기준",
+      "value": 14,
+      "unit": "세",
+      "operator": "gte",
+      "statement": "조종자증명 응시 공통 연령 기준은 만 14세 이상이다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "FE-059-1",
+          "statement": "4종의 무인비행기·무인헬리콥터·무인멀티콥터는 만 10세 이상 (AF-060)"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조, 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-060"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 만 나이 기준, 4종 특례(만 10세)와 혼동"
+    },
+    {
+      "id": "AF-060",
+      "conceptId": "C-LIC-08",
+      "subject": "4종(무인비행기·무인헬리콥터·무인멀티콥터) 응시 연령",
+      "predicate": "연령 기준",
+      "value": 10,
+      "unit": "세",
+      "operator": "gte",
+      "statement": "4종의 무인비행기, 무인헬리콥터, 무인멀티콥터는 만 10세 이상인 사람이 응시(취득)할 수 있다",
+      "conditions": [
+        {
+          "id": "FC-060-1",
+          "statement": "4종일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-059", "AF-058", "AF-078"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "원문이 특례 대상을 '4종의 무인비행기, 무인헬리콥터, 무인멀티콥터'로 열거 — 무인비행선은 종 구분이 없어(AF-056) 논리상 무관하나 명시적 배제 문구는 없음. 혼동 포인트: 공통 기준(만 14세)의 예외"
+    },
+    {
+      "id": "AF-061",
+      "conceptId": "C-LIC-09",
+      "subject": "무인멀티콥터 1종 무게범위 하한",
+      "predicate": "하한 기준",
+      "value": 25,
+      "unit": "kg (최대이륙중량)",
+      "operator": "gt",
+      "statement": "무인멀티콥터 1종의 무게범위 하한은 최대이륙중량 25kg 초과이다",
+      "conditions": [
+        {
+          "id": "FC-061-1",
+          "statement": "AF-062(상한: 자체중량 150kg 이하)와 동시 충족(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C1-RANGE",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-062", "AF-038", "AF-080"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "하한은 최대이륙중량 기준, 상한(AF-062)은 자체중량 기준 — 한 구간 안에서 중량 개념이 갈리는 유일한 종. 혼동 포인트: 안전성인증 대상 기준(25kg 초과, AF-038)과 수치·경계 방향이 동일 — '1종 = 인증 대상'으로 제도를 뭉개는 오류, '25kg 이상'으로 오기억"
+    },
+    {
+      "id": "AF-062",
+      "conceptId": "C-LIC-09",
+      "subject": "무인멀티콥터 1종 무게범위 상한",
+      "predicate": "상한 기준",
+      "value": 150,
+      "unit": "kg (연료의 중량을 제외한 자체중량)",
+      "operator": "lte",
+      "statement": "무인멀티콥터 1종의 무게범위 상한은 연료의 중량을 제외한 자체중량 150kg 이하이다",
+      "conditions": [
+        {
+          "id": "FC-062-1",
+          "statement": "AF-061(하한: 최대이륙중량 25kg 초과)과 동시 충족(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C1-RANGE",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-061"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "UNIT_SWAP 오답 규칙의 최적 원천 — 하한(최대이륙중량)과 상한(자체중량)의 중량 개념이 다름. 혼동 포인트: 무인동력비행장치 정의의 자체중량 150kg 이하(p.8, 본 범위 외)와 동일 수치 — 정의 기준과 1종 상한이 접점. 정의 소분류 분석 시 crossReference 연결 대상"
+    },
+    {
+      "id": "AF-063",
+      "conceptId": "C-LIC-09",
+      "subject": "무인멀티콥터 2종 무게범위 하한",
+      "predicate": "하한 기준",
+      "value": 7,
+      "unit": "kg (최대이륙중량)",
+      "operator": "gt",
+      "statement": "무인멀티콥터 2종의 무게범위 하한은 최대이륙중량 7kg 초과이다",
+      "conditions": [
+        {
+          "id": "FC-063-1",
+          "statement": "AF-064(상한: 25kg 이하)와 동시 충족(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C2-RANGE",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-064", "AF-066"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 3종 상한(7kg 이하)과 경계 공유 — 정확히 7kg는 3종. 경계값 7kg의 귀속(3종)이 NUMERIC/BOUNDARY 문제의 핵심"
+    },
+    {
+      "id": "AF-064",
+      "conceptId": "C-LIC-09",
+      "subject": "무인멀티콥터 2종 무게범위 상한",
+      "predicate": "상한 기준",
+      "value": 25,
+      "unit": "kg (최대이륙중량)",
+      "operator": "lte",
+      "statement": "무인멀티콥터 2종의 무게범위 상한은 최대이륙중량 25kg 이하이다",
+      "conditions": [
+        {
+          "id": "FC-064-1",
+          "statement": "AF-063(하한: 7kg 초과)과 동시 충족(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C2-RANGE",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-063", "AF-061", "AF-039"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 1종 하한(25kg 초과)과 경계 공유 — 정확히 25kg는 2종. 안전성인증도 25kg 정확히는 비대상(AF-039)과 방향 일치"
+    },
+    {
+      "id": "AF-065",
+      "conceptId": "C-LIC-09",
+      "subject": "무인멀티콥터 3종 무게범위 하한",
+      "predicate": "하한 기준",
+      "value": 2,
+      "unit": "kg (최대이륙중량)",
+      "operator": "gt",
+      "statement": "무인멀티콥터 3종의 무게범위 하한은 최대이륙중량 2kg 초과이다",
+      "conditions": [
+        {
+          "id": "FC-065-1",
+          "statement": "AF-066(상한: 7kg 이하)과 동시 충족(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C3-RANGE",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-066", "AF-068", "AF-005"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 장치신고 제외 기준(2kg 이하, AF-005)과 수치 동일 — '2kg 초과 = 3종 이상 필요 + 신고 필요'가 동시에 발생하는 경계. 2kg 경계에서 신고 제도와 종별 체계가 교차 — CASE_JUDGMENT 원천"
+    },
+    {
+      "id": "AF-066",
+      "conceptId": "C-LIC-09",
+      "subject": "무인멀티콥터 3종 무게범위 상한",
+      "predicate": "상한 기준",
+      "value": 7,
+      "unit": "kg (최대이륙중량)",
+      "operator": "lte",
+      "statement": "무인멀티콥터 3종의 무게범위 상한은 최대이륙중량 7kg 이하이다",
+      "conditions": [
+        {
+          "id": "FC-066-1",
+          "statement": "AF-065(하한: 2kg 초과)와 동시 충족(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C3-RANGE",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-065", "AF-063"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 2종 하한(7kg 초과)과 경계 공유"
+    },
+    {
+      "id": "AF-067",
+      "conceptId": "C-LIC-09",
+      "subject": "무인멀티콥터 4종 무게범위 하한",
+      "predicate": "하한 기준",
+      "value": 250,
+      "unit": "g (최대이륙중량)",
+      "operator": "gt",
+      "statement": "무인멀티콥터 4종의 무게범위 하한은 최대이륙중량 250g 초과이다",
+      "conditions": [
+        {
+          "id": "FC-067-1",
+          "statement": "AF-068(상한: 2kg 이하)과 동시 충족(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C4-RANGE",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-068", "AF-047", "AF-079"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "별표 2 표의 250g에는 연료 포함 문구가 없어 규칙 제306조(연료 포함)와 표기 수준이 다름 — 동일 기준으로 추정되나 원문 표기 차이를 보존. 혼동 포인트: 조종자증명 제외 기준(250g 이하, AF-047)과 경계가 맞닿음 — 250g 이하는 증명 자체 불필요, 250g 초과부터 4종 구간 시작"
+    },
+    {
+      "id": "AF-068",
+      "conceptId": "C-LIC-09",
+      "subject": "무인멀티콥터 4종 무게범위 상한",
+      "predicate": "상한 기준",
+      "value": 2,
+      "unit": "kg (최대이륙중량)",
+      "operator": "lte",
+      "statement": "무인멀티콥터 4종의 무게범위 상한은 최대이륙중량 2kg 이하이다",
+      "conditions": [
+        {
+          "id": "FC-068-1",
+          "statement": "AF-067(하한: 250g 초과)과 동시 충족(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C4-RANGE",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-067", "AF-065", "AF-005"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 3종 하한(2kg 초과)과 경계 공유 — 정확히 2kg는 4종. 동시에 신고 제외 상한(2kg 이하)과도 일치"
+    },
+    {
+      "id": "AF-069",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 1종 응시기준 (기본)",
+      "predicate": "비행경력",
+      "value": 20,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "1종 무인멀티콥터 조종 시간이 총 20시간 이상인 사람은 1종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-069-1",
+          "statement": "1종 무인멀티콥터 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C1-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-070", "AF-071", "AF-072"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "응시기준 4개 호는 OR 관계 — '각 호의 어느 하나' 충족이면 됨, 전부 충족 아님. 혼동 포인트: 교육시간이 아닌 조종(비행경력) 시간"
+    },
+    {
+      "id": "AF-070",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 1종 응시기준 (2종 보유)",
+      "predicate": "비행경력",
+      "value": 15,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "2종 무인멀티콥터 조종자증명을 받은 사람은 1종 무인멀티콥터 조종 시간 15시간 이상으로 1종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-070-1",
+          "statement": "2종 무인멀티콥터 조종자증명 보유 + 1종 기체 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C1-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-069", "AF-071"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "15h vs 17h 쌍이 이 표 최다 빈출 혼동 — AF-071과 crossReference 필수. 혼동 포인트: 3종 보유 경로(17시간)와 시간 역전 혼동 — 2종 보유가 3종 보유보다 단축 폭이 큼, 경력 시간은 '1종 무인멀티콥터' 조종 시간이지 보유 종 기체가 아님"
+    },
+    {
+      "id": "AF-071",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 1종 응시기준 (3종 보유)",
+      "predicate": "비행경력",
+      "value": 17,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "3종 무인멀티콥터 조종자증명을 받은 사람은 1종 무인멀티콥터 조종 시간 17시간 이상으로 1종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-071-1",
+          "statement": "3종 무인멀티콥터 조종자증명 보유 + 1종 기체 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C1-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-069", "AF-070"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 2종 보유(15시간)와의 역전 구조 — 하위 종 보유일수록 요구 시간이 많음"
+    },
+    {
+      "id": "AF-072",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 1종 응시기준 (1종 무인헬리콥터 보유)",
+      "predicate": "비행경력",
+      "value": 10,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "1종 무인헬리콥터 조종자증명을 받은 사람은 1종 무인멀티콥터 조종 시간 10시간 이상으로 1종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-072-1",
+          "statement": "1종 무인헬리콥터 조종자증명 보유 + 1종 무인멀티콥터 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C1-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-069", "AF-070", "AF-071"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "타 기체(헬리콥터) 자격의 교차 인정 경로 — 같은 1종끼리 최단(10시간). 경력 단축(응시기준)과 학과 면제(p.23, 헬기→멀티콥터 2년 이내)는 다른 층위 — 운영세칙 면제 소분류 분석 시 crossReference"
+    },
+    {
+      "id": "AF-073",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 2종 응시기준 (기본)",
+      "predicate": "비행경력",
+      "value": 10,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "1종 또는 2종 무인멀티콥터 조종 시간이 총 10시간 이상인 사람은 2종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-073-1",
+          "statement": "1종 또는 2종 무인멀티콥터 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C2-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-074", "AF-075"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 기본 경로인데 '1종 또는 2종' 기체 시간 합산 허용 — 1종 기본(1종 시간만 20h)과 구조가 다름"
+    },
+    {
+      "id": "AF-074",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 2종 응시기준 (3종 보유)",
+      "predicate": "비행경력",
+      "value": 7,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "3종 무인멀티콥터 조종자 증명을 받은 사람은 2종 무인멀티콥터 조종 시간 7시간 이상으로 2종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-074-1",
+          "statement": "3종 무인멀티콥터 조종자증명 보유 + 2종 기체 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C2-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-073", "AF-075"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 무게 경계 7kg와 시간 7h의 수치 우연 일치 — 단위 혼동 함정"
+    },
+    {
+      "id": "AF-075",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 2종 응시기준 (2종 무인헬리콥터 보유)",
+      "predicate": "비행경력",
+      "value": 5,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "2종 무인헬리콥터 조종자증명을 받은 사람은 2종 무인멀티콥터 조종 시간 5시간 이상으로 2종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-075-1",
+          "statement": "2종 무인헬리콥터 조종자증명 보유 + 2종 무인멀티콥터 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C2-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-073", "AF-074"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 1종 교차 경로(10시간, AF-072)와의 대응 — 같은 급 헬기 보유 시 절반 수준 단축 패턴"
+    },
+    {
+      "id": "AF-076",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 3종 응시기준 (기본)",
+      "predicate": "비행경력",
+      "value": 6,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "1종, 2종, 3종 무인멀티콥터 중 어느 하나의 조종 시간이 총 6시간 이상인 사람은 3종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-076-1",
+          "statement": "1·2·3종 무인멀티콥터 중 어느 하나의 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C3-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-077"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "원문 '중 어느 하나 조종 시간이 총 6시간' — '어느 하나'와 '총'의 결합이 문면상 다소 모호. 문언 그대로 보존하고 해석 확정은 보류"
+    },
+    {
+      "id": "AF-077",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 3종 응시기준 (3종 무인헬리콥터 보유)",
+      "predicate": "비행경력",
+      "value": 3,
+      "unit": "시간",
+      "operator": "gte",
+      "statement": "3종 무인헬리콥터 조종자증명을 받은 사람은 3종 무인멀티콥터 조종 시간 3시간 이상으로 3종 응시기준을 충족한다",
+      "conditions": [
+        {
+          "id": "FC-077-1",
+          "statement": "3종 무인헬리콥터 조종자증명 보유 + 3종 무인멀티콥터 조종 시간일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-MC-C3-ELIG",
+      "groupOperator": "OR",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-076"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 헬기 교차 경로 3종 세트(1종 10h / 2종 5h / 3종 3h)의 패턴 기억 혼동"
+    },
+    {
+      "id": "AF-078",
+      "conceptId": "C-LIC-10",
+      "subject": "무인멀티콥터 4종 응시기준",
+      "predicate": "응시기준 유무",
+      "value": "응시 기준 없음",
+      "operator": "eq",
+      "statement": "무인멀티콥터 4종은 응시 기준(비행경력 요건)이 없다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-058", "AF-060"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-058·AF-060과 3자 crossReference — '없음'의 범위가 비행경력에 한정됨을 결합 출제로 검증 가능. 혼동 포인트: '응시기준 없음 = 아무 절차 없음'이 아님 — 온라인교육 이수·증명서 발급(AF-058)은 필요, 연령 기준(만 10세, AF-060)은 별도로 적용"
+    },
+    {
+      "id": "AF-079",
+      "conceptId": "C-LIC-11",
+      "subject": "4종 하한 250g vs 조종자증명 제외 250g",
+      "predicate": "경계 관계",
+      "value": "동일 수치·상보 관계: 250g 이하 = 증명 제외 / 250g 초과 = 4종 구간 시작",
+      "operator": "eq",
+      "statement": "조종자증명 제외 기준(250g 이하)과 4종 무게범위 하한(250g 초과)은 250g에서 상보적으로 맞닿아, 250g 이하는 증명 자체가 불필요하고 250g를 초과하면 4종부터 증명 체계가 시작된다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조① 4호 가목 (기존 AF-047 참조)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-047", "AF-067"],
+      "crossReferences": ["AF-047", "AF-067", "AF-058"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "AF-047·AF-067 종합 파생 팩트. 혼동 포인트: '4종 = 증명 불필요 구간'으로 뒤집어 기억하는 오류 — 4종은 증명 필요 구간의 최하위 등급"
+    },
+    {
+      "id": "AF-080",
+      "conceptId": "C-LIC-11",
+      "subject": "1종 하한 25kg vs 안전성인증 25kg",
+      "predicate": "경계 관계",
+      "value": "동일 수치·동일 방향(25kg 초과)이나 서로 다른 제도",
+      "operator": "eq",
+      "statement": "무인멀티콥터 1종 무게범위 하한(최대이륙중량 25kg 초과)과 안전성인증 대상 기준(최대이륙중량 25kg 초과)은 수치와 경계 방향이 같지만, 전자는 조종자증명 등급 체계이고 후자는 기체 인증 제도로 서로 다르다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "규칙 제305조① 4호 가목 (기존 AF-038 참조)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.18",
+          "note": "안전관리제도 표 (기존 AF-038 참조)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-038", "AF-061"],
+      "crossReferences": ["AF-038", "AF-061"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "AF-038·AF-061 종합 파생 팩트. 사람 대상 제도(증명)와 기체 대상 제도(인증)의 층위 차이는 AF-045 ReviewNote와 일관. 혼동 포인트: 수치·방향 일치 때문에 '1종 취득 = 인증 완료' 또는 '인증 대상 = 1종 시험'으로 제도를 융합하는 오류"
+    }
+  ]
+}

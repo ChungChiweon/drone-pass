@@ -1,0 +1,435 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-pilot-certificate",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "조종자증명"
+    },
+    {
+      "id": "cat-pilot-certificate-target",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "조종자증명 대상·제외",
+      "parentId": "cat-pilot-certificate"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-LIC-01",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-target"],
+      "title": "조종자증명 의무 일반",
+      "summary": "초경량비행장치를 사용하여 비행하려는 사람의 조종자 증명 취득 의무"
+    },
+    {
+      "id": "C-LIC-02",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-target"],
+      "title": "조종자증명 대상 기체",
+      "summary": "초경량비행장치사용사업에 사용되는 무인비행장치의 조종자증명 대상 규정과 제외 목 구조"
+    },
+    {
+      "id": "C-LIC-03",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-target"],
+      "title": "250g 제외 기준",
+      "summary": "연료의 중량을 포함한 최대이륙중량 250g 이하 무인동력비행장치의 조종자증명 제외와 250g 초과 경계"
+    },
+    {
+      "id": "C-LIC-04",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-target"],
+      "title": "무인비행선 제외 기준",
+      "summary": "연료 제외 자체중량 12kg 이하 및 길이 7m 이하 무인비행선의 조종자증명 제외 복합 요건"
+    },
+    {
+      "id": "C-LIC-05",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-target"],
+      "title": "사업·비사업별 적용",
+      "summary": "최대이륙중량 2kg 및 사업·비사업 구분 조합에 따른 조종자증명 적용 (p.17 표 기준)"
+    },
+    {
+      "id": "C-LIC-06",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-target"],
+      "title": "제도 간 기준 비교",
+      "summary": "장치신고 2kg·조종자증명 250g·안전성인증 25kg의 제도별 중량 기준 구분과 증명 종별 체계와의 층위 구분"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-045",
+      "conceptId": "C-LIC-01",
+      "subject": "조종자증명 의무",
+      "predicate": "의무 내용",
+      "value": "해당 초경량비행장치의 조종을 위하여 발급하는 증명(초경량비행장치 조종자 증명)을 받아야 함",
+      "operator": "eq",
+      "statement": "국토교통부령으로 정하는 초경량비행장치를 사용하여 비행하려는 사람은 해당 초경량비행장치의 조종을 위하여 발급하는 증명(초경량비행장치 조종자 증명)을 받아야 한다",
+      "conditions": [
+        {
+          "id": "FC-045-1",
+          "statement": "국토교통부령으로 정하는 초경량비행장치를 사용하여 비행하려는 사람일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "법 제125조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "자격기준·시험 절차는 국토교통부장관 승인 사항으로 원문에 있으나 운영세칙 소분류(p.20 이하)에서 다룰 내용이므로 본 팩트에는 미포함. 혼동 포인트: 의무 주체는 '비행하려는 사람'으로 기체 소유자가 아님, 안전성인증 의무(기체 대상)와 조종자증명 의무(사람 대상)의 대상 층위 차이"
+    },
+    {
+      "id": "AF-046",
+      "conceptId": "C-LIC-02",
+      "subject": "초경량비행장치사용사업에 사용되는 무인비행장치",
+      "predicate": "조종자증명 대상 여부",
+      "value": "대상 (단, 제외 목 존재)",
+      "operator": "eq",
+      "statement": "초경량비행장치사용사업에 사용되는 무인비행장치는 조종자증명 대상이다. 다만 각 목의 어느 하나에 해당하는 것은 제외한다",
+      "conditions": [
+        {
+          "id": "FC-046-1",
+          "statement": "초경량비행장치사용사업에 사용될 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "FE-046-1",
+          "statement": "연료의 중량을 포함한 최대이륙중량 250g 이하 무인비행기·무인헬리콥터·무인멀티콥터는 제외 (AF-047)"
+        },
+        {
+          "id": "FE-046-2",
+          "statement": "연료의 중량을 제외한 자체중량 12kg 이하이고 길이 7m 이하인 무인비행선은 제외 (AF-049·AF-050)"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조① 4호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-047", "AF-049", "AF-050", "AF-051", "AF-052", "AF-053"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "조문(규칙 제306조① 4호)은 '사용사업에 사용되는' 무인비행장치를 대상으로 규정하나, p.17 표는 비사업 250g 초과에도 ○ 표기 — 조문과 표의 적용 범위 표현이 상이. 본 팩트는 조문 문언만 기술하고 표 기반 적용 사실은 AF-051~053으로 분리. 이 불일치를 보존하며 출제 시 근거(조문 vs 표)를 명시할 것. 혼동 포인트: 신고 제외의 공통 전제(사업 미사용, AF-004)와 구조 유사하나 방향이 반대"
+    },
+    {
+      "id": "AF-047",
+      "conceptId": "C-LIC-03",
+      "subject": "무인비행기·무인헬리콥터·무인멀티콥터",
+      "predicate": "조종자증명 제외 중량 기준",
+      "value": 250,
+      "unit": "g (연료의 중량을 포함한 최대이륙중량)",
+      "operator": "lte",
+      "statement": "무인비행기, 무인헬리콥터 또는 무인멀티콥터 중에서 연료의 중량을 포함한 최대이륙중량이 250그램 이하인 것은 조종자증명 대상에서 제외된다",
+      "conditions": [
+        {
+          "id": "FC-047-1",
+          "statement": "AF-046(사용사업 사용 무인비행장치 대상)의 제외 목"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조① 4호 가목"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 표: ○(250g초과) 표기"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-048", "AF-005", "AF-038", "AF-054"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "p.13 조문과 p.17 표의 '250g초과' 조건 표기가 상호 정합(이하 제외 = 초과 대상). 연료 포함 명시는 이 문서에서 250g 기준에만 존재 — UNIT_SWAP 오답 규칙의 최적 원천. 혼동 포인트: 신고 제외 2kg(AF-005)·안전성인증 25kg(AF-038)과 제도별 수치 혼동(3제도 3수치), '250g 미만'으로 잘못 기억(원문은 이하이므로 정확히 250g은 제외 대상), 4종 증명 무게범위 하한 250g 초과(p.22, 본 범위 외)와 경계 접점"
+    },
+    {
+      "id": "AF-048",
+      "conceptId": "C-LIC-03",
+      "subject": "최대이륙중량 250g 초과 무인동력비행장치",
+      "predicate": "조종자증명 적용",
+      "value": 250,
+      "unit": "g (연료의 중량을 포함한 최대이륙중량)",
+      "operator": "gt",
+      "statement": "최대이륙중량 250g 초과 무인동력비행장치는 조종자증명이 필요하다 (p.17 표의 ○(250g초과) 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-047"],
+      "crossReferences": ["AF-047", "AF-054"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "AF-047에서 도출 가능한 파생 사실이나 p.17 표에 직접 명기되어 있음. 혼동 포인트: 경계값 250g 정확히는 '이하'라 제외이고 250g을 넘는 순간부터 대상, p.17 표에서 '○(250g초과)'가 붙지 않은 유일한 셀은 2kg 이하 사업(무조건 ○)"
+    },
+    {
+      "id": "AF-049",
+      "conceptId": "C-LIC-04",
+      "subject": "무인비행선",
+      "predicate": "조종자증명 제외 자체중량 기준",
+      "value": 12,
+      "unit": "kg (연료의 중량을 제외한 자체중량)",
+      "operator": "lte",
+      "statement": "무인비행선 조종자증명 제외의 중량 요건은 연료의 중량을 제외한 자체중량 12킬로그램 이하이다",
+      "conditions": [
+        {
+          "id": "FC-049-1",
+          "statement": "AF-050(길이 7m 이하)과 동시 충족 필요(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조① 4호 나목"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-AIRSHIP-LIC-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-050", "AF-006"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "신고 제외(영 제24조 6호, AF-006)와 수치·개념이 동일하나 근거 조문과 제도가 다름 — 별도 팩트로 생성하고 crossReference 연결. 혼동 포인트: 신고 제외의 무인비행선 기준(12kg·7m)과 수치가 완전히 동일하여 제도 혼동 최다 유발 구간, 250g 기준(연료 포함 최대이륙중량)과 달리 '연료 제외 자체중량'으로 같은 조문 내에서 중량 개념이 갈림"
+    },
+    {
+      "id": "AF-050",
+      "conceptId": "C-LIC-04",
+      "subject": "무인비행선",
+      "predicate": "조종자증명 제외 길이 기준",
+      "value": 7,
+      "unit": "m",
+      "operator": "lte",
+      "statement": "무인비행선 조종자증명 제외의 길이 요건은 7미터 이하이다",
+      "conditions": [
+        {
+          "id": "FC-050-1",
+          "statement": "AF-049(자체중량 12kg 이하)와 동시 충족 필요(AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조① 4호 나목"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-AIRSHIP-LIC-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-049", "AF-007"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "GRP-AIRSHIP-LIC-01 그룹으로 AF-049와 AND 결합 시에만 제외 성립 — 단독 출제 차단. 신고 제외의 GRP-AIRSHIP-EX-01과 동일 패턴이나 별도 그룹으로 분리하여 제도 혼동 문제(SIBLING_FACT_SWAP)를 안전하게 생성. 혼동 포인트: 무인비행선 정의 기준의 길이 20m(p.8, 본 범위 외)와 혼동, 신고 제외의 길이 7m(AF-007)와 수치 동일하나 제도만 다름"
+    },
+    {
+      "id": "AF-051",
+      "conceptId": "C-LIC-05",
+      "subject": "최대이륙중량 2kg 초과 기체 (사업·비사업)",
+      "predicate": "조종자증명 적용",
+      "value": "○(250g초과)",
+      "operator": "eq",
+      "statement": "최대이륙중량 2kg 초과 기체는 사업·비사업 모두 250g 초과 시 조종자증명이 필요하다 (p.17 표 기준)",
+      "conditions": [
+        {
+          "id": "FC-051-1",
+          "statement": "250g 초과일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "표의 '○(250g초과)' 병기는 논리적으로 잉여(2kg 초과이면 항상 250g 초과)이나 원문 그대로 보존. 출제 시 이 잉여 조건을 함정으로 쓰지 말 것. 조문의 250g 기준과 표의 2kg 행 구분이 혼동될 수 있음 — 표의 2kg 행 구분은 신고 제도와의 병렬 표시용이고 증명 판정 기준은 250g임. 혼동 포인트: 신고(2kg 초과 무조건 ○)와 달리 증명은 250g 기준으로 판정"
+    },
+    {
+      "id": "AF-052",
+      "conceptId": "C-LIC-05",
+      "subject": "최대이륙중량 2kg 이하 + 사업용 기체",
+      "predicate": "조종자증명 적용",
+      "value": "○ (조건 표기 없음)",
+      "operator": "eq",
+      "statement": "최대이륙중량 2kg 이하이고 사업에 사용되는 기체는 조종자증명이 필요하다 (p.17 표 기준, 250g 조건 미표기)",
+      "conditions": [
+        {
+          "id": "FC-052-1",
+          "statement": "사업용일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.75,
+      "reviewNote": "표-조문 불일치 플래그: p.17 표의 이 셀만 '○(250g초과)'가 아닌 '○'로 표기됨. 조문(규칙 제306조① 4호 가목, 250g 이하 일괄 제외)과 충돌 소지 — 표의 단순화 오류인지 의도적 구분인지 이 문서만으로 판정 불가. confidence 하향, 출제 보류 권장. 사람 검수 필수 항목"
+    },
+    {
+      "id": "AF-053",
+      "conceptId": "C-LIC-05",
+      "subject": "최대이륙중량 2kg 이하 + 비사업용 기체",
+      "predicate": "조종자증명 적용",
+      "value": "○(250g초과)",
+      "operator": "eq",
+      "statement": "최대이륙중량 2kg 이하이고 사업에 사용되지 않는 기체도 250g 초과이면 조종자증명이 필요하다 (p.17 표 기준)",
+      "conditions": [
+        {
+          "id": "FC-053-1",
+          "statement": "250g 초과일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "AF-046 조문(사용사업 사용 기체 한정)과 표(비사업 ○) 간 불일치 — 표 기준으로는 비사업 250g 초과도 증명 필요. 2021 교육자료가 표로 안내하는 실무 기준으로 판단되나 조문 문언과의 괴리를 보존. 출제 시 반드시 'p.17 표 기준' 명시 필요. 혼동 포인트: 신고는 면제(2kg 이하 비사업 X, AF-013)인데 증명은 필요(250g 초과 ○) — '신고 면제 = 증명 면제'라는 오개념 교정의 핵심 팩트"
+    },
+    {
+      "id": "AF-054",
+      "conceptId": "C-LIC-06",
+      "subject": "신고 2kg vs 조종자증명 250g vs 안전성인증 25kg",
+      "predicate": "제도별 중량 기준 구분",
+      "value": "신고 제외: 2kg 이하 / 증명 제외: 250g 이하 / 인증 대상: 25kg 초과",
+      "operator": "eq",
+      "statement": "장치신고 제외는 최대이륙중량 2kg 이하, 조종자증명 제외는 연료 포함 최대이륙중량 250g 이하, 안전성인증 대상은 최대이륙중량 25kg 초과로 세 제도의 중량 기준이 모두 다르다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조①"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-005", "AF-038", "AF-047"],
+      "crossReferences": ["AF-005", "AF-038", "AF-047", "AF-048"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "기존 AF-005(2kg)·AF-038(25kg)·신규 AF-047(250g)을 종합한 비교 팩트 — CONCEPT_COMPARISON 템플릿의 대표 원천. 혼동 포인트: 세 수치의 제도 매칭이 뒤바뀌는 오답 유형, 경계 방향도 다름(신고·증명은 '이하 = 면제', 인증은 '초과 = 대상'), 연료 포함 명시는 250g에만 존재"
+    },
+    {
+      "id": "AF-055",
+      "conceptId": "C-LIC-06",
+      "subject": "조종자증명 종별 구분 (1~4종)",
+      "predicate": "본 소분류와의 관계",
+      "value": "종별 구분은 운영세칙(제5조·제7조)의 응시·등급 체계이고, 250g 기준은 증명 의무 발생 여부의 판단 기준",
+      "operator": "eq",
+      "statement": "조종자증명의 1종~4종 구분은 운영세칙상 등급·응시 체계이며, 규칙 제306조의 250g 기준은 증명 의무 자체의 발생 여부를 정하는 기준으로 서로 다른 층위이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": false,
+      "derivedFrom": ["AF-047"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "종별 상세(무게범위·응시기준)는 p.21~22로 본 범위 외 — 본 팩트는 층위 구분만 기술. 운영세칙 소분류 분석 시 crossReference 연결 대상. 혼동 포인트: 4종 무게범위(250g 초과~2kg 이하, p.22)와 증명 제외(250g 이하)의 경계가 250g에서 맞닿아 '4종 = 증명 불필요'로 오인, 4종은 시험 대신 온라인교육(p.21)이지만 증명 자체는 필요 — '교육만 받으면 됨 = 증명 면제'가 아님"
+    }
+  ]
+}

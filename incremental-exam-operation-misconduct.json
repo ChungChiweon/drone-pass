@@ -1,0 +1,683 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-pilot-certificate-exam-operation",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "응시원서·시험 시행",
+      "parentId": "cat-pilot-certificate"
+    },
+    {
+      "id": "cat-pilot-certificate-misconduct",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "부정행위·응시 제한",
+      "parentId": "cat-pilot-certificate"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-LIC-18",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-exam-operation"],
+      "title": "시험문제 출제",
+      "summary": "학과 출제위원 의뢰 절차, 출제 세부 항목·실기시험표준서 마련, 객관식 4지 선택형 원칙, 출제 범위 제한, 문제 봉인·제출 방법"
+    },
+    {
+      "id": "C-LIC-19",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-exam-operation"],
+      "title": "응시원서 제출",
+      "summary": "응시원서 서식·제출 방법, 실기시험 응시 요건(학과 유효기간·경력 충족), 실기 응시 첨부서류"
+    },
+    {
+      "id": "C-LIC-20",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-exam-operation"],
+      "title": "실기시험 시행",
+      "summary": "실기시험위원 1:1 지정, 시험시간 20분 이상 원칙, 기체·장비·비행승인 준비 책임, 당일 제시 서류, 실기시험표준서·채점표 평가, 자동채점시스템"
+    },
+    {
+      "id": "C-LIC-21",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-misconduct"],
+      "title": "부정행위 유형",
+      "summary": "부정한 방법의 시험 응시, 서류 허위 제출의 부정행위 2개 유형"
+    },
+    {
+      "id": "C-LIC-22",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-misconduct"],
+      "title": "부정행위 제재",
+      "summary": "합격 취소(기속), 취소일부터 2년 응시 제한, 단순 불합격과 부정행위 제재의 구분"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-108",
+      "conceptId": "C-LIC-18",
+      "subject": "시험문제 출제 의뢰",
+      "predicate": "의뢰 절차",
+      "value": "공단 이사장이 학과 출제위원에게 시험의 종류·시험과목·출제 문제 수준·출제 문제 수·문제 제출 기일 등을 알려주고 의뢰",
+      "operator": "eq",
+      "statement": "공단 이사장은 시험문제를 출제하려는 경우 학과 출제위원에게 시험의 종류, 시험과목, 출제 문제 수준, 출제 문제 수, 문제 제출 기일 등을 알려주고 시험문제 출제를 의뢰하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.28",
+          "note": "세칙 제21조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-109", "AF-110", "AF-111", "AF-112"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "구체적 문제 수·수준의 수치는 미기재 — '알려주는 항목'의 목록만 팩트화. 혼동 포인트: 출제 주체 — 이사장이 직접 출제하는 것이 아니라 출제위원에게 의뢰"
+    },
+    {
+      "id": "AF-109",
+      "conceptId": "C-LIC-18",
+      "subject": "학과 출제 세부 항목·실기시험표준서",
+      "predicate": "마련·운영 주체",
+      "value": "공단 이사장",
+      "operator": "eq",
+      "statement": "공단 이사장은 학과 시험의 과목별 출제 세부 항목과 실기시험 평가를 위한 실기시험표준서를 마련·운영하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.28",
+          "note": "세칙 제22조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-122"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "p.30 제32조⑤(실기시험표준서 기준 평가, AF-122)와 crossReference. 혼동 포인트: 실기시험표준서는 실기 평가 기준 — 학과 세부 항목과 실기 표준서의 용도 구분"
+    },
+    {
+      "id": "AF-110",
+      "conceptId": "C-LIC-18",
+      "subject": "학과시험 출제 형식",
+      "predicate": "출제 원칙",
+      "value": "객관식 4지 선택형 원칙, 경우에 따라 진위형 혼용 가능",
+      "operator": "eq",
+      "statement": "학과 출제 위원은 객관식 4지 선택형 출제를 원칙으로 하되, 경우에 따라 진위형을 혼용할 수 있다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "FE-110-1",
+          "statement": "진위형 혼용은 '경우에 따라' 가능 (원칙의 완화)"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.28",
+          "note": "세칙 제22조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: '4지'(5지 아님), 진위형은 혼용 가능이지 원칙이 아님 — 원칙·예외 스왑"
+    },
+    {
+      "id": "AF-111",
+      "conceptId": "C-LIC-18",
+      "subject": "출제 범위",
+      "predicate": "제한",
+      "value": "공단 이사장이 정한 범위 내",
+      "operator": "eq",
+      "statement": "학과 출제 위원은 공단 이사장이 정한 범위 내에서 시험문제를 출제하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.28",
+          "note": "세칙 제22조③"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-108"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "혼동 포인트: 범위 설정 주체(이사장)와 출제 주체(출제위원)의 역할 분담"
+    },
+    {
+      "id": "AF-112",
+      "conceptId": "C-LIC-18",
+      "subject": "시험문제 제출·보안",
+      "predicate": "제출 방법",
+      "value": "정답 표시 후 봉인하여 직접 또는 등기우편 제출, 또는 보안장치가 강구된 전산망(Web. Data Base) 제출",
+      "operator": "eq",
+      "statement": "학과 출제 위원은 시험문제를 출제하고 정답을 표시한 후 봉인하여 공단 이사장에게 직접 또는 등기우편으로 제출하거나 보안장치가 강구된 전산망으로 제출하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.28",
+          "note": "세칙 제22조④"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-108", "AF-035", "AF-113"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "신고접수 창구 5종(AF-035)과 채널 목록 대비 — 목록 스왑 오답 소재. 혼동 포인트: 제출 채널 3종(직접·등기우편·보안 전산망) — 일반우편·이메일은 미기재"
+    },
+    {
+      "id": "AF-113",
+      "conceptId": "C-LIC-19",
+      "subject": "응시원서 제출",
+      "predicate": "서식·제출 방법",
+      "value": "별지 제9호 서식 작성 후 공단 방문 또는 공단 홈페이지 제출",
+      "operator": "eq",
+      "statement": "학과시험 또는 실기시험에 응시하고자 하는 사람은 별지 제9호 서식의 무인비행장치 조종자 증명 응시원서를 작성하여 공단에 방문하거나 공단 홈페이지를 통해 제출하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.29",
+          "note": "세칙 제27조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-112", "AF-116"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "제출 채널 목록이 제도마다 다른 점이 이 문서의 반복 함정 구조. 혼동 포인트: 응시원서 채널 2종(방문·홈페이지) — 신고접수 5종(AF-035)·출제문제 3종(AF-112)과 채널 수 상이, 서식 번호: 제9호(응시원서) vs 제2호(비행경력증명서) vs 제1호(교육이수증명서)"
+    },
+    {
+      "id": "AF-114",
+      "conceptId": "C-LIC-19",
+      "subject": "실기시험 응시 요건 ①",
+      "predicate": "학과시험 유효성",
+      "value": "해당 무인비행장치의 학과 시험이 유효기간 이내일 것",
+      "operator": "eq",
+      "statement": "실기시험에 응시하고자 하는 사람은 해당 무인비행장치의 학과 시험이 유효기간 이내이어야 한다",
+      "conditions": [
+        {
+          "id": "FC-114-1",
+          "statement": "AF-115(경력 충족)와 동시 충족 (AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.29",
+          "note": "세칙 제27조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-PRAC-ELIG-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-115"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "유효기간의 구체 기간(몇 년)은 이 문서에 미기재 — NUMERIC 문제 생성 금지, 존재 여부·요건 구조만 출제 가능. 혼동 포인트: '해당' 무인비행장치 — 다른 기체의 학과 합격은 무효"
+    },
+    {
+      "id": "AF-115",
+      "conceptId": "C-LIC-19",
+      "subject": "실기시험 응시 요건 ②",
+      "predicate": "경력 충족",
+      "value": "제7조(응시 및 면제 기준)에 따른 경력 충족",
+      "operator": "eq",
+      "statement": "실기시험에 응시하고자 하는 사람은 제7조(응시 및 면제 기준)에 따른 경력을 충족하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-115-1",
+          "statement": "AF-114(학과 유효)와 동시 충족 (AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.29",
+          "note": "세칙 제27조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-PRAC-ELIG-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-114", "AF-069", "AF-070", "AF-071", "AF-072", "AF-073", "AF-074", "AF-075", "AF-076", "AF-077", "AF-078"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "기존 AF-069~078(경력 수치)과 crossReference — 경력의 적용 시점(실기)을 확정하는 팩트. 혼동 포인트: 응시 경력(별표 2)이 실기 단계에서 검증됨 — 학과 응시에는 경력 요건 미기재"
+    },
+    {
+      "id": "AF-116",
+      "conceptId": "C-LIC-19",
+      "subject": "실기시험 응시 첨부서류",
+      "predicate": "구성",
+      "value": "①별지 제2호 서식의 비행경력증명서 ②제13조에 따른 신체검사증명서 ③(학과 전부 면제자) 전문교육기관 수료 증명서",
+      "operator": "eq",
+      "statement": "실기시험에 응시하고자 하는 사람은 비행경력증명서, 신체검사증명서를 첨부하여 공단 이사장에게 제출하여야 하며, 학과시험 전부를 면제받으려는 사람은 전문교육기관 수료 증명서를 추가 제출하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-116-1",
+          "statement": "서류 ①②(비행경력증명서·신체검사증명서)는 기본 필수"
+        },
+        {
+          "id": "FC-116-2",
+          "statement": "서류 ③(전문교육기관 수료 증명서)은 제8조제1호에 따라 학과시험 전부를 면제받으려는 사람에 한함 (조건부)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.29",
+          "note": "세칙 제27조③"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-113", "AF-090", "AF-095"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "기본 2종 + 조건부 1종 구조 — '3종 전원 필수'로 오인 주의. 제8조제1호(학과 전부 면제 근거)는 본문 미수록 — 존재만 확인됨. 신체검사증명서의 근거 제13조도 본문 미수록. 혼동 포인트: 지도조종자 등록 서류 3종(AF-095)과 목록 혼동, '학과 전부 면제'(제8조제1호)와 '일부 면제'(제7조②)의 구분"
+    },
+    {
+      "id": "AF-117",
+      "conceptId": "C-LIC-20",
+      "subject": "실기시험위원 지정",
+      "predicate": "지정 비율",
+      "value": 1,
+      "unit": "명 (응시자 1명당 실기시험위원)",
+      "operator": "eq",
+      "statement": "공단 이사장은 응시자 1명에 대하여 실기시험위원 1명을 지정하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.30",
+          "note": "세칙 제32조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 1:1 지정 — '2명 이상 위원단'으로 오인"
+    },
+    {
+      "id": "AF-118",
+      "conceptId": "C-LIC-20",
+      "subject": "실기시험 시간",
+      "predicate": "원칙 시간",
+      "value": 20,
+      "unit": "분",
+      "operator": "gte",
+      "statement": "실기시험 시간은 20분 이상으로 함을 원칙으로 한다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "FE-118-1",
+          "statement": "공단 이사장이 필요하다고 인정할 때에는 그 시간을 조정할 수 있다"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.30",
+          "note": "세칙 제32조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "원칙(gte 20분)과 예외(이사장 조정)의 결합 — EXCEPTION_OMISSION 원천. 혼동 포인트: '20분 이상 원칙' + 조정 가능 예외, 30분·10분 등 인접 수치 혼동"
+    },
+    {
+      "id": "AF-119",
+      "conceptId": "C-LIC-20",
+      "subject": "실기시험 사용 기체",
+      "predicate": "기체 요건",
+      "value": "자격별 기능유무를 판정할 수 있는 비행장치",
+      "operator": "eq",
+      "statement": "실기시험은 자격별 기능유무를 판정할 수 있는 비행장치로 실시하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.30",
+          "note": "세칙 제32조③"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-120"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "혼동 포인트: 기체 준비 주체(응시자, AF-120)와 기체 요건(판정 가능성)의 구분"
+    },
+    {
+      "id": "AF-120",
+      "conceptId": "C-LIC-20",
+      "subject": "실기시험 준비 책임",
+      "predicate": "준비 주체",
+      "value": "실기시험을 신청한 응시자",
+      "operator": "eq",
+      "statement": "실기시험에 필요한 기체 및 제반 장비, 비행 승인 등은 실기시험을 신청한 응시자가 준비하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.30",
+          "note": "세칙 제32조④"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-119", "AF-042", "AF-043"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AUTHORITY_SWAP 대표 원천 — 비행승인 제도(AF-042·043)와의 연결 고리. 혼동 포인트: 준비 주체가 응시자 — 공단·교육기관이 아님, 비행 승인까지 응시자 책임 범위에 포함"
+    },
+    {
+      "id": "AF-121",
+      "conceptId": "C-LIC-20",
+      "subject": "실기시험 당일 제시 서류",
+      "predicate": "구성",
+      "value": "4종: ①신분증 ②응시자격부여용 제출 서류 ③기체의 신고증명서·보험증서·제작사 제원표(최대이륙중량·한계 풍속 포함) ④(비행 승인 필요 장소인 경우) 비행 승인 서류",
+      "operator": "eq",
+      "statement": "응시자는 실기시험 당일 신분증, 응시자격부여를 받기 위해 제출한 서류, 무인비행장치의 신고증명서·보험증서·제작사의 제원표(최대이륙중량과 운용 가능한 한계 풍속을 포함), 비행 승인이 필요한 장소인 경우 비행 승인 서류를 실기시험위원에게 제시하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-121-1",
+          "statement": "서류 ④(비행 승인 서류)는 비행 승인이 필요한 장소에서 실기시험에 응시하는 경우에 한함 (조건부)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.30",
+          "note": "세칙 제32조④ 1~4호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-116", "AF-120"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "4개 호를 하나의 목록 팩트로 통합 — 분리 필요 시 검수 지시. 제원표 기재 요소(최대이륙중량·한계 풍속)가 세부 함정. 혼동 포인트: 신고증명서 휴대 의무(규칙 제301조②, p.10)와 연결 — 실기에서도 신고증명서 제시, 원서 첨부서류(AF-116)와 당일 제시 서류의 목록 구분"
+    },
+    {
+      "id": "AF-122",
+      "conceptId": "C-LIC-20",
+      "subject": "실기시험 평가 기준",
+      "predicate": "평가 방법",
+      "value": "조종자 증명별 실기시험표준서(부록) 기준 + 별지 제10호~제16호 서식 채점표에 따라 평가",
+      "operator": "eq",
+      "statement": "실기시험 위원은 조종자 증명별로 공단 이사장이 정하는 실기시험표준서를 기준으로 별지 제10호서식부터 별지 제16호서식까지의 채점표에 따라 평가하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.30",
+          "note": "세칙 제32조⑤"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-109", "AF-123"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "합격 점수는 이 문서 전체에 부재(AF-107 ReviewNote와 일관) — 채점 절차만 출제 가능. 혼동 포인트: 채점표 서식 범위(제10호~제16호) — 응시원서 제9호와 연번 인접, 합격 점수·기준은 미기재"
+    },
+    {
+      "id": "AF-123",
+      "conceptId": "C-LIC-20",
+      "subject": "자동채점시스템",
+      "predicate": "활용 가능성",
+      "value": "공단 이사장이 지정한 자동채점시스템 활용 가능 (임의)",
+      "operator": "eq",
+      "statement": "실기시험위원은 평가 시 공단 이사장이 지정한 자동채점시스템을 활용할 수 있다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.30",
+          "note": "세칙 제32조⑥"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-122"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "'활용할 수 있다'는 임의 규정 — 의무 아님. 재량 규정으로 기속·재량 스왑 오답 소재"
+    },
+    {
+      "id": "AF-124",
+      "conceptId": "C-LIC-21",
+      "subject": "부정행위 유형 ①",
+      "predicate": "유형 내용",
+      "value": "거짓이나 그 밖의 부정한 방법으로 시험에 응시한 경우",
+      "operator": "eq",
+      "statement": "거짓이나 그 밖의 부정한 방법으로 시험에 응시한 경우는 부정행위에 해당한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.31",
+          "note": "세칙 제37조② 1호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-125", "AF-126", "AF-127"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "유형(본 팩트)과 제재 결과(AF-126~127)를 분리. 혼동 포인트: 유형 ②(서류 허위 제출, AF-125)와의 구분 — ①은 응시 행위 자체의 부정"
+    },
+    {
+      "id": "AF-125",
+      "conceptId": "C-LIC-21",
+      "subject": "부정행위 유형 ②",
+      "predicate": "유형 내용",
+      "value": "서류를 허위로 제출한 경우",
+      "operator": "eq",
+      "statement": "서류를 허위로 제출한 경우는 부정행위에 해당한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.31",
+          "note": "세칙 제37조② 2호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-124", "AF-099", "AF-126", "AF-127"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-099와 crossReference — 주체별 제재 체계 대비. 혼동 포인트: 지도조종자 취소 사유 ③(경력서 허위 제출, AF-099)과 문형 유사 — 제재 대상(응시자 vs 지도조종자)이 다름, 유형 ①과의 구분"
+    },
+    {
+      "id": "AF-126",
+      "conceptId": "C-LIC-22",
+      "subject": "합격 후 부정행위 발견 시 처리",
+      "predicate": "처리 내용",
+      "value": "당해 합격을 취소하여야 한다 (기속)",
+      "operator": "eq",
+      "statement": "공단 이사장은 조종자증명시험에 합격한 사람이 부정행위를 한 사실을 발견한 때에는 당해 합격을 취소하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-126-1",
+          "statement": "합격한 사람의 부정행위 사실이 발견되었을 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.31",
+          "note": "세칙 제37조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-124", "AF-125", "AF-127", "AF-128"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "'취소하여야 한다'(기속) — 재량 아님. 혼동 포인트: 합격 취소(시험 단계) vs 증명 취소(법 제125조②, p.14 본 범위 외)의 제도 구분, 단순 불합격과 합격 취소의 구분 — 불합격은 제재가 아님"
+    },
+    {
+      "id": "AF-127",
+      "conceptId": "C-LIC-22",
+      "subject": "응시 제한 기간",
+      "predicate": "제한 기간",
+      "value": 2,
+      "unit": "년 (취소일부터)",
+      "operator": "eq",
+      "statement": "조종자증명이 취소된 사람은 취소일로부터 2년간 이 세칙에 의한 조종자증명시험에 응시할 수 없다",
+      "conditions": [
+        {
+          "id": "FC-127-1",
+          "statement": "적용 대상 ①: 제2항에 따른 부정행위를 한 자 (OR)"
+        },
+        {
+          "id": "FC-127-2",
+          "statement": "적용 대상 ②: 조종자증명시험의 합격이 취소된 자 (OR)"
+        },
+        {
+          "id": "FC-127-3",
+          "statement": "적용 대상 ③: 법에 따라 거짓이나 그 밖의 부정한 방법으로 초경량비행장치 조종자 증명을 받은 자 (OR)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.31",
+          "note": "세칙 제37조③"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-124", "AF-125", "AF-126", "AF-128"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "대상 3개 호는 OR — 어느 하나 해당 시 제한. 조문 문두 '조종자증명이 취소된 사람'과 각 호(합격 취소 포함)의 포섭 관계가 문면상 다소 중첩적 — 원문 구조 그대로 보존. 혼동 포인트: 기산점은 취소일, 2년의 다중 등장(전문교육기관 면제 유효 2년, 상호 면제 2년, 지도조종자 결격 2년)과 제도 구분, 단순 불합격은 응시 제한 없음"
+    },
+    {
+      "id": "AF-128",
+      "conceptId": "C-LIC-22",
+      "subject": "합격 취소 vs 단순 불합격",
+      "predicate": "제도 구분",
+      "value": "합격 취소·부정행위: 2년 응시 제한 / 단순 불합격: 응시 제한 규정 없음",
+      "operator": "eq",
+      "statement": "부정행위로 인한 합격 취소는 2년간 응시 제한이 따르지만, 단순 시험 불합격에 대해서는 이 세칙에 응시 제한 규정이 없다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.31",
+          "note": "세칙 제37조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-126", "AF-127"],
+      "crossReferences": ["AF-126", "AF-127"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "'규정 없음'은 2021년 교육자료 범위 내 판단이며 현행 법령 전체의 부재 단정 아님. 혼동 포인트: 불합격 = 제재로 오인하는 오류 — 불합격은 평가 결과이고 취소·제한은 제재"
+    }
+  ]
+}

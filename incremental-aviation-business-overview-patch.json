@@ -1,0 +1,342 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-BIZ-GEN-01",
+      "title": "항공사업법 목적",
+      "summary": "항공정책 수립과 항공사업 규율을 통해 산업 성장, 질서유지, 이용자 편의, 국민경제 발전에 이바지하는 항공사업법의 입법 목적",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business"
+      ]
+    },
+    {
+      "id": "C-BIZ-GEN-02",
+      "title": "유인 초경량비행장치 정의 기준",
+      "summary": "동력비행장치·행글라이더·패러글라이더 등 유인 초경량비행장치의 항공안전법상 자체중량 정의 기준(115kg·70kg)",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business"
+      ]
+    },
+    {
+      "id": "C-BIZ-GEN-03",
+      "title": "유인 초경량비행장치 안전성인증 기준",
+      "summary": "기구류·회전익비행장치·동력패러글라이딩 등이 안전성인증 대상이 되는 조건과 자체중량 기준",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": [
+        "cat-aviation-business"
+      ]
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-162",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.3",
+          "note": "해당 정의 또는 수치가 항공안전법 조문 인용 형태로 재수록됨"
+        }
+      ]
+    },
+    {
+      "id": "AF-165",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.4",
+          "note": "해당 정의 또는 수치가 항공안전법 조문 인용 형태로 재수록됨"
+        }
+      ]
+    },
+    {
+      "id": "AF-167",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.4",
+          "note": "해당 정의 또는 수치가 항공안전법 조문 인용 형태로 재수록됨"
+        }
+      ]
+    },
+    {
+      "id": "AF-168",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.4",
+          "note": "해당 정의 또는 수치가 항공안전법 조문 인용 형태로 재수록됨"
+        }
+      ]
+    },
+    {
+      "id": "AF-427",
+      "conceptId": "C-BIZ-GEN-01",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "항공사업법",
+      "predicate": "목적",
+      "operator": "eq",
+      "value": null,
+      "unit": null,
+      "statement": "항공사업법은 항공정책의 수립과 항공사업에 필요한 사항을 정하여 항공사업의 체계적 성장과 경쟁력 강화, 질서유지와 건전한 발전, 이용자 편의 향상, 국민경제 발전 및 공공복리 증진에 이바지함을 목적으로 한다",
+      "conditions": [],
+      "exceptions": [],
+      "standaloneQuestionAllowed": false,
+      "crossReferences": [],
+      "sourceReference": "p.3",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.85,
+      "status": "draft",
+      "reviewNote": "여러 목적 요소를 묶은 열거형 팩트이므로 자동 단독 출제를 차단함",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.3",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-428",
+      "conceptId": "C-BIZ-GEN-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "동력비행장치",
+      "predicate": "정의 기준",
+      "operator": "lte",
+      "value": 115,
+      "unit": "kg (자체중량)",
+      "statement": "동력비행장치는 자체중량이 115킬로그램 이하이고 좌석이 1개인 비행장치이다",
+      "conditions": [
+        {
+          "id": "AF-428-C1",
+          "statement": "좌석 수가 1개일 것"
+        }
+      ],
+      "exceptions": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-162",
+        "AF-163"
+      ],
+      "sourceReference": "p.4",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.4",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-429",
+      "conceptId": "C-BIZ-GEN-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "행글라이더",
+      "predicate": "정의 기준",
+      "operator": "lte",
+      "value": 70,
+      "unit": "kg (자체중량)",
+      "statement": "행글라이더의 정의상 자체중량 기준은 70킬로그램 이하이다",
+      "conditions": [],
+      "exceptions": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-163"
+      ],
+      "sourceReference": "p.4",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.4",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-430",
+      "conceptId": "C-BIZ-GEN-02",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "패러글라이더",
+      "predicate": "정의 기준",
+      "operator": "lte",
+      "value": 70,
+      "unit": "kg (자체중량)",
+      "statement": "패러글라이더의 정의상 자체중량 기준은 70킬로그램 이하이다",
+      "conditions": [],
+      "exceptions": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-163",
+        "AF-429"
+      ],
+      "sourceReference": "p.4",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.4",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-431",
+      "conceptId": "C-BIZ-GEN-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "기구류 안전성인증 대상",
+      "predicate": "적용 조건",
+      "operator": "eq",
+      "value": "사람이 탑승하는 기구류",
+      "unit": null,
+      "statement": "기구류 중 사람이 탑승하는 것은 안전성인증 대상에 해당한다",
+      "conditions": [],
+      "exceptions": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-036",
+        "AF-040"
+      ],
+      "sourceReference": "p.5",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.9,
+      "status": "draft",
+      "reviewNote": "교육자료에 명시된 범위만 반영하며 무탑승 기구류의 전체 법적 지위를 확대 해석하지 않음",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.5",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-432",
+      "conceptId": "C-BIZ-GEN-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "회전익비행장치 안전성인증 대상",
+      "predicate": "대상 기준",
+      "operator": "lte",
+      "value": 115,
+      "unit": "kg (자체중량)",
+      "statement": "회전익비행장치는 자체중량이 115킬로그램 이하이고 좌석이 1개인 경우 안전성인증 대상에 해당한다",
+      "conditions": [
+        {
+          "id": "AF-432-C1",
+          "statement": "좌석 수가 1개일 것"
+        }
+      ],
+      "exceptions": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-036",
+        "AF-040",
+        "AF-428"
+      ],
+      "sourceReference": "p.5",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.9,
+      "status": "draft",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.5",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    },
+    {
+      "id": "AF-433",
+      "conceptId": "C-BIZ-GEN-03",
+      "subjectId": "kr-aviation-business-act",
+      "factType": "SOURCE_FACT",
+      "subject": "동력패러글라이딩 안전성인증 대상",
+      "predicate": "대상 기준",
+      "operator": "lte",
+      "value": 115,
+      "unit": "kg (자체중량)",
+      "statement": "착륙장치가 있는 동력패러글라이딩은 자체중량이 115킬로그램 이하이고 좌석이 1개인 경우 안전성인증 대상에 해당한다",
+      "conditions": [
+        {
+          "id": "AF-433-C1",
+          "statement": "착륙장치가 있을 것"
+        },
+        {
+          "id": "AF-433-C2",
+          "statement": "좌석 수가 1개일 것"
+        }
+      ],
+      "exceptions": [],
+      "standaloneQuestionAllowed": true,
+      "crossReferences": [
+        "AF-036",
+        "AF-040",
+        "AF-295",
+        "AF-428",
+        "AF-432"
+      ],
+      "sourceReference": "p.5",
+      "sourceDocumentId": "aviation-business-act-training-undated",
+      "sourceRevisionId": "aviation-business-act-training-undated-v1",
+      "version": "undated-training-v1",
+      "sourceVersion": "발행연도 미상 항공사업법 교육자료",
+      "confidence": 0.95,
+      "status": "draft",
+      "reviewNote": "항공레저스포츠 대여 대상인 착륙장치 없는 동력패러글라이더와 조건이 반대이므로 제도 목적을 혼동하지 않음",
+      "sourceReferences": [
+        {
+          "documentId": "aviation-business-act-training-undated",
+          "revisionId": "aviation-business-act-training-undated-v1",
+          "locator": "p.5",
+          "note": "발행연도 미상 항공사업법 교육자료"
+        }
+      ]
+    }
+  ]
+}

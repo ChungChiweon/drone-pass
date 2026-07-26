@@ -1,0 +1,365 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-REG-18",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-procedure"],
+      "title": "신고증명서 발급·휴대",
+      "summary": "초경량비행장치 신고 후 신고증명서의 발급과 비행 시 휴대 의무"
+    },
+    {
+      "id": "C-REG-19",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-marking"],
+      "title": "신고번호 표시·표시방법",
+      "summary": "신고번호 표시 의무와 표시방법·표시장소·크기의 결정 구조"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-014",
+      "conceptId": "C-REG-05",
+      "subject": "신고번호 표시 의무",
+      "predicate": "적용 범위",
+      "value": "장치신고 의무와 동일 패턴",
+      "operator": "eq",
+      "statement": "신고번호 표시 의무는 p.17 표 기준으로 장치신고 의무와 동일하게 적용된다 (2kg 초과: 전부 O / 2kg 이하: 사업 O, 비사업 X)",
+      "conditions": [
+        {
+          "id": "FC-014-1",
+          "statement": "신고 대상 기체일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 적용표"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조④"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-187", "AF-188"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "표의 O/X 패턴에서 도출한 종합 사실. 표시 의무 자체의 근거 조문(규칙 제301조④)은 p.10으로 본 분석 범위 외 — 범위 확장 시 재검증 필요. 혼동 포인트: 표시 위반 제재(과태료)와 신고 위반 제재(벌금)가 다름. 신고번호 표시 의무 소분류로 이동 배치됨. 규칙 제301조④에서 신고번호 표시 의무의 조문 근거를 확인함"
+    },
+    {
+      "id": "AF-017",
+      "conceptId": "C-REG-07",
+      "subject": "신규신고 (안전성인증 대상 기체)",
+      "predicate": "신고 기한",
+      "value": "안전성인증을 받기 전",
+      "operator": "lte",
+      "statement": "안전성인증 대상 기체의 신규신고는 안전성인증을 받기 전까지 하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-017-1",
+          "statement": "안전성인증 대상 기체일 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "FE-017-1",
+          "statement": "안전성인증 대상이 아닌 기체는 AF-018의 기한(30일 이내) 적용"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제4조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-018"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "기한이 기체 유형(인증 대상 여부)에 따라 이원화됨. p.10(규칙 제301조)에도 동일 내용이 있으나 본 분석 범위는 p.33이며, 범위 확장 시 SourceReference에 p.10 병합 권장. 신고 절차·서류 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-018",
+      "conceptId": "C-REG-07",
+      "subject": "신규신고 (안전성인증 비대상 기체)",
+      "predicate": "신고 기한",
+      "value": 30,
+      "unit": "일",
+      "operator": "lte",
+      "statement": "안전성인증 대상이 아닌 기체는 소유하거나 사용할 권리가 있는 날부터 30일 이내에 신규신고하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-018-1",
+          "statement": "안전성인증 대상이 아닌 기체일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제4조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-017"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "기산점은 권리가 있는 날부터(구매일·비행 개시일 아님). 혼동 포인트: 말소신고 15일(p.34, 본 범위 외)과 혼동. 신고 절차·서류 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-019",
+      "conceptId": "C-REG-07",
+      "subject": "신규신고서",
+      "predicate": "제출처",
+      "value": "한국교통안전공단이사장",
+      "operator": "eq",
+      "statement": "신규신고서는 한국교통안전공단이사장에게 제출하여야 한다 (규칙·세칙 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제4조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-002"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "법률상 신고 상대방(국토교통부장관, AF-002)과 표현이 다름. AF-002와 쌍으로 관리 필요. 출제 시 문항에 '법 문언상' 또는 '제출처는' 등 관점을 반드시 명시하는 규칙 권장. 신고 절차·서류 소분류로 이동 배치됨. p.10 확인으로 제출처가 규칙 제301조 자체에 명시됨이 확정됨 — 세칙만의 실무 기준이 아니라 시행규칙 차원의 규정임"
+    },
+    {
+      "id": "AF-020",
+      "conceptId": "C-REG-07",
+      "subject": "신규신고 첨부서류",
+      "predicate": "구성",
+      "value": "3종: 소유·사용 권리 증명 서류, 제원 및 성능표, 사진(가로 15cm x 세로 10cm 측면사진)",
+      "operator": "eq",
+      "statement": "신규신고 시 첨부서류는 소유·사용 권리 증명 서류, 제원 및 성능표, 가로 15cm x 세로 10cm 측면사진 3종이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제4조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조① 1호~3호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "혼동 포인트: 사진 규격의 가로·세로 순서(15x10) 및 측면사진 요건. p.10(규칙 제301조)에 동일 내용 존재하며 범위 확장 시 병합 권장. 신고 절차·서류 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-035",
+      "conceptId": "C-REG-07",
+      "subject": "신규·변경·이전·말소 신고",
+      "predicate": "접수 방법",
+      "value": "전산시스템 또는 e-mail·팩스·우편·방문",
+      "operator": "eq",
+      "statement": "신규·변경·이전·말소 신고 시 신고서 및 첨부서류는 전산시스템 또는 e-mail·팩스·우편·방문을 통하여 제출할 수 있다",
+      "conditions": [
+        {
+          "id": "FC-035-1",
+          "statement": "규칙 제301조①은 신고서와 첨부서류를 전자문서로 작성하여 팩스 또는 정보통신을 이용해 제출할 수 있음을 명시한다"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.34",
+          "note": "세칙 제8조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "신고 절차·서류 소분류(C-REG-07, cat-report-procedure)로 배치됨. 규칙 제301조①의 '팩스 또는 정보통신 제출'(p.10, 본 범위 외)과 내용 정합. 혼동 포인트: 접수 채널 5종의 범위 — 전화 접수는 미기재"
+    },
+    {
+      "id": "AF-185",
+      "conceptId": "C-REG-18",
+      "subject": "초경량비행장치 신고증명서",
+      "predicate": "발급 의무",
+      "value": "한국교통안전공단이사장이 신고를 받으면 소유자등에게 발급",
+      "operator": "eq",
+      "statement": "한국교통안전공단이사장은 초경량비행장치의 신고를 받으면 별지 서식의 초경량비행장치 신고증명서를 초경량비행장치소유자등에게 발급하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-185-1",
+          "statement": "초경량비행장치의 신고를 받았을 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-186", "AF-187", "AF-121", "AF-019"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "발급 주체(공단이사장)·발급 상대(소유자등)·기속 의무('발급하여야')의 3요소. AF-121(실기시험 당일 신고증명서 제시)의 전제가 되는 팩트"
+    },
+    {
+      "id": "AF-186",
+      "conceptId": "C-REG-18",
+      "subject": "초경량비행장치 신고증명서",
+      "predicate": "비행 시 휴대 의무",
+      "value": "소유자등은 비행 시 신고증명서를 휴대",
+      "operator": "eq",
+      "statement": "초경량비행장치의 소유자등은 비행 시 초경량비행장치 신고증명서를 휴대하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-186-1",
+          "statement": "비행 시일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-185", "AF-121", "AF-143"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "휴대 의무 주체가 문언상 '소유자등' — 비행하는 사람(조종자)이 휴대할 것으로 직관하기 쉬우나 원문은 소유자등으로 규정. 준수사항 의무 주체(조종자, AF-143)와의 대비가 함정. 실기시험 제시(AF-121)·비행 휴대(본 팩트)의 장면 구분도 출제 소재"
+    },
+    {
+      "id": "AF-187",
+      "conceptId": "C-REG-19",
+      "subject": "신고번호 표시 의무",
+      "predicate": "의무 내용",
+      "value": "신고증명서의 신고번호를 해당 장치에 표시",
+      "operator": "eq",
+      "statement": "초경량비행장치소유자등은 초경량비행장치 신고증명서의 신고번호를 해당 장치에 표시하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조④"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-014", "AF-185", "AF-188", "AF-016"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-014(p.17 표 기반 적용 범위)의 근거 조문을 확정하는 팩트. 의무 자체(본 팩트, 조문 기반)와 적용 범위 매트릭스(AF-014, 표 기반)로 역할 분담"
+    },
+    {
+      "id": "AF-188",
+      "conceptId": "C-REG-19",
+      "subject": "신고번호 표시 세부사항",
+      "predicate": "결정 구조",
+      "value": "국토교통부장관 승인 후 한국교통안전공단이사장이 결정",
+      "operator": "eq",
+      "statement": "신고번호의 표시방법, 표시장소 및 크기 등 필요한 사항은 국토교통부장관의 승인을 받아 한국교통안전공단이사장이 정한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.10",
+          "note": "규칙 제301조④"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-014", "AF-187", "AF-036", "AF-041"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "이중 주체 구조(승인: 국토교통부장관 / 결정: 한국교통안전공단이사장)가 AUTHORITY_SWAP 원천 — 안전성인증의 '기준 고시: 장관 / 검사: 기술원'(AF-036·041) 패턴과 유사하나 역할 배분이 다름. 구체적 표시방법·크기 수치는 문서에 없어 결정 구조만 출제 가능"
+    }
+  ]
+}

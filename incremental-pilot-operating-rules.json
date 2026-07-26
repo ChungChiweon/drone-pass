@@ -1,0 +1,685 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-pilot-compliance",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "조종자 준수사항"
+    },
+    {
+      "id": "cat-pilot-compliance-flight",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "비행 중 준수사항·금지행위",
+      "parentId": "cat-pilot-compliance"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-OPS-01",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-compliance-flight"],
+      "title": "준수사항 총칙",
+      "summary": "조종자의 준수사항 준수 의무(법 제129조①)와 무인비행장치 조종자에 대한 제4호·제5호 적용 제외"
+    },
+    {
+      "id": "C-OPS-02",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-compliance-flight"],
+      "title": "금지행위 (제310조①)",
+      "summary": "낙하물 투하 금지, 인구밀집지역 위험 비행 금지, 관제·통제·주의공역 비행 금지 원칙"
+    },
+    {
+      "id": "C-OPS-03",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-compliance-flight"],
+      "title": "공역 비행 예외",
+      "summary": "군사목적 예외, 소형기(25kg 이하·무인비행선 12kg/7m 이하)의 관제권·비행금지구역 외 150m 미만 비행 예외"
+    },
+    {
+      "id": "C-OPS-04",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-compliance-flight"],
+      "title": "야간비행",
+      "summary": "일몰 후~일출 전 야간비행 금지 원칙과 계류식 기구·허가(특별비행승인 등) 예외"
+    },
+    {
+      "id": "C-OPS-05",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-compliance-flight"],
+      "title": "음주·비정상 비행",
+      "summary": "주류등(주류·마약류·환각물질) 영향 상태 조종·비행 중 섭취 금지, 비정상적 방법 비행 금지"
+    },
+    {
+      "id": "C-OPS-06",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-compliance-flight"],
+      "title": "회피·양보 의무",
+      "summary": "항공기·경량항공기 육안 식별 회피 의무, 동력 초경량비행장치의 진로 양보 의무"
+    },
+    {
+      "id": "C-OPS-07",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-compliance-flight"],
+      "title": "비가시권 비행",
+      "summary": "무인비행장치의 육안 확인 범위 내 조종 원칙과 허가(시험비행허가·특별비행승인)에 따른 예외"
+    },
+    {
+      "id": "C-OPS-08",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-compliance-flight"],
+      "title": "사고 보고",
+      "summary": "초경량비행장치사고의 지체 없는 보고 의무, 조종자·소유자등의 보고 주체 순위, 개인정보·개인위치정보의 준거 법률"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-143",
+      "conceptId": "C-OPS-01",
+      "subject": "조종자 준수사항 의무",
+      "predicate": "의무 구조",
+      "value": "초경량비행장치로 인하여 인명이나 재산에 피해가 발생하지 아니하도록 국토교통부령으로 정하는 준수사항을 지켜야 함",
+      "operator": "eq",
+      "statement": "초경량비행장치의 조종자는 초경량비행장치로 인하여 인명이나 재산에 피해가 발생하지 아니하도록 국토교통부령으로 정하는 준수사항을 지켜야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "법 제129조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-136", "AF-160"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "위반 시 과태료 200만원(p.17)·증명 취소정지 사유(AF-136)는 각각 이동·기존 처리. 혼동 포인트: 의무 주체는 조종자 — 소유자가 아님 (사고 보고의 보충 주체와 대비, AF-160)"
+    },
+    {
+      "id": "AF-144",
+      "conceptId": "C-OPS-01",
+      "subject": "무인비행장치 조종자에 대한 적용 제외",
+      "predicate": "제외 범위",
+      "value": "제4호(안개 등 육안 미식별 상태 비행 금지) 및 제5호(비행시정·구름 거리기준 위반 금지)는 무인비행장치 조종자에게 적용하지 아니함",
+      "operator": "eq",
+      "statement": "규칙 제310조① 각 호 중 제4호 및 제5호는 무인비행장치의 조종자에 대해서는 적용하지 아니한다",
+      "conditions": [
+        {
+          "id": "FC-144-1",
+          "statement": "무인비행장치 조종자일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "규칙 제310조① 단서"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-158"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "4·5호 미적용과 비가시권 금지(제310조④, AF-158)의 관계가 핵심 함정 — 안개 시 지상목표물 식별 불가 상태는 4호로는 면제되나 육안 확인 범위 조종 의무(④)로 사실상 제약. 혼동 포인트: 8개 금지행위 중 무인에 미적용되는 2개 호의 특정, '무인은 안개 속 비행 가능'으로 확대해석 금지"
+    },
+    {
+      "id": "AF-145",
+      "conceptId": "C-OPS-02",
+      "subject": "금지행위 제1호",
+      "predicate": "금지 내용",
+      "value": "인명이나 재산에 위험을 초래할 우려가 있는 낙하물을 투하(投下)하는 행위",
+      "operator": "eq",
+      "statement": "인명이나 재산에 위험을 초래할 우려가 있는 낙하물을 투하하는 행위는 금지된다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "규칙 제310조① 1호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "위험 우려 요건이 문언상 한정 — 요건 누락형 오답 원천. 혼동 포인트: '위험을 초래할 우려가 있는' 낙하물 — 모든 물건 투하의 전면 금지 문언은 아님"
+    },
+    {
+      "id": "AF-146",
+      "conceptId": "C-OPS-02",
+      "subject": "금지행위 제2호",
+      "predicate": "금지 내용",
+      "value": "인구가 밀집된 지역이나 사람이 많이 모인 장소의 상공에서 인명 또는 재산에 위험을 초래할 우려가 있는 방법으로 비행하는 행위",
+      "operator": "eq",
+      "statement": "인구가 밀집된 지역이나 그 밖에 사람이 많이 모인 장소의 상공에서 인명 또는 재산에 위험을 초래할 우려가 있는 방법으로 비행하는 행위는 금지된다",
+      "conditions": [
+        {
+          "id": "FC-146-1",
+          "statement": "장소 요건: 인구밀집 지역 또는 사람이 많이 모인 장소의 상공일 것"
+        },
+        {
+          "id": "FC-146-2",
+          "statement": "방법 요건: 인명 또는 재산에 위험을 초래할 우려가 있는 방법일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "규칙 제310조① 2호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "장소·방법 2요건 결합 — CONDITION_OMISSION 원천. 혼동 포인트: 금지되는 것은 '위험을 초래할 우려가 있는 방법'의 비행 — 인구밀집지역 상공 비행 자체의 전면 금지 문언은 아님"
+    },
+    {
+      "id": "AF-147",
+      "conceptId": "C-OPS-02",
+      "subject": "금지행위 제3호 (원칙)",
+      "predicate": "금지 내용",
+      "value": "관제공역·통제공역·주의공역에서 비행하는 행위",
+      "operator": "eq",
+      "statement": "법에 따른 관제공역·통제공역·주의공역에서 비행하는 행위는 원칙적으로 금지된다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "FE-147-1",
+          "statement": "각 목의 행위(군사목적 AF-148, 소형기 150m 미만 AF-149~151)는 제외"
+        },
+        {
+          "id": "FE-147-2",
+          "statement": "지방항공청장 허가를 받은 경우는 제외"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "규칙 제310조① 3호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-148", "AF-149", "AF-042", "AF-043"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "원칙(본 팩트)과 예외(AF-148~151) 분리. AF-042~043(p.18 표)과의 관계: 표는 승인 필요 여부 매트릭스(비행제한공역·비행금지구역·관제권·150m), 본 조문은 금지행위·예외 구조(관제·통제·주의공역)로 규정 층위와 공역 명칭 체계가 다름 — 중복이 아닌 상보 규정. 혼동 포인트: 예외 승인권자는 지방항공청장 — 국토교통부장관(안전성인증 예외, AF-037)과 다름"
+    },
+    {
+      "id": "AF-148",
+      "conceptId": "C-OPS-03",
+      "subject": "공역 비행 예외 ① (군사목적)",
+      "predicate": "예외 내용",
+      "value": "군사목적으로 사용되는 초경량비행장치를 비행하는 행위",
+      "operator": "eq",
+      "statement": "군사목적으로 사용되는 초경량비행장치를 비행하는 행위는 공역 비행 금지(제3호)의 예외이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "규칙 제310조① 3호 가목"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-010", "AF-147"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-010과 crossReference — 군사목적의 이중 등장(신고 제외 vs 공역 예외). 혼동 포인트: 신고 제외의 군사목적(AF-010)과 동일 개념·다른 제도 — 제도 혼동 최다 구간 재등장"
+    },
+    {
+      "id": "AF-149",
+      "conceptId": "C-OPS-03",
+      "subject": "공역 비행 예외 ② (소형기 저고도) 구조",
+      "predicate": "예외 구조",
+      "value": "해당 기체를 관제권 또는 비행금지구역이 아닌 곳에서 최저비행고도(150m) 미만의 고도에서 비행하는 행위",
+      "operator": "lt",
+      "statement": "일정 기준 이하의 비행장치를 관제권 또는 비행금지구역이 아닌 곳에서 최저비행고도(150미터) 미만의 고도에서 비행하는 행위는 공역 비행 금지의 예외이다",
+      "conditions": [
+        {
+          "id": "FC-149-1",
+          "statement": "대상 기체 기준 충족 (AF-150 또는 AF-151 — 기체 유형별 택일)"
+        },
+        {
+          "id": "FC-149-2",
+          "statement": "관제권 또는 비행금지구역이 아닌 곳일 것"
+        },
+        {
+          "id": "FC-149-3",
+          "statement": "최저비행고도(150m) 미만의 고도일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "규칙 제310조① 3호 나목"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-AIRSPACE-EX-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-150", "AF-151", "AF-043"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "예외 자체가 3중 AND. p.18 표의 '고도 150m 이상 승인 필요'(AF-043)와 상보 관계(150m 미만 예외 ↔ 150m 이상 승인). 혼동 포인트: 3요건 결합 — 하나라도 빠지면 예외 불성립, '150m 미만' — 정확히 150m는 예외 범위 밖, 관제권·비행금지구역에서는 소형기·저고도여도 예외 불가. 이 문서에서 경계 연산자가 '미만'인 사실상 유일한 수치 — BOUNDARY_OPERATOR_SWAP 검증력 최고 지점"
+    },
+    {
+      "id": "AF-150",
+      "conceptId": "C-OPS-03",
+      "subject": "예외 대상 기체 ①-1",
+      "predicate": "기체 기준",
+      "value": 25,
+      "unit": "kg (최대이륙중량)",
+      "operator": "lte",
+      "statement": "공역 비행 예외 나목의 대상 기체 중 무인비행기·무인헬리콥터·무인멀티콥터는 최대이륙중량이 25킬로그램 이하인 것이다",
+      "conditions": [
+        {
+          "id": "FC-150-1",
+          "statement": "AF-149의 요건 ① 충족용 (AF-151과 기체 유형별 OR)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "규칙 제310조① 3호 나목 1)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-AIRSPACE-EX-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-149", "AF-038", "AF-039", "AF-064"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "25kg의 3중 등장(안전성인증·종별 2종 상한·공역 예외) 완성 — SIBLING_FACT_SWAP 최적 원천. 혼동 포인트: 안전성인증 25kg(AF-038·039)와 동일 수치 — '인증 면제 기체 = 공역 예외 기체'로 제도 융합 오류, 종별 2종 상한 25kg(AF-064)와도 수치 접점"
+    },
+    {
+      "id": "AF-151",
+      "conceptId": "C-OPS-03",
+      "subject": "예외 대상 기체 ①-2",
+      "predicate": "기체 기준",
+      "value": "12kg 및 7m",
+      "unit": "kg (연료 제외 자체무게)·m",
+      "operator": "lte",
+      "statement": "공역 비행 예외 나목의 대상 기체 중 무인비행선은 연료의 무게를 제외한 자체무게 12킬로그램 이하이고 길이 7미터 이하인 것이다",
+      "conditions": [
+        {
+          "id": "FC-151-1",
+          "statement": "자체무게 12kg 이하 + 길이 7m 이하 (내부 AND)"
+        },
+        {
+          "id": "FC-151-2",
+          "statement": "AF-150과는 기체 유형별 OR"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "규칙 제310조① 3호 나목 2)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-149", "AF-006", "AF-007", "AF-049", "AF-050"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "12kg·7m 복합 기준의 3번째 등장(신고 제외 AF-006·007, 조종자증명 제외 AF-049·050, 공역 예외) — 별도 그룹(GRP-AIRSHIP-OPS-01)으로 제도별 분리 유지. 혼동 포인트: 세 제도의 수치가 동일하여 제도 3중 매핑 혼동"
+    },
+    {
+      "id": "AF-152",
+      "conceptId": "C-OPS-04",
+      "subject": "금지행위 제6호 (야간비행 원칙)",
+      "predicate": "금지 내용",
+      "value": "일몰 후부터 일출 전까지의 야간에 비행하는 행위",
+      "operator": "eq",
+      "statement": "일몰 후부터 일출 전까지의 야간에 비행하는 행위는 원칙적으로 금지된다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "FE-152-1",
+          "statement": "최저비행고도(150m) 미만에서 운영하는 계류식 기구 또는 법에 따른 허가를 받아 비행하는 초경량비행장치는 제외 (AF-153)"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.16",
+          "note": "규칙 제310조① 6호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-153"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "원칙과 예외(AF-153) 분리. 혼동 포인트: 야간의 정의는 일몰 후~일출 전 (시각 고정이 아닌 일출·일몰 기준), 교육자료 주석 — 특별비행승인 등을 받은 경우 가능"
+    },
+    {
+      "id": "AF-153",
+      "conceptId": "C-OPS-04",
+      "subject": "야간비행 금지의 예외",
+      "predicate": "예외 내용",
+      "value": "① 최저비행고도(150m) 미만에서 운영하는 계류식 기구 ② 법에 따른 허가를 받아 비행하는 초경량비행장치 (교육자료 주석: 특별비행승인 등)",
+      "operator": "eq",
+      "statement": "최저비행고도 미만에서 운영하는 계류식 기구 또는 법에 따른 허가(특별비행승인 등)를 받아 비행하는 초경량비행장치는 야간비행 금지에서 제외된다",
+      "conditions": [
+        {
+          "id": "FC-153-1",
+          "statement": "예외 2경로는 OR — 계류식 기구(150m 미만 요건 부가) 또는 법에 따른 허가"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.16",
+          "note": "규칙 제310조① 6호 단서"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-152", "AF-158"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "'법에 따른 허가'의 구체 명칭은 조문에 미기재 — 교육자료 주석('특별비행승인 등')으로 보완된 구조를 보존, 승인 명칭 단정은 주석 수준. 혼동 포인트: 계류식 기구 예외에는 150m 미만 요건이 붙음, 드론(무인멀티콥터)의 야간비행 경로는 허가(특별비행승인) — 계류식 기구 예외와 혼동 금지"
+    },
+    {
+      "id": "AF-154",
+      "conceptId": "C-OPS-05",
+      "subject": "금지행위 제7호 (음주 등)",
+      "predicate": "금지 내용",
+      "value": "주류·마약류·환각물질 등(주류등)의 영향으로 조종업무를 정상 수행할 수 없는 상태에서 조종하는 행위 또는 비행 중 주류등을 섭취·사용하는 행위",
+      "operator": "eq",
+      "statement": "주세법에 따른 주류, 마약류 관리에 관한 법률에 따른 마약류 또는 화학물질관리법에 따른 환각물질 등의 영향으로 조종업무를 정상적으로 수행할 수 없는 상태에서 조종하는 행위 또는 비행 중 주류등을 섭취하거나 사용하는 행위는 금지된다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.16",
+          "note": "규칙 제310조① 7호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-137", "AF-138"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-137(영향 상태 비행)·AF-138(비행 중 섭취)과 실질 동일 행위이나 규정 층위(규칙 준수사항 vs 법 취소사유)가 다름 — 중복 아닌 신규 생성, crossReference로 연결. 측정 거부(AF-139)는 이 호에 미포함 — 취소 사유에만 존재하는 비대칭이 함정. 혼동 포인트: '주류등'의 법정 범위 3종(주류·마약류·환각물질)과 근거 법률 매칭"
+    },
+    {
+      "id": "AF-155",
+      "conceptId": "C-OPS-05",
+      "subject": "금지행위 제8호",
+      "predicate": "금지 내용",
+      "value": "그 밖에 비정상적인 방법으로 비행하는 행위",
+      "operator": "eq",
+      "statement": "그 밖에 비정상적인 방법으로 비행하는 행위는 금지된다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.16",
+          "note": "규칙 제310조① 8호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "포괄 문언이라 사례형 출제 부적합 — 존재·위치(8호)만 출제 가능, standalone 차단. 혼동 포인트: 포괄 조항 — 구체 유형은 문서에 미기재"
+    },
+    {
+      "id": "AF-156",
+      "conceptId": "C-OPS-06",
+      "subject": "항공기·경량항공기 회피 의무",
+      "predicate": "의무 내용",
+      "value": "항공기 또는 경량항공기를 육안으로 식별하여 미리 피할 수 있도록 주의하여 비행",
+      "operator": "eq",
+      "statement": "초경량비행장치 조종자는 항공기 또는 경량항공기를 육안으로 식별하여 미리 피할 수 있도록 주의하여 비행하여야 한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.16",
+          "note": "규칙 제310조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-157"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 회피 의무(②항, 모든 초경량 조종자)와 양보 의무(③항, 동력 사용 조종자)의 주체·대상 구분"
+    },
+    {
+      "id": "AF-157",
+      "conceptId": "C-OPS-06",
+      "subject": "동력 초경량비행장치의 진로 양보 의무",
+      "predicate": "의무 내용",
+      "value": "모든 항공기, 경량항공기 및 동력을 이용하지 아니하는 초경량비행장치에 대하여 진로 양보",
+      "operator": "eq",
+      "statement": "동력을 이용하는 초경량비행장치 조종자는 모든 항공기, 경량항공기 및 동력을 이용하지 아니하는 초경량비행장치에 대하여 진로를 양보하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-157-1",
+          "statement": "동력을 이용하는 초경량비행장치 조종자일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.16",
+          "note": "규칙 제310조③"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-156"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "드론(동력)은 항상 양보 측 — 양보 방향 반전이 대표 오답. 혼동 포인트: 양보 대상 3종 — '동력 미이용 초경량'에게도 양보(무동력 우선 원칙), 동력 초경량끼리의 양보 규정은 이 문언에 미기재"
+    },
+    {
+      "id": "AF-158",
+      "conceptId": "C-OPS-07",
+      "subject": "비가시권 비행 금지 (원칙)",
+      "predicate": "금지 내용",
+      "value": "무인비행장치를 육안으로 확인할 수 있는 범위에서 조종하여야 함",
+      "operator": "eq",
+      "statement": "무인비행장치 조종자는 해당 무인비행장치를 육안으로 확인할 수 있는 범위에서 조종하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-158-1",
+          "statement": "무인비행장치 조종자일 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "FE-158-1",
+          "statement": "법에 따른 허가를 받아 비행하는 경우는 제외 (교육자료 주석: 시험비행허가나 특별비행승인)"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.16",
+          "note": "규칙 제310조④"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-144", "AF-153"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "원칙·예외 분리 — 예외 명칭은 교육자료 주석('시험비행허가나 특별비행승인') 기준으로 기재하되 조문 문언은 '법에 따른 허가'. 혼동 포인트: 4호(안개 등 육안 미식별) 미적용(AF-144)과 별개로 무인에게 적용되는 시각 요건, 야간 예외(특별비행승인 등, AF-153)와 승인 명칭 구성이 다름"
+    },
+    {
+      "id": "AF-159",
+      "conceptId": "C-OPS-08",
+      "subject": "사고 보고 의무 (원칙)",
+      "predicate": "보고 의무",
+      "value": "초경량비행장치사고 발생 시 지체 없이 국토교통부장관에게 그 사실을 보고",
+      "operator": "eq",
+      "statement": "초경량비행장치 조종자는 초경량비행장치사고가 발생하였을 때에는 국토교통부령으로 정하는 바에 따라 지체 없이 국토교통부장관에게 그 사실을 보고하여야 한다",
+      "conditions": [],
+      "exceptions": [
+        {
+          "id": "FE-159-1",
+          "statement": "조종자가 보고할 수 없을 때에는 초경량비행장치소유자등이 보고 (AF-160)"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "법 제129조③"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-160"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "'지체 없이'는 이 문서 내 유일한 즉시성 기한 — 기간형 기한들(15일·30일)과의 대비가 고품질 함정. 미보고·거짓보고 과태료 30만원(p.19)은 이동 대상. 혼동 포인트: 기한 표현 '지체 없이' — 15일·30일 등 기간형 기한이 아님, 보고 상대는 국토교통부장관 — 공단 이사장(신고 접수)과 구분"
+    },
+    {
+      "id": "AF-160",
+      "conceptId": "C-OPS-08",
+      "subject": "사고 보고의 보충 주체",
+      "predicate": "보충 규정",
+      "value": "조종자가 보고할 수 없을 때에는 초경량비행장치소유자등이 보고",
+      "operator": "eq",
+      "statement": "초경량비행장치 조종자가 보고할 수 없을 때에는 그 초경량비행장치소유자등이 초경량비행장치사고를 보고하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-160-1",
+          "statement": "조종자가 보고할 수 없을 것 (보충 발동 요건)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.15",
+          "note": "법 제129조③ 단서"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-159", "AF-143"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "조건부 보충 구조 — 발동 요건('보고할 수 없을 때') 누락형 오답 원천. 혼동 포인트: 원칙 주체(조종자)와 보충 주체(소유자등)의 순위 — 소유자 우선으로 뒤집는 오답, 준수사항 의무 주체(조종자, AF-143)와의 일관 구조"
+    },
+    {
+      "id": "AF-161",
+      "conceptId": "C-OPS-08",
+      "subject": "개인정보·개인위치정보 보호",
+      "predicate": "준거 법률",
+      "value": "개인정보보호법·위치정보법 등 각각 해당 법률에서 정하는 바에 따름",
+      "operator": "eq",
+      "statement": "무인비행장치로 개인정보 또는 개인위치정보를 수집하거나 전송하는 경우 그 보호에 관하여는 각각 해당 법률(개인정보 보호법, 위치정보의 보호 및 이용 등에 관한 법률)에서 정하는 바에 따른다",
+      "conditions": [
+        {
+          "id": "FC-161-1",
+          "statement": "무인비행장치로 개인정보·개인위치정보를 수집·전송하는 경우일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.16",
+          "note": "법 제129조④"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-003"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "준거 법률 연결 팩트 — AF-003(신고 사항의 개인정보 수집 가능 여부)과 crossReference. 사고 보고 개념(C-OPS-08)과 성격이 달라 검수 시 별도 Concept 분리 검토 가능. 혼동 포인트: 항공안전법이 직접 규율하지 않고 타 법률로 연결하는 준용 구조"
+    }
+  ]
+}

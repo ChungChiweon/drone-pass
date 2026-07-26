@@ -1,0 +1,479 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-pilot-certificate-suspension-revocation",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "조종자증명 취소·정지",
+      "parentId": "cat-pilot-certificate"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-LIC-23",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-suspension-revocation"],
+      "title": "취소·정지 처분 일반",
+      "summary": "국토교통부장관의 조종자증명 취소·효력정지 처분 구조, 필수 취소 사유(제1호·제8호), 정지 기간 상한 1년"
+    },
+    {
+      "id": "C-LIC-24",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-suspension-revocation"],
+      "title": "취소·정지 사유",
+      "summary": "법 제125조② 각 호의 취소·정지 사유 8개 (부정 취득, 벌금 이상 형 선고, 사고 발생, 준수사항 위반, 음주 3사유, 정지기간 중 비행)"
+    },
+    {
+      "id": "C-LIC-25",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-pilot-certificate-suspension-revocation"],
+      "title": "제재 제도 간 비교",
+      "summary": "증명 취소(법·장관)와 시험 합격 취소(세칙·이사장)의 구분, 증명 취소와 응시 제한 2년의 연쇄 관계"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-129",
+      "conceptId": "C-LIC-23",
+      "subject": "조종자증명 취소·정지 처분 주체",
+      "predicate": "처분 주체",
+      "value": "국토교통부장관",
+      "operator": "eq",
+      "statement": "조종자증명을 받은 사람이 각 호의 어느 하나에 해당하는 경우 국토교통부장관이 증명을 취소하거나 효력의 정지를 명할 수 있다",
+      "conditions": [
+        {
+          "id": "FC-129-1",
+          "statement": "조종자 증명을 받은 사람일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-126", "AF-097", "AF-130"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AUTHORITY_SWAP 최적 원천 — 증명 취소(장관) vs 합격 취소(이사장, AF-126) vs 등록 취소(이사장, AF-097)의 주체 매트릭스 완성. 혼동 포인트: 처분 주체가 국토교통부장관 — 시험 합격 취소·지도조종자 등록취소의 주체(공단 이사장)와 다름, 3개 제재 제도의 주체가 2원화"
+    },
+    {
+      "id": "AF-130",
+      "conceptId": "C-LIC-23",
+      "subject": "처분의 기본 구조",
+      "predicate": "처분 유형",
+      "value": "취소 또는 1년 이내의 기간을 정한 효력 정지 (재량)",
+      "operator": "eq",
+      "statement": "각 호 사유에 해당하는 경우 조종자 증명을 취소하거나 1년 이내의 기간을 정하여 그 효력의 정지를 명할 수 있다",
+      "conditions": [
+        {
+          "id": "FC-130-1",
+          "statement": "각 호의 어느 하나에 해당할 것 (OR)"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "FE-130-1",
+          "statement": "제1호 또는 제8호 해당 시에는 재량 없이 취소하여야 함 (AF-131)"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-131", "AF-132"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "재량(기본)·기속(예외)의 이층 구조 — AF-131과 세트 출제 전제. 혼동 포인트: '취소할 수 있다'(재량)가 기본이고 필수 취소는 예외 2개 호뿐, 정지는 '1년 이내의 기간을 정하여' — 고정 1년이 아니라 상한"
+    },
+    {
+      "id": "AF-131",
+      "conceptId": "C-LIC-23",
+      "subject": "필수 취소 사유",
+      "predicate": "기속 처분 대상",
+      "value": "제1호(부정 취득) 또는 제8호(정지기간 중 비행)",
+      "operator": "eq",
+      "statement": "제1호 또는 제8호의 어느 하나에 해당하는 경우에는 조종자 증명을 취소하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-131-1",
+          "statement": "제1호 또는 제8호 해당 (OR)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 단서"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-130", "AF-133", "AF-140"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "기속·재량 구분이 이 소분류의 핵심 출제 축 — '취소하여야 한다'(기속) vs '취소하거나 정지를 명할 수 있다'(재량)의 문언 구분. 혼동 포인트: 필수 취소는 2개 호뿐 — 음주비행(5~7호)도 필수 취소로 오인하기 쉬움"
+    },
+    {
+      "id": "AF-132",
+      "conceptId": "C-LIC-23",
+      "subject": "효력 정지 기간 상한",
+      "predicate": "정지 기간",
+      "value": 1,
+      "unit": "년",
+      "operator": "lte",
+      "statement": "효력 정지는 1년 이내의 기간을 정하여 명할 수 있다",
+      "conditions": [
+        {
+          "id": "FC-132-1",
+          "statement": "재량 사유(제1호·제8호 외)에 해당할 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조②"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-127", "AF-130"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "이 문서에서 '1년'이 제재 기간으로 등장하는 유일한 지점 — 2년 계열 수치들과의 NUMERIC_NEARBY 원천. 혼동 포인트: 상한 1년 — 응시 제한 2년(AF-127)·지도조종자 결격 2년(AF-093·094)과 수치 구분, 정지는 기간 처분·취소는 종국 처분으로 효과의 층위 차이"
+    },
+    {
+      "id": "AF-133",
+      "conceptId": "C-LIC-24",
+      "subject": "사유 제1호",
+      "predicate": "사유 내용",
+      "value": "거짓이나 그 밖의 부정한 방법으로 조종자 증명을 받은 경우",
+      "operator": "eq",
+      "statement": "거짓이나 그 밖의 부정한 방법으로 조종자 증명을 받은 경우는 취소·정지 사유이며, 필수 취소 대상이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 1호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-127", "AF-131", "AF-142"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-127 조건 ③·AF-101과 crossReference — 부정 취득의 3제도 파급(증명 취소→응시 제한→등록 결격 가능성)이 CASE_JUDGMENT 원천. 혼동 포인트: 세칙 제37조③ 3호(부정 취득자 응시 제한)와 동일 행위 — 법(증명 취소)과 세칙(응시 제한)의 이중 제재 연결, 지도조종자 부정 등록(AF-101)과 문형 동일·제도 상이"
+    },
+    {
+      "id": "AF-134",
+      "conceptId": "C-LIC-24",
+      "subject": "사유 제2호",
+      "predicate": "사유 내용",
+      "value": "이 법(항공안전법)을 위반하여 벌금 이상의 형을 선고받은 경우",
+      "operator": "eq",
+      "statement": "이 법을 위반하여 벌금 이상의 형을 선고받은 경우는 취소·정지 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 2호 및 교육자료 주석"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-015", "AF-016"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "벌금(형벌)·과태료(행정질서벌) 구분이 처벌기준 소분류(AF-015·016)와 연결 — 과태료 배제 논리의 근거 팩트. 혼동 포인트: '이 법' = 항공안전법(교육자료 주석 명시) — 모든 법률 위반이 아님, '벌금 이상의 형' — 과태료는 형벌이 아니므로 미포함, 형 '선고' 요건 — 입건·기소만으로는 불성립"
+    },
+    {
+      "id": "AF-135",
+      "conceptId": "C-LIC-24",
+      "subject": "사유 제3호",
+      "predicate": "사유 내용",
+      "value": "업무 수행 중 고의 또는 중대한 과실로 사고를 일으켜 인명 또는 재산피해를 발생시킨 경우",
+      "operator": "eq",
+      "statement": "초경량비행장치 업무 수행 중 고의 또는 중대한 과실로 사고를 일으켜 인명 또는 재산피해를 발생시킨 경우는 취소·정지 사유이다",
+      "conditions": [
+        {
+          "id": "FC-135-1",
+          "statement": "업무 수행 중일 것"
+        },
+        {
+          "id": "FC-135-2",
+          "statement": "고의 또는 중대한 과실일 것"
+        },
+        {
+          "id": "FC-135-3",
+          "statement": "인명 또는 재산피해가 발생할 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 3호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "요건 3중 결합 — CONDITION_OMISSION 원천. 법령 위반(제2호, 형 선고 기반)과 사고 발생(제3호, 사고·피해 기반)은 별개 사유. 혼동 포인트: '고의 또는 중대한 과실' — 경과실 사고는 문언상 미포함, 사고 발생만으로 자동 취소 아님(재량 처분 대상), 사고 보고 의무(규칙 제129조③, p.15 범위 외)와 별개"
+    },
+    {
+      "id": "AF-136",
+      "conceptId": "C-LIC-24",
+      "subject": "사유 제4호",
+      "predicate": "사유 내용",
+      "value": "초경량비행장치 조종자의 준수사항을 위반한 경우",
+      "operator": "eq",
+      "statement": "초경량비행장치 조종자의 준수사항을 위반한 경우는 취소·정지 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 4호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-129"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "준수사항 소분류(p.15~16, 미분석)와의 연결 고리 — 향후 분석 시 crossReference 예약. 혼동 포인트: 준수사항 위반은 과태료 200만원(p.17)과 증명 취소·정지의 이중 제재 트랙, 준수사항의 실체(규칙 제310조)는 별도 소분류"
+    },
+    {
+      "id": "AF-137",
+      "conceptId": "C-LIC-24",
+      "subject": "사유 제5호",
+      "predicate": "사유 내용",
+      "value": "주류 등의 영향으로 비행을 정상적으로 수행할 수 없는 상태에서 비행한 경우",
+      "operator": "eq",
+      "statement": "주류 등의 영향으로 비행을 정상적으로 수행할 수 없는 상태에서 초경량비행장치를 비행한 경우는 취소·정지 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 5호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-138", "AF-139"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "음주 3사유 세트(AF-137~139)의 세밀 구분이 SIBLING_FACT_SWAP 원천. 혼동 포인트: 음주 3사유(5·6·7호)의 구분 — 5호는 '영향 상태 비행', 필수 취소 아님(1·8호만 필수) — 음주 = 무조건 취소로 오인, 형사처벌(3년/3천만원, p.19 이동 대상)과 행정처분의 병존"
+    },
+    {
+      "id": "AF-138",
+      "conceptId": "C-LIC-24",
+      "subject": "사유 제6호",
+      "predicate": "사유 내용",
+      "value": "비행하는 동안에 주류 등을 섭취하거나 사용한 경우",
+      "operator": "eq",
+      "statement": "비행하는 동안에 주류 등을 섭취하거나 사용한 경우는 취소·정지 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 6호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-137", "AF-139"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "6호는 영향 여부 불문 — 섭취·사용 행위 자체가 사유라는 점이 5호와의 차별점. 혼동 포인트: 5호(비행 전 섭취로 인한 영향 상태)와 6호(비행 중 섭취 행위)의 시점 구분"
+    },
+    {
+      "id": "AF-139",
+      "conceptId": "C-LIC-24",
+      "subject": "사유 제7호",
+      "predicate": "사유 내용",
+      "value": "주류 등의 섭취 및 사용 여부의 측정 요구에 따르지 아니한 경우",
+      "operator": "eq",
+      "statement": "주류 등의 섭취 및 사용 여부의 측정 요구에 따르지 아니한 경우는 취소·정지 사유이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 7호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-137", "AF-138"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "형사처벌 측면(측정 거부 3년/3천만원, p.19)은 이동 대상 — 행정처분 측면만 본 팩트에 유지. 혼동 포인트: 측정 거부는 실제 음주 여부와 무관하게 독립 사유 — '안 마셨으면 거부해도 무방'이 오답"
+    },
+    {
+      "id": "AF-140",
+      "conceptId": "C-LIC-24",
+      "subject": "사유 제8호",
+      "predicate": "사유 내용",
+      "value": "조종자 증명의 효력정지기간에 초경량비행장치를 비행한 경우",
+      "operator": "eq",
+      "statement": "이 조에 따른 조종자 증명의 효력정지기간에 초경량비행장치를 비행한 경우는 취소·정지 사유이며, 필수 취소 대상이다",
+      "conditions": [
+        {
+          "id": "FC-140-1",
+          "statement": "효력정지 처분이 선행되어 있을 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 8호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-131", "AF-132"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-131·AF-132와 삼각 구조 — 정지(1년 이내) 중 비행 시 필수 취소라는 처분 에스컬레이션이 CASE_JUDGMENT 최적 원천. 혼동 포인트: 정지 위반 → 필수 취소로 격상되는 구조 — 정지와 취소의 연쇄 관계, 필수 취소 2개 호(1·8호) 중 하나"
+    },
+    {
+      "id": "AF-141",
+      "conceptId": "C-LIC-25",
+      "subject": "증명 취소 vs 시험 합격 취소",
+      "predicate": "제도 구분",
+      "value": "증명 취소: 법 제125조②, 국토교통부장관, 증명 보유자 대상 / 합격 취소: 세칙 제37조①, 공단 이사장, 시험 합격자 대상",
+      "operator": "eq",
+      "statement": "조종자증명 취소(법 제125조②)는 국토교통부장관이 증명 보유자에게 하는 처분이고, 시험 합격 취소(세칙 제37조①)는 공단 이사장이 부정행위 합격자에게 하는 처분으로 근거·주체·대상이 모두 다르다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조②"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.31",
+          "note": "세칙 제37조① (기존 AF-126 참조)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-129", "AF-126"],
+      "crossReferences": ["AF-129", "AF-126"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "AF-126과 중복 생성하지 않고 비교 팩트로만 신설. 혼동 포인트: 두 '취소'의 근거 법령 층위(법 vs 세칙), 주체(장관 vs 이사장), 시점(증명 발급 후 vs 시험 단계) — 3축이 모두 다름"
+    },
+    {
+      "id": "AF-142",
+      "conceptId": "C-LIC-25",
+      "subject": "증명 취소와 응시 제한 2년의 관계",
+      "predicate": "제도 연결",
+      "value": "법에 따라 부정한 방법으로 증명을 받아 취소된 자는 세칙 제37조③에 따라 취소일부터 2년간 응시 제한",
+      "operator": "eq",
+      "statement": "거짓이나 부정한 방법으로 조종자 증명을 받은 자(법 제125조② 1호로 필수 취소)는 세칙 제37조③ 3호에 따라 취소일로부터 2년간 조종자증명시험에 응시할 수 없어, 증명 취소와 응시 제한이 연쇄 적용된다",
+      "conditions": [
+        {
+          "id": "FC-142-1",
+          "statement": "법에 따른 부정 취득 취소일 것 (세칙 제37조③ 3호 경로)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.14",
+          "note": "법 제125조② 1호"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.31",
+          "note": "세칙 제37조③ 3호 (기존 AF-127 참조)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-133", "AF-127"],
+      "crossReferences": ["AF-133", "AF-127"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "AF-127과 중복 생성하지 않고 연결 팩트로 신설. 부정 취득(1호) 경로만 문서상 명시적 연쇄 — 다른 취소 사유의 응시 제한 여부는 세칙 제37조③ 문언(각 호) 범위 밖이라 confidence 하향. 혼동 포인트: 취소(법) → 응시 제한(세칙)의 2단 제재 — 취소로 끝난다고 오인, 응시 제한 2년(AF-127)과 정지 상한 1년(AF-132)의 수치 구분, 8개 호 전부의 연쇄 여부는 이 문서로 단정 불가"
+    }
+  ]
+}

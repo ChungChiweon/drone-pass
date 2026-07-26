@@ -1,0 +1,370 @@
+{
+  "targetPackId": "ACTIVE",
+  "mode": "merge",
+  "categories": [
+    {
+      "id": "cat-device-definition",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "초경량비행장치 기본 개념"
+    },
+    {
+      "id": "cat-device-type-definition",
+      "subjectId": "kr-aviation-safety-act",
+      "title": "정의·기체 구분",
+      "parentId": "cat-device-definition"
+    }
+  ],
+  "sourceDocuments": [],
+  "sourceRevisions": [],
+  "concepts": [
+    {
+      "id": "C-DEF-01",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-device-type-definition"],
+      "title": "초경량비행장치 정의",
+      "summary": "법 제2조 3호의 초경량비행장치 정의(항공기·경량항공기 외, 공기의 반작용, 시행규칙 위임)와 규칙 제5조의 기체 열거"
+    },
+    {
+      "id": "C-DEF-02",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-device-type-definition"],
+      "title": "무인비행장치 정의",
+      "summary": "사람이 탑승하지 아니하는 비행장치로서 무인동력비행장치·무인비행선의 2분류 구조"
+    },
+    {
+      "id": "C-DEF-03",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-device-type-definition"],
+      "title": "무인동력비행장치 정의",
+      "summary": "연료 제외 자체중량 150kg 이하의 무인비행기·무인헬리콥터·무인멀티콥터 3유형"
+    },
+    {
+      "id": "C-DEF-04",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-device-type-definition"],
+      "title": "무인비행선 정의",
+      "summary": "연료 제외 자체중량 180kg 이하 및 길이 20m 이하의 무인비행선 복합 정의 기준"
+    },
+    {
+      "id": "C-DEF-05",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-device-type-definition"],
+      "title": "중량 개념과 규제 층위 구분",
+      "summary": "자체중량과 최대이륙중량의 개념 구분, 정의 기준(존재 범위)과 규제 기준(제도 적용)의 층위 차이"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-162",
+      "conceptId": "C-DEF-01",
+      "subject": "초경량비행장치 (법 제2조 정의)",
+      "predicate": "정의",
+      "value": "항공기와 경량항공기 외에 공기의 반작용으로 뜰 수 있는 장치로서 자체중량·좌석 수 등 국토교통부령(시행규칙)으로 정하는 기준에 해당하는 동력비행장치, 행글라이더, 패러글라이더, 기구류 및 무인비행장치 등",
+      "operator": "eq",
+      "statement": "초경량비행장치란 항공기와 경량항공기 외에 공기의 반작용으로 뜰 수 있는 장치로서 자체중량, 좌석 수 등 국토교통부령으로 정하는 기준에 해당하는 동력비행장치, 행글라이더, 패러글라이더, 기구류 및 무인비행장치 등을 말한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "법 제2조 3호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "법(정의 골격)과 규칙(수치 기준)의 위임 구조가 신고·인증·증명 위임 패턴과 동일 — 문서 전반의 반복 구조. 혼동 포인트: 3단 위계 항공기 > 경량항공기 > 초경량비행장치 — '외에'의 배제 구조, 구체 기준은 법이 아닌 시행규칙(제5조)으로 위임, 정의의 판단 요소는 자체중량·좌석 수 (최대이륙중량 아님)"
+    },
+    {
+      "id": "AF-163",
+      "conceptId": "C-DEF-01",
+      "subject": "초경량비행장치 기준 (규칙 제5조)",
+      "predicate": "포함 기체 열거",
+      "value": "동력비행장치, 행글라이더, 패러글라이더, 기구류, 무인비행장치, 회전익비행장치, 동력패러글라이더 및 낙하산류 등",
+      "operator": "eq",
+      "statement": "규칙 제5조의 기준을 충족하는 초경량비행장치에는 동력비행장치, 행글라이더, 패러글라이더, 기구류, 무인비행장치, 회전익비행장치, 동력패러글라이더 및 낙하산류 등이 포함된다",
+      "conditions": [
+        {
+          "id": "FC-163-1",
+          "statement": "각 호의 기준을 충족할 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "규칙 제5조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "1호~4호 <생략>으로 각 기체의 수치 기준은 확인 불가 — 열거 목록만 팩트화. 완결 열거가 아니므로 포함 관계로만 출제 가능. 혼동 포인트: 법 제2조 열거(5개+등)와 규칙 제5조 열거(8개+등)의 항목 수 차이 — 규칙이 회전익·동력패러글라이더·낙하산류를 추가 명시, p.5의 범위 구분 목록과 정합"
+    },
+    {
+      "id": "AF-164",
+      "conceptId": "C-DEF-02",
+      "subject": "무인비행장치",
+      "predicate": "정의",
+      "value": "사람이 탑승하지 아니하는 것으로서 각 목의 비행장치 (무인동력비행장치·무인비행선)",
+      "operator": "eq",
+      "statement": "무인비행장치란 사람이 탑승하지 아니하는 것으로서 무인동력비행장치와 무인비행선 등 각 목의 비행장치를 말한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "규칙 제5조 5호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-165", "AF-167"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "무인의 판단 기준이 '탑승 여부'라는 점이 정의 소분류의 대표 출제 포인트. 혼동 포인트: 핵심 표지는 '사람이 탑승하지 아니하는 것' — 원격조종 여부·자율비행 여부는 정의 문언에 없음, 하위 2분류(무인동력비행장치·무인비행선)의 구조 — p.5 범위 구분과 정합"
+    },
+    {
+      "id": "AF-165",
+      "conceptId": "C-DEF-03",
+      "subject": "무인동력비행장치",
+      "predicate": "정의 (중량 기준)",
+      "value": 150,
+      "unit": "kg (연료의 중량을 제외한 자체중량)",
+      "operator": "lte",
+      "statement": "무인동력비행장치란 연료의 중량을 제외한 자체중량이 150킬로그램 이하인 무인비행기, 무인헬리콥터 또는 무인멀티콥터를 말한다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "규칙 제5조 5호 가목"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-062", "AF-166", "AF-169", "AF-170"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-062 중복 방지: AF-062는 조종자증명 1종의 무게범위 상한(별표 2), 본 팩트는 기체 정의 기준(규칙 제5조) — 수치·중량 개념이 동일하나 규정 목적·층위가 다르므로 별도 생성. 정의 충족(150kg 이하)이 1종 구간 상한과 맞물리는 구조가 CONCEPT_COMPARISON 원천. 혼동 포인트: 중량 개념은 연료 제외 자체중량 — 최대이륙중량 아님, 무인비행선 정의 180kg(AF-167)과의 수치 구분, '150kg 초과 무인멀티콥터'는 초경량비행장치가 아니라 별도 범주로 이탈 — 이 문서에는 그 범주 미기재"
+    },
+    {
+      "id": "AF-166",
+      "conceptId": "C-DEF-03",
+      "subject": "무인동력비행장치의 기체 유형",
+      "predicate": "구성 열거",
+      "value": "무인비행기, 무인헬리콥터, 무인멀티콥터 (3유형)",
+      "operator": "eq",
+      "statement": "무인동력비행장치는 무인비행기, 무인헬리콥터 또는 무인멀티콥터의 3개 기체 유형으로 구성된다",
+      "conditions": [
+        {
+          "id": "FC-166-1",
+          "statement": "AF-165의 자체중량 150kg 이하 기준을 충족할 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "규칙 제5조 5호 가목"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-165", "AF-056"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "각 유형의 개별 정의 문언(비행기 vs 헬리콥터 vs 멀티콥터의 구별 기준)은 이 페이지에 없음 — 열거 구성만 출제 가능, 유형 구별 기준 문제는 이 문서로 생성 불가. 혼동 포인트: 무인비행선은 무인동력비행장치가 아님 — 무인비행장치의 별도 목(나목), 조종자증명 종류 체계의 기체 4종(AF-056: 3유형+무인비행선)과 층위 구분 — 증명 체계는 무인비행장치 전체이고 본 팩트는 동력비행장치 하위만"
+    },
+    {
+      "id": "AF-167",
+      "conceptId": "C-DEF-04",
+      "subject": "무인비행선",
+      "predicate": "정의 (중량 기준)",
+      "value": 180,
+      "unit": "kg (연료의 중량을 제외한 자체중량)",
+      "operator": "lte",
+      "statement": "무인비행선의 정의상 중량 기준은 연료의 중량을 제외한 자체중량 180킬로그램 이하이다",
+      "conditions": [
+        {
+          "id": "FC-167-1",
+          "statement": "AF-168(길이 20m 이하)과 동시 충족 (AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "규칙 제5조 5호 나목"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-AIRSHIP-DEF-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-168", "AF-006", "AF-049", "AF-151"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "12kg(면제 경계)와 180kg(정의 경계)의 이중 구조 — 12kg 초과~180kg 이하 구간은 '신고 필요한 무인비행선'으로 존재, 층위 구분이 이 소분류 최고 함정. 나목 뒷부분 <이하 생략>으로 추가 요건 존재 가능성 있으나 확인 불가. 혼동 포인트: 무인동력비행장치 150kg(AF-165)과의 수치 구분 — 비행선이 30kg 더 큼, 신고 제외·증명 제외·공역 예외의 무인비행선 12kg(AF-006·049·151)와 층위 구분 — 12kg는 규제 면제 기준이고 180kg는 정의(존재 범위) 기준, 중량 개념은 동일하게 연료 제외 자체중량"
+    },
+    {
+      "id": "AF-168",
+      "conceptId": "C-DEF-04",
+      "subject": "무인비행선",
+      "predicate": "정의 (길이 기준)",
+      "value": 20,
+      "unit": "m",
+      "operator": "lte",
+      "statement": "무인비행선의 정의상 길이 기준은 20미터 이하이다",
+      "conditions": [
+        {
+          "id": "FC-168-1",
+          "statement": "AF-167(자체중량 180kg 이하)과 동시 충족 (AND)"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "규칙 제5조 5호 나목"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-AIRSHIP-DEF-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "crossReferences": ["AF-167", "AF-007", "AF-050", "AF-151"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "기존 AF-050 ReviewNote에서 예고했던 '정의 기준 20m와의 혼동' 팩트의 원천 — 상호 crossReference 연결 필수. 나목 뒷부분 <이하 생략>으로 추가 요건 존재 가능성 있으나 확인 불가. 혼동 포인트: 신고 제외·증명 제외·공역 예외의 길이 7m(AF-007·050·151)와 층위 구분 — 7m는 면제 기준이고 20m는 정의 기준, 7m 초과~20m 이하 구간은 '규제 적용되는 무인비행선'으로 존재"
+    },
+    {
+      "id": "AF-169",
+      "conceptId": "C-DEF-05",
+      "subject": "자체중량 vs 최대이륙중량",
+      "predicate": "개념 구분",
+      "value": "정의 기준(150kg·180kg): 연료 제외 자체중량 / 규제 면제·인증 기준(2kg·250g·25kg): 최대이륙중량 계열",
+      "operator": "eq",
+      "statement": "이 문서에서 기체 정의 기준(무인동력비행장치 150kg, 무인비행선 180kg)은 연료의 중량을 제외한 자체중량으로 규정되고, 신고 제외(2kg)·조종자증명 제외(250g)·안전성인증(25kg) 기준은 최대이륙중량으로 규정되어 중량 개념이 규정 목적에 따라 다르다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "규칙 제5조 5호"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 (기존 AF-005·AF-006 참조)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "규칙 제305조 (기존 AF-038 참조)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조 (기존 AF-047 참조)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-165", "AF-167", "AF-054"],
+      "crossReferences": ["AF-005", "AF-006", "AF-038", "AF-047", "AF-054", "AF-165", "AF-167"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "AF-165·167과 기존 AF-005·038·047·054를 종합한 개념 구분 팩트. 무인비행선 12kg가 자체중량 계열이라는 예외가 함정의 핵심. 혼동 포인트: 자체중량(기체 자체) vs 최대이륙중량(이륙 시 최대 허용 총중량)의 개념 차이, 예외 — 무인비행선의 면제 기준(12kg)은 자체중량 계열이므로 '면제 기준 = 전부 최대이륙중량'으로 일반화 금지, 연료 명시 패턴 — 정의·비행선 면제는 '연료 제외'이고 증명 250g만 '연료 포함' 명시이며 신고 2kg·인증 25kg는 연료 문구 미기재"
+    },
+    {
+      "id": "AF-170",
+      "conceptId": "C-DEF-05",
+      "subject": "정의 기준과 규제 기준의 층위",
+      "predicate": "층위 구분",
+      "value": "정의 기준(150kg·180kg·20m): 초경량비행장치 해당 여부 판정 / 규제 기준(2kg·250g·25kg·12kg·7m): 해당 기체에 대한 개별 제도 적용 여부 판정",
+      "operator": "eq",
+      "statement": "정의 기준(자체중량 150kg·180kg, 길이 20m)은 그 기체가 초경량비행장치(무인비행장치)에 해당하는지를 정하는 기준이고, 신고·증명·인증·공역 예외의 수치들은 이미 초경량비행장치인 기체에 개별 제도가 적용되는지를 정하는 기준으로 층위가 다르다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.8",
+          "note": "규칙 제5조 5호"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 (기존 팩트 참조)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.12",
+          "note": "규칙 제305조 (기존 팩트 참조)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.13",
+          "note": "규칙 제306조 (기존 팩트 참조)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.22",
+          "note": "세칙 제7조 별표 2 (기존 AF-062 참조)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-165", "AF-167", "AF-168", "AF-054"],
+      "crossReferences": ["AF-005", "AF-038", "AF-047", "AF-062", "AF-165", "AF-167", "AF-168"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "AF-165·167·168과 기존 규제 팩트들을 종합한 층위 팩트 — CASE_JUDGMENT('자체중량 160kg 멀티콥터의 법적 지위는?')의 최적 원천. 혼동 포인트: 정의 초과(예: 자체중량 150kg 초과 멀티콥터)는 규제 면제가 아니라 초경량비행장치 범주 이탈, '기준이 크니까 더 강한 규제'식 크기 비교 오류 — 층위가 달라 직접 비교 불가, 1종 상한(자체중량 150kg)이 정의 상한과 일치하는 이유는 종별 체계가 정의 범위 전체를 커버하기 때문"
+    }
+  ]
+}

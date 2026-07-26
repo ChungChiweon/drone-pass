@@ -1,0 +1,889 @@
+{
+  "domainPack": {
+    "exams": [
+      {
+        "id": "kr-drone-license",
+        "title": "드론 자격시험",
+        "countryCode": "KR",
+        "description": "대한민국 무인비행장치 조종자 증명 시험 대비 문제 생성용 시험 도메인",
+        "subjectIds": ["kr-aviation-safety-act"]
+      }
+    ],
+    "subjects": [
+      {
+        "id": "kr-aviation-safety-act",
+        "examId": "kr-drone-license",
+        "title": "항공안전법",
+        "description": "항공안전법 및 하위법령, 운영세칙 중 무인비행장치 관련 내용 (2021년 한국교통안전공단 교육자료 기준)",
+        "categoryIds": [
+          "cat-device-registration",
+          "cat-device-report",
+          "cat-report-target-exemption",
+          "cat-report-procedure",
+          "cat-report-marking",
+          "cat-report-penalty"
+        ]
+      }
+    ],
+    "categories": [
+      {
+        "id": "cat-device-registration",
+        "subjectId": "kr-aviation-safety-act",
+        "title": "초경량비행장치 신고·인증"
+      },
+      {
+        "id": "cat-device-report",
+        "subjectId": "kr-aviation-safety-act",
+        "title": "장치 신고",
+        "parentId": "cat-device-registration"
+      },
+      {
+        "id": "cat-report-target-exemption",
+        "subjectId": "kr-aviation-safety-act",
+        "title": "신고 대상과 신고 제외",
+        "parentId": "cat-device-report"
+      },
+      {
+        "id": "cat-report-procedure",
+        "subjectId": "kr-aviation-safety-act",
+        "title": "신고 절차·서류",
+        "parentId": "cat-device-report"
+      },
+      {
+        "id": "cat-report-marking",
+        "subjectId": "kr-aviation-safety-act",
+        "title": "신고번호 표시 의무",
+        "parentId": "cat-device-report"
+      },
+      {
+        "id": "cat-report-penalty",
+        "subjectId": "kr-aviation-safety-act",
+        "title": "신고 관련 벌칙",
+        "parentId": "cat-device-report"
+      }
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "ts-drone-aviation-safety-2021",
+      "title": "항공안전법 무인동력비행장치 온라인교육",
+      "publisher": "한국교통안전공단",
+      "note": "2021년 교육자료. 현행 법령 검증 전 초안 데이터."
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "id": "ts-drone-aviation-safety-2021-v1",
+      "documentId": "ts-drone-aviation-safety-2021",
+      "label": "2021년 교육자료 기준",
+      "publishedAt": "2021-01-01",
+      "note": "월·일은 문서에 명시되지 않아 임시값"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "C-REG-01",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-target-exemption"],
+      "title": "신고 의무 일반",
+      "summary": "초경량비행장치 신고 의무의 주체와 법률상 신고 상대방에 관한 원칙"
+    },
+    {
+      "id": "C-REG-02",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-target-exemption"],
+      "title": "중량 기준 신고 제외",
+      "summary": "무인동력비행장치·무인비행선의 중량 및 길이 기준에 따른 신고 제외 요건"
+    },
+    {
+      "id": "C-REG-03",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-target-exemption"],
+      "title": "목적·용도 기준 신고 제외",
+      "summary": "연구·시험·조사·개발 목적 제작, 판매 목적 비행 미사용, 군사목적 사용에 따른 신고 제외 사유"
+    },
+    {
+      "id": "C-REG-04",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-target-exemption"],
+      "title": "신고 제외 공통 전제",
+      "summary": "신고 제외 각 호에 공통 적용되는 사업 미사용 전제조건 (항공기대여업·항공레저스포츠사업·초경량비행장치사용사업)"
+    },
+    {
+      "id": "C-REG-05",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-target-exemption"],
+      "title": "신고 적용 매트릭스",
+      "summary": "최대이륙중량 2kg 기준과 사업·비사업 여부 조합에 따른 장치신고/변경신고 적용 여부"
+    },
+    {
+      "id": "C-REG-06",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-penalty"],
+      "title": "신고 관련 벌칙",
+      "summary": "장치신고/변경신고 위반 및 신고번호 표시 위반에 대한 처벌기준"
+    },
+    {
+      "id": "C-REG-07",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-procedure"],
+      "title": "신고 시기·접수·서류",
+      "summary": "신규신고 기한(안전성인증 대상 여부별 이원화), 제출처, 첨부서류에 관한 절차 요소"
+    },
+    {
+      "id": "C-REG-08",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-marking"],
+      "title": "신고번호 표시 의무",
+      "summary": "신고 완료 후 신고번호를 기체에 표시할 의무의 적용 범위"
+    },
+    {
+      "id": "C-REG-09",
+      "subjectId": "kr-aviation-safety-act",
+      "categoryIds": ["cat-report-procedure"],
+      "title": "신고 사항",
+      "summary": "신고 시 기재하여야 하는 항목 (종류·용도·소유자 성명·개인정보 수집 여부 등)"
+    }
+  ],
+  "atomicFacts": [
+    {
+      "id": "AF-001",
+      "conceptId": "C-REG-01",
+      "subject": "초경량비행장치 소유자등",
+      "predicate": "신고 의무 주체이다",
+      "value": "소유하거나 사용할 수 있는 권리가 있는 자",
+      "operator": "eq",
+      "statement": "초경량비행장치를 소유하거나 사용할 수 있는 권리가 있는 자(\"초경량비행장치 소유자 등\")는 신고 의무의 주체이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "법 제122조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "exceptionGroupReference": "EXG-EXEMPT-01",
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "원문의 포괄 예외 문구(대통령령으로 정하는 초경량비행장치는 제외)를 개별 Exception으로 저장하지 않고 제외 그룹 EXG-EXEMPT-01(AF-004~AF-010)로 연결함"
+    },
+    {
+      "id": "AF-002",
+      "conceptId": "C-REG-01",
+      "subject": "초경량비행장치 신고",
+      "predicate": "법률상 신고 상대방",
+      "value": "국토교통부장관",
+      "operator": "eq",
+      "statement": "법 제122조 문언상 신고는 국토교통부장관에게 하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-002-1",
+          "statement": "국토교통부령으로 정하는 바에 따름"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "법 제122조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-019"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "실무 제출처(한국교통안전공단이사장, AF-019)와 표현이 다름. 출제 시 '법 문언상' 관점을 문항에 명시하는 규칙 권장"
+    },
+    {
+      "id": "AF-003",
+      "conceptId": "C-REG-09",
+      "subject": "신고 사항",
+      "predicate": "포함 항목",
+      "value": "종류, 용도, 소유자의 성명, 개인정보·개인위치정보 수집 가능 여부 등",
+      "statement": "신고 사항에는 초경량비행장치의 종류, 용도, 소유자의 성명, 개인정보 및 개인위치정보의 수집 가능 여부 등이 포함된다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "법 제122조①"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "원문이 '등'으로 열거가 완결적이지 않음. 포함 관계로만 출제 가능. 신고 절차·서류 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-004",
+      "conceptId": "C-REG-04",
+      "subject": "신고 제외 대상(영 제24조 각 호)",
+      "predicate": "공통 전제조건",
+      "value": "항공기대여업·항공레저스포츠사업·초경량비행장치사용사업에 사용되지 아니할 것",
+      "operator": "eq",
+      "statement": "신고 제외는 「항공사업법」에 따른 항공기대여업·항공레저스포츠사업 또는 초경량비행장치사용사업에 사용되지 아니하는 것에 한하여 적용된다",
+      "conditions": [
+        {
+          "id": "FC-004-1",
+          "statement": "영 제24조 각 호 해당과 사업 미사용을 동시에 충족해야 함"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "FE-004-1",
+          "statement": "위 사업에 사용되면 각 호에 해당하더라도 신고 필요"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 적용표 (2kg 이하 사업 O)"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "CONDITION_RULE",
+      "appliesTo": ["AF-005", "AF-006", "AF-007", "AF-008", "AF-009", "AF-010"],
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "모든 제외 사유 팩트에 전역 적용되는 조건 규칙. 문제 생성 시 개별 제외 팩트에 자동 결합되도록 엔진 규칙 설계 권장. p.9 조문과 p.17 표가 상호 일치하여 통합 처리함"
+    },
+    {
+      "id": "AF-005",
+      "conceptId": "C-REG-02",
+      "subject": "무인동력비행장치",
+      "predicate": "신고 제외 중량 기준",
+      "value": 2,
+      "unit": "kg (최대이륙중량)",
+      "operator": "lte",
+      "statement": "무인동력비행장치 중에서 최대이륙중량이 2킬로그램 이하인 것은 신고 제외 대상이다",
+      "conditions": [
+        {
+          "id": "FC-005-1",
+          "statement": "AF-004의 공통 전제조건(대여업·사용사업 등에 사용되지 아니할 것) 적용"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 5호"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 적용표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "연료 포함·제외 여부는 원문 미기재('최대이륙중량'으로만 표기). 혼동 포인트: 250g(조종자증명 제외), 25kg(안전성인증), 자체중량 개념"
+    },
+    {
+      "id": "AF-006",
+      "conceptId": "C-REG-02",
+      "subject": "무인비행선",
+      "predicate": "신고 제외 자체무게 기준",
+      "value": 12,
+      "unit": "kg (연료의 무게를 제외한 자체무게)",
+      "operator": "lte",
+      "statement": "무인비행선 신고 제외의 중량 요건은 연료의 무게를 제외한 자체무게 12킬로그램 이하이다",
+      "conditions": [
+        {
+          "id": "FC-006-1",
+          "statement": "AF-007(길이 7m 이하)과 동시 충족 필요(AND)"
+        },
+        {
+          "id": "FC-006-2",
+          "statement": "AF-004의 공통 전제조건(사업 미사용) 적용"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 6호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-AIRSHIP-EX-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-007과 AND 결합 시에만 제외 성립. 단독 출제 금지. 혼동 포인트: 무인동력비행장치 기준(최대이륙중량 2kg)과 중량 개념이 다름(자체무게·연료 제외), 조종자증명 제외의 무인비행선 기준(12kg·7m)과 수치 동일하여 제도 혼동 유발"
+    },
+    {
+      "id": "AF-007",
+      "conceptId": "C-REG-02",
+      "subject": "무인비행선",
+      "predicate": "신고 제외 길이 기준",
+      "value": 7,
+      "unit": "m",
+      "operator": "lte",
+      "statement": "무인비행선 신고 제외의 길이 요건은 7미터 이하이다",
+      "conditions": [
+        {
+          "id": "FC-007-1",
+          "statement": "AF-006(자체무게 12kg 이하)과 동시 충족 필요(AND)"
+        },
+        {
+          "id": "FC-007-2",
+          "statement": "AF-004의 공통 전제조건(사업 미사용) 적용"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 6호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "COMPOSITE_FACT",
+      "groupId": "GRP-AIRSHIP-EX-01",
+      "groupOperator": "AND",
+      "standaloneQuestionAllowed": false,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-006과 동일 그룹. 혼동 포인트: 무인비행선 정의 기준의 길이 20m(p.8, 본 소분류 외)와 혼동 가능"
+    },
+    {
+      "id": "AF-008",
+      "conceptId": "C-REG-03",
+      "subject": "연구기관 등이 제작한 초경량비행장치",
+      "predicate": "신고 제외 사유",
+      "value": "시험·조사·연구 또는 개발을 위하여 제작",
+      "operator": "eq",
+      "statement": "연구기관 등이 시험ㆍ조사ㆍ연구 또는 개발을 위하여 제작한 초경량비행장치는 신고 제외 대상이다",
+      "conditions": [
+        {
+          "id": "FC-008-1",
+          "statement": "AF-004의 공통 전제조건(사업 미사용) 적용"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 7호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "제작 목적이 요건. 연구기관 소유라는 사실만으로 제외되지 않음"
+    },
+    {
+      "id": "AF-009",
+      "conceptId": "C-REG-03",
+      "subject": "제작자 등이 보유한 초경량비행장치",
+      "predicate": "신고 제외 사유",
+      "value": "판매 목적이거나 판매되지 아니한 것으로서 비행에 사용되지 아니하는 것",
+      "operator": "eq",
+      "statement": "제작자 등이 판매가 목적이거나 판매되지 아니한 것으로서 비행에 사용되지 아니하는 초경량비행장치는 신고 제외 대상이다",
+      "conditions": [
+        {
+          "id": "FC-009-1",
+          "statement": "비행에 사용되지 아니할 것"
+        },
+        {
+          "id": "FC-009-2",
+          "statement": "AF-004의 공통 전제조건(사업 미사용) 적용"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "FE-009-1",
+          "statement": "비행에 사용되면 제외되지 않음"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 8호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "원문 띄어쓰기 붕괴로 의미 복원 해석 포함하여 감점 유지. 비행 미사용 요건이 핵심 판별 요소"
+    },
+    {
+      "id": "AF-010",
+      "conceptId": "C-REG-03",
+      "subject": "군사목적 사용 초경량비행장치",
+      "predicate": "신고 제외 사유",
+      "value": "군사목적으로 사용",
+      "operator": "eq",
+      "statement": "군사목적으로 사용되는 초경량비행장치는 신고 제외 대상이다",
+      "conditions": [
+        {
+          "id": "FC-010-1",
+          "statement": "AF-004의 공통 전제조건(사업 미사용) 적용"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 9호"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "혼동 포인트: 조종자 준수사항의 공역 비행 예외(p.15, 본 소분류 외)에도 군사목적이 등장하여 제도 간 혼동 주의"
+    },
+    {
+      "id": "AF-011",
+      "conceptId": "C-REG-05",
+      "subject": "최대이륙중량 2kg 초과 기체",
+      "predicate": "장치신고/변경신고 적용",
+      "value": "필요(O)",
+      "operator": "eq",
+      "statement": "최대이륙중량 2kg 초과 기체는 사업·비사업 여부와 관계없이 장치신고/변경신고 대상이다",
+      "conditions": [
+        {
+          "id": "FC-011-1",
+          "statement": "사업용·비사업용 모두 적용"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 적용표 (사업 O·비사업 O 두 셀 통합)"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 5호와 정합"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-005", "AF-001"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "2kg 초과는 제외 요건(AF-005) 불충족으로 신고 원칙(AF-001)에 복귀하여 도출. p.17 표가 이 도출을 직접 확인함"
+    },
+    {
+      "id": "AF-012",
+      "conceptId": "C-REG-05",
+      "subject": "최대이륙중량 2kg 이하 + 사업용 기체",
+      "predicate": "장치신고/변경신고 적용",
+      "value": "필요(O)",
+      "operator": "eq",
+      "statement": "최대이륙중량 2kg 이하라도 사업에 사용되는 기체는 장치신고/변경신고 대상이다",
+      "conditions": [
+        {
+          "id": "FC-012-1",
+          "statement": "사업용일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 적용표"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 전제조건과 정합"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-005", "AF-004"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "중량 요건 충족이나 공통 조건(AF-004) 불충족 조합의 파생 사실. 오개념(2kg 이하 전부 면제) 교정용 핵심 팩트"
+    },
+    {
+      "id": "AF-013",
+      "conceptId": "C-REG-05",
+      "subject": "최대이륙중량 2kg 이하 + 비사업용 기체",
+      "predicate": "장치신고/변경신고 적용",
+      "value": "불필요(X)",
+      "operator": "eq",
+      "statement": "최대이륙중량 2kg 이하이고 사업에 사용되지 않는 기체는 장치신고/변경신고 의무가 없다",
+      "conditions": [
+        {
+          "id": "FC-013-1",
+          "statement": "비사업용일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.9",
+          "note": "영 제24조 5호"
+        },
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 적용표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "DERIVED_FACT",
+      "standaloneQuestionAllowed": true,
+      "derivedFrom": ["AF-005", "AF-004"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "AF-005와 AF-004 동시 충족의 결과. 혼동 포인트: 신고 면제여도 조종자증명(250g 초과)·준수사항은 별도 적용(타 소분류)"
+    },
+    {
+      "id": "AF-014",
+      "conceptId": "C-REG-08",
+      "subject": "신고번호 표시 의무",
+      "predicate": "적용 범위",
+      "value": "장치신고 의무와 동일 패턴",
+      "operator": "eq",
+      "statement": "신고번호 표시 의무는 p.17 표 기준으로 장치신고 의무와 동일하게 적용된다 (2kg 초과: 전부 O / 2kg 이하: 사업 O, 비사업 X)",
+      "conditions": [
+        {
+          "id": "FC-014-1",
+          "statement": "신고 대상 기체일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "안전관리제도 적용표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.85,
+      "reviewNote": "표의 O/X 패턴에서 도출한 종합 사실. 표시 의무 자체의 근거 조문(규칙 제301조④)은 p.10으로 본 분석 범위 외라 범위 확장 시 재검증 필요. 혼동 포인트: 표시 위반 제재(과태료)와 신고 위반 제재(벌금)가 다름. 신고번호 표시 의무 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-015",
+      "conceptId": "C-REG-06",
+      "subject": "장치신고/변경신고 위반",
+      "predicate": "처벌",
+      "value": "징역 6개월 또는 벌금 500만원",
+      "operator": "eq",
+      "statement": "장치신고/변경신고 위반 시 처벌기준은 징역 6개월 또는 벌금 500만원이다 (p.17 표 기재 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "위반 시 처벌기준 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-016"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "표에 '이하' 표기가 없음. 일반적 법령 형식상 이하일 가능성이 높으나 PDF에 명기되지 않아 원문 그대로 기록. 출제 시 '이하' 유무를 정답 판별 요소로 사용하지 말 것. 혼동 포인트: 벌금(형벌)이며 과태료 아님, 신고번호 표시 위반(과태료 100만원)과 혼동. 신고 관련 벌칙 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-016",
+      "conceptId": "C-REG-06",
+      "subject": "신고번호 표시 위반",
+      "predicate": "처벌",
+      "value": "과태료 100만원",
+      "operator": "eq",
+      "statement": "신고번호 표시 위반 시 처벌기준은 과태료 100만원이다 (p.17 표 기재 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.17",
+          "note": "위반 시 처벌기준 표"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-015"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.8,
+      "reviewNote": "AF-015와 동일하게 '이하' 미표기로 동일 주의사항 적용. 혼동 포인트: 장치신고 위반(벌금 500만원)과 제재 유형·금액 모두 다름. 신고 관련 벌칙 소분류로 이동 배치됨. AF-015와 쌍으로 벌금 vs 과태료 비교 구조 유지"
+    },
+    {
+      "id": "AF-017",
+      "conceptId": "C-REG-07",
+      "subject": "신규신고 (안전성인증 대상 기체)",
+      "predicate": "신고 기한",
+      "value": "안전성인증을 받기 전",
+      "operator": "lte",
+      "statement": "안전성인증 대상 기체의 신규신고는 안전성인증을 받기 전까지 하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-017-1",
+          "statement": "안전성인증 대상 기체일 것"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "FE-017-1",
+          "statement": "안전성인증 대상이 아닌 기체는 AF-018의 기한(30일 이내) 적용"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제4조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-018"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "기한이 기체 유형(인증 대상 여부)에 따라 이원화됨. p.10(규칙 제301조)에도 동일 내용이 있으나 본 분석 범위는 p.33이며, 범위 확장 시 SourceReference에 p.10 병합 권장. 신고 절차·서류 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-018",
+      "conceptId": "C-REG-07",
+      "subject": "신규신고 (안전성인증 비대상 기체)",
+      "predicate": "신고 기한",
+      "value": 30,
+      "unit": "일",
+      "operator": "lte",
+      "statement": "안전성인증 대상이 아닌 기체는 소유하거나 사용할 권리가 있는 날부터 30일 이내에 신규신고하여야 한다",
+      "conditions": [
+        {
+          "id": "FC-018-1",
+          "statement": "안전성인증 대상이 아닌 기체일 것"
+        }
+      ],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제4조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-017"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.95,
+      "reviewNote": "기산점은 권리가 있는 날부터(구매일·비행 개시일 아님). 혼동 포인트: 말소신고 15일(p.34, 본 소분류 외)과 혼동. 신고 절차·서류 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-019",
+      "conceptId": "C-REG-07",
+      "subject": "신규신고서",
+      "predicate": "제출처",
+      "value": "한국교통안전공단이사장",
+      "operator": "eq",
+      "statement": "신규신고서는 한국교통안전공단이사장에게 제출하여야 한다 (세칙 기준)",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제4조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "crossReferences": ["AF-002"],
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "법률상 신고 상대방(국토교통부장관, AF-002)과 표현이 다름. AF-002와 쌍으로 관리 필요. 출제 시 문항에 '법 문언상' 또는 '제출처는' 등 관점을 반드시 명시하는 규칙 권장. 신고 절차·서류 소분류로 이동 배치됨"
+    },
+    {
+      "id": "AF-020",
+      "conceptId": "C-REG-07",
+      "subject": "신규신고 첨부서류",
+      "predicate": "구성",
+      "value": "3종: 소유·사용 권리 증명 서류, 제원 및 성능표, 사진(가로 15cm x 세로 10cm 측면사진)",
+      "operator": "eq",
+      "statement": "신규신고 시 첨부서류는 소유·사용 권리 증명 서류, 제원 및 성능표, 가로 15cm x 세로 10cm 측면사진 3종이다",
+      "conditions": [],
+      "exceptions": [],
+      "sourceReferences": [
+        {
+          "documentId": "ts-drone-aviation-safety-2021",
+          "revisionId": "ts-drone-aviation-safety-2021-v1",
+          "locator": "p.33",
+          "note": "세칙 제4조"
+        }
+      ],
+      "version": "2021-education-v1",
+      "status": "draft",
+      "factType": "SOURCE_FACT",
+      "standaloneQuestionAllowed": true,
+      "sourceVersion": "2021년 교육자료 기준",
+      "confidence": 0.9,
+      "reviewNote": "혼동 포인트: 사진 규격의 가로·세로 순서(15x10) 및 측면사진 요건. p.10(규칙 제301조)에 동일 내용 존재하며 범위 확장 시 병합 권장. 신고 절차·서류 소분류로 이동 배치됨"
+    }
+  ],
+  "questionTemplates": [
+    {
+      "id": "QT-SELECT-TRUE-BASIC",
+      "questionType": "SELECT_TRUE",
+      "stemTemplate": "{concept}에 관한 설명으로 옳은 것은?",
+      "explanationTemplate": "정답 근거: {statement}",
+      "difficulty": "easy"
+    },
+    {
+      "id": "QT-SELECT-FALSE-BASIC",
+      "questionType": "SELECT_FALSE",
+      "stemTemplate": "{concept}에 관한 설명으로 옳지 않은 것은?",
+      "explanationTemplate": "옳은 내용은 다음과 같다: {statement}",
+      "difficulty": "medium"
+    },
+    {
+      "id": "QT-NUMERIC-THRESHOLD-BASIC",
+      "questionType": "NUMERIC_THRESHOLD",
+      "stemTemplate": "{subject}에 적용되는 기준값으로 옳은 것은?",
+      "explanationTemplate": "기준값은 {value}{unit}이다. 근거: {statement}",
+      "difficulty": "easy"
+    },
+    {
+      "id": "QT-CONCEPT-COMPARISON-BASIC",
+      "questionType": "CONCEPT_COMPARISON",
+      "stemTemplate": "{concept}과 관련하여 서로 다른 제도의 기준을 올바르게 구분한 것은?",
+      "explanationTemplate": "구분 근거: {statement}",
+      "difficulty": "medium"
+    },
+    {
+      "id": "QT-CASE-JUDGMENT-BASIC",
+      "questionType": "CASE_JUDGMENT",
+      "stemTemplate": "다음 사례에서 {subject}에 대한 판단으로 옳은 것은?",
+      "explanationTemplate": "판단 근거: {statement}",
+      "difficulty": "hard"
+    }
+  ],
+  "distractorRules": [
+    {
+      "id": "DR-NUMERIC-NEARBY",
+      "mutationType": "NUMERIC_NEARBY",
+      "description": "정답 수치를 인접한 다른 수치로 변형한다. 같은 도메인에 실제로 존재하는 다른 기준값을 우선 사용하여 그럴듯한 오답을 만든다."
+    },
+    {
+      "id": "DR-BOUNDARY-OPERATOR-SWAP",
+      "mutationType": "BOUNDARY_OPERATOR_SWAP",
+      "description": "경계 연산자를 바꿔 오답을 만든다. 이하를 미만으로, 초과를 이상으로 교체하는 방식으로 경계값 포함 여부의 이해를 검증한다."
+    },
+    {
+      "id": "DR-UNIT-SWAP",
+      "mutationType": "UNIT_SWAP",
+      "description": "단위 또는 중량 개념을 교체한다. 최대이륙중량과 자체중량, 연료 포함과 연료 제외처럼 유사하지만 다른 측정 기준으로 바꿔 개념 구분 능력을 검증한다."
+    },
+    {
+      "id": "DR-AUTHORITY-SWAP",
+      "mutationType": "AUTHORITY_SWAP",
+      "description": "권한 주체나 기관을 교체한다. 법률상 상대방과 실무 제출처, 또는 유사 기관 간 교체로 주체 구분 능력을 검증한다."
+    },
+    {
+      "id": "DR-CONDITION-OMISSION",
+      "mutationType": "CONDITION_OMISSION",
+      "description": "성립에 필요한 조건을 누락시킨 진술을 오답으로 만든다. 복수 요건 중 하나만 충족해도 성립하는 것처럼 서술하여 조건 결합의 이해를 검증한다."
+    },
+    {
+      "id": "DR-EXCEPTION-OMISSION",
+      "mutationType": "EXCEPTION_OMISSION",
+      "description": "예외를 무시하고 원칙만 적용한 진술을 오답으로 만든다. 예외 사유가 있음에도 원칙이 그대로 적용되는 것처럼 서술한다."
+    },
+    {
+      "id": "DR-SIBLING-FACT-SWAP",
+      "mutationType": "SIBLING_FACT_SWAP",
+      "description": "같은 카테고리 내 형제 팩트의 값이나 요건을 서로 바꿔 오답을 만든다. 유사 제도 간 기준 혼동을 유도하여 정확한 매칭 능력을 검증한다."
+    }
+  ]
+}
