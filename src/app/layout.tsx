@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Drone Pass - 드론 자격시험 학습앱",
-  description: "대한민국 드론 자격시험, 드론 안전, 비행정보를 위한 드론패스 포털",
+  description: "드론 자격시험, 드론 안전, 비행정보를 위한 드론 학습 플랫폼",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>
+      <body className={`${inter.className} drone-shell`}>
         <PwaRegister />
         {children}
       </body>

@@ -18,7 +18,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-cyan-100 bg-white/95 shadow-[0_-10px_30px_rgba(15,45,82,0.08)] backdrop-blur lg:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-sky-200 bg-white/95 shadow-[0_-10px_30px_rgba(15,45,82,0.12)] backdrop-blur lg:hidden">
       <div className="mx-auto grid h-16 max-w-xl grid-cols-6">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -28,7 +28,10 @@ export function BottomNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={cn("flex min-w-0 flex-col items-center justify-center gap-1 text-[10px] font-bold text-slate-500", active && "text-cyan-700")}
+              className={cn(
+                "flex min-w-0 flex-col items-center justify-center gap-1 text-[10px] font-bold text-slate-600 transition",
+                active && "text-[var(--drone-sky)]"
+              )}
             >
               <Icon size={19} />
               <span className="truncate">{item.label}</span>

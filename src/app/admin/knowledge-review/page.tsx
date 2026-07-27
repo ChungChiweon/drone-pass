@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ClipboardCheck, Download, Eye, FileJson, Filter, PauseCircle, Save, Search, ShieldAlert, Upload, X } from "lucide-react";
 import { AppFrame } from "@/components/boat/AppFrame";
 import {
+  createLocalKnowledgePackRepository,
   readLegacyReviewAudit,
   readLegacyReviewMetadata,
   readLocalKnowledgePacks
@@ -14,6 +15,7 @@ import {
   SupabaseKnowledgePackRepository
 } from "@/domain/exam-engine/import/supabase-knowledge-pack-repository";
 import type {
+  KnowledgePackRepository,
   KnowledgeReviewAuditEntry,
   KnowledgeReviewMetadata,
   StoredKnowledgePack
@@ -274,16 +276,22 @@ export default function KnowledgeReviewPage() {
   const [importIncludeAudit, setImportIncludeAudit] = useState(false);
   const [importCreateBackup, setImportCreateBackup] = useState(true);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const repositoryRef = useRef<CachedKnowledgePackRepository | null>(null);
+  const repositoryRef = useRef<KnowledgePackRepository | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     async function initialize() {
       if (!hasSupabaseEnv()) {
-        if (!cancelled) {
-          setAccessState("env-missing");
-          setIsLoadingActivePack(false);
-        }
+        const repository = createLocalKnowledgePackRepository();
+        repositoryRef.current = repository;
+        const value = await repository.getActive();
+        if (cancelled) return;
+        setActiveItem(value);
+        setMetadata(readLegacyReviewMetadata() as ReviewMetadataStore);
+        setAudit(readLegacyReviewAudit());
+        setIsReadOnlyCache(false);
+        setAccessState("ready");
+        setIsLoadingActivePack(false);
         return;
       }
       const supabase = createClient();
@@ -410,7 +418,7 @@ export default function KnowledgeReviewPage() {
   const canApproveSelection = selectedViews.length > 0 && selectedBlockedViews.length === 0 && selectedApprovedViews.length === 0;
 
   async function updateChecklist(factId: string, key: keyof ReviewChecklist, checked: boolean) {
-    if (!activeItem || !repositoryRef.current || isReadOnlyCache) return setMessage("읽기 전용 캐시에서는 체크리스트를 변경할 수 없습니다.");
+    if (!activeItem || !repositoryRef.current || isReadOnlyCache) return setMessage("읽기 전용 캐시에서는 체크리스트를 저장할 수 없습니다.");
     const currentReview = getReview(metadata, factId);
     const nextReview = {
       ...currentReview,
@@ -429,7 +437,7 @@ export default function KnowledgeReviewPage() {
   }
 
   async function updateOfficialChecklist(factId: string, key: keyof OfficialChecklist, checked: boolean) {
-    if (!activeItem || !repositoryRef.current || isReadOnlyCache) return setMessage("읽기 전용 캐시에서는 체크리스트를 변경할 수 없습니다.");
+    if (!activeItem || !repositoryRef.current || isReadOnlyCache) return setMessage("읽기 전용 캐시에서는 체크리스트를 저장할 수 없습니다.");
     const currentReview = getReview(metadata, factId);
     const nextReview = {
       ...currentReview,
@@ -486,7 +494,7 @@ export default function KnowledgeReviewPage() {
       setMetadata(savedMetadata as ReviewMetadataStore);
       setAudit(savedAudit);
     } catch (error) {
-      return setMessage(error instanceof Error ? error.message : "승인 저장 실패");
+      return setMessage(error instanceof Error ? error.message : "승인 실패");
     }
     setSelectedIds((current) => current.filter((id) => !approvableIds.has(id)));
     setMessage(`Approved ${approvable.length} fact(s).`);
@@ -517,7 +525,7 @@ export default function KnowledgeReviewPage() {
       setMetadata(await repositoryRef.current.getReviewMetadata(activeItem.id) as ReviewMetadataStore);
       setAudit(await repositoryRef.current.getAudit(activeItem.id));
     } catch (error) {
-      return setMessage(error instanceof Error ? error.message : "보류 저장 실패");
+      return setMessage(error instanceof Error ? error.message : "보류 실패");
     }
     setHoldMemo("");
     setMessage(`Held ${nextAudit.length} fact(s).`);
@@ -603,37 +611,60 @@ export default function KnowledgeReviewPage() {
       setMetadata(await repositoryRef.current.getReviewMetadata(stored.id) as ReviewMetadataStore);
       setAudit(await repositoryRef.current.getAudit(stored.id));
       setMigrationCandidate(null);
-      setMessage("서버 이전이 완료되었습니다. 기존 localStorage 원본은 삭제하지 않았습니다.");
+      setMessage("서버로 이전했습니다. 기존 localStorage 원본은 삭제하지 않았습니다.");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "서버 이전 실패");
     }
   }
 
   if (accessState === "checking") {
-    return <AppFrame><StatusScreen title="관리자 권한 확인 중" description="Supabase 로그인과 관리자 프로필을 확인하고 있습니다." /></AppFrame>;
+    return (
+      <AppFrame>
+        <StatusScreen title="Accessing system configuration..." description="Supabase access check is loading." />
+      </AppFrame>
+    );
   }
   if (accessState === "env-missing") {
-    return <AppFrame><StatusScreen title="Supabase 연결 필요" description="NEXT_PUBLIC_SUPABASE_URL과 NEXT_PUBLIC_SUPABASE_ANON_KEY가 설정되지 않았습니다. localStorage는 읽거나 변경하지 않았습니다." /></AppFrame>;
+    return (
+      <AppFrame>
+        <StatusScreen
+          title="Supabase environment missing"
+          description="NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY is not set. localStorage fallback may be used instead."
+        />
+      </AppFrame>
+    );
   }
   if (accessState === "forbidden") {
-    return <AppFrame><StatusScreen title="접근 거부" description="profiles.role이 admin인 로그인 사용자만 Knowledge Review에 접근할 수 있습니다." /></AppFrame>;
+    return (
+      <AppFrame>
+        <StatusScreen
+          title="Access denied"
+          description="profiles.role must be admin to open Knowledge Review."
+        />
+      </AppFrame>
+    );
   }
   if (accessState === "error") {
-    return <AppFrame><StatusScreen title="관리자 권한 확인 실패" description={accessMessage || "Supabase 요청을 확인하세요."} /></AppFrame>;
+    return (
+      <AppFrame>
+        <StatusScreen title="Access check failed" description={accessMessage || "Supabase connection issue."} />
+      </AppFrame>
+    );
   }
 
   return (
     <AppFrame>
       <div className="space-y-5">
         {isReadOnlyCache ? (
-          <section className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm font-black text-amber-900">
-            서버에 연결할 수 없어 읽기 전용 캐시를 표시합니다. 승인·보류·체크리스트·import는 차단됩니다.
+          <section className="flex items-start gap-3 rounded-2xl border border-[#ffd9a8] bg-[#fff7ea] p-4 text-sm font-bold leading-6 text-[#8a4f00] shadow-none">
+            <span aria-hidden className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--drone-warning)]" />
+            서버에 연결할 수 없어 읽기 전용 캐시를 표시합니다. 승인, 보류, 체크리스트, import는 차단됩니다.
           </section>
         ) : null}
         {migrationCandidate ? (
-          <section className="rounded-2xl border border-sky-200 bg-sky-50 p-5">
-            <h2 className="text-lg font-black text-sky-950">로컬 Pack을 서버로 이전할 수 있습니다</h2>
-            <p className="mt-2 text-sm font-semibold text-sky-800">
+          <section className="rounded-2xl border border-[#c9dcff] bg-[linear-gradient(180deg,#f2f7ff,#ffffff)] p-5">
+            <h2 className="text-base font-black tracking-[-0.02em] text-[var(--drone-cobalt)]">로컬 Pack을 서버로 이전할 수 있습니다</h2>
+            <p className="mt-2 font-mono text-xs font-semibold leading-6 text-[var(--drone-text-soft)]">
               {migrationCandidate.id} · Category {migrationCandidate.pack.domainPack.categories.length} · Concept {migrationCandidate.pack.concepts.length} · AtomicFact {migrationCandidate.pack.atomicFacts.length} · approved {migrationCandidate.pack.atomicFacts.filter((fact) => fact.status === "approved").length} · metadata {Object.keys(readLegacyReviewMetadata()).length} · audit {readLegacyReviewAudit().length}
             </p>
             <div className="mt-3">
@@ -641,13 +672,16 @@ export default function KnowledgeReviewPage() {
             </div>
           </section>
         ) : null}
-        <section className="rounded-2xl border border-cyan-100 bg-white p-5 shadow-sm sm:p-6">
-          <p className="text-sm font-black text-cyan-700">Knowledge Pack Admin</p>
-          <h1 className="mt-2 text-3xl font-black text-slate-950">AtomicFact 검수/승인</h1>
-          <p className="mt-2 text-sm font-semibold text-slate-600">법률 데이터는 수정하지 않고 상태, 체크리스트, review metadata만 관리합니다.</p>
+        <section className="relative overflow-hidden rounded-2xl border border-[#123a7a] bg-[linear-gradient(135deg,#0f2f64_0%,#123a7a_55%,#1d64d0_100%)] p-6 shadow-[0_18px_48px_rgba(8,43,122,0.28)] sm:p-7">
+          <span aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.16] [background-image:linear-gradient(to_right,rgba(255,255,255,.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.4)_1px,transparent_1px)] [background-size:28px_28px]" />
+          <div className="relative">
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#8ec8ff]">Knowledge Pack Admin</p>
+            <h1 className="mt-2 text-[28px] font-black leading-tight tracking-[0em] text-white sm:text-3xl">AtomicFact 검수/승인</h1>
+            <p className="mt-2 max-w-2xl text-sm font-medium leading-6 text-[#c6ddff]">법률 데이터는 수정하지 않고 상태, 체크리스트, review metadata만 관리합니다.</p>
+          </div>
         </section>
 
-        <section className="grid gap-4 lg:grid-cols-2">
+        <section data-layout className="grid gap-4 lg:grid-cols-2">
           <Section title="Knowledge Pack export">
             <div className="mt-4 flex flex-wrap gap-2">
               <ActionButton onClick={() => handleExportActivePack(false)} disabled={!activePackExport} icon={<Download size={17} />} label="Export active pack" />
@@ -659,12 +693,12 @@ export default function KnowledgeReviewPage() {
 
           <Section title="Knowledge Pack import">
             <div className="mt-4 space-y-3">
-              <label className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-xl bg-cyan-700 px-4 text-sm font-black text-white">
+              <label className="flex h-14 cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-[#9cc6ff] bg-[#f4f9ff] px-4 text-[13px] font-black text-[var(--drone-cobalt)] transition hover:border-[var(--drone-cyan)] hover:bg-[#eaf5ff]">
                 <Upload size={17} />
                 Choose JSON file
                 <input ref={fileInputRef} type="file" accept="application/json,.json" className="hidden" onChange={handleImportFile} />
               </label>
-              <p className="break-all rounded-xl bg-slate-50 p-3 text-xs font-semibold text-slate-600">{importFileName || "No file selected"}</p>
+              <p className="break-all rounded-xl border border-[var(--drone-line)] bg-white p-3 font-mono text-[11px] font-semibold text-[var(--drone-text-soft)]">{importFileName || "No file selected"}</p>
               {parsedImport.preview ? <ImportPreviewCard preview={parsedImport.preview} /> : null}
               {parsedImport.error ? <p className="text-sm font-black text-rose-700">{parsedImport.error}</p> : null}
               <CheckLine checked={importCreateBackup} onChange={setImportCreateBackup} label="Download backup before import" />
@@ -690,7 +724,7 @@ export default function KnowledgeReviewPage() {
           </Section>
         ) : (
           <>
-            <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+            <section data-layout className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
               <Metric label="AtomicFact" value={summary.total} />
               <Metric label="draft" value={summary.draft} />
               <Metric label="approved" value={summary.approved} />
@@ -708,8 +742,8 @@ export default function KnowledgeReviewPage() {
                   ["exam-review-2", "시험 검수 2차"],
                   ["official-review-1", "공식 검증 1차"]
                 ]} />
-                <label className="flex min-h-11 items-center gap-2 rounded-xl border border-sky-100 bg-slate-50 px-3 text-sm font-semibold text-slate-600">
-                  <Search size={18} />
+                <label className="mt-[18px] flex h-11 items-center gap-2 rounded-xl border border-[var(--drone-line)] bg-white px-3 text-sm font-semibold text-[var(--drone-text-soft)] focus-within:border-[var(--drone-cyan)] focus-within:shadow-[0_0_0_3px_rgba(44,197,255,0.24)]">
+                  <Search size={17} className="shrink-0 text-[var(--drone-sky)]" />
                   <input value={searchText} onChange={(event) => setSearchText(event.target.value)} className="w-full bg-transparent outline-none" placeholder="ID, statement, subject, predicate" />
                 </label>
               </div>
@@ -725,13 +759,13 @@ export default function KnowledgeReviewPage() {
                 <ActionButton onClick={() => setSelectedIds(filteredViews.filter((view) => view.fact.status === "draft").map((view) => view.fact.id))} icon={<Filter size={17} />} label="보이는 draft 선택" dark />
                 <ActionButton onClick={() => setSelectedIds([])} icon={<X size={17} />} label="선택 해제" secondary />
                 <ActionButton onClick={() => approveViews(selectedViews, "bulk")} disabled={!canApproveSelection} icon={<ClipboardCheck size={17} />} label="선택 승인" />
-                <input value={holdMemo} onChange={(event) => setHoldMemo(event.target.value)} className="min-h-11 min-w-0 flex-1 rounded-xl border border-sky-100 bg-slate-50 px-3 text-sm font-semibold outline-none" placeholder="보류 메모" />
+                <input value={holdMemo} onChange={(event) => setHoldMemo(event.target.value)} className="h-11 min-w-0 flex-1 rounded-xl border border-[var(--drone-line)] bg-white px-3 text-sm font-semibold text-[var(--drone-ink)] outline-none" placeholder="보류 메모" />
                 <ActionButton onClick={holdSelected} disabled={!selectedIds.length} icon={<PauseCircle size={17} />} label="보류" warn />
               </div>
               <p className="mt-3 text-sm font-bold text-slate-500">선택 {selectedIds.length}개. 선택 없음, 미충족, 이미 approved 포함 시 선택 승인은 비활성화됩니다.</p>
-              {selectedBlockedViews.length ? <p className="mt-2 text-sm font-black text-rose-700">Not ready: {selectedBlockedViews.map((view) => view.fact.id).join(", ")}</p> : null}
-              {selectedApprovedViews.length ? <p className="mt-2 text-sm font-black text-amber-700">Already approved: {selectedApprovedViews.map((view) => view.fact.id).join(", ")}</p> : null}
-              {message ? <p className="mt-2 text-sm font-black text-cyan-700">{message}</p> : null}
+              {selectedBlockedViews.length ? <p className="mt-2 rounded-xl border border-[#ffb6c8] bg-[#ffe9ee] px-3 py-2 font-mono text-xs font-bold leading-5 text-[#b80f3a]">Not ready: {selectedBlockedViews.map((view) => view.fact.id).join(", ")}</p> : null}
+              {selectedApprovedViews.length ? <p className="mt-2 rounded-xl border border-[#ffd9a8] bg-[#fff4df] px-3 py-2 font-mono text-xs font-bold leading-5 text-[#8a4f00]">Already approved: {selectedApprovedViews.map((view) => view.fact.id).join(", ")}</p> : null}
+              {message ? <p role="status" aria-live="polite" className="mt-2 rounded-xl border border-[#bcd9ff] bg-[#eef5ff] px-3 py-2 text-sm font-bold leading-5 text-[var(--drone-cobalt)]">{message}</p> : null}
             </Section>
 
             <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
@@ -755,13 +789,13 @@ export default function KnowledgeReviewPage() {
                   ))}
                 </div>
               </Section>
-              <aside className="space-y-5">
+              <aside data-layout className="space-y-5 xl:sticky xl:top-4 xl:self-start">
                 <DetailPanel view={activeFact} allViews={views} onOpen={setActiveFactId} />
                 <Section title="최근 승인/보류 이력">
                   <div className="mt-3 max-h-80 space-y-2 overflow-auto">
                     {audit.slice(0, 20).map((entry, index) => (
-                      <div key={`${entry.timestamp}:${entry.factId}:${index}`} className="rounded-xl bg-slate-50 p-3 text-xs font-semibold text-slate-600">
-                        <p className="font-black text-slate-950">{entry.action} / {entry.factId}</p>
+                      <div key={`${entry.timestamp}:${entry.factId}:${index}`} data-layout className="rounded-xl border-l-2 border-[var(--drone-sky)] bg-[#f7faff] p-3 font-mono text-[11px] font-semibold text-[var(--drone-text-soft)]">
+                        <p className="text-[12px] font-black text-[var(--drone-cobalt)]">{entry.action} / {entry.factId}</p>
                         <p>{entry.previousStatus} to {entry.nextStatus}</p>
                         <p>{entry.timestamp}</p>
                       </div>
@@ -780,19 +814,24 @@ export default function KnowledgeReviewPage() {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-2xl border border-sky-100 bg-white p-5 shadow-sm">
-      <h2 className="text-base font-black text-slate-950">{title}</h2>
+    <section className="rounded-2xl border border-[var(--drone-line)] bg-[var(--drone-card)] p-5 shadow-[var(--drone-shadow)]">
+      <h2 className="flex items-center gap-2 border-b border-[#eef3ff] pb-3 text-[15px] font-black tracking-[-0.02em] text-[var(--drone-ink)]">
+        <span aria-hidden className="h-4 w-1 rounded-full bg-[linear-gradient(180deg,var(--drone-cyan),var(--drone-sky))]" />
+        {title}
+      </h2>
       {children}
     </section>
   );
 }
 
 function Metric({ label, value, tone = "neutral" }: { label: string; value: number; tone?: "neutral" | "good" | "warn" | "bad" }) {
-  const color = tone === "good" ? "text-emerald-700" : tone === "warn" ? "text-amber-700" : tone === "bad" ? "text-rose-700" : "text-slate-950";
+  const color = tone === "good" ? "text-[var(--drone-success)]" : tone === "warn" ? "text-[var(--drone-warning)]" : tone === "bad" ? "text-[var(--drone-danger)]" : "text-[var(--drone-ink)]";
+  const rule = tone === "good" ? "bg-[var(--drone-success)]" : tone === "warn" ? "bg-[var(--drone-warning)]" : tone === "bad" ? "bg-[var(--drone-danger)]" : "bg-[var(--drone-sky)]";
   return (
-    <div className="rounded-2xl border border-sky-100 bg-white p-4 shadow-sm">
-      <p className="text-xs font-black text-slate-500">{label}</p>
-      <p className={`mt-2 text-2xl font-black ${color}`}>{value}</p>
+    <div className="relative overflow-hidden rounded-2xl border border-[var(--drone-line)] bg-[var(--drone-card)] p-4 shadow-[var(--drone-shadow)]">
+      <span aria-hidden className={`absolute inset-x-0 top-0 h-[3px] ${rule}`} />
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--drone-text-soft)]">{label}</p>
+      <p className={`mt-2 font-mono text-[26px] font-black leading-none tabular-nums ${color}`}>{value}</p>
     </div>
   );
 }
@@ -800,8 +839,8 @@ function Metric({ label, value, tone = "neutral" }: { label: string; value: numb
 function Select({ label, value, onChange, options }: { label: string; value: string; onChange: (value: string) => void; options: Array<[string, string]> }) {
   return (
     <label className="block">
-      <span className="text-xs font-black text-slate-500">{label}</span>
-      <select value={value} onChange={(event) => onChange(event.target.value)} className="mt-1 h-11 w-full rounded-xl border border-sky-100 bg-slate-50 px-3 text-sm font-bold text-slate-700 outline-none">
+      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--drone-text-soft)]">{label}</span>
+      <select value={value} onChange={(event) => onChange(event.target.value)} className="mt-1.5 h-11 w-full rounded-xl border border-[var(--drone-line)] bg-white px-3 text-[13px] font-bold text-[var(--drone-ink)] outline-none">
         {options.map(([optionValue, optionLabel]) => <option key={optionValue} value={optionValue}>{optionLabel}</option>)}
       </select>
     </label>
@@ -809,21 +848,37 @@ function Select({ label, value, onChange, options }: { label: string; value: str
 }
 
 function ActionButton({ label, icon, onClick, disabled, secondary, dark, warn }: { label: string; icon: React.ReactNode; onClick: () => void; disabled?: boolean; secondary?: boolean; dark?: boolean; warn?: boolean }) {
-  const style = dark ? "bg-slate-900 text-white" : warn ? "bg-amber-600 text-white" : secondary ? "border border-sky-200 bg-white text-slate-700" : "bg-emerald-700 text-white";
-  return <button type="button" onClick={onClick} disabled={disabled} className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 text-sm font-black disabled:cursor-not-allowed disabled:opacity-40 ${style}`}>{icon}{label}</button>;
+  const style = dark
+    ? "border-transparent bg-[var(--drone-ink)] text-white shadow-[0_10px_24px_rgba(11,23,48,0.24)]"
+    : warn
+      ? "border-transparent bg-[linear-gradient(180deg,#ffb347,#f59322)] text-[#4a2a00] shadow-[0_10px_24px_rgba(245,147,34,0.28)]"
+      : secondary
+        ? "border-[var(--drone-line)] bg-white text-[var(--drone-cobalt)] shadow-[0_6px_16px_rgba(8,43,122,0.08)]"
+        : "border-transparent bg-[linear-gradient(180deg,#1d64d0,#0f2f64)] text-white shadow-[0_10px_26px_rgba(15,47,100,0.28)]";
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className={`inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-xl border px-4 text-[13px] font-black tracking-[-0.01em] transition hover:-translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 ${style}`}
+    >
+      {icon}
+      {label}
+    </button>
+  );
 }
 
 function QuickButton({ label, onClick }: { label: string; onClick: () => void }) {
-  return <button type="button" onClick={onClick} className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-cyan-100 bg-cyan-50 px-3 text-sm font-black text-cyan-800">{label}</button>;
+  return <button type="button" onClick={onClick} className="inline-flex h-11 items-center gap-2 rounded-xl border border-[#c9e8ff] bg-[#eaf6ff] px-3.5 text-[13px] font-black text-[#0b4a8f] transition hover:-translate-y-[1px] hover:bg-[#dcefff]">{label}</button>;
 }
 
 function CheckLine({ label, checked, onChange, disabled }: { label: string; checked: boolean; onChange: (checked: boolean) => void; disabled?: boolean }) {
-  return <label className="flex items-center gap-2 text-sm font-semibold text-slate-700"><input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} disabled={disabled} />{label}</label>;
+  return <label className="flex min-h-9 items-center gap-2.5 rounded-lg px-1 text-[13px] font-semibold text-[var(--drone-ink)] has-[:disabled]:opacity-45"><input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} disabled={disabled} className="h-4 w-4 shrink-0 accent-[var(--drone-sky)]" />{label}</label>;
 }
 
 function ImportPreviewCard({ preview }: { preview: ImportPreview }) {
   return (
-    <div className="grid gap-2 rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-900 sm:grid-cols-2">
+    <div data-layout className="grid gap-x-4 gap-y-1.5 rounded-xl border border-[#a8e9ca] bg-[#f2fdf8] px-4 py-3.5 font-mono text-[11px] font-semibold text-[#0b5c43] sm:grid-cols-2">
       <p>Pack ID: <span className="font-mono">{preview.packId}</span></p>
       <p>Name: {preview.name}</p>
       <p>Categories: {preview.categories}</p>
@@ -856,20 +911,22 @@ function FactRow({ view, checked, canApprove, isOfficialReviewTarget, isActive, 
   const fact = view.fact;
   const checklist = { ...emptyChecklist, ...(view.review.checklist ?? {}) };
   const officialChecklist = { ...emptyOfficialChecklist, ...(view.review.officialChecklist ?? {}) };
+  const rail = fact.status === "approved" ? "bg-[var(--drone-success)]" : view.review.reviewState === "held" ? "bg-[var(--drone-warning)]" : view.hasBlockingIssue ? "bg-[var(--drone-danger)]" : "bg-[var(--drone-sky)]";
   return (
-    <article data-testid="fact-row" className={`rounded-2xl border p-4 ${isActive ? "border-cyan-300 bg-cyan-50" : "border-sky-100 bg-slate-50"}`}>
+    <article data-testid="fact-row" className={`relative overflow-hidden rounded-2xl border p-4 pl-5 transition ${isActive ? "border-[var(--drone-cyan)] bg-[#f2fbff] shadow-[0_0_0_2px_rgba(44,197,255,0.18)]" : "border-[var(--drone-line)] bg-white"}`}>
+      <span aria-hidden className={`absolute inset-y-0 left-0 w-[4px] ${rail}`} />
       <div className="flex flex-col gap-3 lg:flex-row lg:items-start">
         <input type="checkbox" checked={checked} onChange={onCheck} className="mt-1 h-5 w-5 shrink-0" aria-label={`${fact.id} 선택`} />
         <button type="button" onClick={onOpen} className="min-w-0 flex-1 text-left">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-sm font-black text-slate-950">{fact.id}</span>
+            <span className="rounded-md bg-[#eef3ff] px-2 py-0.5 font-mono text-[13px] font-black tracking-tight text-[var(--drone-cobalt)]">{fact.id}</span>
             <Badge label={fact.status} tone={fact.status === "approved" ? "good" : "neutral"} />
             {isOfficialReviewTarget ? <Badge label="공식 검증" tone="good" /> : null}
             {view.review.reviewState === "held" ? <Badge label="held" tone="warn" /> : null}
             {view.hasBlockingIssue ? <Badge label="검증 차단" tone="bad" /> : view.issues.length ? <Badge label="경고" tone="warn" /> : null}
           </div>
-          <p className="mt-2 text-sm font-bold leading-6 text-slate-800">{fact.statement}</p>
-          <dl className="mt-3 grid gap-1 text-xs font-semibold text-slate-500 lg:grid-cols-2">
+          <p className="mt-2.5 text-[15px] font-bold leading-7 text-[var(--drone-ink)]">{fact.statement}</p>
+          <dl className="mt-3 grid gap-x-4 gap-y-1 border-t border-[#eef3ff] pt-3 font-mono text-[11px] font-semibold text-[var(--drone-text-soft)] lg:grid-cols-2">
             <div>Category: {view.categoryLabels.join(", ") || "-"}</div>
             <div>Concept: {view.concept?.title ?? fact.conceptId}</div>
             <div>subject: {fact.subject}</div>
@@ -882,7 +939,7 @@ function FactRow({ view, checked, canApprove, isOfficialReviewTarget, isActive, 
         <div className="flex shrink-0 flex-row gap-2 lg:flex-col">
           <ActionButton onClick={onOpen} icon={<Eye size={15} />} label="상세" dark />
           <ActionButton onClick={onApproveOne} disabled={!canApprove} icon={<ClipboardCheck size={15} />} label="단건 승인" />
-          {!canApprove ? <span className="inline-flex min-h-10 items-center justify-center gap-1 rounded-xl bg-slate-200 px-3 text-xs font-black text-slate-500"><ShieldAlert size={15} />승인 차단</span> : null}
+          {!canApprove ? <span className="inline-flex h-11 items-center justify-center gap-1.5 rounded-xl border border-[#ffd9a8] bg-[#fff7ea] px-3 text-xs font-black text-[#8a4f00]"><ShieldAlert size={15} />승인 차단</span> : null}
           {view.review.reviewState === "held" ? <ActionButton onClick={onUnhold} icon={<X size={15} />} label="보류 해제" secondary /> : null}
         </div>
       </div>
@@ -900,24 +957,24 @@ function ChecklistPanel({ checklist, officialChecklist, showOfficial, onChecklis
 }) {
   return (
     <>
-      <div className="mt-4 rounded-xl border border-amber-100 bg-white p-3">
+      <div data-layout className="mt-4 rounded-xl border border-[#e3ecff] bg-[#f7faff] p-3.5">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-xs font-black text-amber-800">일반 체크리스트</p>
+           <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--drone-cobalt)]">일반 체크리스트</p>
           <Badge label={isChecklistComplete(checklist) ? "checklist complete" : "checklist required"} tone={isChecklistComplete(checklist) ? "good" : "warn"} />
         </div>
         <div className="mt-3 grid gap-2 text-xs font-bold text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
-          <ChecklistItem label="statement가 원문과 일치" checked={checklist.statementVerified} onChange={(checked) => onChecklistChange("statementVerified", checked)} />
-          <ChecklistItem label="수치·단위 정확" checked={checklist.valueUnitVerified} onChange={(checked) => onChecklistChange("valueUnitVerified", checked)} />
-          <ChecklistItem label="조건·예외 누락 없음" checked={checklist.conditionExceptionVerified} onChange={(checked) => onChecklistChange("conditionExceptionVerified", checked)} />
+          <ChecklistItem label="statement 검토 완료" checked={checklist.statementVerified} onChange={(checked) => onChecklistChange("statementVerified", checked)} />
+          <ChecklistItem label="값/단위 검증" checked={checklist.valueUnitVerified} onChange={(checked) => onChecklistChange("valueUnitVerified", checked)} />
+          <ChecklistItem label="예외/조건 검증" checked={checklist.conditionExceptionVerified} onChange={(checked) => onChecklistChange("conditionExceptionVerified", checked)} />
           <ChecklistItem label="sourceReference 확인" checked={checklist.sourceVerified} onChange={(checked) => onChecklistChange("sourceVerified", checked)} />
-          <ChecklistItem label="crossReference 이상 없음" checked={checklist.referencesVerified} onChange={(checked) => onChecklistChange("referencesVerified", checked)} />
-          <ChecklistItem label="문제 출제 허용 여부 적절" checked={checklist.questionEligibilityVerified} onChange={(checked) => onChecklistChange("questionEligibilityVerified", checked)} />
+          <ChecklistItem label="crossReference 확인" checked={checklist.referencesVerified} onChange={(checked) => onChecklistChange("referencesVerified", checked)} />
+          <ChecklistItem label="문항 적합성 확인" checked={checklist.questionEligibilityVerified} onChange={(checked) => onChecklistChange("questionEligibilityVerified", checked)} />
         </div>
       </div>
       {showOfficial ? (
-        <div className="mt-4 rounded-xl border border-emerald-100 bg-white p-3">
+        <div data-layout className="mt-3 rounded-xl border border-[#a8e9ca] bg-[#f2fdf8] p-3.5">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <p className="text-xs font-black text-emerald-800">공식 체크리스트</p>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#0f8f63]">공식 체크리스트</p>
             <Badge label={isOfficialChecklistComplete(officialChecklist) ? "official checklist complete" : "official checklist required"} tone={isOfficialChecklistComplete(officialChecklist) ? "good" : "warn"} />
           </div>
           <div className="mt-3 grid gap-2 text-xs font-bold text-slate-700 sm:grid-cols-2">
@@ -933,27 +990,28 @@ function ChecklistPanel({ checklist, officialChecklist, showOfficial, onChecklis
 }
 
 function ChecklistItem({ label, checked, onChange }: { label: string; checked: boolean; onChange: (checked: boolean) => void }) {
-  return <label className="flex min-h-10 items-center gap-2 rounded-lg bg-slate-50 px-3"><input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} className="h-4 w-4 shrink-0" /><span>{label}</span></label>;
+  const style = checked ? "border-[#a8e9ca] bg-[#eafaf3] text-[#0f8f63]" : "border-[var(--drone-line)] bg-white text-[var(--drone-ink)]";
+  return <label className={`flex min-h-11 cursor-pointer items-center gap-2.5 rounded-lg border px-3 transition ${style}`}><input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} className="h-4 w-4 shrink-0 accent-[var(--drone-success)]" /><span className="leading-tight">{label}</span></label>;
 }
 
 function Badge({ label, tone }: { label: string; tone: "neutral" | "good" | "warn" | "bad" }) {
-  const style = tone === "good" ? "bg-emerald-50 text-emerald-700 ring-emerald-100" : tone === "warn" ? "bg-amber-50 text-amber-700 ring-amber-100" : tone === "bad" ? "bg-rose-50 text-rose-700 ring-rose-100" : "bg-white text-slate-600 ring-slate-200";
-  return <span className={`rounded-full px-2.5 py-1 text-xs font-black ring-1 ${style}`}>{label}</span>;
+  const style = tone === "good" ? "bg-[#e8fbf2] text-[#0f8f63] ring-[#a8e9ca]" : tone === "warn" ? "bg-[#fff4df] text-[#8a4f00] ring-[#ffd9a8]" : tone === "bad" ? "bg-[#ffe9ee] text-[#b80f3a] ring-[#ffb6c8]" : "bg-[#f0f6ff] text-[var(--drone-cobalt)] ring-[var(--drone-line)]";
+  return <span className={`inline-flex items-center rounded-full px-2.5 py-1 font-mono text-[10px] font-black uppercase tracking-[0.08em] ring-1 ${style}`}>{label}</span>;
 }
 
 function DetailPanel({ view, allViews, onOpen }: { view: FactView | null; allViews: FactView[]; onOpen: (id: string) => void }) {
   if (!view) {
-    return <Section title="상세 패널"><p className="mt-3 text-sm font-semibold text-slate-500">목록에서 AtomicFact를 선택하세요.</p></Section>;
+    return <Section title="상세 패널"><p className="mt-3 text-sm font-semibold text-slate-500">팩트를 선택하면 상세를 확인할 수 있어요.</p></Section>;
   }
   const fact = view.fact;
   const siblingFacts = allViews.filter((item) => item.fact.conceptId === fact.conceptId && item.fact.id !== fact.id).slice(0, 12);
   const linkedIds = Array.from(new Set([...(fact.crossReferences ?? []), ...(fact.derivedFrom ?? [])])).sort();
   return (
-    <Section title="상세 패널">
+      <Section title="상세 패널">
       <div className="mt-3 space-y-4 text-sm">
         <div>
-          <p className="font-mono text-xs font-black text-cyan-700">{fact.id}</p>
-          <p className="mt-2 font-bold leading-6 text-slate-900">{fact.statement}</p>
+          <p className="inline-block rounded-md bg-[#eef3ff] px-2 py-0.5 font-mono text-[11px] font-black text-[var(--drone-cobalt)]">{fact.id}</p>
+          <p className="mt-2.5 text-[15px] font-bold leading-7 text-[var(--drone-ink)]">{fact.statement}</p>
         </div>
         <InfoBlock title="조건·예외">
           <List values={[...fact.conditions.map((item) => `${item.id}: ${item.statement}`), ...fact.exceptions.map((item) => `${item.id}: ${item.statement}`)]} empty="조건/예외 없음" />
@@ -977,7 +1035,7 @@ function DetailPanel({ view, allViews, onOpen }: { view: FactView | null; allVie
 }
 
 function InfoBlock({ title, children }: { title: string; children: React.ReactNode }) {
-  return <div className="rounded-xl border border-sky-100 bg-white p-3"><h3 className="text-xs font-black text-slate-500">{title}</h3><div className="mt-2 text-sm font-semibold leading-6 text-slate-700">{children}</div></div>;
+  return <div data-layout className="rounded-xl border border-[var(--drone-line)] bg-[#fbfdff] p-3.5"><h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--drone-text-soft)]">{title}</h3><div className="mt-2 text-[13px] font-semibold leading-6 text-[var(--drone-ink)]">{children}</div></div>;
 }
 
 function List({ values, empty }: { values: string[]; empty: string }) {
@@ -986,14 +1044,16 @@ function List({ values, empty }: { values: string[]; empty: string }) {
 }
 
 function LinkButton({ id, onOpen }: { id: string; onOpen: (id: string) => void }) {
-  return <button type="button" onClick={() => onOpen(id)} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-700 hover:bg-cyan-100 hover:text-cyan-800">{id}</button>;
+  return <button type="button" onClick={() => onOpen(id)} className="rounded-full border border-[var(--drone-line)] bg-white px-3 py-1 font-mono text-[11px] font-black text-[var(--drone-cobalt)] transition hover:-translate-y-[1px] hover:border-[var(--drone-cyan)] hover:bg-[#eaf6ff]">{id}</button>;
 }
 
 function StatusScreen({ title, description }: { title: string; description: string }) {
   return (
-    <section className="mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-      <h1 className="text-2xl font-black text-slate-950">{title}</h1>
-      <p className="mt-3 text-sm font-semibold leading-6 text-slate-600">{description}</p>
+    <section className="mx-auto max-w-2xl rounded-2xl border border-[var(--drone-line)] bg-[var(--drone-card)] p-8 shadow-[var(--drone-shadow)]">
+      <span aria-hidden className="mb-4 block h-1 w-12 rounded-full bg-[linear-gradient(90deg,var(--drone-cyan),var(--drone-sky))]" />
+      <h1 className="text-2xl font-black tracking-[-0.03em] text-[var(--drone-ink)]">{title}</h1>
+      <p className="mt-3 text-sm font-semibold leading-7 text-[var(--drone-text-soft)]">{description}</p>
     </section>
   );
 }
+
