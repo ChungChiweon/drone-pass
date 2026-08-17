@@ -1,0 +1,20 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { describe, expect, it } from "vitest";
+
+const load=<T>(path:string)=>JSON.parse(readFileSync(join(process.cwd(),path),"utf8")) as T;
+type Unit={knowledgeId:string;sourceKnowledgeId:string;knowledgeType:string;technicalContext:string;batteryContext?:string;rawExpression?:string;questionConstraints:{allowed:string[];prohibited:string[]};lineage?:{classification:string}|null};
+type Canonical={checksum:string;canonicalUnits:Unit[];relationshipUnits:Array<Unit&{sourceEndpoint:string;targetEndpoint:string;sourceCanonicalId:string;targetCanonicalId:string}>;unresolvedVisualIds:string[];unresolvedTableIds:string[];gapAnalysis:{count:number;topics:string[];lipoPreserved:boolean};freezeStatus:string;topicCoverage:Array<{status:string}>};
+type Summary={canonicalInput:number;canonicalGenerated:number;candidateStatus:Record<string,number>;formulaCount:number;relationshipCount:number;visualSupportCount:number;visualCanonicalCount:number;unresolvedTableCount:number;tableCanonicalCount:number;technicalContext:Record<string,number>;totalFlightTheoryCanonical:number;checksum:string;checksumReproducible:boolean;mutations:Record<string,number>};
+
+describe("FLIGHT-THEORY-004C Canonical",()=>{
+  const set=load<Canonical>("work/flight-theory-validation/004c/results/canonical-flight-knowledge-004c.json");
+  const summary=load<Summary>("work/flight-theory-validation/004c/results/canonical-summary.json");
+  const all=[...set.canonicalUnits,...set.relationshipUnits];
+  it("uses exactly the 29 validated candidates",()=>{expect(summary.canonicalInput).toBe(29);expect(summary.canonicalGenerated).toBe(29);expect(summary.candidateStatus).toEqual({READY_WITH_WARNING:20,READY:9});});
+  it("creates deterministic stable IDs and checksum",()=>{expect(new Set(all.map(x=>x.knowledgeId)).size).toBe(29);expect(all.every(x=>x.knowledgeId.startsWith("flight-004c:"))).toBe(true);expect(set.checksum).toMatch(/^sha256-[a-f0-9]{64}$/);expect(summary.checksum).toBe(set.checksum);expect(summary.checksumReproducible).toBe(true);});
+  it("preserves general contexts and blocks UAS/LiPo generalization",()=>{expect(summary.technicalContext).toEqual({ELECTRICAL_GENERAL:12,AVIATION_GENERAL:2,BATTERY_GENERAL:15});expect(all.some(x=>/UAS_SPECIFIC|DRONE_SPECIFIC|LIPO_SPECIFIC/.test(x.technicalContext))).toBe(false);expect(set.canonicalUnits.some(x=>x.sourceKnowledgeId==="battery-knowledge:c-rate"&&x.batteryContext==="GENERAL_LITHIUM_ION")).toBe(true);expect(all.some(x=>x.sourceKnowledgeId.includes("lipo"))).toBe(false);});
+  it("includes only two formulas and seven validated relationships",()=>{expect(summary.formulaCount).toBe(2);expect(summary.relationshipCount).toBe(7);expect(set.relationshipUnits.every(x=>x.sourceEndpoint&&x.targetEndpoint&&x.sourceCanonicalId&&x.targetCanonicalId)).toBe(true);expect(set.canonicalUnits.filter(x=>x.knowledgeType==="TECHNICAL_FORMULA").map(x=>x.sourceKnowledgeId).sort()).toEqual(["technical-formula:ohms-law","technical-formula:resistive-power"]);});
+  it("keeps visuals and tables outside Canonical knowledge",()=>{expect(summary.visualSupportCount).toBe(102);expect(summary.visualCanonicalCount).toBe(0);expect(summary.unresolvedTableCount).toBe(2);expect(summary.tableCanonicalCount).toBe(0);expect(set.unresolvedVisualIds).toHaveLength(102);expect(set.unresolvedTableIds).toHaveLength(2);});
+  it("preserves boundaries, seven gaps, freeze, and mutation guards",()=>{expect(all.find(x=>x.sourceKnowledgeId==="propulsion-component:motor")?.lineage?.classification).toBe("SAME_ENTITY_DIFFERENT_ROLE");expect(all.find(x=>x.sourceKnowledgeId==="battery-safety:battery-fire")?.lineage?.classification).toBe("TECHNICAL_VS_EMERGENCY_ROLE");expect(set.gapAnalysis.count).toBe(7);expect(set.gapAnalysis.lipoPreserved).toBe(true);expect(set.freezeStatus).toBe("READY_WITH_GAPS_FROZEN");expect(summary.totalFlightTheoryCanonical).toBe(180);expect(Object.values(summary.mutations).every(x=>x===0)).toBe(true);});
+});

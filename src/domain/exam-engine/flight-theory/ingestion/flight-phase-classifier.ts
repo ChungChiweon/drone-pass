@@ -1,0 +1,2 @@
+import type {FlightOperationPhase} from "./operational-ingestion-types";
+export function classifyFlightPhase(text:string):FlightOperationPhase{const value=text.toLowerCase();if(value.includes("post-flight")||value.includes("postflight"))return "POSTFLIGHT";if(value.includes("landing"))return "LANDING";if(value.includes("in-flight")||value.includes("in flight"))return "IN_FLIGHT";return "PREFLIGHT";}

@@ -1,0 +1,4 @@
+import type {TechnicalContext,TechnicalSourceReference} from "./electrical-concept-extractor";
+export type BatteryContext="GENERAL_LITHIUM_ION"|"LIPO_SPECIFIC"|"UAS_BATTERY"|"UNKNOWN";
+export type BatteryKnowledge={knowledgeId:string;topicId:string;title:string;statement:string;batteryContext:BatteryContext;technicalContext:TechnicalContext;sourceReferences:TechnicalSourceReference[];rawEvidenceText:string;confidence:number;warnings:string[]};
+export function extractBatteryKnowledge(input:Omit<BatteryKnowledge,"knowledgeId">){if(!input.rawEvidenceText.trim())throw new Error("DIRECT_SOURCE_EVIDENCE_REQUIRED");if(input.batteryContext==="LIPO_SPECIFIC"&&!/lithium.?polymer|lipo/i.test(input.rawEvidenceText))throw new Error("LIPO_DIRECT_EVIDENCE_REQUIRED");return {...input,knowledgeId:`battery-knowledge:${input.topicId.replace("flight:","")}`}}

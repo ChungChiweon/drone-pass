@@ -1,0 +1,2 @@
+export type CommunicationRelationship={relationshipId:string;sourceKnowledgeId:string;targetKnowledgeId:string;relationType:"TRANSMITS_TO"|"RECEIVES_FROM"|"AFFECTS"|"DEGRADED_BY"|"PART_OF"|"SUPPORTS";evidence:string;sourceLocator:{sourceId:string;page:number;section:string};direction:"SOURCE_TO_TARGET"};
+export function buildCommunicationRelationship(input:CommunicationRelationship){if(!input.evidence.trim())throw new Error("RELATIONSHIP_EVIDENCE_REQUIRED");return structuredClone(input);}

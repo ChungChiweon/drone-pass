@@ -1,0 +1,3 @@
+import type { LegalCandidateInput, RuleScore } from "./legal-validation-types";
+const EX=/다만|제외|예외|적용하지 아니|특별한 경우/;
+export function validateLegalException(c:LegalCandidateInput):RuleScore{const raw=c.rawEvidenceText??"",normalized=c.normalizedStatement??"",exceptions=(c.exceptions??[]).join(" ");const passed:string[]=[],failed:string[]=[],warnings:string[]=[],blockers:string[]=[],evidence:string[]=[];if(EX.test(raw)){if(EX.test(normalized)||EX.test(exceptions)){passed.push("EXCEPTION_PRESERVED");}else{failed.push("EXCEPTION_PRESERVED");blockers.push("EXCEPTION_SCOPE_MISSING");}}else passed.push("NO_EXCEPTION_CUE");evidence.push(exceptions.slice(0,240));return{score:blockers.length?0.5:1,passedRules:passed,failedRules:failed,warnings,blockers,evidence};}

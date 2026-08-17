@@ -1,0 +1,22 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { describe,expect,it } from "vitest";
+import { extractSensorComponent,type SensorComponent } from "./sensor-component-extractor";
+import { extractGnssKnowledge } from "./gnss-knowledge-extractor";
+import { buildNavigationRelationship } from "./navigation-relationship-builder";
+
+const load=<T>(path:string)=>JSON.parse(readFileSync(join(process.cwd(),path),"utf8")) as T;
+type Summary={sourcesUsed:string[];topicsProcessed:number;topicCoverage:Record<string,number>;controlConceptsGenerated:number;sensorComponentsGenerated:number;sensorPrinciplesGenerated:number;navigationKnowledgeGenerated:number;failureKnowledgeGenerated:number;relationshipsGenerated:number;visualLinksGenerated:number;tableCandidates:number;formulasGenerated:number;remainingGaps:string[];unsupportedInferenceCount:number;canonicalBaseline:number;mutationCount:number;batch004EStatus:string};
+type Manifest={inputCount:number;validationExecuted:boolean;canonicalGenerated:boolean;canonicalBaseline:number;mutationCount:number};
+
+describe("SOURCE-BATCH-004D limited ingestion",()=>{
+  const summary=load<Summary>("work/source-ingestion/source-batch-004d/ingestion-summary.json");
+  const manifest=load<Manifest>("work/flight-theory-validation/004d/validation-input-manifest.json");
+  it("uses only the acquired 004D source set and all 24 taxonomy topics",()=>{expect(summary.sourcesUsed.sort()).toEqual(["faa-amt-airframe-31b","gps-sps-2020"]);expect(summary.topicsProcessed).toBe(24);expect(Object.values(summary.topicCoverage).reduce((a,b)=>a+b,0)).toBe(24);});
+  it("requires direct measured-variable and source evidence for sensors",()=>{const valid:SensorComponent={componentId:"s",topicId:"flight:gyroscope",name:"gyro",measuredVariable:"rotation",function:"sense rotation",output:"signal",limitations:[],sourceReferences:[{sourceId:"faa",page:1,section:"gyro"}],rawEvidenceText:"direct evidence",technicalContext:"SENSOR_GENERAL",confidence:1};expect(extractSensorComponent(valid)).not.toBeNull();expect(extractSensorComponent({...valid,measuredVariable:""})).toBeNull();});
+  it("does not infer RTH, Home Point, Position Hold, or sensor fusion from GNSS",()=>{const base={knowledgeId:"g",topicId:"flight:gps",title:"GPS",statement:"GPS position service",sourceReferences:[{sourceId:"gps",page:1,section:"s"}],rawEvidenceText:"GPS position service",technicalContext:"SATELLITE_NAVIGATION_GENERAL" as const,confidence:1,questionConstraints:{allowed:["GPS_CONCEPT"],prohibited:["DRONE_RTH_BEHAVIOR"]}};expect(extractGnssKnowledge(base)).not.toBeNull();expect(extractGnssKnowledge({...base,statement:"GPS enables Return To Home"})).toBeNull();for(const gap of ["flight:flight-controller","flight:imu","flight:position-hold","flight:altitude-hold","flight:sensor-fusion","flight:home-point","flight:return-to-home","flight:geofencing"])expect(summary.remainingGaps).toContain(gap);});
+  it("requires evidence and valid endpoints for relationships",()=>{const relation={relationshipId:"r",sourceKnowledgeId:"a",targetKnowledgeId:"b",relationType:"SUPPORTS",evidence:"source says this",sourceLocator:{sourceId:"faa",page:1,section:"s"},direction:"SOURCE_TO_TARGET" as const,confidence:1};expect(buildNavigationRelationship(relation,new Set(["a","b"]))).not.toBeNull();expect(buildNavigationRelationship({...relation,evidence:""},new Set(["a","b"]))).toBeNull();});
+  it("keeps calibration and GPS/compass error response inference out",()=>{expect(summary.remainingGaps).toContain("flight:calibration");expect(summary.remainingGaps).toContain("flight:compass-error");const failures=load<Array<{responseProcedure:null}>>("work/source-ingestion/source-batch-004d/failure-knowledge.json");expect(failures.every(x=>x.responseProcedure===null)).toBe(true);expect(summary.unsupportedInferenceCount).toBe(0);});
+  it("prepares validation only and preserves Canonical 180 and 004E",()=>{expect(manifest.inputCount).toBeGreaterThan(0);expect(manifest.validationExecuted).toBe(false);expect(manifest.canonicalGenerated).toBe(false);expect(manifest.canonicalBaseline).toBe(180);expect(summary.canonicalBaseline).toBe(180);expect(summary.mutationCount).toBe(0);expect(summary.batch004EStatus).toBe("PARTIAL_UNCHANGED");});
+  it("keeps visual/table support separate and generates no formulas",()=>{expect(summary.visualLinksGenerated).toBe(1);expect(summary.tableCandidates).toBe(1);expect(summary.formulasGenerated).toBe(0);});
+});

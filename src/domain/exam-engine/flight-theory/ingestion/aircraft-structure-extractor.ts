@@ -1,0 +1,2 @@
+import type {FlightConcept,FlightSourceReference} from "../knowledge";
+export function extractAircraftStructure(input:{conceptId:string;name:string;topic:string;evidence:string;sourceReference:FlightSourceReference;confidence:number}):FlightConcept|null{if(!input.evidence.trim())return null;return {conceptId:input.conceptId,name:input.name,definition:input.evidence,properties:[],variables:[],units:[],examples:[],misconceptions:[],topic:input.topic,sourceReferences:[input.sourceReference],confidence:input.confidence};}

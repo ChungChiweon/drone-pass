@@ -1,0 +1,2 @@
+export type SensorFailureKnowledge={knowledgeId:string;topicId:string;title:string;statement:string;responseProcedure:null;sourceReferences:Array<{sourceId:string;page:number;section:string}>;rawEvidenceText:string;technicalContext:string;confidence:number};
+export function extractSensorFailure(input:SensorFailureKnowledge):SensorFailureKnowledge|null{return input.responseProcedure===null&&input.rawEvidenceText&&input.sourceReferences.length?structuredClone(input):null}

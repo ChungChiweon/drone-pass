@@ -1,0 +1,3 @@
+import type { TableValidationStatus } from "./flight-004c-validation-types";
+export type TechnicalTableLike={tableId?:string;sourceId?:string;page?:number;headers?:string[];knowledgeIds?:string[];interpretationRequired?:boolean;status?:string};
+export function validateTechnicalTable(item:TechnicalTableLike):{tableId:string;status:TableValidationStatus;blockers:string[]}{const blockers:string[]=[];if(!item.sourceId||!item.page)blockers.push("MISSING_SOURCE_LOCATOR");if(!item.headers?.length)blockers.push("UNRESOLVED_HEADERS");if(item.interpretationRequired)blockers.push("VISUAL_PAGE_REVIEW_REQUIRED");return{tableId:item.tableId??"",status:blockers.length?"PAGE_REVIEW_REQUIRED":"TABLE_VALIDATED",blockers}}

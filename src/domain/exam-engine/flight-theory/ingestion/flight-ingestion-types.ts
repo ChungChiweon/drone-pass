@@ -1,0 +1,4 @@
+import type {FlightConcept,FlightPrinciple,TechnicalFormula,FlightRelationship} from "../knowledge";
+export type FlightTheoryIngestionResult={jobId:string;sourceId:string;pagesProcessed:number;sectionsProcessed:number;conceptsGenerated:number;principlesGenerated:number;formulasGenerated:number;relationshipsGenerated:number;visualLinksGenerated:number;warnings:string[];errors:string[];extractionQuality:number;status:"COMPLETED"|"COMPLETED_WITH_GAPS"|"FAILED"};
+export type FlightExtractionContext={sourceId:string;sourceChecksum:string;sourceAuthority:string;currentness:string;extractionVersion:string;page:number;section:string;text:string};
+export type FlightIngestionBundle={concepts:FlightConcept[];principles:FlightPrinciple[];formulas:TechnicalFormula[];relationships:FlightRelationship[]};

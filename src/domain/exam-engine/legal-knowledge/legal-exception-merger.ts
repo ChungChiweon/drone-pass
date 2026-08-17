@@ -1,0 +1,2 @@
+import type {LegalCandidateInput,LegalException} from "./legal-knowledge-types";import {normalizeLegalText} from "./legal-rule-signature";
+export function mergeLegalExceptions(candidates:LegalCandidateInput[]){const seen=new Map<string,LegalException>();for(const c of candidates)for(const value of c.exceptions??[]){const key=normalizeLegalText(value);if(key&&!seen.has(key))seen.set(key,{value,sourceCandidateId:c.candidateId,sourceLocator:c.sourceLocator})}return[...seen.values()]}

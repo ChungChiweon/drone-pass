@@ -1,0 +1,5 @@
+export type EmergencySourceReference={sourceId:string;page:number;section:string};
+export type ExtractedFailureMode={failureId:string;name:string;affectedSystem:string;affectedComponent:string;failureType:string;symptoms:string[];causes:string[];consequences:string[];detection:string[];response:string[];sourceReferences:EmergencySourceReference[];rawEvidenceText:string;confidence:number;scope:"GENERAL_UAS"|"MANUFACTURER_SPECIFIC";topicIds:string[]};
+export type FailureSymptom={symptomId:string;failureId:string;observedCondition:string;indicator:string;detectionContext:string;sourceReference:EmergencySourceReference};
+export type EmergencyProcedure={procedureId:string;emergencyType:string;phase:string;steps:string[];ordered:boolean;orderingEvidence:string;entryCondition:string;terminationCondition:string;warnings:string[];sourceReferences:EmergencySourceReference[];rawEvidenceText:string;topicIds:string[]};
+export type EmergencyDecision={decisionId:string;trigger:string;observedCondition:string;allowedResponse:string;prohibitedResponse:string;escalationCondition:string;sourceReferences:EmergencySourceReference[];rawEvidenceText:string;topicIds:string[]};

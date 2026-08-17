@@ -1,0 +1,2 @@
+export type SensorPrinciple={principleId:string;topicId:string;name:string;statement:string;measuredVariable:string;sourceReferences:Array<{sourceId:string;page:number;section:string}>;rawEvidenceText:string;technicalContext:"SENSOR_GENERAL"|"AVIATION_NAVIGATION";confidence:number};
+export function extractSensorPrinciple(input:SensorPrinciple):SensorPrinciple|null{return input.statement&&input.rawEvidenceText&&input.sourceReferences.length?structuredClone(input):null}

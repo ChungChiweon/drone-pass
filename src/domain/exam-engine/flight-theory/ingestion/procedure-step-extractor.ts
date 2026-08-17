@@ -1,0 +1,1 @@
+export function extractProcedureSteps(text:string,orderedEvidence:string){const items=[...text.matchAll(/(?:^|\s)(\d{1,2})\.\s+([\s\S]+?)(?=(?:\s\d{1,2}\.\s)|$)/g)].map(match=>match[2].trim());return {steps:items,ordered:items.length>1&&Boolean(orderedEvidence.trim())};}

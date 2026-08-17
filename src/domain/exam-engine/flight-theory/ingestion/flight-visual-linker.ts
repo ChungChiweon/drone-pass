@@ -1,0 +1,2 @@
+export type FlightVisualLink={assetId:string;knowledgeIds:string[];topic:string;caption:string;sourceLocator:{sourceId:string;page:number};interpretationRequired:boolean;visualSupportType:"NONE"|"SUPPORTIVE"|"REQUIRED"};
+export function linkFlightVisual(assetId:string,knowledgeIds:string[],topic:string,sourceId:string,page:number,caption="Uninterpreted source visual"):FlightVisualLink{return {assetId,knowledgeIds,topic,caption,sourceLocator:{sourceId,page},interpretationRequired:true,visualSupportType:"SUPPORTIVE"}}

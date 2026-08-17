@@ -1,0 +1,1 @@
+export function validateCommunicationTable004E(input:{tableId:string;sourceId?:string;page?:number;status?:string}){const regulatory=input.status==="REGULATORY_TABLE_ONLY";return{tableId:input.tableId,status:regulatory?"REGULATORY_ONLY":input.sourceId&&input.page?"PAGE_REVIEW_REQUIRED":"TABLE_REJECTED",legalLineage:regulatory,canonicalEvidence:false,blocksPrimary:false};}

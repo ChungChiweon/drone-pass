@@ -4,6 +4,7 @@ import type {
   DistractorRule,
   GeneratedQuestion,
   QuestionChoice,
+  QuestionGenerationContext,
   QuestionTemplate
 } from "@/domain/exam-engine/types";
 
@@ -17,6 +18,7 @@ type CompileQuestionInput = {
   template: QuestionTemplate;
   distractorRules: DistractorRule[];
   seed: string;
+  context?: QuestionGenerationContext;
 };
 
 type ChoiceDraft = {
@@ -237,6 +239,22 @@ function uniqueFacts(facts: AtomicFact[]) {
   return Array.from(new Map(facts.map((fact) => [fact.id, fact])).values());
 }
 
+function graphContextDistractors(fact: AtomicFact, facts: AtomicFact[], context?: QuestionGenerationContext) {
+  if (!context?.allowedDistractorFactIds.length) return [];
+  const forbidden = new Set(context.forbiddenDistractorFactIds);
+  return uniqueFacts(context.allowedDistractorFactIds
+    .filter((id) => !forbidden.has(id))
+    .map((id) => facts.find((item) => item.id === id))
+    .filter((item): item is AtomicFact => Boolean(item))
+    .filter((item) => item.id !== fact.id && item.status === "approved"))
+    .map((item) => ({
+      text: sentence(item.statement),
+      isCorrect: false,
+      sourceFactIds: [item.id],
+      mutationType: "SIBLING_FACT_SWAP" as const
+    }));
+}
+
 function hasBadGeneratedPhrase(text: string, fact: AtomicFact) {
   return prohibitedGeneratedPhrases.some((phrase) => text.includes(phrase) && !fact.statement.includes(phrase));
 }
@@ -392,8 +410,9 @@ function numericDistractors(fact: AtomicFact, facts: AtomicFact[], categoriesByC
   return drafts;
 }
 
-function naturalDistractors(fact: AtomicFact, facts: AtomicFact[], categoriesByConceptId: Record<string, string[]>) {
+function naturalDistractors(fact: AtomicFact, facts: AtomicFact[], categoriesByConceptId: Record<string, string[]>, context?: QuestionGenerationContext) {
   return uniqueChoiceDrafts([
+    ...graphContextDistractors(fact, facts, context),
     ...numericDistractors(fact, facts, categoriesByConceptId),
     ...naturalConditionDistractors(fact),
     ...relatedFacts(fact, facts, categoriesByConceptId).map((item) => ({
@@ -440,7 +459,7 @@ function hasUsableChoices(choices: ChoiceDraft[], fact: AtomicFact) {
 
 function buildSelectTrue(input: CompileQuestionInput, concept?: Concept) {
   const correct = { text: normalizeFactStatement(input.fact), isCorrect: true, sourceFactIds: [input.fact.id] };
-  const distractors = naturalDistractors(input.fact, input.facts, input.categoriesByConceptId).filter((item) => !item.isCorrect).slice(0, 3);
+  const distractors = naturalDistractors(input.fact, input.facts, input.categoriesByConceptId, input.context).filter((item) => !item.isCorrect).slice(0, 3);
   const choices = [correct, ...distractors];
   if (!hasUsableChoices(choices, input.fact)) return null;
   return {
@@ -451,7 +470,7 @@ function buildSelectTrue(input: CompileQuestionInput, concept?: Concept) {
 }
 
 function buildSelectFalse(input: CompileQuestionInput, concept?: Concept) {
-  const falseDraft = naturalDistractors(input.fact, input.facts, input.categoriesByConceptId)[0];
+  const falseDraft = naturalDistractors(input.fact, input.facts, input.categoriesByConceptId, input.context)[0];
   if (!falseDraft) return null;
   const trueFacts = relatedFacts(input.fact, input.facts, input.categoriesByConceptId)
     .filter((item) => isDirectlyRelated(input.fact, item, input.categoriesByConceptId))
@@ -546,7 +565,7 @@ function buildCaseJudgment(input: CompileQuestionInput) {
   const stem = caseStem(input.fact);
   if (!stem || !/(하려 한다|변경되었다|이전되었다|발생하였다|불분명하다|관하여)/.test(stem)) return null;
   const correct = { text: normalizeFactStatement(input.fact), isCorrect: true, sourceFactIds: [input.fact.id] };
-  const distractors = naturalDistractors(input.fact, input.facts, input.categoriesByConceptId).slice(0, 3);
+  const distractors = naturalDistractors(input.fact, input.facts, input.categoriesByConceptId, input.context).slice(0, 3);
   const choices = [correct, ...distractors];
   if (!hasUsableChoices(choices, input.fact)) return null;
   return {

@@ -53,6 +53,8 @@ export function normalizeLegacyAudit(input: unknown): KnowledgeReviewAuditEntry[
     const value = entry as Record<string, unknown>;
     if (typeof value.factId !== "string" || typeof value.action !== "string") return [];
     return [{
+      id: typeof value.id === "string" ? value.id : undefined,
+      packId: typeof value.packId === "string" ? value.packId : undefined,
       factId: value.factId,
       previousStatus: (value.previousStatus ?? "draft") as KnowledgeReviewAuditEntry["previousStatus"],
       nextStatus: (value.nextStatus ?? value.previousStatus ?? "draft") as KnowledgeReviewAuditEntry["nextStatus"],
@@ -77,6 +79,22 @@ export function readLegacyReviewAudit(): KnowledgeReviewAuditEntry[] {
 function writeAll(items: StoredKnowledgePack[]) {
   if (!canUseStorage()) return;
   window.localStorage.setItem(KNOWLEDGE_PACK_CACHE_KEY, JSON.stringify(items));
+}
+
+function writeReviewMetadata(metadata: KnowledgeReviewMetadataStore) {
+  if (!canUseStorage()) return;
+  window.localStorage.setItem(LEGACY_REVIEW_METADATA_KEY, JSON.stringify(metadata));
+}
+
+function writeReviewAudit(audit: KnowledgeReviewAuditEntry[]) {
+  if (!canUseStorage()) return;
+  window.localStorage.setItem(LEGACY_REVIEW_AUDIT_KEY, JSON.stringify(audit));
+}
+
+function createAuditId() {
+  const uuid = globalThis.crypto?.randomUUID?.();
+  if (uuid) return `KFAUD-${uuid}`;
+  return `KFAUD-${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
 }
 
 export function cacheKnowledgePack(item: StoredKnowledgePack, makeActive = false) {
@@ -128,15 +146,65 @@ export function createLocalKnowledgePackRepository(): KnowledgePackRepository {
       const item = readLocalKnowledgePacks().find((pack) => pack.id === input.packId);
       if (!item) throw new Error("PACK_NOT_FOUND");
       const ids = new Set(input.factIds);
-      const updated = { ...item, pack: { ...item.pack, atomicFacts: item.pack.atomicFacts.map((fact) => ids.has(fact.id) && input.nextStatus ? { ...fact, status: input.nextStatus } : fact) } };
+      const transitions = item.pack.atomicFacts.filter((fact) =>
+        ids.has(fact.id) &&
+        input.nextStatus !== undefined &&
+        fact.status !== input.nextStatus
+      );
+      if (!transitions.length) return item;
+      const timestamp = new Date().toISOString();
+      const updated = {
+        ...item,
+        pack: {
+          ...item.pack,
+          atomicFacts: item.pack.atomicFacts.map((fact) =>
+            transitions.some((transition) => transition.id === fact.id)
+              ? { ...fact, status: input.nextStatus! }
+              : fact
+          )
+        }
+      };
       cacheKnowledgePack(updated, true);
+      const currentMetadata = readLegacyReviewMetadata();
+      const nextMetadata = { ...currentMetadata };
+      for (const transition of transitions) {
+        nextMetadata[transition.id] = {
+          ...(currentMetadata[transition.id] ?? {
+            reviewState: "unreviewed",
+            reviewMemo: "",
+            reviewedAt: null,
+            reviewedBy: null
+          }),
+          ...(input.metadata[transition.id] ?? {}),
+          reviewedBy: input.metadata[transition.id]?.reviewedBy ?? "local-admin"
+        };
+      }
+      writeReviewMetadata(nextMetadata);
+      writeReviewAudit([
+        ...readLegacyReviewAudit(),
+        ...transitions.map((transition) => ({
+          id: createAuditId(),
+          packId: input.packId,
+          factId: transition.id,
+          previousStatus: transition.status,
+          nextStatus: input.nextStatus!,
+          action: input.action,
+          approvalMode: input.approvalMode,
+          reviewedBy: input.metadata[transition.id]?.reviewedBy ?? "local-admin",
+          memo: input.memo,
+          timestamp
+        }))
+      ]);
       return updated;
     },
     async updateChecklist(input: UpdateChecklistInput) {
-      const current = readLegacyReviewMetadata()[input.factId] ?? {
+      const metadata = readLegacyReviewMetadata();
+      const current = metadata[input.factId] ?? {
         reviewState: "unreviewed", reviewMemo: "", reviewedAt: null, reviewedBy: null
       };
-      return { ...current, ...input.metadataPatch } as KnowledgeReviewMetadata;
+      const next = { ...current, ...input.metadataPatch } as KnowledgeReviewMetadata;
+      writeReviewMetadata({ ...metadata, [input.factId]: next });
+      return next;
     },
     async getReviewMetadata() {
       return readLegacyReviewMetadata();

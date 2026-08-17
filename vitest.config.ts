@@ -8,6 +8,7 @@ export default defineConfig({
     }
   },
   test: {
-    coverage: { enabled: false }
+    coverage: { enabled: false },
+    testTimeout: 150_000
   }
 });

@@ -1,0 +1,2 @@
+export type LegalConflictRecord={candidateId?:string;type?:string;resolution?:string;conflictId?:string};
+export function validateLegalConflict(candidateId:string,records:LegalConflictRecord[]){const matches=records.filter(x=>x.candidateId===candidateId);const unresolved=matches.filter(x=>x.resolution!=="RESOLVED");return{status:unresolved.length?"UNRESOLVED_CONFLICT":"NO_CONFLICT",blockers:unresolved.length?["SUBSTANTIVE_CONFLICT"]:[],evidence:matches.map(x=>x.conflictId??x.type??"conflict")};}

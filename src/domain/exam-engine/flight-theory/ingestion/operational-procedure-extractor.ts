@@ -1,0 +1,2 @@
+import type {ExtractedOperationalProcedure} from "./operational-ingestion-types";
+export function extractOperationalProcedure(input:ExtractedOperationalProcedure):ExtractedOperationalProcedure|null{if(!input.rawEvidenceText.trim()||!input.sourceReferences.length)return null;if(input.ordered&&!input.orderingEvidence.trim())return null;return {...input,steps:[...input.steps],sourceReferences:[...input.sourceReferences],topicIds:[...input.topicIds]};}

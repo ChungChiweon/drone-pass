@@ -1,0 +1,1 @@
+export function extractFailureResponse(input:{response:string;evidence:string;manufacturerSpecific?:boolean}){if(!input.response.trim()||!input.evidence.trim())return null;return {response:input.response.trim(),scope:input.manufacturerSpecific?"MANUFACTURER_SPECIFIC":"GENERAL_UAS" as const,evidence:input.evidence};}

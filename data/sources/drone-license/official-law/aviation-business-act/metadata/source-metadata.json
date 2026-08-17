@@ -1,0 +1,36 @@
+{
+  "sourceId": "official-aviation-business-act",
+  "canonicalTitle": "항공사업법",
+  "sourceType": "LAW",
+  "issuingOrganization": "국회",
+  "authority": "OFFICIAL_LAW",
+  "lawId": "280131",
+  "promulgationNumber": "법률 제21189호",
+  "promulgationDate": "2025-12-02",
+  "effectiveDate": "2026-06-03",
+  "revisionType": "일부개정",
+  "versionStatus": "CURRENT_EFFECTIVE",
+  "officialPageUrl": "https://www.law.go.kr/법령/%ED%95%AD%EA%B3%B5%EC%82%AC%EC%97%85%EB%B2%95",
+  "downloadUrls": [
+    "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=280131",
+    "https://www.law.go.kr/LSW/lsPdfPrint.do?lsiSeq=280131"
+  ],
+  "localFiles": [
+    "data/sources/drone-license/official-law/aviation-business-act/original/official-page.html",
+    "data/sources/drone-license/official-law/aviation-business-act/original/current-full-text.html",
+    "data/sources/drone-license/official-law/aviation-business-act/original/current-full-text.pdf"
+  ],
+  "attachments": [],
+  "retrievedAt": "2026-08-05T06:50:00+09:00",
+  "checksum": "sha256-d65600c540a7bbbffa84a70452f6ebf2f23a33926702623d42ca9e59ef3dc358",
+  "contentLength": 240339,
+  "pageCount": 41,
+  "currentnessVerified": true,
+  "verificationMethod": "국가법령정보센터 현재 시행법령 wrapper, 시행일 header, PDF signature와 page count 확인",
+  "extractionStatus": "READY_FOR_EXTRACTION",
+  "validationStatus": "READY",
+  "notes": [
+    "별표 포함 공식 전체 PDF(bylChaChk=Y) 확보",
+    "개별 별표·서식 다운로드 링크는 별도 수동 점검 대상"
+  ]
+}

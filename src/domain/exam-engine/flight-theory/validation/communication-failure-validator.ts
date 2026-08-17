@@ -1,0 +1,1 @@
+export function validateCommunicationFailure004E(input:{failureId:string;statement:string}){const blocked=/lost.?link|failsafe|return.to.home|rth|landing|emergency procedure/i.test(input.statement);return{failureId:input.failureId,validationStatus:blocked?"BLOCKED":"VALIDATED",blockers:blocked?["UNSUPPORTED_FAILURE_OR_RESPONSE_INFERENCE"]:[]};}

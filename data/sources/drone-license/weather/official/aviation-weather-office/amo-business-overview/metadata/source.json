@@ -1,0 +1,33 @@
+{
+  "sourceId": "amo-business-overview",
+  "canonicalTitle": "항공기상업무 개요",
+  "issuingOrganization": "항공기상청",
+  "authority": "OFFICIAL_AVIATION_WEATHER",
+  "sourceType": "OFFICIAL_GUIDANCE",
+  "currentnessStatus": "CURRENT",
+  "officialPageUrl": "https://amo.kma.go.kr/amo/business/intro01.do",
+  "downloadUrl": "https://amo.kma.go.kr/amo/business/intro01.do",
+  "fileType": "HTML",
+  "subjectCoverage": [
+    "항공기상"
+  ],
+  "weatherTopics": [
+    "metar",
+    "speci",
+    "taf",
+    "sigmet",
+    "airmet",
+    "aviation-forecast",
+    "aviation-warning",
+    "low-altitude-weather"
+  ],
+  "containsTables": false,
+  "containsDiagrams": false,
+  "containsWeatherSymbols": false,
+  "containsObservationExamples": false,
+  "extractionStatus": "READY_FOR_INGESTION",
+  "validationStatus": "OFFICIAL_DOMAIN_VERIFIED",
+  "notes": [],
+  "localPath": "data/sources/drone-license/weather/official/aviation-weather-office/amo-business-overview/original/source.html",
+  "checksum": "sha256-6017affad1d0464c3b41c19b998aead3cdfbf3222cfc1f733427e237810a871a"
+}

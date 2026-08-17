@@ -1,0 +1,2 @@
+export type FlightControlConcept={conceptId:string;topicId:string;name:string;definition:string;inputs:string[];outputs:string[];function:string;dependencies:string[];sourceReferences:Array<{sourceId:string;page:number;section:string}>;rawEvidenceText:string;technicalContext:string;confidence:number;questionConstraints:{allowed:string[];prohibited:string[]}};
+export function extractFlightControlConcept(input:FlightControlConcept):FlightControlConcept|null{return input.rawEvidenceText&&input.sourceReferences.length?structuredClone(input):null}

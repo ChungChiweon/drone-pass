@@ -1,0 +1,22 @@
+{
+  "sourceId": "kiast-drone-business-weather-impact",
+  "title": "항공안전기술원 드론사업 사업소개",
+  "issuingOrganization": "항공안전기술원",
+  "officialUrl": "https://www.kiast.or.kr/kr/sub06_01_01.do",
+  "droneSpecificity": "UAS_GENERAL",
+  "authority": "OFFICIAL_PUBLIC_AGENCY",
+  "currentness": "CURRENT_PAGE",
+  "operationalRelevance": 0.55,
+  "weatherCoverage": [
+    "weather-impact",
+    "terrain-local-effects"
+  ],
+  "directEvidence": [
+    "기상영향, 지형ㆍ지리적 영향이 드론 안전성 평가 요소로 명시됨"
+  ],
+  "localPath": "data/sources/drone-license/weather/official/drone-operations/kiast-drone-business-weather-impact/original/source.html",
+  "checksum": "sha256-3a0549b4834a6580c2a63627b5a0e9d89574d0ff0931908e0adfdf713ab1bb96",
+  "mime": "text/html",
+  "size": 49676,
+  "acquisitionStatus": "ACQUIRED"
+}

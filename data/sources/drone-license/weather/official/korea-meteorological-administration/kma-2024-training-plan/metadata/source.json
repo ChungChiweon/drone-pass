@@ -1,0 +1,33 @@
+{
+  "sourceId": "kma-2024-training-plan",
+  "canonicalTitle": "2024년도 기상기후인재개발원 교육훈련계획",
+  "issuingOrganization": "기상청 기상기후인재개발원",
+  "authority": "OFFICIAL_METEOROLOGICAL",
+  "sourceType": "OFFICIAL_EDUCATION",
+  "publicationDate": "2024-02-14",
+  "currentnessStatus": "CURRENT",
+  "officialPageUrl": "https://www.kma.go.kr/mhi/2024_kma_training_plan.pdf",
+  "downloadUrl": "https://www.kma.go.kr/mhi/2024_kma_training_plan.pdf",
+  "fileType": "PDF",
+  "subjectCoverage": [
+    "항공기상"
+  ],
+  "weatherTopics": [
+    "aviation-weather",
+    "observation",
+    "radar",
+    "satellite",
+    "hazardous-weather",
+    "sounding",
+    "weather-chart"
+  ],
+  "containsTables": true,
+  "containsDiagrams": true,
+  "containsWeatherSymbols": false,
+  "containsObservationExamples": true,
+  "extractionStatus": "READY_FOR_INGESTION",
+  "validationStatus": "OFFICIAL_DOMAIN_VERIFIED",
+  "notes": [],
+  "localPath": "data/sources/drone-license/weather/official/korea-meteorological-administration/kma-2024-training-plan/original/source.pdf",
+  "checksum": "sha256-94648727a12dba0e0665e4159ce4486fa6c1c9382e77f4d3d02a8800c2217838"
+}

@@ -1,0 +1,3 @@
+import type {TechnicalSourceCandidate} from "./source-gap-acquisition-types";
+const E=new Set(["controller","transmitter","receiver","rf-communication","frequency","antenna","los-communication","signal-attenuation","interference","link-loss","control-link","data-link","telemetry","fpv","video-transmission","failsafe","communication-range","radio-shadow","spectrum-safety"]);
+export function validateRadioSource(s:TechnicalSourceCandidate){const topics=s.topicCoverage.filter(t=>E.has(t));return {valid:topics.length>0,topics,legalBoundary:s.organization.includes("전파")?["frequency authorization and output limits remain Legal"]:[],blockedClaims:["manufacturer failsafe","claimed communication range"]}}

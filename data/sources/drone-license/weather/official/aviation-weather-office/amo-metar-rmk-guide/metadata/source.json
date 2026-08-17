@@ -1,0 +1,29 @@
+{
+  "sourceId": "amo-metar-rmk-guide",
+  "canonicalTitle": "항공기상관측 전문(METAR/SPECI) 및 RMK 해설자료",
+  "issuingOrganization": "항공기상청",
+  "authority": "OFFICIAL_AVIATION_WEATHER",
+  "sourceType": "WEATHER_CODE_GUIDE",
+  "publicationDate": "2021-08-27",
+  "currentnessStatus": "POSSIBLY_OUTDATED",
+  "officialPageUrl": "https://amo.kma.go.kr/weather/stat/airport-climate.do?bid=data&field=&mode=view&num=77&num=82&page=1&ses=&text=",
+  "fileType": "PDF",
+  "subjectCoverage": [
+    "항공기상"
+  ],
+  "weatherTopics": [
+    "metar",
+    "speci",
+    "weather-code",
+    "observation-example"
+  ],
+  "containsTables": true,
+  "containsDiagrams": true,
+  "containsWeatherSymbols": false,
+  "containsObservationExamples": true,
+  "extractionStatus": "MANUAL_ACQUISITION_REQUIRED",
+  "validationStatus": "OFFICIAL_DOMAIN_VERIFIED",
+  "notes": [
+    "Official attachment requires page interaction; no download URL is invented."
+  ]
+}

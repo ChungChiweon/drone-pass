@@ -1,0 +1,2 @@
+import type {LegalShadowPack} from "./shadow-pack-types";
+export function validateShadowPack(pack:LegalShadowPack){const issues:string[]=[];if(!pack.sourceCanonicalChecksum)issues.push("CANONICAL_CHECKSUM_MISSING");if(new Set(pack.facts.map(x=>x.id)).size!==pack.facts.length)issues.push("DUPLICATE_FACT_ID");if(pack.facts.some(x=>x.status!=="SHADOW_APPROVED"))issues.push("NON_SHADOW_STATUS");if(pack.facts.some(x=>!x.sourceReferences.length||!x.sourceReferences[0].locator))issues.push("SOURCE_TRACE_MISSING");return{valid:issues.length===0,issues}}

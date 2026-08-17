@@ -1,0 +1,2 @@
+export type SensorComponent={componentId:string;topicId:string;name:string;measuredVariable:string;function:string;output:string;limitations:string[];sourceReferences:Array<{sourceId:string;page:number;section:string}>;rawEvidenceText:string;technicalContext:"SENSOR_GENERAL"|"AVIATION_NAVIGATION";confidence:number};
+export function extractSensorComponent(input:SensorComponent):SensorComponent|null{return input.measuredVariable&&input.function&&input.rawEvidenceText&&input.sourceReferences.length?structuredClone(input):null}

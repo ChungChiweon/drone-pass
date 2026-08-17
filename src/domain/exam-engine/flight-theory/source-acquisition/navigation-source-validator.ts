@@ -1,0 +1,3 @@
+import type {TechnicalSourceCandidate} from "./source-gap-acquisition-types";
+const D=new Set(["flight-controller","imu","gyroscope","accelerometer","magnetometer","barometer","gps","gnss","satellite-navigation","position-hold","altitude-hold","attitude-estimation","sensor-fusion","compass","home-point","return-to-home","geofencing","vision-sensor","ultrasonic-sensor","obstacle-detection","calibration","sensor-error","gps-error","compass-error"]);
+export function validateNavigationSource(s:TechnicalSourceCandidate){const topics=s.topicCoverage.filter(t=>D.has(t));return {valid:topics.length>0,topics,blockedClaims:["automatic RTH behavior","manufacturer home-point semantics","vendor calibration procedure"]}}

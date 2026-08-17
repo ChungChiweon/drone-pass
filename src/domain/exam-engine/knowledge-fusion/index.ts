@@ -1,0 +1,13 @@
+export type { FusionSourceType, KnowledgeSourceRecord, KnowledgeSourceRegistry, SourcePriority } from "./knowledge-source-registry";
+export { createKnowledgeSourceRegistry, getKnowledgeSource, listKnowledgeSources, registerKnowledgeSource } from "./knowledge-source-registry";
+export type { SourceRelationship, SourceRelationshipType } from "./source-relationship";
+export { findSourceChildren, findSourceParents, relationshipWeight } from "./source-relationship";
+export type { PreferredEvidence } from "./source-priority-resolver";
+export { resolvePreferredEvidence, sourcePriorityScore } from "./source-priority-resolver";
+export type { SourceConflict, SourceConflictSeverity } from "./source-conflict-detector";
+export { detectSourceConflicts } from "./source-conflict-detector";
+export type { MergedFactEvidence } from "./fact-evidence-merger";
+export { factPattern, mergeFactEvidence } from "./fact-evidence-merger";
+export { calculateFusionConfidence } from "./fusion-confidence";
+export type { FusionResult, SourceCandidateSet } from "./multi-source-fusion-engine";
+export { fuseKnowledgeSources } from "./multi-source-fusion-engine";

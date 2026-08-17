@@ -1,0 +1,6 @@
+{
+  "sourceId": "kiast-flighttest-amos",
+  "status": "ACQUIRED",
+  "operationalImpactEligible": false,
+  "reason": "Relevant official context exists, but no direct weather-based drone operating decision rule was found."
+}

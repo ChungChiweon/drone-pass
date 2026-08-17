@@ -1,0 +1,1 @@
+import {scoreFlightValidation} from "./flight-validation-score";import type {FlightValidationInput} from "./flight-validation-types";export const validateFlightPrinciple=(input:FlightValidationInput)=>scoreFlightValidation({...input,knowledgeType:"PRINCIPLE"});

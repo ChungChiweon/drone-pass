@@ -10,6 +10,7 @@ import {
   readLegacyReviewMetadata,
   readLocalKnowledgePacks
 } from "@/domain/exam-engine/import/local-knowledge-pack-repository";
+import { createLocalKnowledgeGraphRepository } from "@/domain/exam-engine/import/knowledge-graph-repository";
 import {
   CachedKnowledgePackRepository,
   SupabaseKnowledgePackRepository
@@ -21,13 +22,44 @@ import type {
   StoredKnowledgePack
 } from "@/domain/exam-engine/import/knowledge-pack-repository";
 import { validateKnowledgePack, type KnowledgePackValidationIssue } from "@/domain/exam-engine/import/knowledge-pack-validator";
-import type { AtomicFact, Concept, KnowledgePack, SourceReference } from "@/domain/exam-engine/types";
+import { rankRelationsForFact } from "@/domain/exam-engine/knowledge-graph/relation-ranking";
+import { scoreFactsForExam } from "@/domain/exam-engine/knowledge-graph/exam-value-scorer";
+import { scoreRelationQuality } from "@/domain/exam-engine/knowledge-graph/relation-curation-scorer";
+import { analyzeKnowledgeGraph } from "@/domain/exam-engine/knowledge-graph/graph-analysis-pipeline";
+import { buildGraphReviewQueue, type GraphReviewItem } from "@/domain/exam-engine/knowledge-graph/graph-review-queue";
+import { activateGraphVersion, approveRelation, createDraftVersionFromApprovedRelations, holdRelation, rejectRelation } from "@/domain/exam-engine/knowledge-graph/graph-review-action-service";
+import { createLocalKnowledgeGraphPersistenceRepository } from "@/domain/exam-engine/knowledge-graph/local-knowledge-graph-repository";
+import type { KnowledgeGraphSnapshot, KnowledgeGraphVersion } from "@/domain/exam-engine/knowledge-graph/graph-versioning";
+import type { KnowledgeRelationReview } from "@/domain/exam-engine/knowledge-graph/graph-review";
+import { buildFactReviewQueue, type FactReviewItem } from "@/domain/exam-engine/knowledge-ingestion/fact-review-queue";
+import { reviewCandidate } from "@/domain/exam-engine/knowledge-ingestion/fact-review-service";
+import type { FactCandidate, FactCandidateReview, FactMergeProposal } from "@/domain/exam-engine/knowledge-ingestion/knowledge-ingestion";
+import { calculateKnowledgeHealth } from "@/domain/exam-engine/operations/knowledge-health-calculator";
+import type { KnowledgeHealthSummary } from "@/domain/exam-engine/operations/knowledge-operations";
+import type { AtomicFact, Concept, ExamValueScore, KnowledgePack, KnowledgeRelation, SourceReference } from "@/domain/exam-engine/types";
 import { createClient, hasSupabaseEnv } from "@/lib/supabase/client";
 import { checkAdminAccess } from "@/lib/supabase/admin-access";
 
 type ReviewState = "unreviewed" | "held" | "reviewed";
 type StatusFilter = "all" | "draft" | "approved";
 type PresetFilter = "all" | "exam-review-10" | "exam-review-2" | "official-review-1";
+type AdminTab = "facts" | "graph" | "exam-score" | "graph-review" | "knowledge-intake" | "knowledge-operations";
+type ScoreRangeFilter = "all" | "high" | "medium" | "low";
+
+const GRAPH_REVIEW_PINNED_TARGETS = [
+  "KG-CONFUSED_WITH-AF-176-AF-178",
+  "KG-CONFUSED_WITH-AF-223-AF-277",
+  "KG-CONFUSED_WITH-AF-224-AF-278",
+  "KG-CONFUSED_WITH-AF-224-AF-298",
+  "KG-CONFUSED_WITH-AF-224-AF-312",
+  "KG-CONFUSED_WITH-AF-277-AF-297",
+  "KG-CONFUSED_WITH-AF-278-AF-298",
+  "KG-CONFUSED_WITH-AF-278-AF-319",
+  "KG-CONFUSED_WITH-AF-297-AF-311",
+  "KG-CONFUSED_WITH-AF-298-AF-312",
+  "KG-CONFUSED_WITH-AF-298-AF-319",
+  "KG-CONFUSED_WITH-AF-312-AF-319"
+] as const;
 
 type ReviewChecklist = {
   statementVerified: boolean;
@@ -267,6 +299,7 @@ export default function KnowledgeReviewPage() {
   const [searchText, setSearchText] = useState("");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [activeFactId, setActiveFactId] = useState<string | null>(null);
+  const [approvalMemo, setApprovalMemo] = useState("");
   const [holdMemo, setHoldMemo] = useState("");
   const [message, setMessage] = useState("");
   const [importJsonText, setImportJsonText] = useState("");
@@ -275,13 +308,35 @@ export default function KnowledgeReviewPage() {
   const [importIncludeMetadata, setImportIncludeMetadata] = useState(false);
   const [importIncludeAudit, setImportIncludeAudit] = useState(false);
   const [importCreateBackup, setImportCreateBackup] = useState(true);
+  const [activeTab, setActiveTab] = useState<AdminTab>("facts");
+  const [graphRelations, setGraphRelations] = useState<KnowledgeRelation[]>([]);
+  const [storedExamScores, setStoredExamScores] = useState<ExamValueScore[]>([]);
+  const [graphVersions, setGraphVersions] = useState<KnowledgeGraphVersion[]>([]);
+  const [activeGraphSnapshot, setActiveGraphSnapshot] = useState<KnowledgeGraphSnapshot | null>(null);
+  const [graphReviewAuditCount, setGraphReviewAuditCount] = useState(0);
+  const [graphReviewAudits, setGraphReviewAudits] = useState<KnowledgeRelationReview[]>([]);
+  const [graphReviewPendingIds, setGraphReviewPendingIds] = useState<string[]>([]);
+  const [currentOrigin, setCurrentOrigin] = useState("");
+  const [factCandidates, setFactCandidates] = useState<FactCandidate[]>([]);
+  const [factCandidateReviews, setFactCandidateReviews] = useState<FactCandidateReview[]>([]);
+  const [factMergeProposals, setFactMergeProposals] = useState<FactMergeProposal[]>([]);
+  const [scoreConceptFilter, setScoreConceptFilter] = useState("all");
+  const [scoreCategoryFilter, setScoreCategoryFilter] = useState("all");
+  const [scoreRangeFilter, setScoreRangeFilter] = useState<ScoreRangeFilter>("all");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const repositoryRef = useRef<KnowledgePackRepository | null>(null);
+  const graphReviewPendingRef = useRef(new Set<string>());
+
+  useEffect(() => {
+    setCurrentOrigin(window.location.origin);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
     async function initialize() {
-      if (!hasSupabaseEnv()) {
+      const forceLocalStorage = window.location.hostname === "localhost"
+        && new URLSearchParams(window.location.search).get("storage") === "local";
+      if (forceLocalStorage || !hasSupabaseEnv()) {
         const repository = createLocalKnowledgePackRepository();
         repositoryRef.current = repository;
         const value = await repository.getActive();
@@ -346,6 +401,49 @@ export default function KnowledgeReviewPage() {
     };
   }, [router]);
 
+  useEffect(() => {
+    let cancelled = false;
+    async function loadGraphMetadata() {
+      if (!activeItem) {
+        setGraphRelations([]);
+        setStoredExamScores([]);
+        setGraphVersions([]);
+        setActiveGraphSnapshot(null);
+        setGraphReviewAuditCount(0);
+        setGraphReviewAudits([]);
+        return;
+      }
+      const graphRepository = createLocalKnowledgeGraphRepository();
+      const graphPersistenceRepository = createLocalKnowledgeGraphPersistenceRepository();
+      const [storedRelations, scores] = await Promise.all([
+        graphRepository.getRelations(activeItem.id),
+        graphRepository.getExamValueScores(activeItem.id)
+      ]);
+      const generatedRelations = analyzeKnowledgeGraph(activeItem.id, activeItem.pack.atomicFacts).validatedRelations;
+      const storedById = new Map(storedRelations.map((relation) => [relation.id, relation]));
+      const relations = [
+        ...generatedRelations.map((relation) => storedById.get(relation.id) ?? relation),
+        ...storedRelations.filter((relation) => !generatedRelations.some((generated) => generated.id === relation.id))
+      ];
+      const [versions, activeGraph, reviewAudit] = await Promise.all([
+        graphPersistenceRepository.getVersions(activeItem.id),
+        graphPersistenceRepository.getActiveGraph(activeItem.id),
+        graphPersistenceRepository.getReviewAudit(activeItem.id)
+      ]);
+      if (cancelled) return;
+      setGraphRelations(relations);
+      setStoredExamScores(scores);
+      setGraphVersions(versions);
+      setActiveGraphSnapshot(activeGraph);
+      setGraphReviewAuditCount(reviewAudit.length);
+      setGraphReviewAudits(reviewAudit);
+    }
+    void loadGraphMetadata();
+    return () => {
+      cancelled = true;
+    };
+  }, [activeItem]);
+
   const pack = activeItem?.pack ?? null;
   const validation = pack ? validateKnowledgePack(pack) : null;
   const issuesByFact = useMemo(() => (pack && validation ? groupIssuesByFact(pack, [...validation.errors, ...validation.warnings]) : new Map<string, KnowledgePackValidationIssue[]>()), [pack, validation]);
@@ -385,6 +483,59 @@ export default function KnowledgeReviewPage() {
   }, [presetFilter, searchText, statusFilter, views]);
 
   const activeFact = views.find((view) => view.fact.id === activeFactId) ?? null;
+  const examScores = useMemo(() => {
+    if (!pack || !activeItem) return [];
+    return storedExamScores.length ? storedExamScores : scoreFactsForExam(pack.atomicFacts, graphRelations, { packId: activeItem.id });
+  }, [activeItem, graphRelations, pack, storedExamScores]);
+  const scoresByFactId = useMemo(() => new Map(examScores.map((score) => [score.factId, score])), [examScores]);
+  const rankedScores = useMemo(() => [...examScores].sort((left, right) => right.overallScore - left.overallScore), [examScores]);
+  const scoreConceptOptions = useMemo<Array<[string, string]>>(() => [["all", "All concepts"], ...views.map((view) => [view.fact.conceptId, view.concept?.title ?? view.fact.conceptId] as [string, string]).filter((item, index, list) => list.findIndex((other) => other[0] === item[0]) === index)], [views]);
+  const scoreCategoryOptions = useMemo<Array<[string, string]>>(() => [["all", "All categories"], ...(pack?.domainPack.categories.map((category) => [category.id, category.title] as [string, string]) ?? [])], [pack]);
+  const scoreRows = useMemo(() => rankedScores
+    .map((score) => {
+      const view = views.find((item) => item.fact.id === score.factId) ?? null;
+      return view ? { score, view } : null;
+    })
+    .filter((row): row is { score: ExamValueScore; view: FactView } => Boolean(row))
+    .filter(({ score, view }) => {
+      if (scoreConceptFilter !== "all" && view.fact.conceptId !== scoreConceptFilter) return false;
+      if (scoreCategoryFilter !== "all" && !view.concept?.categoryIds.includes(scoreCategoryFilter)) return false;
+      if (scoreRangeFilter === "high" && score.overallScore < 0.7) return false;
+      if (scoreRangeFilter === "medium" && (score.overallScore < 0.4 || score.overallScore >= 0.7)) return false;
+      if (scoreRangeFilter === "low" && score.overallScore >= 0.4) return false;
+      return true;
+    }), [rankedScores, scoreCategoryFilter, scoreConceptFilter, scoreRangeFilter, views]);
+  const graphSummary = useMemo(() => {
+    const connectedFactIds = new Set(graphRelations.flatMap((relation) => [relation.fromFactId, relation.toFactId]));
+    const averageConfidence = graphRelations.length ? graphRelations.reduce((sum, relation) => sum + relation.confidence, 0) / graphRelations.length : 0;
+    return {
+      relationCount: graphRelations.length,
+      connectedFactCount: connectedFactIds.size,
+      averageConfidence,
+      scoreCount: examScores.length,
+      topScores: rankedScores.slice(0, 5)
+    };
+  }, [examScores.length, graphRelations, rankedScores]);
+  const graphReviewQueue = useMemo<GraphReviewItem[]>(() => {
+    if (!pack) return [];
+    const relationScores = graphRelations.map((relation) => scoreRelationQuality(relation, pack.atomicFacts, examScores));
+    return buildGraphReviewQueue(graphRelations, relationScores);
+  }, [examScores, graphRelations, pack]);
+  const factReviewQueue = useMemo<FactReviewItem[]>(() => {
+    if (!pack) return [];
+    return buildFactReviewQueue(factCandidates, pack.atomicFacts, graphRelations);
+  }, [factCandidates, graphRelations, pack]);
+  const operationsHealth = useMemo<KnowledgeHealthSummary | null>(() => {
+    if (!pack) return null;
+    return calculateKnowledgeHealth(pack.atomicFacts, graphRelations, [], {
+      activeGraphVersion: activeGraphSnapshot?.versionId ?? null,
+      factReviewQueueCount: factReviewQueue.length,
+      graphReviewQueueCount: graphReviewQueue.length,
+      promotionPendingCount: factCandidates.filter((candidate) => candidate.status === "accepted").length,
+      propagationPendingCount: 0,
+      rebuildCandidateCount: 0
+    }, pack.sourceDocuments);
+  }, [activeGraphSnapshot, factCandidates, factReviewQueue.length, graphRelations, graphReviewQueue.length, pack]);
   const activePackExport = activeItem ? { schema: "drone-pass.knowledge-pack-export" as const, version: 1 as const, pack: activeItem } : null;
 
   const parsedImport = useMemo(() => {
@@ -474,7 +625,12 @@ export default function KnowledgeReviewPage() {
     const timestamp = new Date().toISOString();
     const nextMetadata = { ...metadata };
     for (const view of approvable) {
-      nextMetadata[view.fact.id] = { ...getReview(nextMetadata, view.fact.id), reviewState: "reviewed", reviewedAt: timestamp };
+      nextMetadata[view.fact.id] = {
+        ...getReview(nextMetadata, view.fact.id),
+        reviewState: "reviewed",
+        reviewMemo: approvalMemo.trim(),
+        reviewedAt: timestamp
+      };
     }
     try {
       const updated = await repositoryRef.current.updateReview({
@@ -483,7 +639,7 @@ export default function KnowledgeReviewPage() {
         action: "approve",
         nextStatus: "approved",
         approvalMode: mode,
-        memo: "",
+        memo: approvalMemo.trim(),
         metadata: Object.fromEntries(approvable.map((view) => [view.fact.id, nextMetadata[view.fact.id]]))
       });
       setActiveItem(updated);
@@ -617,6 +773,108 @@ export default function KnowledgeReviewPage() {
     }
   }
 
+  async function handleGraphReviewAction(item: GraphReviewItem, action: "approve" | "reject" | "hold") {
+    if (!activeItem) return;
+    if (graphReviewPendingRef.current.has(item.relation.id)) {
+      return;
+    }
+    const from = views.find((view) => view.fact.id === item.relation.fromFactId);
+    const to = views.find((view) => view.fact.id === item.relation.toFactId);
+    graphReviewPendingRef.current.add(item.relation.id);
+    setGraphReviewPendingIds((current) => (current.includes(item.relation.id) ? current : [...current, item.relation.id]));
+    const memo = action === "approve"
+      ? ""
+      : action === "hold"
+        ? "HOLD: relation kept for further review; not approved in this pass."
+        : window.prompt(`${action.toUpperCase()} memo for ${item.relation.id}`, "") ?? "";
+    const detail = [
+      `${action.toUpperCase()} relation ${item.relation.id}?`,
+      `${item.relation.fromFactId}: ${from?.fact.statement ?? "missing fact"}`,
+      `${item.relation.toFactId}: ${to?.fact.statement ?? "missing fact"}`,
+      `type=${item.relation.relationType} confidence=${item.relation.confidence.toFixed(2)}`
+    ].join("\n\n");
+    if (!window.confirm(detail)) return;
+    const repository = createLocalKnowledgeGraphPersistenceRepository();
+    try {
+      const result = action === "approve"
+        ? await approveRelation({ relation: item.relation, reviewerId: "local-admin", memo }, repository)
+        : action === "reject"
+          ? await rejectRelation({ relation: item.relation, reviewerId: "local-admin", memo }, repository)
+          : await holdRelation({ relation: item.relation, reviewerId: "local-admin", memo }, repository);
+      if (!result.audit) {
+        setMessage(`Graph relation ${item.relation.id} is already ${result.relation.reviewStatus}.`);
+        return;
+      }
+      setGraphRelations((current) => current.map((relation) => relation.id === result.relation.id ? result.relation : relation));
+      setMessage(`Graph relation ${item.relation.id} ${result.relation.reviewStatus}.`);
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Graph review action failed.");
+    } finally {
+      graphReviewPendingRef.current.delete(item.relation.id);
+      setGraphReviewPendingIds((current) => current.filter((id) => id !== item.relation.id));
+    }
+  }
+
+  async function handleCreateGraphVersion() {
+    if (!activeItem) return;
+    const approvedRelations = graphRelations.filter((relation) => relation.reviewStatus === "approved");
+    if (!approvedRelations.length) return setMessage("No approved graph relations to version.");
+    if (!window.confirm(`Create draft graph version from ${approvedRelations.length} approved relation(s)?`)) return;
+    const repository = createLocalKnowledgeGraphPersistenceRepository();
+    try {
+      const version = await createDraftVersionFromApprovedRelations({ packId: activeItem.id, relations: graphRelations }, repository);
+      setGraphVersions(await repository.getVersions(activeItem.id));
+      setMessage(`Draft graph version created: ${version.versionId} (${version.relationCount} relations).`);
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Graph version creation failed.");
+    }
+  }
+
+  async function handleActivateGraphVersion(versionId: string) {
+    if (!activeItem || !pack) return;
+    const version = graphVersions.find((item) => item.versionId === versionId);
+    if (!version) return setMessage("Graph version not found.");
+    if (!window.confirm(`Activate graph version ${version.versionId} with ${version.relationCount} approved relation(s)? Existing active version will be archived.`)) return;
+    const repository = createLocalKnowledgeGraphPersistenceRepository();
+    try {
+      const snapshot = await activateGraphVersion({ version, relations: graphRelations, facts: pack.atomicFacts, reviewerId: "local-admin" }, repository);
+      setGraphVersions(await repository.getVersions(activeItem.id));
+      setActiveGraphSnapshot(snapshot);
+      setMessage(`Graph version activated: ${snapshot.versionId} (${snapshot.relations.length} relations).`);
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Graph version activation failed.");
+    }
+  }
+
+  function handleFactCandidateAction(item: FactReviewItem, action: "ACCEPT" | "REJECT" | "MERGE" | "HOLD") {
+    const memo = action === "ACCEPT" ? "" : window.prompt(`${action} memo for ${item.candidate.candidateId}`, "") ?? "";
+    const targetFactId = action === "MERGE" ? item.duplicateMatches.matchedFactIds[0] : undefined;
+    if (action === "MERGE" && !targetFactId) return setMessage("MERGE requires a duplicate target fact.");
+    const detail = [
+      `${action} candidate ${item.candidate.candidateId}?`,
+      item.candidate.statement,
+      targetFactId ? `merge target=${targetFactId}` : "",
+      "This will not create or modify AtomicFact data."
+    ].filter(Boolean).join("\n\n");
+    if (!window.confirm(detail)) return;
+    try {
+      const result = reviewCandidate({
+        candidate: item.candidate,
+        action,
+        reviewerId: "local-admin",
+        memo,
+        duplicateMatches: item.duplicateMatches,
+        mergeTargetFactId: targetFactId
+      });
+      setFactCandidates((current) => current.map((candidate) => candidate.candidateId === result.candidate.candidateId ? result.candidate : candidate));
+      setFactCandidateReviews((current) => [...current, result.review]);
+      if (result.mergeProposal) setFactMergeProposals((current) => [...current, result.mergeProposal as FactMergeProposal]);
+      setMessage(`Fact candidate ${item.candidate.candidateId} ${result.candidate.status}. AtomicFact data unchanged.`);
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Fact candidate review failed.");
+    }
+  }
+
   if (accessState === "checking") {
     return (
       <AppFrame>
@@ -681,6 +939,19 @@ export default function KnowledgeReviewPage() {
           </div>
         </section>
 
+        <section className="rounded-2xl border border-[#c9dcff] bg-[#f7faff] p-4 shadow-none">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+            <OriginStatus label="current origin" value={currentOrigin || "loading"} />
+            <OriginStatus label="ACTIVE Pack ID" value={activeItem?.id ?? "-"} />
+            <OriginStatus label="approved Facts" value={pack ? String(pack.atomicFacts.filter((fact) => fact.status === "approved").length) : "0"} />
+            <OriginStatus label="draft Graph Versions" value={String(graphVersions.filter((version) => version.status === "draft").length)} />
+            <OriginStatus label="active Graph Version" value={activeGraphSnapshot?.versionId ?? "-"} />
+          </div>
+          <p className="mt-3 rounded-xl border border-[#ffd9a8] bg-[#fff7ea] px-3 py-2 text-xs font-bold leading-5 text-[#8a4f00]">
+            다른 origin의 localStorage 데이터는 자동 공유되지 않습니다. 호스트명이나 포트가 달라지면 별도 저장 공간을 사용합니다.
+          </p>
+        </section>
+
         <section data-layout className="grid gap-4 lg:grid-cols-2">
           <Section title="Knowledge Pack export">
             <div className="mt-4 flex flex-wrap gap-2">
@@ -724,6 +995,10 @@ export default function KnowledgeReviewPage() {
           </Section>
         ) : (
           <>
+            <GraphSummaryCard summary={graphSummary} views={views} />
+            <TabBar activeTab={activeTab} onChange={setActiveTab} />
+            {activeTab === "facts" ? (
+            <>
             <section data-layout className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
               <Metric label="AtomicFact" value={summary.total} />
               <Metric label="draft" value={summary.draft} />
@@ -759,6 +1034,7 @@ export default function KnowledgeReviewPage() {
                 <ActionButton onClick={() => setSelectedIds(filteredViews.filter((view) => view.fact.status === "draft").map((view) => view.fact.id))} icon={<Filter size={17} />} label="보이는 draft 선택" dark />
                 <ActionButton onClick={() => setSelectedIds([])} icon={<X size={17} />} label="선택 해제" secondary />
                 <ActionButton onClick={() => approveViews(selectedViews, "bulk")} disabled={!canApproveSelection} icon={<ClipboardCheck size={17} />} label="선택 승인" />
+                <input value={approvalMemo} onChange={(event) => setApprovalMemo(event.target.value)} className="h-11 min-w-0 flex-1 rounded-xl border border-[var(--drone-line)] bg-white px-3 text-sm font-semibold text-[var(--drone-ink)] outline-none" placeholder="승인 검증 메모" />
                 <input value={holdMemo} onChange={(event) => setHoldMemo(event.target.value)} className="h-11 min-w-0 flex-1 rounded-xl border border-[var(--drone-line)] bg-white px-3 text-sm font-semibold text-[var(--drone-ink)] outline-none" placeholder="보류 메모" />
                 <ActionButton onClick={holdSelected} disabled={!selectedIds.length} icon={<PauseCircle size={17} />} label="보류" warn />
               </div>
@@ -805,10 +1081,505 @@ export default function KnowledgeReviewPage() {
                 </Section>
               </aside>
             </div>
+            </>
+            ) : activeTab === "graph" ? (
+              <GraphTab activeFact={activeFact} views={views} relations={graphRelations} scoresByFactId={scoresByFactId} onOpenFact={setActiveFactId} />
+            ) : activeTab === "exam-score" ? (
+              <ExamScoreTab
+                rows={scoreRows}
+                conceptOptions={scoreConceptOptions}
+                categoryOptions={scoreCategoryOptions}
+                conceptFilter={scoreConceptFilter}
+                categoryFilter={scoreCategoryFilter}
+                scoreRangeFilter={scoreRangeFilter}
+                onConceptFilterChange={setScoreConceptFilter}
+                onCategoryFilterChange={setScoreCategoryFilter}
+                onScoreRangeFilterChange={(value) => setScoreRangeFilter(value as ScoreRangeFilter)}
+                onOpenFact={setActiveFactId}
+              />
+            ) : activeTab === "knowledge-intake" ? (
+              <KnowledgeIntakeTab
+                queue={factReviewQueue}
+                views={views}
+                reviews={factCandidateReviews}
+                mergeProposals={factMergeProposals}
+                onCandidateAction={handleFactCandidateAction}
+              />
+            ) : activeTab === "knowledge-operations" ? (
+              <KnowledgeOperationsTab summary={operationsHealth} />
+            ) : (
+              <GraphReviewTab
+                queue={graphReviewQueue}
+                views={views}
+                versions={graphVersions}
+                activeSnapshot={activeGraphSnapshot}
+                auditCount={graphReviewAuditCount}
+                audits={graphReviewAudits}
+                pendingIds={graphReviewPendingIds}
+                onReviewAction={handleGraphReviewAction}
+                onCreateVersion={handleCreateGraphVersion}
+                onActivateVersion={handleActivateGraphVersion}
+              />
+            )}
           </>
         )}
       </div>
     </AppFrame>
+  );
+}
+
+function TabBar({ activeTab, onChange }: { activeTab: AdminTab; onChange: (tab: AdminTab) => void }) {
+  const tabs: Array<[AdminTab, string]> = [["facts", "Facts"], ["graph", "Graph"], ["exam-score", "Exam Score"], ["graph-review", "Graph Review"], ["knowledge-intake", "Knowledge Intake"], ["knowledge-operations", "Knowledge Operations"]];
+  return (
+    <nav className="flex flex-wrap gap-2 rounded-2xl border border-[var(--drone-line)] bg-white p-2 shadow-[var(--drone-shadow)]" aria-label="Knowledge review tabs">
+      {tabs.map(([tab, label]) => (
+        <button
+          key={tab}
+          type="button"
+          onClick={() => onChange(tab)}
+          className={`h-11 rounded-xl px-4 text-sm font-black transition ${activeTab === tab ? "bg-[var(--drone-cobalt)] text-white shadow-[0_10px_24px_rgba(15,47,100,0.2)]" : "bg-[#f4f8ff] text-[var(--drone-cobalt)] hover:bg-[#eaf4ff]"}`}
+        >
+          {label}
+        </button>
+      ))}
+    </nav>
+  );
+}
+
+function KnowledgeOperationsTab({ summary }: { summary: KnowledgeHealthSummary | null }) {
+  if (!summary) return <Section title="Knowledge Operations"><p className="mt-4 text-sm font-bold text-[var(--drone-text-soft)]">No active Knowledge Pack loaded.</p></Section>;
+  return (
+    <div className="space-y-5">
+      <Section title="Operations Health">
+        <div className="mt-4 rounded-xl border border-[var(--drone-line)] bg-[#f7faff] p-4">
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge label={summary.warningLevel} tone={summary.warningLevel === "HIGH" ? "bad" : summary.warningLevel === "MEDIUM" ? "warn" : "good"} />
+            <p className="text-sm font-bold text-[var(--drone-ink)]">Knowledge Base operational status is read-only in this dashboard.</p>
+          </div>
+          <div className="mt-3 grid gap-2">
+            {summary.warnings.map((warning) => (
+              <p key={warning.code} className={`rounded-xl border px-3 py-2 text-sm font-bold ${warning.level === "HIGH" ? "border-[#ffb6c8] bg-[#ffe9ee] text-[#b80f3a]" : warning.level === "MEDIUM" ? "border-[#ffd9a8] bg-[#fff7ea] text-[#8a4f00]" : "border-[#a8e9ca] bg-[#f2fdf8] text-[#0f8f63]"}`}>
+                {warning.code}: {warning.message}
+              </p>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <div data-layout className="grid gap-5 xl:grid-cols-2">
+        <Section title="Knowledge Overview">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <Metric label="total facts" value={summary.totalFacts} />
+            <Metric label="active facts" value={summary.activeFacts} tone="good" />
+            <Metric label="draft facts" value={summary.draftFacts} tone={summary.draftFacts ? "warn" : "neutral"} />
+            <Metric label="deprecated facts" value={summary.deprecatedFacts} tone={summary.deprecatedFacts ? "bad" : "neutral"} />
+          </div>
+        </Section>
+
+        <Section title="Graph Health">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <Metric label="total relations" value={summary.totalRelations} />
+            <Metric label="approved relations" value={summary.approvedRelations} tone="good" />
+            <Metric label="pending relations" value={summary.pendingRelations} tone={summary.pendingRelations ? "warn" : "neutral"} />
+            <Metric label="connection score" value={`${Math.round(summary.graphConnectionScore * 100)}%`} />
+          </div>
+          <p className="mt-3 rounded-xl border border-[var(--drone-line)] bg-white px-3 py-2 font-mono text-xs font-bold text-[var(--drone-text-soft)]">activeVersion: {summary.activeGraphVersion ?? "-"}</p>
+        </Section>
+
+        <Section title="Review Queue">
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <Metric label="fact review" value={summary.factReviewQueueCount} tone={summary.factReviewQueueCount ? "warn" : "neutral"} />
+            <Metric label="graph review" value={summary.graphReviewQueueCount} tone={summary.graphReviewQueueCount ? "warn" : "neutral"} />
+            <Metric label="promotion pending" value={summary.promotionPendingCount} tone={summary.promotionPendingCount ? "warn" : "neutral"} />
+          </div>
+        </Section>
+
+        <Section title="Change Management">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <Metric label="propagation tasks" value={summary.propagationPendingCount} tone={summary.propagationPendingCount ? "warn" : "neutral"} />
+            <Metric label="rebuild candidates" value={summary.rebuildCandidateCount} tone={summary.rebuildCandidateCount ? "warn" : "neutral"} />
+          </div>
+        </Section>
+
+        <Section title="Source Coverage">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <Metric label="source count" value={summary.totalSources} />
+            <Metric label="coverage score" value={`${Math.round(summary.sourceCoverageScore * 100)}%`} tone={summary.sourceCoverageScore < 0.8 ? "bad" : "good"} />
+          </div>
+        </Section>
+      </div>
+    </div>
+  );
+}
+
+function KnowledgeIntakeTab({ queue, views, reviews, mergeProposals, onCandidateAction }: {
+  queue: FactReviewItem[];
+  views: FactView[];
+  reviews: FactCandidateReview[];
+  mergeProposals: FactMergeProposal[];
+  onCandidateAction: (item: FactReviewItem, action: "ACCEPT" | "REJECT" | "MERGE" | "HOLD") => void;
+}) {
+  const factById = new Map(views.map((view) => [view.fact.id, view]));
+  return (
+    <Section title={`Knowledge Intake (${queue.length})`}>
+      <div className="mt-4 rounded-xl border border-[#bcd9ff] bg-[#eef5ff] p-3 text-sm font-bold leading-6 text-[var(--drone-cobalt)]">
+        FactCandidate review is local UI state only in this step. Accept / Reject / Merge / Hold never creates or changes AtomicFact data.
+        <p className="mt-1 font-mono text-xs text-[var(--drone-text-soft)]">
+          reviews: {reviews.length} / merge proposals: {mergeProposals.length}
+        </p>
+      </div>
+
+      <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--drone-line)]">
+        <table className="min-w-[1260px] w-full border-collapse bg-white text-left text-sm">
+          <thead className="bg-[#f0f6ff] font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--drone-text-soft)]">
+            <tr>
+              {["Priority", "Candidate", "Source", "Extracted", "Duplicate", "Related", "Status", "Actions"].map((label) => <th key={label} className="px-3 py-3">{label}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {queue.map((item) => {
+              const duplicateFacts = item.duplicateMatches.matchedFactIds.map((id) => factById.get(id)).filter((view): view is FactView => Boolean(view));
+              const relatedFacts = item.relatedFacts.slice(0, 4).map((related) => factById.get(related.factId)).filter((view): view is FactView => Boolean(view));
+              const canMerge = item.duplicateMatches.matchedFactIds.length > 0;
+              return (
+                <tr key={item.candidate.candidateId} className="border-t border-[#eef3ff] align-top">
+                  <td className="px-3 py-3 font-mono font-black text-[var(--drone-cobalt)]">{item.priority.toFixed(2)}</td>
+                  <td className="px-3 py-3">
+                    <p className="font-mono text-xs font-black text-[var(--drone-cobalt)]">{item.candidate.candidateId}</p>
+                    <p className="mt-1 max-w-[320px] text-xs font-semibold leading-5 text-[var(--drone-ink)]">{item.candidate.statement}</p>
+                    <p className="mt-2 font-mono text-[11px] font-semibold text-[var(--drone-text-soft)]">{item.reviewReason}</p>
+                  </td>
+                  <td className="px-3 py-3 font-mono text-[11px] font-semibold text-[var(--drone-text-soft)]">
+                    <p>{item.candidate.sourceId}</p>
+                    <p>{item.candidate.sourceReference.documentId}</p>
+                    <p>{item.candidate.sourceReference.locator}</p>
+                  </td>
+                  <td className="px-3 py-3 text-xs font-semibold leading-5 text-[var(--drone-text-soft)]">
+                    <p>numbers: {item.candidate.extractedNumbers.join(", ") || "-"}</p>
+                    <p>conditions: {item.candidate.extractedConditions.join(", ") || "-"}</p>
+                    <p>exceptions: {item.candidate.extractedExceptions.join(", ") || "-"}</p>
+                  </td>
+                  <td className="px-3 py-3">
+                    {duplicateFacts.length ? duplicateFacts.map((view) => (
+                      <div key={view.fact.id} className="mb-2 rounded-xl border border-[#ffd9a8] bg-[#fff7ea] p-2">
+                        <p className="font-mono text-xs font-black text-[#8a4f00]">{view.fact.id} · {item.duplicateMatches.confidence.toFixed(2)}</p>
+                        <p className="mt-1 max-w-[260px] text-xs font-semibold leading-5 text-[#8a4f00]">{view.fact.statement}</p>
+                      </div>
+                    )) : <span className="text-xs font-bold text-[var(--drone-text-soft)]">No duplicate match</span>}
+                  </td>
+                  <td className="px-3 py-3">
+                    {relatedFacts.length ? relatedFacts.map((view) => (
+                      <span key={view.fact.id} className="mr-1 inline-flex rounded-full border border-[var(--drone-line)] bg-white px-3 py-1 font-mono text-[11px] font-black text-[var(--drone-cobalt)]">{view.fact.id}</span>
+                    )) : <span className="text-xs font-bold text-[var(--drone-text-soft)]">No related fact</span>}
+                  </td>
+                  <td className="px-3 py-3"><Badge label={item.candidate.status} tone={item.candidate.status === "duplicate_candidate" ? "warn" : item.candidate.status === "accepted" ? "good" : item.candidate.status === "rejected" ? "bad" : "neutral"} /></td>
+                  <td className="px-3 py-3">
+                    <div className="flex flex-wrap gap-2">
+                      <button type="button" onClick={() => onCandidateAction(item, "ACCEPT")} className="rounded-lg bg-[#e8fbf2] px-2 py-1 text-xs font-black text-[#0f8f63]">Accept</button>
+                      <button type="button" onClick={() => onCandidateAction(item, "REJECT")} className="rounded-lg bg-[#ffe9ee] px-2 py-1 text-xs font-black text-[#b80f3a]">Reject</button>
+                      <button type="button" disabled={!canMerge} onClick={() => onCandidateAction(item, "MERGE")} className="rounded-lg bg-[#eef5ff] px-2 py-1 text-xs font-black text-[var(--drone-cobalt)] disabled:bg-slate-100 disabled:text-slate-400">Merge</button>
+                      <button type="button" onClick={() => onCandidateAction(item, "HOLD")} className="rounded-lg bg-[#fff4df] px-2 py-1 text-xs font-black text-[#8a4f00]">Hold</button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        {!queue.length ? <p className="p-4 text-sm font-bold text-[var(--drone-text-soft)]">No intake candidates yet. Existing AtomicFact data remains unchanged.</p> : null}
+      </div>
+      {mergeProposals.length ? (
+        <div className="mt-4 rounded-2xl border border-[var(--drone-line)] bg-[#f7faff] p-4">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--drone-text-soft)]">Merge Preview</p>
+          <div className="mt-3 grid gap-2">
+            {mergeProposals.map((proposal) => (
+              <p key={`${proposal.candidateId}:${proposal.targetFactId}:${proposal.confidence}`} className="font-mono text-xs font-bold text-[var(--drone-cobalt)]">
+                {proposal.candidateId} → {proposal.targetFactId} · {proposal.confidence.toFixed(2)} · {proposal.reason}
+              </p>
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </Section>
+  );
+}
+
+function GraphSummaryCard({ summary, views }: {
+  summary: {
+    relationCount: number;
+    connectedFactCount: number;
+    averageConfidence: number;
+    scoreCount: number;
+    topScores: ExamValueScore[];
+  };
+  views: FactView[];
+}) {
+  return (
+    <Section title="Knowledge Graph Summary">
+      <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+        <Metric label="relations" value={summary.relationCount} />
+        <Metric label="connected facts" value={summary.connectedFactCount} />
+        <Metric label="avg confidence" value={Math.round(summary.averageConfidence * 100)} />
+        <Metric label="exam scores" value={summary.scoreCount} />
+        <div className="rounded-2xl border border-[var(--drone-line)] bg-[#f7faff] p-4">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--drone-text-soft)]">Top Exam Fact 5</p>
+          <div className="mt-2 space-y-1">
+            {summary.topScores.length ? summary.topScores.map((score) => {
+              const view = views.find((item) => item.fact.id === score.factId);
+              return <p key={score.factId} className="truncate font-mono text-[11px] font-black text-[var(--drone-cobalt)]">{score.factId} · {score.overallScore.toFixed(2)} · {view?.concept?.title ?? view?.fact.conceptId ?? "-"}</p>;
+            }) : <p className="text-sm font-semibold text-slate-500">No score data</p>}
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function GraphTab({ activeFact, views, relations, scoresByFactId, onOpenFact }: {
+  activeFact: FactView | null;
+  views: FactView[];
+  relations: KnowledgeRelation[];
+  scoresByFactId: Map<string, ExamValueScore>;
+  onOpenFact: (id: string) => void;
+}) {
+  const selected = activeFact ?? views[0] ?? null;
+  const rankedRelations = selected ? rankRelationsForFact(selected.fact.id, relations) : [];
+  const factById = new Map(views.map((view) => [view.fact.id, view]));
+  return (
+    <div className="grid gap-5 xl:grid-cols-[320px_minmax(0,1fr)]">
+      <Section title="Graph Fact">
+        {selected ? (
+          <div className="mt-4 space-y-3">
+            <p className="inline-block rounded-md bg-[#eef3ff] px-2 py-0.5 font-mono text-[12px] font-black text-[var(--drone-cobalt)]">{selected.fact.id}</p>
+            <p className="text-sm font-bold leading-6 text-[var(--drone-ink)]">{selected.fact.statement}</p>
+            <InfoBlock title="Concept">{selected.concept?.title ?? selected.fact.conceptId}</InfoBlock>
+            <InfoBlock title="Exam Score">{scoresByFactId.get(selected.fact.id)?.overallScore.toFixed(2) ?? "not generated"}</InfoBlock>
+          </div>
+        ) : <p className="mt-3 text-sm font-semibold text-slate-500">No active fact.</p>}
+      </Section>
+
+      <Section title={`Relations (${rankedRelations.length})`}>
+        {rankedRelations.length ? (
+          <div className="mt-4 space-y-3">
+            {rankedRelations.map((relation) => {
+              const connectedId = relation.fromFactId === selected?.fact.id ? relation.toFactId : relation.fromFactId;
+              const connected = factById.get(connectedId);
+              return (
+                <article key={relation.id} data-layout className="rounded-2xl border border-[var(--drone-line)] bg-white p-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge label={relation.relationType} tone={relation.relationType === "CONFUSED_WITH" || relation.relationType === "EXCEPTION_OF" ? "warn" : "neutral"} />
+                    <button type="button" onClick={() => onOpenFact(connectedId)} className="font-mono text-sm font-black text-[var(--drone-cobalt)]">→ {connectedId}</button>
+                    <Badge label={relation.reviewStatus} tone={relation.reviewStatus === "approved" ? "good" : "neutral"} />
+                  </div>
+                  <p className="mt-2 text-sm font-bold leading-6 text-[var(--drone-ink)]">{connected?.fact.statement ?? "Target fact not found in active pack."}</p>
+                  <dl className="mt-3 grid gap-1 border-t border-[#eef3ff] pt-3 font-mono text-[11px] font-semibold text-[var(--drone-text-soft)] sm:grid-cols-2">
+                    <div>confidence: {relation.confidence.toFixed(2)}</div>
+                    <div>concept: {connected?.concept?.title ?? connected?.fact.conceptId ?? "-"}</div>
+                    <div className="sm:col-span-2">reason: {relation.reason}</div>
+                  </dl>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <p className="mt-3 rounded-xl border border-dashed border-[var(--drone-line)] bg-[#f7faff] p-4 text-sm font-bold text-[var(--drone-text-soft)]">아직 Graph 데이터가 없습니다.</p>
+        )}
+      </Section>
+    </div>
+  );
+}
+
+function GraphReviewTab({ queue, views, versions, activeSnapshot, auditCount, audits, pendingIds, onReviewAction, onCreateVersion, onActivateVersion }: {
+  queue: GraphReviewItem[];
+  views: FactView[];
+  versions: KnowledgeGraphVersion[];
+  activeSnapshot: KnowledgeGraphSnapshot | null;
+  auditCount: number;
+  audits: KnowledgeRelationReview[];
+  pendingIds: string[];
+  onReviewAction: (item: GraphReviewItem, action: "approve" | "reject" | "hold") => void;
+  onCreateVersion: () => void;
+  onActivateVersion: (versionId: string) => void;
+}) {
+  const factById = new Map(views.map((view) => [view.fact.id, view]));
+  const draftVersions = versions.filter((version) => version.status === "draft" || version.status === "review");
+  const pinnedItems = GRAPH_REVIEW_PINNED_TARGETS
+    .map((id) => queue.find((item) => item.relation.id === id))
+    .filter((item): item is GraphReviewItem => Boolean(item));
+  return (
+    <Section title={`Graph Review Queue (${queue.length})`}>
+      <div className="mt-4 grid gap-3 lg:grid-cols-[1fr_auto]">
+        <div className="rounded-xl border border-[#bcd9ff] bg-[#eef5ff] p-3 text-sm font-bold leading-6 text-[var(--drone-cobalt)]">
+          Human review only: Approve / Reject / Hold stores a new relation state and append-only local audit. No automatic relation approval is performed.
+          <p className="mt-1 font-mono text-xs text-[var(--drone-text-soft)]">
+            activeVersion: {activeSnapshot?.versionId ?? "-"} / activeRelations: {activeSnapshot?.relations.length ?? 0} / reviewAudit: {auditCount}
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <button type="button" onClick={onCreateVersion} className="h-10 rounded-xl border border-[var(--drone-line)] bg-white px-3 text-xs font-black text-[var(--drone-cobalt)] shadow-[0_6px_16px_rgba(8,43,122,0.08)]">Create draft version</button>
+          <select
+            aria-label="Graph version to activate"
+            className="h-10 rounded-xl border border-[var(--drone-line)] bg-white px-3 font-mono text-xs font-bold text-[var(--drone-ink)]"
+            defaultValue=""
+            onChange={(event) => {
+              if (event.target.value) onActivateVersion(event.target.value);
+              event.currentTarget.value = "";
+            }}
+          >
+            <option value="">Activate draft...</option>
+            {draftVersions.map((version) => <option key={version.versionId} value={version.versionId}>{version.versionId} · {version.relationCount}</option>)}
+          </select>
+        </div>
+      </div>
+      {pinnedItems.length ? (
+        <div data-layout className="mt-4 rounded-2xl border border-[#bcd9ff] bg-[#f7faff] p-4">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--drone-text-soft)]">Pinned single-review targets</p>
+          <div className="mt-3 grid gap-2">
+            {pinnedItems.map((item) => {
+              const from = factById.get(item.relation.fromFactId);
+              const to = factById.get(item.relation.toFactId);
+              const action = item.relation.id === "KG-CONFUSED_WITH-AF-176-AF-178" ? "hold" : "approve";
+              const isPending = pendingIds.includes(item.relation.id);
+              return (
+                <div key={item.relation.id} data-pinned-relation-id={item.relation.id} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[var(--drone-line)] bg-white p-3">
+                  <div className="min-w-0">
+                    <p className="font-mono text-xs font-black text-[var(--drone-cobalt)]">{item.relation.id}</p>
+                    <p className="mt-1 text-xs font-semibold leading-5 text-[var(--drone-text-soft)]">{from?.fact.statement ?? item.relation.fromFactId} → {to?.fact.statement ?? item.relation.toFactId}</p>
+                  </div>
+                  <button
+                    type="button"
+                    data-pinned-action={action}
+                    disabled={isPending}
+                    onClick={() => onReviewAction(item, action)}
+                    className={`${action === "approve" ? "rounded-lg bg-[#e8fbf2] px-3 py-2 text-xs font-black text-[#0f8f63]" : "rounded-lg bg-[#fff4df] px-3 py-2 text-xs font-black text-[#8a4f00]"} disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400`}
+                  >
+                    {action === "approve" ? "Approve target" : "Hold target"}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+      <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--drone-line)]">
+        <table className="min-w-[1120px] w-full border-collapse bg-white text-left text-sm">
+          <thead className="bg-[#f0f6ff] font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--drone-text-soft)]">
+            <tr>
+              {["Priority", "From Fact", "To Fact", "Relation Type", "Reason", "Confidence", "Quality", "Exam Relevance", "Status", "Actions"].map((label) => <th key={label} className="px-3 py-3">{label}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {queue.map((item) => {
+              const from = factById.get(item.relation.fromFactId);
+              const to = factById.get(item.relation.toFactId);
+              const isTerminal = item.relation.reviewStatus === "approved" || item.relation.reviewStatus === "rejected";
+              const isPending = pendingIds.includes(item.relation.id);
+              return (
+                <tr key={item.relation.id} data-relation-id={item.relation.id} className="border-t border-[#eef3ff] align-top">
+                  <td className="px-3 py-3 font-mono font-black text-[var(--drone-cobalt)]">{item.priority.toFixed(2)}</td>
+                  <td className="px-3 py-3">
+                    <p className="font-mono text-xs font-black text-[var(--drone-cobalt)]">{item.relation.fromFactId}</p>
+                    <p className="mt-1 max-w-[260px] text-xs font-semibold leading-5 text-[var(--drone-text-soft)]">{from?.fact.statement ?? "-"}</p>
+                  </td>
+                  <td className="px-3 py-3">
+                    <p className="font-mono text-xs font-black text-[var(--drone-cobalt)]">{item.relation.toFactId}</p>
+                    <p className="mt-1 max-w-[260px] text-xs font-semibold leading-5 text-[var(--drone-text-soft)]">{to?.fact.statement ?? "-"}</p>
+                  </td>
+                  <td className="px-3 py-3"><Badge label={item.relation.relationType} tone={item.relation.relationType === "CONFUSED_WITH" || item.relation.relationType === "EXCEPTION_OF" ? "warn" : "neutral"} /></td>
+                  <td className="max-w-[260px] px-3 py-3 text-xs font-semibold leading-5 text-[var(--drone-ink)]">{item.relation.reason}</td>
+                  <td className="px-3 py-3 font-mono">{item.relation.confidence.toFixed(2)}</td>
+                  <td className="px-3 py-3 font-mono font-black text-[var(--drone-cobalt)]">{item.qualityScore.overallScore.toFixed(2)}</td>
+                  <td className="px-3 py-3 font-mono">{item.qualityScore.examRelevanceScore.toFixed(2)}</td>
+                  <td className="px-3 py-3"><Badge label={item.relation.reviewStatus} tone={item.relation.reviewStatus === "approved" ? "good" : item.relation.reviewStatus === "rejected" ? "bad" : item.relation.reviewStatus === "held" ? "warn" : "neutral"} /></td>
+                  <td className="px-3 py-3">
+                    <div className="flex gap-2">
+                      <button type="button" data-action="approve" disabled={isTerminal || isPending} onClick={() => onReviewAction(item, "approve")} className="rounded-lg bg-[#e8fbf2] px-2 py-1 text-xs font-black text-[#0f8f63] disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">Approve</button>
+                      <button type="button" data-action="reject" disabled={isTerminal || isPending} onClick={() => onReviewAction(item, "reject")} className="rounded-lg bg-[#ffe9ee] px-2 py-1 text-xs font-black text-[#b80f3a] disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">Reject</button>
+                      <button type="button" data-action="hold" disabled={isTerminal || isPending} onClick={() => onReviewAction(item, "hold")} className="rounded-lg bg-[#fff4df] px-2 py-1 text-xs font-black text-[#8a4f00] disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">Hold</button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        {!queue.length ? <p className="p-4 text-sm font-bold text-[var(--drone-text-soft)]">No graph review candidates yet.</p> : null}
+      </div>
+      <Section title={`Graph Review Audit Timeline (${audits.length})`}>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--drone-line)]">
+          <table className="min-w-[1180px] w-full border-collapse bg-white text-left text-sm">
+            <thead className="bg-[#f0f6ff] font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--drone-text-soft)]">
+              <tr>
+                {["Timestamp", "Audit ID", "Relation ID", "Action", "Previous", "Next", "Reviewer", "Memo"].map((label) => <th key={label} className="px-3 py-3">{label}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {audits.slice().sort((left, right) => left.timestamp.localeCompare(right.timestamp)).map((entry, index) => (
+                <tr key={`${entry.timestamp}:${entry.relationId}:${index}`} className="border-t border-[#eef3ff] align-top">
+                  <td className="px-3 py-3 font-mono text-[11px] font-semibold text-[var(--drone-text-soft)]">{entry.timestamp}</td>
+                  <td className="px-3 py-3 font-mono text-[11px] font-semibold text-[var(--drone-text-soft)]">{entry.auditId ?? "legacy audit"}</td>
+                  <td className="px-3 py-3 font-mono text-[11px] font-black text-[var(--drone-cobalt)]">{entry.relationId}</td>
+                  <td className="px-3 py-3"><Badge label={entry.action} tone={entry.action === "APPROVE" ? "good" : entry.action === "REJECT" ? "bad" : entry.action === "HOLD" ? "warn" : "neutral"} /></td>
+                  <td className="px-3 py-3 font-mono text-[11px] text-[var(--drone-text-soft)]">{entry.previousStatus}</td>
+                  <td className="px-3 py-3 font-mono text-[11px] text-[var(--drone-text-soft)]">{entry.nextStatus}</td>
+                  <td className="px-3 py-3 font-mono text-[11px] text-[var(--drone-text-soft)]">{entry.reviewerId ?? "-"}</td>
+                  <td className="px-3 py-3 text-xs font-semibold leading-5 text-[var(--drone-ink)]">{entry.memo || "-"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+    </Section>
+  );
+}
+
+function ExamScoreTab({ rows, conceptOptions, categoryOptions, conceptFilter, categoryFilter, scoreRangeFilter, onConceptFilterChange, onCategoryFilterChange, onScoreRangeFilterChange, onOpenFact }: {
+  rows: Array<{ score: ExamValueScore; view: FactView }>;
+  conceptOptions: Array<[string, string]>;
+  categoryOptions: Array<[string, string]>;
+  conceptFilter: string;
+  categoryFilter: string;
+  scoreRangeFilter: ScoreRangeFilter;
+  onConceptFilterChange: (value: string) => void;
+  onCategoryFilterChange: (value: string) => void;
+  onScoreRangeFilterChange: (value: string) => void;
+  onOpenFact: (id: string) => void;
+}) {
+  return (
+    <Section title="Exam Score Dashboard">
+      <div className="mt-4 grid gap-3 lg:grid-cols-3">
+        <Select label="concept" value={conceptFilter} onChange={onConceptFilterChange} options={conceptOptions} />
+        <Select label="category" value={categoryFilter} onChange={onCategoryFilterChange} options={categoryOptions} />
+        <Select label="score range" value={scoreRangeFilter} onChange={onScoreRangeFilterChange} options={[["all", "All scores"], ["high", "High ≥ 0.70"], ["medium", "Medium 0.40-0.69"], ["low", "Low < 0.40"]]} />
+      </div>
+      <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--drone-line)]">
+        <table className="min-w-[980px] w-full border-collapse bg-white text-left text-sm">
+          <thead className="bg-[#f0f6ff] font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--drone-text-soft)]">
+            <tr>
+              {["Rank", "Fact ID", "Statement", "Concept", "Overall", "Importance", "Confusion", "Numeric", "Penalty", "Difficulty"].map((label) => <th key={label} className="px-3 py-3">{label}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(({ score, view }, index) => (
+              <tr key={score.factId} className="border-t border-[#eef3ff]">
+                <td className="px-3 py-3 font-mono text-xs font-black text-[var(--drone-text-soft)]">{index + 1}</td>
+                <td className="px-3 py-3"><button type="button" onClick={() => onOpenFact(score.factId)} className="font-mono text-xs font-black text-[var(--drone-cobalt)]">{score.factId}</button></td>
+                <td className="max-w-[360px] truncate px-3 py-3 font-semibold text-[var(--drone-ink)]">{view.fact.statement}</td>
+                <td className="px-3 py-3 text-xs font-bold text-[var(--drone-text-soft)]">{view.concept?.title ?? view.fact.conceptId}</td>
+                <td className="px-3 py-3 font-mono font-black text-[var(--drone-cobalt)]">{score.overallScore.toFixed(2)}</td>
+                <td className="px-3 py-3 font-mono">{score.importanceScore.toFixed(2)}</td>
+                <td className="px-3 py-3 font-mono">{score.confusionScore.toFixed(2)}</td>
+                <td className="px-3 py-3 font-mono">{score.numericRiskScore.toFixed(2)}</td>
+                <td className="px-3 py-3 font-mono">{score.penaltyRiskScore.toFixed(2)}</td>
+                <td className="px-3 py-3 font-mono">{score.difficultyScore.toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {!rows.length ? <p className="p-4 text-sm font-bold text-[var(--drone-text-soft)]">No ExamValueScore rows match the filters.</p> : null}
+      </div>
+    </Section>
   );
 }
 
@@ -824,7 +1595,16 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function Metric({ label, value, tone = "neutral" }: { label: string; value: number; tone?: "neutral" | "good" | "warn" | "bad" }) {
+function OriginStatus({ label, value }: { label: string; value: string }) {
+  return (
+    <div data-layout className="min-w-0 rounded-xl border border-[var(--drone-line)] bg-white px-3 py-2.5">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--drone-text-soft)]">{label}</p>
+      <p className="mt-1 truncate font-mono text-xs font-black text-[var(--drone-cobalt)]" title={value}>{value}</p>
+    </div>
+  );
+}
+
+function Metric({ label, value, tone = "neutral" }: { label: string; value: number | string; tone?: "neutral" | "good" | "warn" | "bad" }) {
   const color = tone === "good" ? "text-[var(--drone-success)]" : tone === "warn" ? "text-[var(--drone-warning)]" : tone === "bad" ? "text-[var(--drone-danger)]" : "text-[var(--drone-ink)]";
   const rule = tone === "good" ? "bg-[var(--drone-success)]" : tone === "warn" ? "bg-[var(--drone-warning)]" : tone === "bad" ? "bg-[var(--drone-danger)]" : "bg-[var(--drone-sky)]";
   return (

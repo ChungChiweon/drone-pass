@@ -5,7 +5,9 @@ import type { KnowledgePack } from "@/domain/exam-engine/types";
 import {
   ACTIVE_PACK_CACHE_KEY,
   cacheKnowledgePack,
+  createLocalKnowledgePackRepository,
   LEGACY_REVIEW_AUDIT_KEY,
+  LEGACY_REVIEW_METADATA_KEY,
   normalizeLegacyAudit
 } from "./local-knowledge-pack-repository";
 import { CachedKnowledgePackRepository } from "./supabase-knowledge-pack-repository";
@@ -116,5 +118,56 @@ describe("legacy audit compatibility", () => {
       previousStatus: "draft",
       nextStatus: "approved"
     });
+  });
+
+  it("persists checklist metadata and appends one identified audit for a real local transition", async () => {
+    const local = pack("kr-drone-license:mrm0omvd", 17);
+    cacheKnowledgePack(local, true);
+    const repository = createLocalKnowledgePackRepository();
+    await repository.updateChecklist({
+      packId: local.id,
+      factId: "AF-018",
+      metadataPatch: { checklist: { statementReviewed: true } }
+    });
+    await repository.updateReview({
+      packId: local.id,
+      factIds: ["AF-018"],
+      action: "approve",
+      nextStatus: "approved",
+      approvalMode: "single",
+      memo: "official source verified",
+      metadata: {
+        "AF-018": {
+          reviewState: "reviewed",
+          reviewMemo: "official source verified",
+          reviewedAt: "2026-07-31T00:00:00.000Z",
+          reviewedBy: null
+        }
+      }
+    });
+    const audit = JSON.parse(window.localStorage.getItem(LEGACY_REVIEW_AUDIT_KEY) ?? "[]");
+    const metadata = JSON.parse(window.localStorage.getItem(LEGACY_REVIEW_METADATA_KEY) ?? "{}");
+    expect(audit).toHaveLength(1);
+    expect(audit[0]).toMatchObject({
+      factId: "AF-018",
+      previousStatus: "draft",
+      nextStatus: "approved",
+      approvalMode: "single",
+      reviewedBy: "local-admin",
+      memo: "official source verified"
+    });
+    expect(audit[0].id).toMatch(/^KFAUD-/);
+    expect(metadata["AF-018"].reviewMemo).toBe("official source verified");
+
+    await repository.updateReview({
+      packId: local.id,
+      factIds: ["AF-018"],
+      action: "approve",
+      nextStatus: "approved",
+      approvalMode: "single",
+      memo: "retry",
+      metadata: {}
+    });
+    expect(JSON.parse(window.localStorage.getItem(LEGACY_REVIEW_AUDIT_KEY) ?? "[]")).toHaveLength(1);
   });
 });

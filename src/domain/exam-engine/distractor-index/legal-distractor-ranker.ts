@@ -1,0 +1,2 @@
+import type {ShadowExamFact} from "../shadow-pack";
+export function rankLegalDistractors(target:ShadowExamFact,candidates:ShadowExamFact[],graphIds:string[]=[]){const graph=new Set(graphIds);return [...candidates].sort((a,b)=>score(b)-score(a)||a.id.localeCompare(b.id));function score(x:ShadowExamFact){return(graph.has(x.id)?8:0)+(x.topic===target.topic?4:0)+(x.unit&&x.unit===target.unit?3:0)+(x.factType===target.factType?2:0)+(x.predicate===target.predicate?1:0)}}
