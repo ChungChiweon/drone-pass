@@ -1,0 +1,3 @@
+import type {TechnicalSourceCandidate} from "./source-gap-acquisition-types";
+const C=new Set(["voltage","current","resistance","power","ohms-law","series-circuit","parallel-circuit","motor","bldc","kv","esc","propeller-pitch","propeller-diameter","battery","lipo","cell","c-rate","capacity","charging","discharging","overcharge","overdischarge","cell-balancing","battery-storage","battery-fire","power-system","electrical-safety"]);
+export function validateElectronicsSource(s:TechnicalSourceCandidate){const topics=s.topicCoverage.filter(t=>C.has(t));return {valid:topics.length>0&&!s.vendorSpecific,topics,blockedClaims:["vendor thresholds","unsupported C-rate or cell-voltage values"]}}

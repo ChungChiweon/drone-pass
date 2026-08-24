@@ -1,0 +1,1 @@
+import type {FlightValidationResult} from "./flight-validation-types";export function summarizeFlightValidation(results:FlightValidationResult[]){return results.reduce<Record<string,number>>((a,x)=>(a[x.validationStatus]=(a[x.validationStatus]??0)+1,a),{})}

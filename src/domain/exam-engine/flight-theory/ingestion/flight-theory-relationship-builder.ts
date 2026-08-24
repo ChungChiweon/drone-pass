@@ -1,0 +1,3 @@
+import type {FlightRelationship,FlightRelationshipType,FlightSourceReference} from "../knowledge";
+const allowed=new Set<FlightRelationshipType>(["PART_OF","CONTROLS","AFFECTS","CONTRASTS_WITH","COMMONLY_CONFUSED_WITH","DEPENDS_ON"]);
+export function buildFlightTheoryRelationship(input:{relationId:string;fromId:string;toId:string;relationType:FlightRelationshipType;evidence:string;sourceReference:FlightSourceReference}):FlightRelationship|null{if(!input.evidence.trim()||!allowed.has(input.relationType)||input.fromId===input.toId)return null;return {relationId:input.relationId,fromId:input.fromId,toId:input.toId,relationType:input.relationType,sourceReferences:[input.sourceReference]};}

@@ -1,0 +1,36 @@
+{
+  "sourceId": "official-aviation-business-act-enforcement-rule",
+  "canonicalTitle": "항공사업법 시행규칙",
+  "sourceType": "ENFORCEMENT_RULE",
+  "issuingOrganization": "국토교통부",
+  "authority": "OFFICIAL_LAW",
+  "lawId": "282207",
+  "promulgationNumber": "국토교통부령 제1548호",
+  "promulgationDate": "2025-12-30",
+  "effectiveDate": "2025-12-30",
+  "revisionType": "일부개정",
+  "versionStatus": "CURRENT_EFFECTIVE",
+  "officialPageUrl": "https://www.law.go.kr/법령/%ED%95%AD%EA%B3%B5%EC%82%AC%EC%97%85%EB%B2%95%20%EC%8B%9C%ED%96%89%EA%B7%9C%EC%B9%99",
+  "downloadUrls": [
+    "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=282207",
+    "https://www.law.go.kr/LSW/lsPdfPrint.do?lsiSeq=282207"
+  ],
+  "localFiles": [
+    "data/sources/drone-license/official-law/aviation-business-act-enforcement-rule/original/official-page.html",
+    "data/sources/drone-license/official-law/aviation-business-act-enforcement-rule/original/current-full-text.html",
+    "data/sources/drone-license/official-law/aviation-business-act-enforcement-rule/original/current-full-text.pdf"
+  ],
+  "attachments": [],
+  "retrievedAt": "2026-08-05T06:50:00+09:00",
+  "checksum": "sha256-af3d9b5eb4fa7c206014cfea493382b143951f002bbfb0d884f2fd6443682a2d",
+  "contentLength": 205443,
+  "pageCount": 29,
+  "currentnessVerified": true,
+  "verificationMethod": "국가법령정보센터 현재 시행법령 wrapper, 시행일 header, PDF signature와 page count 확인",
+  "extractionStatus": "READY_FOR_EXTRACTION",
+  "validationStatus": "READY",
+  "notes": [
+    "별표 포함 공식 전체 PDF(bylChaChk=Y) 확보",
+    "개별 별표·서식 다운로드 링크는 별도 수동 점검 대상"
+  ]
+}

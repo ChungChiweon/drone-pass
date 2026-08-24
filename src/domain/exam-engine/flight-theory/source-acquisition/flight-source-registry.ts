@@ -1,0 +1,2 @@
+import type {FlightSourceMetadata} from "./flight-source-types";
+export class FlightSourceRegistry{private readonly records=new Map<string,FlightSourceMetadata>();register(source:FlightSourceMetadata){if(this.records.has(source.sourceId))throw new Error("DUPLICATE_SOURCE");this.records.set(source.sourceId,structuredClone(source))}get(sourceId:string){const x=this.records.get(sourceId);return x?structuredClone(x):undefined}list(){return [...this.records.values()].map((source)=>structuredClone(source))}}

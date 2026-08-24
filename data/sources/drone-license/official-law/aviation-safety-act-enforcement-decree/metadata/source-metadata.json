@@ -1,0 +1,36 @@
+{
+  "sourceId": "official-aviation-safety-act-enforcement-decree",
+  "canonicalTitle": "항공안전법 시행령",
+  "sourceType": "ENFORCEMENT_DECREE",
+  "issuingOrganization": "국토교통부",
+  "authority": "OFFICIAL_LAW",
+  "lawId": "287495",
+  "promulgationNumber": "대통령령 제36476호",
+  "promulgationDate": "2026-06-30",
+  "effectiveDate": "2026-07-09",
+  "revisionType": "일부개정",
+  "versionStatus": "CURRENT_EFFECTIVE",
+  "officialPageUrl": "https://www.law.go.kr/법령/%ED%95%AD%EA%B3%B5%EC%95%88%EC%A0%84%EB%B2%95%20%EC%8B%9C%ED%96%89%EB%A0%B9",
+  "downloadUrls": [
+    "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287495",
+    "https://www.law.go.kr/LSW/lsPdfPrint.do?lsiSeq=287495"
+  ],
+  "localFiles": [
+    "data/sources/drone-license/official-law/aviation-safety-act-enforcement-decree/original/official-page.html",
+    "data/sources/drone-license/official-law/aviation-safety-act-enforcement-decree/original/current-full-text.html",
+    "data/sources/drone-license/official-law/aviation-safety-act-enforcement-decree/original/current-full-text.pdf"
+  ],
+  "attachments": [],
+  "retrievedAt": "2026-08-05T06:50:00+09:00",
+  "checksum": "sha256-b712c7309695cd11e586afbfa36a02199ac671f49d731d4a26a6b06a18bfc8aa",
+  "contentLength": 172316,
+  "pageCount": 19,
+  "currentnessVerified": true,
+  "verificationMethod": "국가법령정보센터 현재 시행법령 wrapper, 시행일 header, PDF signature와 page count 확인",
+  "extractionStatus": "READY_FOR_EXTRACTION",
+  "validationStatus": "READY",
+  "notes": [
+    "별표 포함 공식 전체 PDF(bylChaChk=Y) 확보",
+    "개별 별표·서식 다운로드 링크는 별도 수동 점검 대상"
+  ]
+}

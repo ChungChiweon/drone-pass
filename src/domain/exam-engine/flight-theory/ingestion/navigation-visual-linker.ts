@@ -1,0 +1,2 @@
+export type NavigationVisualLink={assetId:string;topicId:string;knowledgeIds:string[];sourceLocator:{sourceId:string;page:number};visualSupportType:"SUPPORTIVE"|"REQUIRED";interpretationRequired:boolean};
+export const linkNavigationVisual=(input:NavigationVisualLink):NavigationVisualLink|null=>input.assetId&&input.topicId&&input.sourceLocator.sourceId&&input.sourceLocator.page?structuredClone(input):null;

@@ -1,0 +1,3 @@
+import {validateOperationalInput} from "./operational-validation-types";
+export type SafetyInput={safetyId:string;title:string;hazard?:string;preventiveAction?:string;phase:string;sourceReferences:unknown[];evidence:string;topicIds:string[]};
+export function validateSafetyKnowledge(x:SafetyInput){const structure=Boolean(x.title&&x.phase&&(x.hazard?.trim()||x.preventiveAction?.trim()));return validateOperationalInput({knowledgeId:x.safetyId,knowledgeType:"SAFETY_KNOWLEDGE",topicId:x.topicIds[0]??"",sourceReferences:x.sourceReferences,evidence:x.evidence,structureComplete:structure,operationallyFaithful:true,orderingOrDecisionEvidence:true,relationshipConsistent:true,blocker:!structure?"BLOCKED_STRUCTURE":undefined});}

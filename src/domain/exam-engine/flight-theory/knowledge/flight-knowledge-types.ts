@@ -1,0 +1,11 @@
+export type FlightSourceReference={sourceId:string;page?:number;section?:string};
+export type FlightConcept={conceptId:string;name:string;definition:string;properties:string[];variables:string[];units:string[];examples:string[];misconceptions:string[];topic:string;sourceReferences:FlightSourceReference[];confidence:number};
+export type FlightPrinciple={principleId:string;name:string;inputs:string[];mechanism:string;outputs:string[];conditions:string[];limitations:string[];formulas:string[];relatedConceptIds:string[];sourceReferences:FlightSourceReference[]};
+export type AircraftComponent={componentId:string;name:string;componentType:string;function:string;interfaces:string[];failureEffects:string[];maintenanceNotes:string[];relatedSystemIds:string[];sourceReferences:FlightSourceReference[]};
+export type AircraftSystem={systemId:string;components:string[];purpose:string;inputs:string[];outputs:string[];dependencies:string[];failureModes:string[];sourceReferences:FlightSourceReference[]};
+export type TechnicalFormula={formulaId:string;name:string;expression:string;variables:string[];units:string[];conditions:string[];assumptions:string[];examples:string[];sourceReferences:FlightSourceReference[]};
+export type OperationalProcedure={procedureId:string;name:string;phase:"PREFLIGHT"|"TAKEOFF"|"IN_FLIGHT"|"LANDING"|"POSTFLIGHT"|"MAINTENANCE"|"EMERGENCY";steps:string[];ordered:boolean;prerequisites:string[];conditions:string[];decisionPoints:string[];warnings:string[];sourceReferences:FlightSourceReference[]};
+export type FailureMode={failureId:string;systemId?:string;componentId?:string;failureType:string;symptoms:string[];causes:string[];consequences:string[];detection:string[];response:string[];sourceReferences:FlightSourceReference[]};
+export type SafetyKnowledge={safetyId:string;name:string;hazards:string[];controls:string[];limitations:string[];sourceReferences:FlightSourceReference[]};
+export type FlightRelationshipType="CAUSES"|"RESULTS_IN"|"INCREASES"|"DECREASES"|"CONTROLS"|"MEASURED_BY"|"PART_OF"|"DEPENDS_ON"|"POWERED_BY"|"COMMUNICATES_WITH"|"DETECTED_BY"|"AFFECTS"|"PREVENTED_BY"|"CONTRASTS_WITH"|"COMMONLY_CONFUSED_WITH"|"PRECEDES"|"FOLLOWED_BY";
+export type FlightRelationship={relationId:string;fromId:string;toId:string;relationType:FlightRelationshipType;sourceReferences:FlightSourceReference[]};

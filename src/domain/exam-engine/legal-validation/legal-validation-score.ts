@@ -1,0 +1,1 @@
+export function calculateLegalValidationScore(s:{source:number;statement:number;numeric:number;condition:number;exception:number;currentness:number;exam:number}){return Number((s.source*.20+s.statement*.20+s.numeric*.15+s.condition*.15+s.exception*.10+s.currentness*.10+s.exam*.10).toFixed(4));}

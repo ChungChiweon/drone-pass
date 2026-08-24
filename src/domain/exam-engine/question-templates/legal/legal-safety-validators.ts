@@ -1,0 +1,2 @@
+export function numericBoundaryValues(value:number,unit:string,integer=true){const epsilon=integer?1:unit==="kg"?.001:.1;return{below:value-epsilon,boundary:value,above:value+epsilon}}
+export function validatePenaltyPair(left:{type:string;amount?:number;term?:number;simultaneousIds?:string[]},right:{id:string;type:string;amount?:number;term?:number}){if(left.simultaneousIds?.includes(right.id))return{safe:false,reason:"SIMULTANEOUS_PENALTY"};return{safe:left.type!==right.type||left.amount!==right.amount||left.term!==right.term,reason:"DISTINCT_VERIFIED_PENALTY"}}

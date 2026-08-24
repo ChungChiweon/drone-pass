@@ -1,0 +1,3 @@
+import type {TechnicalSourceReference} from "./electrical-concept-extractor";
+export type ElectricalRelationType="INCREASES"|"DECREASES"|"DEPENDS_ON"|"POWERED_BY"|"PART_OF"|"AFFECTS"|"CAUSES"|"RESULTS_IN"|"PREVENTED_BY"|"CONTRASTS_WITH"|"COMMONLY_CONFUSED_WITH";
+export function buildElectricalRelationship(id:string,sourceId:string,targetId:string,relationType:ElectricalRelationType,evidence:string,sourceLocator:TechnicalSourceReference){if(!evidence.trim())throw new Error("RELATIONSHIP_EVIDENCE_REQUIRED");return {relationshipId:`electrical-relationship:${id}`,sourceId,targetId,relationType,evidence,sourceLocator,confidence:.9}}

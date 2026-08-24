@@ -1,0 +1,25 @@
+{
+  "sourceId": "kiast-dcc-environmental-test",
+  "title": "DCC 드론인증센터 환경시험",
+  "issuingOrganization": "항공안전기술원",
+  "officialUrl": "https://dcc.kiast.or.kr/testIntro/testField01.do",
+  "droneSpecificity": "DIRECT_DRONE",
+  "authority": "OFFICIAL_PUBLIC_AGENCY",
+  "currentness": "CURRENT_PAGE",
+  "operationalRelevance": 0.45,
+  "weatherCoverage": [
+    "temperature",
+    "humidity",
+    "rain",
+    "snow",
+    "wind-resistance"
+  ],
+  "directEvidence": [
+    "드론 시험 조건으로 온도·습도·강우·강설·내풍성이 명시됨"
+  ],
+  "localPath": "data/sources/drone-license/weather/official/drone-operations/kiast-dcc-environmental-test/original/source.html",
+  "checksum": "sha256-3d371131baed26499ba4aa9866d2308bd13e44e672a6660c8ebc45f269fe6365",
+  "mime": "text/html",
+  "size": 53037,
+  "acquisitionStatus": "ACQUIRED"
+}

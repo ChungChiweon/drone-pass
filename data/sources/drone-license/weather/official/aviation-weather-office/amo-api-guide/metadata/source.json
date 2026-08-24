@@ -1,0 +1,31 @@
+{
+  "sourceId": "amo-api-guide",
+  "canonicalTitle": "항공기상청 API 활용 가이드",
+  "issuingOrganization": "항공기상청",
+  "authority": "OFFICIAL_AVIATION_WEATHER",
+  "sourceType": "WEATHER_INFORMATION_GUIDE",
+  "publicationDate": "2025-01-01",
+  "currentnessStatus": "CURRENT",
+  "officialPageUrl": "https://amo.kma.go.kr/information/notice.do?bid=notice&field=&mode=view&num=452&num=453&page=2&ses=&text=",
+  "fileType": "PDF",
+  "subjectCoverage": [
+    "항공기상"
+  ],
+  "weatherTopics": [
+    "metar",
+    "speci",
+    "taf",
+    "sigmet",
+    "airmet",
+    "weather-information"
+  ],
+  "containsTables": true,
+  "containsDiagrams": true,
+  "containsWeatherSymbols": false,
+  "containsObservationExamples": true,
+  "extractionStatus": "MANUAL_ACQUISITION_REQUIRED",
+  "validationStatus": "OFFICIAL_DOMAIN_VERIFIED",
+  "notes": [
+    "Official attachment requires page interaction; no download URL is invented."
+  ]
+}

@@ -1,0 +1,9 @@
+import {readFileSync} from "node:fs";import {join} from "node:path";import {describe,expect,it} from "vitest";import {validateCrewCoordination,validateHumanFactor,validateHumanFactorRelationship} from ".";import {buildCanonicalFlight004H} from "../canonical";
+const current=[{sourceId:"faa-ac-107-2a",page:86,section:"Appendix A"}],old=[{sourceId:"faa-remote-pilot-study-guide",page:63,section:"Chapter 10"}];
+describe("flight 004H validation",()=>{
+ it("keeps stable outdated concepts as warnings",()=>expect(validateHumanFactor({knowledgeId:"h",knowledgeType:"HUMAN_FACTOR",sourceReferences:old,structureValid:true}).status).toBe("VALIDATED_WITH_WARNING"));
+ it("preserves general aviation CRM context",()=>expect(validateCrewCoordination({knowledgeId:"c",knowledgeType:"CREW_COORDINATION",sourceReferences:old,structureValid:true,contextValid:true}).canonicalCandidate).toBe(true));
+ it("blocks a reversed relationship",()=>expect(validateHumanFactorRelationship({knowledgeId:"r",knowledgeType:"RELATIONSHIP",sourceReferences:current,structureValid:true,relationshipValid:false}).status).toBe("BLOCKED_RELATIONSHIP"));
+ it("builds a generatedAt-independent checksum",()=>{const base={version:"1" as const,batchId:"004H" as const,canonicalUnits:[],relationshipUnits:[],warningIds:[],blockedIds:[],topicCoverage:[],runtimeReadiness:{},sourceSnapshot:{}};expect(buildCanonicalFlight004H({...base,generatedAt:"a"}).checksum).toBe(buildCanonicalFlight004H({...base,generatedAt:"b"}).checksum)});
+ it("uses exactly 36 inputs and freezes 35 canonical units",()=>{const root=join(process.cwd(),"work/flight-theory-validation/004h/results");const s=JSON.parse(readFileSync(join(root,"validation-summary.json"),"utf8"));expect(s.inputCount).toBe(36);expect(s.canonicalCount).toBe(35);expect(s.unsupportedInferenceCount).toBe(0);expect(s.freezeStatus).toBe("READY_WITH_GAPS_FROZEN")});
+});

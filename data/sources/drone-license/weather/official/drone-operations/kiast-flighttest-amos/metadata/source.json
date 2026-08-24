@@ -1,0 +1,26 @@
+{
+  "sourceId": "kiast-flighttest-amos",
+  "title": "국가종합비행성능시험장 기상 정보(AMOS)",
+  "issuingOrganization": "항공안전기술원",
+  "officialUrl": "https://www.kiast.or.kr/flighttest/prog/amos/sub01_03/view.do",
+  "droneSpecificity": "GENERAL_AVIATION",
+  "authority": "OFFICIAL_PUBLIC_AGENCY",
+  "currentness": "CURRENT_PAGE",
+  "operationalRelevance": 0.35,
+  "weatherCoverage": [
+    "wind",
+    "visibility",
+    "cloud-base",
+    "temperature",
+    "pressure",
+    "precipitation"
+  ],
+  "directEvidence": [
+    "시험장 AMOS 관측 요소가 명시됨"
+  ],
+  "localPath": "data/sources/drone-license/weather/official/drone-operations/kiast-flighttest-amos/original/source.html",
+  "checksum": "sha256-d97f4631e43f0741c6c2382066f493c4071c8e0ba27b6d7199da654e03135261",
+  "mime": "text/html",
+  "size": 19798,
+  "acquisitionStatus": "ACQUIRED"
+}

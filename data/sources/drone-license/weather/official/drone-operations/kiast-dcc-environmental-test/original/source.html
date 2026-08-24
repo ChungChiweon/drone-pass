@@ -1,0 +1,1650 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="Keywords" content="DCC드론인증센터">
+<meta name="Description" content="DCC 드론인증센터는 기관의 핵심가치인 신뢰, 소통, 공정을 바탕으로 항공안전기술 연구개발 및 전문인력 양성에 매진하여, 우리나라 항공산업이 국제적 수준으로 도약하는 데 기여하고자 합니다.">
+<meta property="og:title" content="DCC드론인증센터">
+<meta property="og:description" content="DCC 드론인증센터는 기관의 핵심가치인 신뢰, 소통, 공정을 바탕으로 항공안전기술 연구개발 및 전문인력 양성에 매진하여, 우리나라 항공산업이 국제적 수준으로 도약하는 데 기여하고자 합니다.">
+<meta property="og:site_name" content="DCC드론인증센터">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DCC드론인증센터</title>
+
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/css/swiper.min.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/sub_content.css">
+<link rel="stylesheet" href="/css/sub_form.css">
+<link rel="stylesheet" href="/css/safety.css">
+
+<script src="/js/jquery-3.7.1.js" charset="utf-8"></script>
+<script src="/js/common.js" charset="utf-8"></script>
+<script src="/js/swiper.min.js" charset="utf-8"></script>
+<script src="/js/sub.js" charset="utf-8"></script>
+
+<style>
+/* ===========================
+   비밀번호 확인 모달 스타일
+   =========================== */
+#pwConfirmModal.table_modal{
+    max-width:460px;
+    width:92%;
+    padding:24px;
+    border-radius:14px;
+    z-index:1000001;
+    display:none;
+}
+.table_modal_dummy{
+    z-index:1000000;
+    display:none;
+}
+#pwConfirmModal > strong{
+    display:block;
+    font-size:20px;
+    line-height:1.35;
+    margin:0 0 10px;
+    text-align:left;
+    font-weight:700;
+    color:#333;
+}
+#pwConfirmModal > p{
+    font-size:14px;
+    line-height:1.6;
+    margin:0 0 16px;
+    text-align:left;
+    color:#333;
+}
+#pwConfirmModal .form_container .item{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+}
+#pwConfirmModal .form_container .item .txt_box{
+    width:90px;
+    padding:12px 12px 0 0;
+    font-size:16px;
+    line-height:1.4;
+    color:#333;
+    font-weight:500;
+}
+#pwConfirmModal .form_container .item .content_box{
+    width:calc(100% - 90px);
+}
+#pwConfirmModal .com_input{
+    width:100%;
+    box-sizing:border-box;
+    height:44px;
+    line-height:44px;
+    font-size:16px;
+}
+#pwConfirmErr.form_desc{
+    display:none;
+    color:#c00;
+    margin-top:8px;
+    font-size:14px;
+    line-height:1.4;
+    word-break:keep-all;
+}
+#pwConfirmModal .submit_btn_box{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+#pwConfirmModal .submit_btn_box.grid2 .submit_btn{
+    flex:1 1 calc(50% - 5px);
+    max-width:160px;
+    height:46px;
+    line-height:46px;
+    font-size:16px;
+    text-align:center;
+    cursor:pointer;
+}
+#pwConfirmModal .submit_btn.black{
+    background:#333;
+    color:#fff;
+    font-weight:700;
+    border:1px solid #333;
+}
+#pwConfirmModal .submit_btn.white{
+    background:#fff;
+    border:1px solid #333;
+    color:#333;
+    font-weight:700;
+}
+
+/* 모달 떠있을 때 body 잠그기 */
+html.modal-open,
+body.modal-open{
+    overflow:hidden !important;
+}
+
+/* ===========================
+   약관 동의 모달 스타일
+   =========================== */
+#dccTermsModal{
+    position:fixed;
+    inset:0;
+    display:none;
+    z-index:11000;
+}
+#dccTermsModal[aria-hidden="false"]{
+    display:block;
+}
+.dcc-terms-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+.dcc-terms-dialog{
+    position:relative;
+    z-index:1;
+    width:min(1100px,96vw);
+    height:min(85vh,960px);
+    margin:4vh auto 0;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+.dcc-terms-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    padding:12px 16px;
+    border-bottom:1px solid #e9ecef;
+    background:#f8f9fa;
+    font-weight:700;
+    color:#003366;
+}
+.dcc-terms-close{
+    border:0;
+    background:#eef2f8;
+    width:36px;
+    height:36px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+    line-height:1;
+}
+.dcc-terms-close:hover{
+    background:#e2e8f4;
+}
+.dcc-terms-body{
+    position:relative;
+    flex:1;
+    background:#fff;
+}
+#dccTermsFrame{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+    background:#fff;
+}
+.dcc-terms-loader{
+    position:absolute;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.92);
+    color:#06378e;
+    font-weight:700;
+    font-size:15px;
+}
+#dccTermsModal.is-loading .dcc-terms-loader{
+    display:flex;
+}
+
+/* 약관 모달 떠있을 때 body 잠그기 */
+body.dcc-terms-lock{
+    overflow:hidden;
+}
+
+@media (max-width:960px){
+    .dcc-terms-dialog{
+        margin:2vh auto 0;
+        width:96vw;
+        height:88vh;
+    }
+}
+</style>
+
+<script>
+(function($){
+    var ctx = '';
+
+    /*********************************************************
+     * 1) 마이페이지 비밀번호 확인 모달
+     *********************************************************/
+    var __mypageEditUrl = ctx + '/members/mypage.do';
+    var __mypageLinkSel =
+        'a[href="'+ctx+'/mypage.do"], a[href="'+ctx+'/members/mypage.do"], '+
+        'a[href="/mypage.do"], a[href="/members/mypage.do"], .mypageLink';
+
+    var __pwReqInFlight = false;
+
+    function enablePwOk(){
+        __pwReqInFlight = false;
+        $('#pwConfirmOk').prop('disabled', false).removeAttr('disabled');
+    }
+    function disablePwOk(){
+        __pwReqInFlight = true;
+        $('#pwConfirmOk').prop('disabled', true);
+    }
+
+    function openPwModal(){
+        // body로 올려 두 레이어를 항상 최상단으로
+        $('#pwConfirmModal, .table_modal_dummy').appendTo('body');
+
+        $('html, body').addClass('modal-open');
+
+        $('#pwConfirmInput').val('');
+        $('#pwConfirmErr').hide().text('');
+        enablePwOk();
+
+        $('#pwConfirmModal, .table_modal_dummy').fadeIn(150, function(){
+            setTimeout(function(){
+                $('#pwConfirmInput').trigger('focus');
+            }, 20);
+        });
+    }
+
+    function closePwModal(){
+        $('#pwConfirmModal, .table_modal_dummy').fadeOut(120, function(){
+            $('html, body').removeClass('modal-open');
+            enablePwOk();
+        });
+    }
+
+    function verifyPasswordThenGo(){
+        if (__pwReqInFlight) return;
+
+        var pw = ($("#pwConfirmInput").val() || "").trim();
+        if(!pw){
+            $("#pwConfirmErr").text("비밀번호를 입력하세요.").show();
+            $("#pwConfirmInput").focus();
+            return;
+        }
+
+        disablePwOk();
+
+        gfn_getData({
+            url: "/doore/verifyPassword.do",
+            type: "POST",
+            serviceId: "verifyPassword",
+            vl: { password: pw }
+        }, function(res){
+            var ok = (res && String(res.result).toLowerCase() === "success");
+            if(ok){
+                closePwModal();
+                gfn_goPage({ targetUrl: __mypageEditUrl, vl: {} });
+            }else{
+                $("#pwConfirmErr")
+                    .text(res && res.message ? String(res.message) : "비밀번호가 일치하지 않습니다.")
+                    .show();
+                enablePwOk();
+                $("#pwConfirmInput").focus().select();
+            }
+        }, function(){
+            $("#pwConfirmErr")
+                .text("요청 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.")
+                .show();
+            enablePwOk();
+        });
+
+        // 안전빵
+        setTimeout(enablePwOk, 0);
+    }
+
+    /*********************************************************
+     * 2) 약관 / 회원가입 모달
+     *********************************************************/
+    // 모달 관련 DOM 캐시 (ready 이후 채움)
+    var __termsModal     = null;
+    var __termsFrame     = null;
+    var __termsLoader    = null;
+    var __termsLastFocus = null;
+
+    // 전역으로 노출할 열기/닫기 함수 (alert 없이)
+    function __openTermsModalInternal(){
+        if (!__termsModal || !__termsFrame || !__termsLoader){
+            // DOM 없으면 그냥 조용히 실패 (경고창 안 띄움)
+            return;
+        }
+
+        __termsLastFocus = document.activeElement;
+
+        // 로딩 상태 세팅
+        __termsModal.classList.add("is-loading");
+        __termsModal.setAttribute("aria-hidden","false");
+        __termsModal.style.display = "block";
+        document.body.classList.add("dcc-terms-lock");
+
+        // iframe 로드
+        var url = ctx + "/termsLayer.do?t=" + Date.now();
+        __termsFrame.src = "about:blank";
+
+        setTimeout(function(){
+            __termsFrame.src = url;
+        },30);
+
+        __termsFrame.addEventListener("load", function onLoad(){
+            __termsModal.classList.remove("is-loading");
+            __termsFrame.removeEventListener("load", onLoad);
+        });
+    }
+
+    function __closeTermsModalInternal(){
+        if (!__termsModal || !__termsFrame) return;
+
+        __termsModal.setAttribute("aria-hidden","true");
+        __termsModal.classList.remove("is-loading");
+        __termsModal.style.display = "none";
+        document.body.classList.remove("dcc-terms-lock");
+
+        __termsFrame.src = "about:blank";
+
+        if (__termsLastFocus && typeof __termsLastFocus.focus === "function"){
+            __termsLastFocus.focus();
+        }
+        __termsLastFocus = null;
+    }
+
+    // ✅ 전역 등록: 어디서든 호출 가능하도록
+    window.openTermsModal  = __openTermsModalInternal;
+    window.closeTermsModal = __closeTermsModalInternal;
+
+    // iframe(약관 페이지)에서 부모로 호출하는 콜백들
+    window.finishTermsAndGo = function(useYn, privacyYn, optionalYn, ts){
+        // 필수 동의 체크
+        if (useYn !== "Y" || privacyYn !== "Y"){
+            alert("필수 약관(이용약관 / 개인정보 수집·이용)에 동의해 주세요.");
+            return;
+        }
+        closeTermsModal();
+        window.location.href = ctx + "/auth/register.do";
+    };
+
+    window.closeTermsOnly = function(){
+        closeTermsModal();
+    };
+
+    /*********************************************************
+     * 3) 초기 바인딩 (DOM ready)
+     *********************************************************/
+    $(function(){
+
+        // 약관 모달 요소 캐싱
+        __termsModal  = document.getElementById("dccTermsModal");
+        __termsFrame  = document.getElementById("dccTermsFrame");
+        __termsLoader = document.getElementById("dccTermsLoader");
+
+        /* 회원정보변경 -> 비번확인 모달 */
+        $(document).on("click", __mypageLinkSel, function(e){
+            e.preventDefault();
+
+            var isLoggedIn = !!("" || "").trim();
+            if(!isLoggedIn){
+                location.href = ctx + "/auth/login.do";
+                return;
+            }
+            openPwModal();
+        });
+
+        // 비번확인 모달 버튼들
+        $(document).on("click", "#pwConfirmOk", function(e){
+            e.preventDefault();
+            verifyPasswordThenGo();
+        });
+        $(document).on("click", "#pwConfirmClose, .table_modal_dummy, #modal_close", function(e){
+            e.preventDefault();
+            closePwModal();
+        });
+        $(document).on("input", "#pwConfirmInput", function(){
+            $("#pwConfirmErr").hide().text("");
+            enablePwOk();
+        });
+        $(document).on("keydown", "#pwConfirmInput", function(e){
+            if(e.key === "Enter"){
+                e.preventDefault();
+                verifyPasswordThenGo();
+            }
+            if(e.key === "Escape"){
+                e.preventDefault();
+                closePwModal();
+            }
+        });
+
+        /* 회원가입 -> 약관 모달 */
+        $(document).on("click", ".openTermsLayer", function(e){
+            e.preventDefault();
+            openTermsModal(); // 전역 함수 호출
+        });
+
+        // 약관 모달 닫기 (딤/닫기 버튼)
+        if (__termsModal){
+            __termsModal.addEventListener("click", function(e){
+                if (e.target.getAttribute("data-close") === "1"){
+                    closeTermsModal();
+                }
+            });
+        }
+
+        // ESC 로 약관 모달 닫기
+        $(document).on("keydown", function(e){
+            if (!__termsModal) return;
+            if (e.key === "Escape" && __termsModal.getAttribute("aria-hidden")==="false"){
+                e.preventDefault();
+                closeTermsModal();
+            }
+        });
+
+        // 약관 모달 포커스 트랩
+        if (__termsModal){
+            __termsModal.addEventListener("keydown", function(e){
+                if (__termsModal.getAttribute("aria-hidden")!=="false") return;
+                if (e.key !== "Tab") return;
+
+                var focusables = __termsModal.querySelectorAll(
+                    "button,[href],iframe,[tabindex]:not([tabindex='-1'])"
+                );
+                if (!focusables.length) return;
+                var first = focusables[0];
+                var last  = focusables[focusables.length-1];
+
+                if (e.shiftKey && document.activeElement === first){
+                    last.focus();
+                    e.preventDefault();
+                } else if(!e.shiftKey && document.activeElement === last){
+                    first.focus();
+                    e.preventDefault();
+                }
+            });
+        }
+    });
+
+})(jQuery);
+</script>
+
+</head>
+<body>
+
+<!-- 접근성 스킵 링크 -->
+<a class="skip_a" href="#common_container">본문내용 바로가기</a>
+<a class="skip_a skip_a_pc" href="#list_a_start">주메뉴 바로가기</a>
+<a class="skip_a skip_a_m" href="#all_menu">주메뉴 바로가기</a>
+<a class="skip_a" href="#ft_skip">하단 메뉴 바로가기</a>
+
+<!-- 비번확인 모달 백드롭 -->
+<div class="table_modal_dummy"></div>
+
+<!-- 헤더 -->
+<header id="hd" class="sub_hd">
+    <div class="hd_dummy"></div>
+    <div class="width1620 clear">
+        <h1 id="hd_logo">
+            <a href="/"><img src="/img/logo.png" alt="DCC드론인증센터"></a>
+        </h1>
+
+        <nav id="gnb">
+            
+
+
+<ul class="dep1_ul">
+	<li>
+		<a href="/center/about.do" id="list_a_start">센터소개</a>
+		<div class="dep2_box clear">
+			<strong>센터소개</strong>
+			<ul class="dep2_ul">
+				<li><a href="/center/about.do">센터소개</a></li>
+				<li><a href="/center/location.do">오시는길</a></li>
+			</ul>
+		</div>
+	</li>
+	<li>
+		<a href="/testIntro/kolasAbout.do">시험·인증 안내</a>
+		<div class="dep2_box clear">
+			<strong>시험·인증 안내</strong>
+			<ul class="dep2_ul">
+				<li>
+					<a href="/testIntro/kolasAbout.do">KOLAS 안내</a>
+					<ul class="dep3_ul">
+						<li><a href="/testIntro/kolasAbout.do">KOLAS 소개</a></li>
+						<li><a href="/testIntro/kolasStandard.do">관련법 및 기준</a></li>
+						<li><a href="/testIntro/testField06.do">시험분야</a></li>
+						<li><a href="/testIntro/testGuide01.do">절차</a></li>
+						<li><a href="/testIntro/testGuide02.do">수수료</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="/testIntro/testField02.do">시험안내</a>
+					<ul class="dep3_ul">
+						<li><a href="/testIntro/testField01.do">시험분야</a></li>
+						<li><a href="/testIntro/testGuide03.do">절차</a></li>
+						<li><a href="/testIntro/testGuide04.do">수수료</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="/safetyIntro/safety_certification.do">안전성인증 안내</a>
+					<ul class="dep3_ul">
+						<li><a href="/safetyIntro/safety_certification.do">소개</a></li>
+						<li><a href="/safetyIntro/safety_standard.do">관련법 및 기준</a></li>
+						<li><a href="/safetyIntro/safety_field.do">인증대상</a></li>
+						<li><a href="/safetyIntro/safety_guide01.do">절차</a></li>
+						<li><a href="/safetyIntro/safety_guide02.do">수수료</a></li> 
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li>
+		<a href="/safetyAply/safety_certification_intro.do">시험·인증 신청</a>
+		<div class="dep2_box clear">
+			<strong>시험·인증 신청</strong>
+			<ul class="dep2_ul"> 
+				<li>
+						<a href="/main/testNotice.do">KOLAS</a>
+						<ul class="dep3_ul">
+							<li><a href="/main/testNotice.do">신청(준비중)</a></li>
+							<li><a href="/main/testNotice.do">신청현황(준비중)</a></li>
+						</ul>
+				
+				</li>
+				
+				<li>
+					<a href="/safetyAply/safety_certification_intro.do">안전성인증</a>
+					<ul class="dep3_ul">
+						<li><a href="/safetyAply/safety_certification_intro.do">기체등록(초도인증)</a></li>
+						<li><a href="/safetyAply/safety_certification_form00.do">안전성인증 신청</a></li>
+						<li><a href="/safetyAply/safety_certification_board01.do">안전성인증 신청현황</a></li>
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li>
+		<a href="/main/safetyList1.do">시험·인증현황</a>
+		<div class="dep2_box clear">
+			<strong>시험·인증현황</strong>
+			<ul class="dep2_ul">
+				<li><a href="/main/testNotice.do">성적서 진위여부확인(준비중)</a></li>
+				<!-- <li><a href="/main/safetyList1.do">인증현황조회</a></li>-->
+				<li><a href="/main/certStatus.do">인증통계</a></li>
+			</ul>
+		</div>
+	</li>	
+	<li>
+		<a href="/board/board01List.do?menuCd=M0028" >알림마당</a>
+		<div class="dep2_box clear">
+			<strong>알림마당</strong>
+			<ul class="dep2_ul">
+				<li><a href="/board/board01List.do?menuCd=M0028">공지사항</a></li>
+				<li><a href="/board/board02List.do">자료실</a></li>
+				<li><a href="/board/board01List.do?menuCd=M0201">안전공지</a></li>
+				<li><a href="/board/board03List.do">FAQ</a></li>
+				<!-- 
+				<li>
+					<a href="/main/safetyList1.do">인증현황조회</a>
+					<ul class="dep3_ul">
+						<li><a href="/main/safetyList1.do">인증현황조회</a></li>
+						<li><a href="/safetyList2.do">성적서진위여부확인</a></li>
+					</ul>
+				</li>
+				 -->
+			</ul>
+		</div>
+	</li>
+</ul> 
+        </nav>
+
+        <div id="util">
+            <ul>
+                
+                    <li><a href="/auth/login.do">로그인</a></li>
+                    <li><a href="/termsLayer.do" class="openTermsLayer">회원가입</a></li>
+                
+
+                
+            </ul>
+            <button id="all_menu">전체메뉴</button>
+        </div>
+    </div>
+</header>
+
+<!-- 전체메뉴(모바일/전체메뉴 패널) -->
+<div class="all_menu_con">
+    <button id="all_close">전체메뉴닫기</button>
+
+    <div class="all_menu_inner width1200">
+        <div class="all_login_box">
+            <ul>
+                
+                    <li><a></a></li>
+                    <li><a href="/auth/login.do">로그인</a></li>
+                    <li><a href="#" class="openTermsLayer">회원가입</a></li>
+                
+                
+            </ul>
+        </div>
+
+        <ul class="dep1_ul clear">
+            
+
+<!-- 1뎁스: 센터소개 -->
+<li>
+    <a href="/center/about.do">센터소개</a>
+    <ul class="dep2_ul clear">
+        <li><a href="/center/about.do">센터소개</a></li>
+        <li><a href="/center/location.do">오시는길</a></li>
+    </ul>
+</li>
+
+<!-- 1뎁스: 시험·인증 안내 -->
+<li>
+    <a href="/testIntro/kolasAbout.do">시험·인증 안내</a>
+    <ul class="dep2_ul clear">
+    
+    	<li>
+            <a href="/testIntro/kolasAbout.do">KOLAS 안내</a>
+            <ul class="dep3_ul">
+                <li><a href="/testIntro/kolasAbout.do">KOLAS 소개</a></li>
+                <li><a href="/testIntro/kolasStandard.do">관련법 및 기준</a></li>
+                <li><a href="/testIntro/testField06.do">시험분야</a></li>
+                <li><a href="/testIntro/testGuide01.do">절차</a></li>
+                <li><a href="/testIntro/testGuide02.do">수수료</a></li>
+            </ul>
+        </li>
+        
+        <li>
+            <a href="/testIntro/kolasAbout.do">시험안내</a>
+            <ul class="dep3_ul">
+                <li><a href="/testIntro/testField01.do#">시험분야</a></li>
+                <li><a href="/testIntro/testGuide03.do">절차</a></li>
+                <li><a href="/testIntro/testGuide04.do">수수료</a></li>
+            </ul>
+        </li>
+    	
+        <!-- 안전성인증 안내 블록 -->
+        <li>
+            <a href="/safetyIntro/safety_certification.do">안전성인증 안내</a>
+            <ul class="dep3_ul">
+                <li><a href="/safetyIntro/safety_certification.do">소개</a></li>
+                <li><a href="/safetyIntro/safety_standard.do">관련법 및 기준</a></li>
+                <li><a href="/safetyIntro/safety_field.do">인증대상</a></li>
+                <li><a href="/safetyIntro/safety_guide01.do">절차</a></li>
+                <li><a href="/safetyIntro/safety_guide02.do">수수료</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
+<!-- 1뎁스: 시험·인증 신청 -->
+<li>
+    <a href="/safetyAply/safety_certification_intro.do">시험·인증 신청</a>
+    <ul class="dep2_ul clear">
+    	<li>
+			<a href="/safetyAply/safety_certification_intro.do">KOLAS</a>
+			<ul class="dep3_ul">
+				<li><a href="/main/testNotice.do">KOLAS 신청(준비중)</a></li>
+				<li><a href="/main/testNotice.do">KOLAS 신청현황(준비중)</a></li>
+			</ul>
+		</li>
+        <li>
+            <a href="/safetyAply/safety_certification_intro.do">안전성인증</a>
+			<ul class="dep3_ul">
+				<li><a href="/safetyAply/safety_certification_intro.do">기체등록(초도인증)</a></li>
+				<li><a href="/safetyAply/safety_certification_form00.do">안전성인증 신청</a></li>
+				<li><a href="/safetyAply/safety_certification_board01.do">안전성인증 신청현황</a></li>
+			</ul>
+        </li>
+        
+        
+
+    </ul>
+</li>
+
+<!-- 1뎁스: 인증현황 -->
+<li>
+    <a href="/main/safetyList1.do">시험·인증현황</a>
+    <ul class="dep2_ul clear">
+        <li>
+            <a href="/main/safetyList1.do">인증현황조회</a>
+            <ul class="dep3_ul">
+            	<li><a href="/main/testNotice.do">성적서 진위여부확인(준비중)</a></li>
+                <!-- <li><a href="/main/safetyList1.do">인증현황조회</a></li> -->
+                <li><a href="/main/certStatus.do">인증통계</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
+<!-- 1뎁스: 알림마당 -->
+<li>
+    <a href="/board/board01List.do?menuCd=M0028">알림마당</a>
+    <ul class="dep2_ul clear">
+
+        <li><a href="/board/board01List.do?menuCd=M0028">공지사항</a></li>
+        <li><a href="/board/board02List.do">자료실</a></li>
+        <li><a href="/board/board01List.do?menuCd=M0201">안전공지</a></li>
+        <li><a href="/board/board03List.do">FAQ</a></li>
+
+    </ul>
+</li>
+
+        </ul>
+    </div>
+</div>
+
+<!-- 경로 영역 -->
+<div id="path_container">
+    <div class="path_inner clear">
+        <a href="/">메인으로</a>
+
+        <div class="path_dep path_dep1">
+            
+
+            <!-- 센터소개 -->
+            
+
+            <!-- 시험·인증 안내 -->
+            
+
+            <!-- 시험·인증 신청 -->
+            
+
+            <!-- 인증현황 -->
+            
+
+            <!-- 알림마당 -->
+            
+
+            <!-- 1depth 메뉴 드롭다운 -->
+            <ul>
+                <li><a href="/center/about.do">센터소개</a></li>
+                <li><a href="/safetyIntro/safety_certification.do">시험·인증 안내</a></li>
+                <li><a href="/safetyAply/safety_certification_intro.do">시험·인증 신청</a></li>
+                <li><a href="/main/safetyList1.do">시험·인증현황</a></li>
+                <li><a href="/board/board01List.do?menuCd=M0028">알림마당</a></li>
+            </ul>
+        </div>
+
+        <!-- 2depth 자리: 화면별로 꾸며서 채우면 됨 -->
+        <div class="path_dep path_dep2"></div>
+    </div>
+</div>
+
+    <!-- (A) 비밀번호 확인 모달 -->
+    <div id="pwConfirmModal"
+         class="table_modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="pwConfirmTitle"
+         style="display:none;">
+        <strong id="pwConfirmTitle">회원 정보 수정</strong>
+        <p>회원 정보 수정화면으로 이동하기 위해 비밀번호 확인이 필요합니다.</p>
+
+        <form class="form_container" onsubmit="return false;">
+            <div class="item_box">
+                <div class="item">
+                    <div class="txt_box">
+                        <label for="pwConfirmInput">비밀번호</label>
+                    </div>
+                    <div class="content_box">
+                        <input type="password"
+                               id="pwConfirmInput"
+                               class="com_input"
+                               autocomplete="current-password" />
+                        <p id="pwConfirmErr"
+                           class="form_desc"
+                           style="display:none;color:#c00;margin-top:8px;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit_btn_box grid2" style="margin-top:10px;">
+                <button type="button" id="pwConfirmOk"    class="submit_btn black">확인</button>
+                <button type="button" id="pwConfirmClose" class="submit_btn white">창닫기</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- (B) 약관 동의 모달 -->
+    <div id="dccTermsModal"
+         aria-hidden="true"
+         style="display:none;">
+        <div class="dcc-terms-backdrop" data-close="1"></div>
+        <div class="dcc-terms-dialog"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="dccTermsTitle">
+            <div class="dcc-terms-header">
+                <span id="dccTermsTitle">약관 동의</span>
+                <button type="button"
+                        class="dcc-terms-close"
+                        aria-label="닫기"
+                        data-close="1">✕</button>
+            </div>
+            <div class="dcc-terms-body">
+                <div class="dcc-terms-loader"
+                     id="dccTermsLoader">불러오는 중…</div>
+
+                <iframe id="dccTermsFrame"
+                        title="약관 동의"
+                        src="about:blank"
+                        loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+<!-- 실제 컨텐츠 시작 -->
+<div id="common_container" class="sub_container">
+
+    <!-- ↓↓↓ 여기부터 실제 페이지 본문 컨텐츠가 이어집니다. -->
+
+
+
+
+<h2 class="sub_tit">KOLAS 안내</h2>
+
+
+
+<div class="width1200 marginB80">
+	<ul class="sub_tab grid5 clear">
+		<li><a href="/testIntro/kolasAbout.do">소개</a></li>
+		<li><a href="/testIntro/kolasStandard.do">관련법 및 기준</a></li>
+		<li class="on"><a href="/testIntro/testField01.do" title="선택됨">시험분야</a></li>
+		<li><a href="/testIntro/testGuide01.do">처리절차</a></li>
+		<li><a href="/testIntro/testGuide02.do">수수료</a></li>
+	</ul>
+</div>
+
+
+<div class="width1200 marginB80">
+	<ul class="small_sub_tab">
+		<li class="on"><a href="/testIntro/testField01.do" title="선택됨">환경시험</a></li>
+		<li><a href="/testIntro/testField02.do">소음시험</a></li>
+		<li><a href="/testIntro/testField03.do">진동시험</a></li>
+		<li><a href="/testIntro/testField04.do">낙하충격시험</a></li>
+		<li><a href="/testIntro/testField05.do">추력시험</a></li>
+		<li><a href="/testIntro/testField06.do">전자기적합성시험</a></li>
+		<li><a href="/testIntro/testField07.do">통신시험</a></li>
+	</ul>
+</div>
+
+
+<div class="width1200">
+
+	<section id="testField01_section1" class="common_slide01 clear marginB60">
+		<div class="slide_box">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" style="background-image:url('/img/menu02/testField01_slide01.jpg'); "></div>
+				</div>
+			</div>
+			<div class="slide_btn slide_btn_l">이전</div>
+			<div class="slide_btn slide_btn_r">다음</div>
+		</div>
+		<div class="text_box">
+			<div>
+				<h3 class="sub_tit2">환경시험 <small>Environmental Test</small></h3>
+				<p>
+					드론 조립체, 장비, 기계 설비류의 온도, 습도, 비바람, 일사 등 <br />
+					사용 환경조건을 고려한 대상물의 손상 및 오동작 여부를 <br />
+					확인하고 운용하는 신뢰성 평가입니다.
+				</p>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section id="testField01_section2">
+		<h3 class="sub_tit2">시험정보</h3>
+		<h4 class="sub_tit3">시험항목</h4>
+		<div class="date_box">
+			<span>온도</span>
+			<span>습도</span>
+			<span>강우</span>
+			<span>강설</span>
+			<span>태양광</span>
+			<span>내풍성</span>
+		</div>
+		<ul class="dot_list">
+			<li>KOLAS 인정 예정 : 온도, 습도, 강우, 강설, 태양광</li>
+		</ul>
+		<h4 class="sub_tit3 marginT30">시험장비</h4>
+		<ul class="dot_list">
+			<li>드론의 실내 비행 가능</li>
+			<li>
+				복합환경챔버
+				<ul class="box_slit">
+					<li>챔버 크기 : 20 m(L) × 15 m(W) × 15 m(H)</li>
+				</ul>
+			</li>
+		</ul>
+		<h4 class="sub_tit3 marginT30">온도</h4>
+		<div class="table_box">
+			<table>
+				<caption>환경시험 온도</caption>
+				<colgroup>
+					<col width="20%" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">시험규격</th>
+						<td>
+							<ul class="dot_list">
+								<li>DO 160G Sec. 4 Temperature and Altitude, Operating High Temp. (Cat. A1~A4)</li>
+								<li>DO 160G Sec. 4 Temperature and Altitude, Short-Time Operating High Temp. (Cat. A1~A4)</li>
+								<li>DO 160G Sec. 4 Temperature and Altitude, Ground Survival High Temp. (Cat. A1~A4)</li>
+								<li>DO 160G Sec. 4 Temperature and Altitude, Operating Low Temp. (Cat. A1~A4)</li>
+								<li>DO 160G Sec. 4 Temperature and Altitude, Short-Time Operating Low Temp.(Cat. A1~A4)</li>
+								<li>MIL-STD-810G, Method 501.5 High Temperature, Procedure I, II</li>
+								<li>MIL-STD-810G, Method 502.5 Low Temperature, Procedure I, II</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">시험범위</th>
+						<td>
+							<ul class="dot_list">
+								<li>-40  ℃ ~ +85  ℃</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h4 class="sub_tit3 marginT30">습도</h4>
+		<div class="table_box">
+			<table>
+				<caption>환경시험 습도</caption>
+				<colgroup>
+					<col width="20%" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">시험규격</th>
+						<td>
+							<ul class="dot_list">
+								<li>DO-160G Sec. 6 Humidity, Cat A (Standard)</li>
+								<li>DO-160G Sec. 6 Humidity, Cat B (Severe)</li>
+								<li>DO-160G Sec. 6 Humidity, Cat C (External)</li>
+								<li>MIL-STD-810G, Method 507.5 Humidity, Procedure I, II</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">시험범위</th>
+						<td>
+							<ul class="dot_list">
+								<li>-10 %RH ~ 95 %RH</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h4 class="sub_tit3 marginT30">강우</h4>
+		<div class="table_box">
+			<table>
+				<caption>환경시험 강우</caption>
+				<colgroup>
+					<col width="20%" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">시험규격</th>
+						<td>
+							<ul class="dot_list">
+								<li>DO-160G Sec. 10 Waterproofness, Cat R (Spray Proof Test)</li>
+								<li>MIL-STD-810G, Method 506.5 Rain, Procedure I (Rain&Blowing Rain)</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">시험범위</th>
+						<td>
+							<ul class="dot_list">
+								<li>강우량 : 최대 120 mm/hr</li>
+								<li>강우면적 : 5.0 m(W) × 5.0 m(L)</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h4 class="sub_tit3 marginT30">강설</h4>
+		<div class="table_box">
+			<table>
+				<caption>환경시험 강설</caption>
+				<colgroup>
+					<col width="20%" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">시험규격</th>
+						<td>
+							<ul class="dot_list">
+								<li>사용자가 제공하는 자체 기준에 의한 시험</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">시험범위</th>
+						<td>
+							<ul class="dot_list">
+								<li>강설량 : 최대 60 mm/hr</li>
+								<li>강설면적 : 5.0 m(W) × 5.0 m(L)</li>
+								<li>건설 및 습설</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h4 class="sub_tit3 marginT30">태양광</h4>
+		<div class="table_box">
+			<table>
+				<caption>환경시험 태양광</caption>
+				<colgroup>
+					<col width="20%" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">시험규격</th>
+						<td>
+							<ul class="dot_list">
+								<li>MIL-STD-810G, Method 505.5 Solar Radiation, Procedure I & II</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">시험범위</th>
+						<td>
+							<ul class="dot_list">
+								<li>조사 강도 : 50 W/㎡  ~  1,200 W/㎡ </li>
+								<li>조사 면적 : 3.0 m(W) × 3.0 m(L) 이상</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h4 class="sub_tit3 marginT30">내풍성</h4>
+		<div class="table_box">
+			<table>
+				<caption>환경시험 내풍성</caption>
+				<colgroup>
+					<col width="20%" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">시험규격</th>
+						<td>
+							<ul class="dot_list">
+								<li>사용자가 제공하는 자체 기준에 의한 시험</li>
+								<li>실내ㆍ외 시험 가능</li>
+								<li>실내 시험 시 온도ㆍ습도ㆍ강우ㆍ강설ㆍ태양광 조건 조정 가능 </li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">시험범위</th>
+						<td>
+							<ul class="dot_list">
+								<li>노즐면적 : 4.0 m(W) × 3.0 m(H)</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+</div>
+
+
+
+
+<script>
+  var swiper = new Swiper(".slide_box .swiper-container", {
+	loop:true,
+	autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+   	speed:500,
+    navigation: {
+      nextEl: ".slide_btn_l",
+      prevEl: ".slide_btn_r",
+    },
+  });
+</script>
+
+
+
+
+
+
+</div><!--common_container-->
+
+<div id="ft_menu">
+    <ul class="dep1_ul width1200 clear">
+        
+
+<div id="ft_menu">
+    <ul class="dep1_ul clear">
+
+        <li>
+            <a href="/center/about.do">센터소개</a>
+            <ul class="dep2_ul">
+                <li><a href="/center/about.do">센터소개</a></li>
+                <li><a href="/center/location.do">오시는길</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/testIntro/kolasAbout.do">시험·인증 안내</a>
+				<ul class="dep2_ul clear">
+					<li>
+						<a href="/testIntro/kolasAbout.do">KOLAS 안내</a>
+						<ul class="dep3_ul">
+							<li><a href="/testIntro/kolasAbout.do">KOLAS 소개</a></li>
+							<li><a href="/testIntro/kolasStandard.do">관련법 및 기준</a></li>
+							<li><a href="/testIntro/testField06.do">시험분야</a></li>
+							<li><a href="/testIntro/testGuide01.do">절차</a></li>
+							<li><a href="/testIntro/testGuide02.do">수수료</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="/testIntro/testField02.do">시험안내</a>
+						<ul class="dep3_ul">
+							<li><a href="/testIntro/testField01.do">시험분야</a></li>
+							<li><a href="/testIntro/testGuide03.do">절차</a></li>
+							<li><a href="/testIntro/testGuide04.do">수수료</a></li>
+						</ul>
+					</li>
+				
+					<li>
+						<a href="/kolasAbout.do">안전성인증 안내</a>
+						<ul class="dep3_ul">
+			                <li><a href="/safetyIntro/safety_certification.do">소개</a></li>
+			                <li><a href="/safetyIntro/safety_standard.do">관련법 및 기준</a></li>
+			                <li><a href="/safetyIntro/safety_field.do">인증대상</a></li>
+			                <li><a href="/safetyIntro/safety_guide01.do">절차</a></li>
+			                <li><a href="/safetyIntro/safety_guide02.do">수수료</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+        <li>
+            <a href="/safetyAply/safety_certification_intro.do">시험·인증 신청</a>
+            <ul class="dep2_ul">
+            	<li>
+					<a href="/safetyAply/safety_certification_intro.do">KOLAS</a>
+					<ul class="dep3_ul">
+						<li><a href="/main/testNotice.do">신청(준비중)</a></li>
+						<li><a href="/main/testNotice.do">신청현황(준비중)</a></li>
+					</ul>
+				</li>
+                <li>
+					<a href="/safetyAply/safety_certification_intro.do">안전성인증</a>
+					<ul class="dep3_ul">
+						<li><a href="/safetyAply/safety_certification_intro.do">기체등록(초도인증)</a></li>
+						<li><a href="/safetyAply/safety_certification_form00.do">안전성인증 신청</a></li>
+						<li><a href="/safetyAply/safety_certification_board01.do">안전성인증 신청현황</a></li>
+					</ul>
+				</li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/main/safetyList1.do">시험·인증현황</a>
+            <ul class="dep2_ul">
+            	<li><a href="/main/testNotice.do">성적서 진위여부확인(준비중)</a></li>
+                <!-- <li><a href="/main/safetyList1.do">인증현황조회</a></li> -->
+                <li><a href="/main/certStatus.do">인증통계</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/board/board01List.do?menuCd=M0028">알림마당</a>
+            <ul class="dep2_ul">
+                <li><a href="/board/board01List.do?menuCd=M0028">공지사항</a></li>
+                <li><a href="/board/board02List.do">자료실</a></li>
+                <li><a href="/board/board01List.do?menuCd=M0201">안전공지</a></li>
+                <li><a href="/board/board03List.do">FAQ</a></li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+
+    </ul>
+</div>
+
+<footer id="ft">
+    <div class="width1200 ft_inner clear">
+        <strong>
+            <a href="/"><img src="/img/ft_logo.png" alt="DCC드론인증센터" /></a>
+        </strong>
+        <div>
+            <p class="company">
+                <span>
+                    <b>ADDRESS</b>
+                    (22689) 인천 서해구 정서진로 194-2 드론인증센터  <br />
+                </span>
+                
+            </p>
+
+            <ul>
+                <!-- 개인정보처리방침: iframe로 /persnInfo.do 불러옴 (큰 창) -->
+                <li>
+                    <a href="/persnInfo.do"
+                       class="ft-polylink"
+                       data-mode="iframe"
+                       data-title="개인정보처리방침"
+                       data-url="/persnInfo.do">
+                        <b>개인정보처리방침</b>
+                    </a>
+                </li>
+
+                <!-- 이메일 무단수집거부: foot.jsp에 하드코딩된 정적 내용 사용 (작은 창) -->
+                <li>
+                    <a href="#"
+                       class="ft-polylink"
+                       data-mode="static"
+                       data-title="이메일 무단수집거부"
+                       data-target="#emailDenyContent">
+                        이메일무단수집거부
+                    </a>
+                </li>
+
+                <li><a href="/center/location.do">오시는길</a></li>
+            </ul>
+
+            <p class="copy">
+                Copyright (c) Korea Institute of Aviation Safety Technology.
+                All Rights Reserved.
+            </p>
+            
+            <div class="ft_family">
+                <button>관련사이트 바로가기</button>
+                <ul>
+                    <li><a href="https://www.molit.go.kr/portal.do" target="_blank" rel="noopener noreferrer">국토교통부</a></li>
+                    <li><a href="https://kiast.or.kr/kr/index.do" target="_blank" rel="noopener noreferrer">항공안전기술원 대표홈페이지</a></li>
+                    <li><a href="https://dronetest.kiast.or.kr/main.do" target="_blank" rel="noopener noreferrer">항공안전기술원 드론비행시험센터</a></li>
+                    <li><a href="https://drone.onestop.go.kr/" target="_blank" rel="noopener noreferrer">드론원스톱 민원서비스</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="#hd" id="top_btn">TOP</a>
+
+<!-- ================== 숨겨둔 정적 컨텐츠: 이메일 무단수집거부 ================== -->
+<div id="emailDenyContent" style="display:none;">
+    <div style="font-size:15px; line-height:1.6; color:#333;">
+        <p style="font-weight:600; font-size:16px; margin:0 0 12px;">
+            전자우편 수집 프로그램이나 기타 장치로부터 무단 수집을 거부합니다.
+        </p>
+        <p style="margin:0 0 8px;">
+            본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부하며,
+            이를 위반시 『정보통신망법』에 의해 형사처벌됨을 유념하시기 바랍니다.
+        </p>
+    </div>
+</div>
+
+<!-- ================== 공용 정책 모달 ================== -->
+<div id="dccPolicyModal" aria-hidden="true">
+    <div class="dccp-backdrop" data-close="1"></div>
+
+    <!-- ※ is-mini 클래스는 JS에서 동적으로 붙였다 뗍니다 -->
+    <div class="dccp-dialog" role="dialog" aria-modal="true" aria-labelledby="dccpTitle">
+        <div class="dccp-header">
+            <span id="dccpTitle">제목</span>
+            <button type="button" class="dccp-close" aria-label="닫기" data-close="1">✕</button>
+        </div>
+
+        <div class="dccp-body">
+            <!-- 로더 -->
+            <div class="dccp-loader" id="dccpLoader">불러오는 중…</div>
+
+            <!-- iframe 컨텐츠 (개인정보처리방침 등 서버 페이지) -->
+            <iframe id="dccpFrame"
+                    title=""
+                    src="about:blank"
+                    loading="lazy"
+                    style="display:none;"></iframe>
+
+            <!-- 정적 컨텐츠 (이메일무단수집거부 등) -->
+            <div id="dccpStatic"
+                 style="display:none;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= 모달 전용 스타일 ================= -->
+<style>
+    /* 모달 컨테이너 */
+    #dccPolicyModal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        z-index: 9999;
+    }
+    #dccPolicyModal[aria-hidden="false"] {
+        display: block;
+    }
+
+    /* 반투명 배경 */
+    #dccPolicyModal .dccp-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, .45);
+    }
+
+    /* 다이얼로그: 기본은 큰 사이즈 (개인정보처리방침 등 긴 문서용) */
+    #dccPolicyModal .dccp-dialog {
+        position: relative;
+        z-index: 1;
+
+        width: min(1100px, 96vw);
+        height: min(85vh, 960px);
+        margin: 4vh auto 0;
+
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    /* 작은 모달(무단수집거부 등 짧은 고지용)일 때 */
+    #dccPolicyModal .dccp-dialog.is-mini {
+        width: min(580px, 90vw);
+        height: auto;
+        max-height: 320px;
+        margin: 10vh auto 0;
+    }
+
+    /* 헤더 */
+    #dccPolicyModal .dccp-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e9ecef;
+        background: #f8f9fa;
+        font-weight: 700;
+        color: #003366;
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
+    #dccPolicyModal .dccp-close {
+        border: 0;
+        background: #eef2f8;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 1;
+        flex-shrink: 0;
+    }
+    #dccPolicyModal .dccp-close:hover {
+        background: #e2e8f4;
+    }
+
+    /* 본문 영역 공통 */
+    #dccPolicyModal .dccp-body {
+        position: relative;
+        flex: 1;
+        background: #fff;
+        box-sizing: border-box;
+        overflow: hidden; /* 기본은 iframe이 전체 차지하니까 오버플로우 숨김 */
+    }
+
+    /* 본문: 작은 모달일 때는 내부 스크롤 허용 */
+    #dccPolicyModal .dccp-dialog.is-mini .dccp-body {
+        max-height: 400px;
+        overflow: auto;
+    }
+
+    /* iframe (개인정보처리방침 등 긴 페이지용)
+       - large 모드에서는 height:100% 로 거의 풀스크린 느낌
+       - mini 모드에서는 iframe 안 쓰고 static만 쓰므로 여기선 large 기준만 */
+    #dccPolicyModal iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    /* static 컨텐츠 (무단수집거부 등) */
+    #dccpStatic {
+        display: none;           /* JS에서 static일 때 block으로 전환 */
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #333;
+        overflow-y: auto;
+        max-height: 260px;
+    }
+    #dccpStatic p {
+        margin: 0 0 10px;
+    }
+
+    /* 로더 */
+    #dccPolicyModal .dccp-loader {
+        position: absolute;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, .92);
+        color: #06378e;
+        font-weight: 700;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    #dccPolicyModal.is-loading .dccp-loader {
+        display: flex;
+    }
+
+    /* 바디 스크롤 잠금 */
+    body.dccp-lock {
+        overflow: hidden;
+    }
+
+    /* 모바일: 작은 모달일 때 조금 더 낮춰줌 */
+    @media (max-width: 360px) {
+        #dccPolicyModal .dccp-dialog.is-mini {
+            max-height: 300px;
+        }
+        #dccPolicyModal .dccp-dialog.is-mini .dccp-body,
+        #dccpStatic {
+            max-height: 240px;
+        }
+    }
+    
+</style>
+
+<!-- ================= 모달 전용 스크립트 ================= -->
+<script>
+(function () {
+    var links      = document.querySelectorAll('.ft-polylink');
+    var modal      = document.getElementById('dccPolicyModal');
+    var dialog     = modal ? modal.querySelector('.dccp-dialog') : null;
+    var frame      = document.getElementById('dccpFrame');
+    var staticBox  = document.getElementById('dccpStatic');
+    var loader     = document.getElementById('dccpLoader');
+    var titleNode  = document.getElementById('dccpTitle');
+    var lastFocus  = null;
+
+    if (!modal || !dialog || !frame || !loader || !titleNode || !staticBox) return;
+
+    function openModalIframe(title, url) {
+        // 큰 창 모드
+        dialog.classList.remove('is-mini');
+
+        // iframe 켜고 static 숨김
+        frame.style.display = 'block';
+        staticBox.style.display = 'none';
+
+        titleNode.textContent = title || '';
+        frame.title = title || '';
+
+        // 로딩 표시
+        modal.classList.add('is-loading');
+        loader.textContent = '불러오는 중…';
+
+        // 캐시 우회 파라미터
+        var src = url + (url.indexOf('?') > -1 ? '&' : '?') + 't=' + Date.now();
+
+        frame.src = 'about:blank';
+        setTimeout(function () {
+            frame.src = src;
+        }, 30);
+
+        frame.addEventListener('load', function handleLoad() {
+            modal.classList.remove('is-loading');
+            frame.removeEventListener('load', handleLoad);
+        });
+
+        showModalShell();
+    }
+
+    function openModalStatic(title, targetSelector) {
+        // 작은 창 모드
+        dialog.classList.add('is-mini');
+
+        // static 켜고 iframe 숨김
+        frame.style.display = 'none';
+        staticBox.style.display = 'block';
+
+        titleNode.textContent = title || '';
+        frame.title = title || '';
+
+        // 정적 컨텐츠 복사
+        var srcNode = document.querySelector(targetSelector);
+        staticBox.innerHTML = srcNode
+            ? srcNode.innerHTML
+            : '<p>내용을 불러올 수 없습니다.</p>';
+
+        // static 모드는 로딩 없음
+        modal.classList.remove('is-loading');
+
+        showModalShell();
+    }
+
+    function showModalShell() {
+        lastFocus = document.activeElement;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('dccp-lock');
+    }
+
+    function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.remove('is-loading');
+        document.body.classList.remove('dccp-lock');
+
+        // 상태 초기화
+        dialog.classList.remove('is-mini');
+        frame.src = 'about:blank';
+        staticBox.innerHTML = '';
+
+        if (lastFocus && typeof lastFocus.focus === 'function') {
+            lastFocus.focus();
+        }
+    }
+
+    // 링크 클릭 핸들
+    links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            var mode   = a.getAttribute('data-mode'); // "iframe" or "static"
+            var title  = a.getAttribute('data-title') || '';
+
+            if (mode === 'iframe') {
+                var url = a.getAttribute('data-url') || a.getAttribute('href') || '#';
+                openModalIframe(title, url);
+            } else {
+                var targetSel = a.getAttribute('data-target');
+                openModalStatic(title, targetSel);
+            }
+        });
+    });
+
+    // 배경/닫기 버튼
+    modal.addEventListener('click', function (e) {
+        if (e.target.getAttribute('data-close') === '1') {
+            closeModal();
+        }
+    });
+
+    // ESC 닫기
+    window.addEventListener('keydown', function (e) {
+        if (modal.getAttribute('aria-hidden') === 'false' && e.key === 'Escape') {
+            e.preventDefault();
+            closeModal();
+        }
+    });
+
+    // 포커스 트랩
+    modal.addEventListener('keydown', function (e) {
+        if (modal.getAttribute('aria-hidden') !== 'false' || e.key !== 'Tab') return;
+
+        var focusables = modal.querySelectorAll(
+            'button,[href],iframe,[tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables.length) return;
+
+        var first = focusables[0];
+        var last  = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
+	

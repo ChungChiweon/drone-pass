@@ -1,0 +1,2 @@
+import type {FlightCurrentness} from "./flight-source-types";
+export function classifyFlightSourceCurrentness(publicationYear:number|undefined,stableConcept:boolean,nowYear=new Date().getUTCFullYear()):FlightCurrentness{if(stableConcept)return "CONCEPT_STABLE";if(!publicationYear)return "UNDATED";return nowYear-publicationYear<=5?"CURRENT":nowYear-publicationYear<=10?"POSSIBLY_OUTDATED":"HISTORICAL"}

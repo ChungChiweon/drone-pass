@@ -1,0 +1,1 @@
+export type WeatherSourceLocator={sourceId:string;page?:number;section?:string;table?:string;figure?:string;observationExample?:string};export function formatWeatherLocator(x:WeatherSourceLocator){return[x.page&&`p.${x.page}`,x.section,x.table,x.figure,x.observationExample].filter(Boolean).join("; ")}

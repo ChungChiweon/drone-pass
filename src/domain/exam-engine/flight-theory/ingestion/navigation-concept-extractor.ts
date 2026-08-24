@@ -1,0 +1,2 @@
+export type NavigationConcept={knowledgeId:string;topicId:string;title:string;statement:string;sourceReferences:Array<{sourceId:string;page:number;section:string}>;rawEvidenceText:string;technicalContext:"SATELLITE_NAVIGATION_GENERAL"|"AVIATION_NAVIGATION";confidence:number;questionConstraints:{allowed:string[];prohibited:string[]}};
+export function extractNavigationConcept(input:NavigationConcept):NavigationConcept|null{return input.statement&&input.rawEvidenceText&&input.sourceReferences.length?structuredClone(input):null}

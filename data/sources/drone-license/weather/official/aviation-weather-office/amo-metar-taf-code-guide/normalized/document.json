@@ -1,0 +1,295 @@
+{
+  "sourceId": "amo-metar-taf-code-guide",
+  "title": "Military airport METAR and TAF codes",
+  "pages": [
+    {
+      "page": 1,
+      "text": "AAiirr FFoorrccee PPaammpphhlleett 1111--223388 \n 11 NNoovveemmbbeerr 22000055 \n FFllyyiinngg OOppeerraattiioonnss \n \n \nAAiirrccrreeww \nQQuuiicckk RReeffeerreennccee \nttoo tthhee \nMMEETTAARR aanndd TTAAFF CCooddeess \n \n \n \n \n \n \n \n \n \n \n \n \n \nNOTICE: This publication is available digitally on the \nAFDPO WWW site at: http://www.e-publishing.af.mil",
+      "sections": []
+    },
+    {
+      "page": 2,
+      "text": "The Aircrew Quick Reference Guide to the METAR and TAF Codes is \ndesigned to help aircrews quickly and clearly translate METAR and TAF \ncodes into plain language. See references in Attachment 1 for a listing of \nsource documents. \n \nMETAR codes report observed weather conditions by airfield; TAF codes \nreport forecasted weather conditions by airfield. Both codes are lines of \ntext made up of data groups (or just “groups”) separated by spaces. Some \ndata groups are not discussed because they are intended for use by the \nweather community and are not useful for flight planning. Differences \nbetween military and civilian renderings of the code are discussed where \nappropriate. \n \nAircrews should check METAR/TAF codes thoroughly for all hazards to \nflying safety, including thunderstorms, icing, turbulence, wind shear, and \nother elements that may significantly affect their aircraft. When users \nhave additional weather-related questions, they should contact a certified \nUS military forecaster or MAJCOM-approved weather source for \nclarification. Weather briefing requirements for USAF Aircrews are \nspelled out in AFI 11-202, Volume 3, General Flight Rules. \n \nSUMMARY OF REVISIONS \nCorrections to decode tables for icing and turbulence intensity in Figures 3 \nand 4 made this revision necessary. Figures 1 and 2 are now presented in \nportrait format for user convenience. Additional edits, identified by \nvertical bars in the left margin, ease the interpretation of METAR and TAF \ncodes. \n \n \n \n \n \n \n \nOPR: AFFSA/XOF (Capt Kinser) Certified by : HQ USAF/XOO (Maj Gen Teresa M. Peterson) \nSupersedes AFPAM 11-238, 1 Nov 00 Pages: 34 / Distribution F \n \n1 \n Introduction",
+      "sections": [
+        "1 \n Introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "text": "Section I, METAR decoding: Page \nReport Type 3 \nLocation and Date/Time 4 \nAuto/Cor 5 \nWind 6 \nWind Variability 7 \nVisibility 8 \nRunway Visual Range 9 \nType of Weather 10 \nClouds 12 \nTemperature/Dewpoint 13 \nAltimeter Setting 14 \nRemarks, US 15 \nRemarks, Overseas 16 \n \nSection II, TAF decoding: Page \nReport Type 18 \nLocation 19 \nDate/Time 20 \nTime and Type of Change Expected 21 \nWind 22 \nVisibility 23 \nType of Weather 24 \nClouds 25 \nWind Shear 26 \nIcing 27 \nTurbulence 28 \nMinimum Altimeter Setting 29 \nTemperatures 30 \n \nFigures Page \n1. Weather/Obscuration Table - METAR/TAF 11 \n2. Remarks Decode Table - METAR 17 \n3. Icing Intensity Decode Table - TAF 27 \n4. Turbulence Intensity Decode Table - TAF 28 \n \nAttachments Page \n1. Glossary of References and Supporting Information 31 \n2. Temperature Conversion, Fahrenheit to Celsius 32 \n3. Reportable Visibility Conversion, Statute Miles to Meters 33 \n4. Pressure Conversion, Millibars to Inches 34 \n \n2 \n Table of Contents",
+      "sections": [
+        "2 \n Table of Contents"
+      ]
+    },
+    {
+      "page": 4,
+      "text": "What kind of report is this? \n \nMETAR KBLV 011657Z AUTO 25015G30KT \n210V290 3/8SM R32L/1000FT FG BKN005 \n01/M01 A2984 RMK A02 SLP034 \n \nSPECI KBLV 011715Z 25015G30KT 210V290 3SM \nBR BKN015 01/M01 A2984 RMK SLP034 \n \nMETAR (Aviation Routine Weather Report) refers to a \nscheduled observation taken between 55-59 minutes past the \nhour (also referred to as a routine hourly observation). \n \nSPECI (Special Report) refers to an unscheduled observation \nthat met a predefined criteria (such as a change from VFR to \nIFR) and may be taken at 00-54 minutes past the hour. When \nSPECI criteria are met during the hourly observation time \nwindow (55-59 minutes past the hour), no special indication is \nmade. The new weather conditions are encoded in a standard \nMETAR report. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n3 \nMETAR Report Type",
+      "sections": [
+        "3 \nMETAR Report Type"
+      ]
+    },
+    {
+      "page": 5,
+      "text": "How do I determine the location and the date and time of \nissuance? \n \nMETAR KBLV 011657Z AUTO 25015G30KT \n210V290 3/8SM R32L/1000FT FG BKN005 \n01/M01 A2984 RMK A02 SLP034 \n \nThe 4-character ICAO identifier that follows the report type is \nthe location identifier; KBLV (Scott AFB) is the \nlocation/station in this example. \n \nThe 7-character group following the ICAO identifier is the \ndate and time of issuance. The first two digits are the date; the \nlast four digits are the coordinated universal time (UTC), \nsometimes called “zulu time.” \n \nIn this example, 01 is the first day of the month, and 1657Z \nis 1657 UTC. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n4 \nMETAR Location and Date/Time",
+      "sections": [
+        "4 \nMETAR Location and Date/Time"
+      ]
+    },
+    {
+      "page": 6,
+      "text": "What does AUTO and/or COR mean, if included? \n \nLet’s look at the meanings of AUTO and COR separately. \n \nMETAR KBLV 011657Z AUTO 25015G30KT 210V290 \n3/8SM R32L/1000FT FG BKN005 01/M01 A2984 RMK \nA02A SLP034 \n \nAUTO refers to an automated observation with measurements taken \nby equipment such as the domestic Automated Weather Observing \nSystem (AWOS) or Automated Surface Observation System \n(ASOS), or the Air Force’s Automated Meteorological Station \n(AMS), also known as AN/FMQ-19. AO1 denotes an observation \ntaken by equipment lacking a precipitation type discriminator (rain \nvs. snow). AO2 denotes an observation taken by standard \nequipment with a full complement of sensors. A02A denotes an \nautomated observation augmented by a human observer. \n \nMETAR KBLV 011657Z AUTO COR 25015G30KT \n210V290 3/8SM R32L/1000FT FG FU BKN005 01/M01 \nA2984 RMK A02A SLP034 COR 1725 \n \nCOR indicates a corrected observation. Disregard the previous \ntransmission. COR 1725 means that the correction was \ntransmitted at 1725Z. \n \n \n \n \n \n \n \n \n \n \n5 \nMETAR AUTO/COR",
+      "sections": [
+        "5 \nMETAR AUTO/COR"
+      ]
+    },
+    {
+      "page": 7,
+      "text": "How do I determine the wind speed and direction? \n \nMETAR KBLV 011657Z AUTO 25015G30KT \n210V290 3/8SM R32L/1000FT FG BKN005 \n01/M01 A2984 RMK A02 SLP034 \n \nThe data group followed by KT (knots) is the wind. \n \nThe first three digits are the true direction to the nearest 10 \ndegrees from which the wind is blowing. The next two digits \nare the sustained speed. If gusts are present, the next two or \nthree digits following the “G” are the “gust,” the maximum \nwind speed in the last ten minutes. \n \nIn this example, the 25015G30KT group is the wind \ndirection and speed. Here, the wind is blowing from 250 \ndegrees (true) at a sustained speed of 15 knots with 30-knot \ngusts. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n6 \nMETAR Wind",
+      "sections": [
+        "6 \nMETAR Wind"
+      ]
+    },
+    {
+      "page": 8,
+      "text": "How do I determine if the wind is varying between \ndirections? \n \nMETAR KBLV 011657Z AUTO 25015G30KT \n210V290 3/8SM R32L/1000FT FG BKN005 \n01/M01 A2984 RMK A02 SLP034 \n \nA wind variability group will be reported if the wind is \nvariable by 60 degrees or more and the speed is greater than \n6 knots. This remark will contain the extremes of the wind \ndirections, separated by “V.” \n \nIn this example, 210V290 are reads, “wind direction varying \nbetween 210 and 290.” \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n7 \nMETAR Wind Variability",
+      "sections": [
+        "6 knots. This remark will contain the extremes of the wind",
+        "7 \nMETAR Wind Variability"
+      ]
+    },
+    {
+      "page": 9,
+      "text": "How do I determine the prevailing visibility? \n \nMETAR KBLV 011657Z AUTO 25015G30KT \n210V290 3/8SM R32L/1000FT FG BKN005 \n01/M01 A2984 RMK A02 SLP034 \n \nIn this example, 3/8SM (3/8 of a statute mile) is the prevailing \nvisibility. Prevailing visibility is the greatest horizontal \nvisibility observed throughout at least half the horizon circle, \nand is not necessarily continuous. \n \nSector visibility will be reported in the remarks section if it \ndiffers from the prevailing visibility and is less than 3 miles. \nFor sector visibility format, see VIS remarks in Figure 2 on \npage 17. \n \nMETAR EDDF 071320Z 22008KT 9999 SCT036 \nSCT090 BKN280 19/10 Q1011 NOSIG \n \nAt overseas locations, visibility is reported in meters, and SM \nis omitted. The largest reportable metric value is 9999. This \nvalue represents a visibility greater than 9000 meters (7 SM or \nmore). To convert visibility values from meters to statute \nmiles see Attachment 3 on page 33 or see Flight Information \nHandbook conversion tables. \n \n \n \n \n \n \n \n8 \nMETAR Visibility",
+      "sections": [
+        "8 \nMETAR Visibility"
+      ]
+    },
+    {
+      "page": 10,
+      "text": "What if there is a group that begins with the letter “R?” \n \nMETAR KBLV 011657Z AUTO 25015G30KT 210V290 \n3/8SM R32L/1000FT FG BKN005 01/M01 A2984 RMK \nA02 SLP034 \n \nRunway Visual Range (RVR) follows the visibility and begins with \nthe letter “R.” The runway heading will follow the “R,” and in this \nexample, “32L” represents runway 32-Left (C-Center, R-Right). \nThe last four digits report the visibility in feet. \n \nIn this example, R32L/1000FT reads, “runway visual range for \nrunway 32 Left is 1,000 ft.” \n \nAt overseas locations, visibility is reported in meters, and FT is \nomitted from the RVR group. The same RVR at an overseas \nlocation would appear as R32L/0300 and read, “runway visual \nrange for 32 Left is 300 meters.” \n \n \nHow would I decode the formats M0600FT or P6000FT or \nR06L2000V4000FT (not in example above)? \n \nM0600FT Reads, “RVR is less than 600 feet.” \n(M = less than) \nP6000FT Reads, “RVR is greater than 6,000 \nfeet.” (P = greater than) \nR06L2000V4000FT Reads, “RVR for 6 Left is variable \nbetween 2,000 and 4,000 feet.” \n“V” indicates that the RVR is \nvariable between two thresholds. \n \n \n \n9 \nMETAR Runway Visual Range, “R”",
+      "sections": [
+        "9 \nMETAR Runway Visual Range, “R”"
+      ]
+    },
+    {
+      "page": 11,
+      "text": "How do I determine if there is any weather? \n \nMETAR KBLV 011657Z AUTO 25015G30KT \n210V290 3/8SM R32L/1000FT FG BKN005 \n01/M01 A2984 RMK A02 SLP034 \n \nIf a weather element (precipitation or obstruction to visibility) \nis observed, it will be found in the data group following the \nvisibility. The absence of a weather element group indicates \nthat no precipitation or obstruction to visibility is occurring at \nthe time of the observation. In this example, “FG” represents \n“Fog.” \n \nTo methodically decode a weather group, look for six key \nelements (depending on the phenomena, one or more may be \nomitted). In order, these elements are: Intensity (symbol \npreceding the code), Proximity, Descriptor, Precipitation \nDescription, Obscuration (other than precipitation), and \nOther. \n \nFor a complete table of weather group elements, see Figure 1 \non page 11. \n \n \n \n \n \n \n \n \n \n \n \n10 \nMETAR Type of Weather",
+      "sections": [
+        "10 \nMETAR Type of Weather"
+      ]
+    },
+    {
+      "page": 12,
+      "text": "Figure 1. Weather/Obscuration Table \nPhenomenon Qualifiers \nElement 1: Intensity Element 2: Proximity Element 3: Description\n- Light VC In the vicinity BC Patches \nnone Moderate none On station BL Blowing \n+ Heavy DR Low Drifting \nNote: + can also mean FZ Freezing \na well-developed dust storm, MI Shallow \nsandstorm, whirl, dust devil, PR Partial (covering \ntornado, or waterspout part of the sky) \n SH Shower(s) \n TS Thunderstorm \n \nTypes of Weather Phenomenon \nElement 4: Precipitation Element 5: Obscuration Element 6: Other \nDZ Drizzle BR Mist, vis. ≥ 5/8SM DS Dust Storm \nGR Hail, diam. ≥ 5mm (.25\") (or ≥ 1000m) FC Funnel cloud(s) \nGS Small Hail / Snow Pellets, DU Widespread Dust e.g., tornado \n diam. < 5mm (.25\") FG Fog, vis. < 5/8SM or waterspout \nIC Ice Crystals (or ≥ 1000m) PO Well-developed \nPL Ice Pellets FU Smoke dust/sand whirls \nRA Rain HZ Haze SQ Squalls \nSG Snow Grains PY Spray SS Sandstorm \nSN Snow SA Sand \nUP Unknown Precipitation VA Volcanic Ash \n (Automated only) \n \nE x a m p l e s : \n+SHRASNPL heavy rain showers, snow, ice pellets +DRSN heavy snow, drifting\n TSRAGS thunderstorm, moderate rain, small hail VCSH showers in vicinity \n BR HZ mist (vis. >= 5/8SM), haze FZDZ freezing drizzle \n BCFG patchy fog (vis. < 5/8SM) BLPY blowing spray \n PRFG partial fog (sector vis. < 5/8SM) +DS heavy dust storm \n \n \n \n11 \nMETAR Weather/Obscuration Table",
+      "sections": [
+        "11 \nMETAR Weather/Obscuration Table"
+      ]
+    },
+    {
+      "page": 13,
+      "text": "How do I determine the layers of clouds? \n \nMETAR KBLV 011657Z AUTO 25015G30KT 210V290 \n3/8SM R32L/1000FT FG BKN005 01/M01 A2984 RMK \nA02 SLP034 \n \nEach observed cloud layer is encoded in a cloud group with sky \ncoverage, altitude of the cloud base above ground level (AGL), and \nsometimes cloud type. The first three letters of each cloud group \ndenote sky coverage as in the table below. In the example above, \nBKN indicates broken cloud coverage. Then the cloud base of each \nlayer is reported in hundreds of feet AGL. Append two zeros to the \nvalue given. In this example, 005 represents the value 500 feet \nAGL. Finally, codes for convective cloud types are appended. \nCB stands for cumulonimbus; TCU stands for towering cumulus. \n \nIf surface-based clouds or other surface-based obscurations (e.g., \nsmoke, haze) are reported (i.e., cloud base is 000), then vertical \nvisibility, where available, is also reported in hundreds of feet, \nfollowing the letters, VV. When the lowest broken or overcast cloud \nbase is indefinite, vertical visibility determines the ceiling. \n \nSky coverage in eighths: \nSKC Sky clear \nFEW Few -- 0-2 eighths \nSCT Scattered -- 3-4 eighths \nBKN * Broken -- 5-7 eighths \nOVC * Overcast -- 8 eighths \n* Constitutes a “ceiling” \n \n \n \n \n12 \nMETAR Clouds",
+      "sections": [
+        "12 \nMETAR Clouds"
+      ]
+    },
+    {
+      "page": 14,
+      "text": "How do I determine the current temperature and \ndewpoint? \n \nMETAR KBLV 011657Z AUTO 25015G30KT \n210V290 3/8SM R32L/1000FT FG BKN005 \n01/M01 A2984 RMK A02 SLP034 \n \nThe group following the sky condition is the temperature and \ndewpoint information in degrees Celsius. To convert \ntemperatures from Celsius to Fahrenheit see Attachment 2 on \npage 32 or see Flight Information Handbook conversion \ntables. \n \nIn this example, 01 is the temperature in degrees Celsius \n(1ºC), and M01 is the dewpoint in degrees Celsius (-1ºC). \nAn “M” in the temperature field means “minus” (below zero). \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n13 \nMETAR Temperature/Dewpoint",
+      "sections": [
+        "13 \nMETAR Temperature/Dewpoint"
+      ]
+    },
+    {
+      "page": 15,
+      "text": "How do I determine the current altimeter setting? \n \nMETAR KBLV 011657Z AUTO 25015G30KT \n210V290 3/8SM R32L/1000FT FG BKN005 \n01/M01 A2984 RMK A02 SLP034 \n \nThe 5-character group beginning with A, following the \ntemperature/dewpoint group is the altimeter setting in inches \nand hundredths of an inch of mercury (inches Hg), used in the \nUnited States and at US airfields overseas. In this example, \nA2984 represents a current altimeter setting of 29.84 inches \nHg. \n \nMETAR EDDF 071320Z 22008KT 9999 SCT036 \nSCT090 BKN280 19/10 Q1011 NOSIG \n \nThe 5-character group beginning with Q, following the \ntemperature/dewpoint group is the altimeter setting in \nhectopascals (hPa), used in some overseas locations. A \nhectopascal is equivalent to a millibar (mb). In this example, \nQ1011 represents a current altimeter setting of 1011 hPa or \n1011 mb. \n \nTo convert altimeter settings from mb (or hPa) to inches Hg, \nsee Attachment 4 on page 34 or Flight Information Handbook \nconversion tables. \n \n \n \n \n \n \n14 \nMETAR Altimeter Setting",
+      "sections": [
+        "1011 mb.",
+        "14 \nMETAR Altimeter Setting"
+      ]
+    },
+    {
+      "page": 16,
+      "text": "What is RMK? \n \nMETAR KBLV 011657Z AUTO 25015G30KT 210V290 \n3/8SM R32L/1000FT FG BKN005 01/M01 A2984 RMK \nA02 SLP034 \n \nIn METAR reports from the United States and from overseas US \nmilitary airfields, RMK indicates the start of the Remarks section, \nfollowing the altimeter setting. Remarks contain any pertinent \ninformation beyond the standard fields provided, and can be either \nencoded or spelled out in plain language. For a partial listing of \npossible METAR remarks, see Figure 2 on page 17. Additional \nabbreviations are constructed in accordance with FAA Order \n7340.1, Contractions. \n \nIn this example, the remark, SLP034, is the sea level pressure in \nmillibars (or hectopascals) to the nearest tenth. To decode, place a \n“10” or “9” before the first digit (use a 9 if the 3-digit value is 500 \nor more), and place a decimal point before the last digit. The sea \nlevel pressure remark in the above example would read “current sea \nlevel pressure of 1003.4 millibars.” \n \nCaution: Do not confuse the METAR remarks “5####” group or \n“6####” group with the TAF “5######” (turbulence) group or the \nTAF “6######” (icing) group. Unlike TAF code usage, METAR \n“5” and “6” group codes indicate pressure tendency and cumulative \nprecipitation amounts--if you need these values, contact your \nweather provider for decoding instructions. See pages 27 and 28 for \nmore info on decoding icing and turbulence forecasts. \n \n \n \n \n \n15 \nMETAR Remarks, US",
+      "sections": [
+        "15 \nMETAR Remarks, US"
+      ]
+    },
+    {
+      "page": 17,
+      "text": "What is supplemental information? \n \nOverseas (except at US military installations), METAR remarks are called \n“supplemental information.” Supplemental information follows the \naltimeter setting and uses remark codes like US remarks, as in Figure 2 on \npage 17, but is not preceded by RMK. \n \nSupplemental information can also include: \n - recent weather elements, coded with a leading RE, \n - sea surface temperature in ºC and sea state 0-9, coded W##/S#, \n - runway state, coded as an 8-digit numerical group determined by \nregional air navigation agreement, and/or \n - a 2-hour forecast trend as described below. \n \nMETAR EDDF 071320Z 22008KT 9999 SCT036 SCT090 \nBKN280 19/10 Q1011 NOSIG \n \nOverseas METAR forecast trend groups either start with BECMG or \nTEMPO, consistent with TAF coding conventions, or they consist entirely \nof NOSIG, which indicates that no significant changes in reportable \nweather elements are expected during the 2 hours following the reported \nobservation. \n \nMETARs issued by North Atlantic Treaty Organisation (NATO) observers \nhave, as the last data group, a color code for ceiling and visibility data: \n \nNATO Airfield Weather Color Code. source: AFMAN 15-111 USAFESUP1 \nColor Code Color * Ceiling at or above: Visibility at or above: \nBLU blue 2500 feet 8000 meters \nWHT white 1500 feet 5000 meters \nGRN green 700 feet 3700 meters \nYLO yellow 300 feet 1600 meters \nAMB amber 200 feet 0800 meters \nRED red < 200 feet < 0800 meters \nBLACK black Airfield not useable for reasons other than \nceiling or visibility \n* Belgium, France, Netherlands, and United Kingdom use scattered clouds instead of ceiling \n \n16 \nMETAR Remarks, Overseas",
+      "sections": [
+        "16 \nMETAR Remarks, Overseas"
+      ]
+    },
+    {
+      "page": 18,
+      "text": "Figure 2. Remarks Decode Table \nA01 – Reported by automated \nobservation equipment that \nCANNOT distinguish between rain \nand snow \nA02 – Reported by automated \nobservation equipment that CAN \ndistinguish between rain and snow \nACC W – AltoCumulus Castellanus \nclouds West \nACSL SW-S – AltoCumulus Standing \nLenticular clouds SouthWest through \nSouth \nCB W MOV E – CumulonimBus clouds \nWest MOVing East \nCBMAM DSNT S – CumulonimBus \nMAMmatus clouds to the DiStaNT \nSouth \nCCSL OVR MT E – CirroCumulus \nStanding Lenticular clouds OVeR \nMounTain(s) to the East \nCONS LTGCA – CONtinuouS (more \nthan 6 flashes per minute) \nLighTninG, Cloud to Air \nFROPA – … due to FROntal Passage \nFRQ – FReQuent (1-6 flashes per \nminute for lightning) \nIR – Ice on Runway \nLSR – Loose Snow on Runway \nLTGCA – LighTninG, Cloud to Air \nLTGCC – LighTninG, Cloud to Cloud \nLTGCG – LighTninG, Cloud to Ground \nLTGIC – LighTninG, In-Cloud \nOCNL – OCcassioNaL (less than 1 \nflash per minute for lightning) \nPK WND 28045/1955 – PeaK WiND \n280 at 45 knots occurred at 1955Z \nPK WND 34050/38 – PeaK WiND 340 \nat 50 knots occurred at 38 minutes \npast the hour \nPRESRR / PRESFR – PRESsure Rising Rapidly / \nPRESsure Falling Rapidly \nPSR – Packed Snow on Runway \nRAB20SNB20E55 – RAin and SNow Began at 20 \nminutes past the hour, Ended at 55 min past \nRCR01 – Runway Condition Reading – values 00 \nto 25; higher values better for flight ops \nRCRNR – RCR-equipped, but No Report; or Base \nOperations closed \nRSC – Runway Surface Condition as determined \nby Airfield or Operations Manager \nRVRNO – RVR-equipped, but NO report \nSFC VIS 2 1/2 – SurFaCe VISibility is 2 ½ statute \nmiles; remarked when (lower) tower visibility is \nreported in METAR body \nSLP015 – Sea Level Pressure is 1001.5 millibars \nTCU OHD – Towering CUmulus clouds OverHeaD \nTCU W – Towering CUmulus clouds to the West \nTSB05E30 – ThunderStorm Began at 05 minutes \npast the hour and Ended at 30 min past \nTWR VIS 1 – ToWeR VISibility is 1 statute mile; \nremarked when (lower) surface visibility is \nreported in METAR body \nVIRGA – VIRGA at the station; precipitation \nobserved but not reaching the ground \nVIRGA DSNT NE – VIRGA to the DiStaNT \nNorthEast \nVIRGA SW – VIRGA to the SouthWest \nVIS 1V2 – VISibility is Variable between 1 and 2 \nmiles \nVIS 2 RWY 11 – VISibility is 2 statute miles at \nRunWaY 11 \nVIS N 2 – VISibility in the Northern sector is 2 \nstatute miles \nWR – Wet Runway \nWSHFT45 – Wind SHiFT at 45 minutes past the \nhour \n \n \n \n17 \nMETAR Remarks Decode Table",
+      "sections": [
+        "280 at 45 knots occurred at 1955Z",
+        "17 \nMETAR Remarks Decode Table"
+      ]
+    },
+    {
+      "page": 19,
+      "text": "What type of report is this? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 WS010/18040KT \nQNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 QNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB OVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 QNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS 520004 \nQNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z M01/11Z \n \nTAF (Terminal Aerodrome Forecast) is a weather forecast at an airport or military \nbase for a specific period (usually 24 hours). \n \nTAF \nKBLV AMD 051812 21015G30KT 0800 TSRA BKN008CB OVC020 \nBECMG 1819 29008KT 1600 -RA OVC030 620304 QNH2958INS \nBECMG 1920 31012G22KT 9999 NSW SCT040 520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z M01/11Z \nAMD 1820 \n \nAMD (Amended Aerodrome Forecast) is issued because the previous version is no \nlonger representative of the current or expected weather. The amended TAF \nsupersedes the previous TAF. In the above example, AMD 1820 indicates that the \nforecast was amended at 1820Z. Always refer to the date/time group at the end of \nthe TAF to determine the most current forecast. \n \nTAF \nKBLV AMD COR 051812 21015G30KT 0800 TSRA BKN005CB \nOVC020 \nBECMG 1819 29008KT 1600 -RA OVC030 620304 QNH2958INS \nBECMG 1920 31012G22KT 9999 NSW SCT040 520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z M01/11Z \nCOR 1925 \n \nCOR (Corrected Aerodrome Forecast) is a TAF that has been corrected. When a \ncorrected TAF is issued, disregard previous TAFs. In the above example, COR \n1925 indicates that the amended forecast was corrected at 1925Z. Always refer to \nthe date/time group at the end of the TAF for the most current forecast. \n \n \n18 \nTAF Report Type",
+      "sections": [
+        "1925 indicates that the amended forecast was corrected at 1925Z. Always refer to",
+        "18 \nTAF Report Type"
+      ]
+    },
+    {
+      "page": 20,
+      "text": "How do I determine the location? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 WS010/18040KT \nQNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 QNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB OVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 \nQNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS \n520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z \nM01/11Z \n \nThe 4-character ICAO identifier that follows the report type \nis the location identifier. KBLV (Scott AFB, IL) is the \nlocation/station. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n19 \nTAF Location",
+      "sections": [
+        "520004 QNH2952INS",
+        "19 \nTAF Location"
+      ]
+    },
+    {
+      "page": 21,
+      "text": "How do I determine the date and valid times of the forecast? \n \nTAF \nKBLV 050606 14005KT 8000 BR FEW030 WS010/18040KT \nQNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 QNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB OVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 QNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS 520004 \nQNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z M01/11Z \n \nIn a military TAF, the group following the ICAO identifier is the \nvalid time of the forecast. Preparation date and time are not \nincluded. In this KBLV example, 050606 indicates that the \nforecast valid time is from 0600Z on the 5th day of the month to \n0600Z on the 6th. \n \nTAF \nKSTL 051130Z 051212 14008KT 5SM BR BKN030 WS010/18025KT \nTEMPO 1316 1 1/2SM BR \nFM 1600 16010KT P6SM NSW SKC \nBECMG 2224 20013G20KT 4SM SHRA OVC020 \nPROB40 0006 2SM TSRA OVC008CB \nBECMG 0608 21015KT P6SM NSW SCT040 \n \nCivilian forecasters encode the date/time group differently from \nmilitary forecasters. In a civilian TAF, two groupings follow the \nICAO identifier: the date and time the forecast was prepared, then \nthe date and the beginning/ending hours that the forecast is valid. In \nthe KSTL example, 05 is the day of the month and 1130Z is the \nUTC time of issuance. 051212 indicates that the forecast is valid \nfrom 1200Z on the 5th day of the month to 1200Z on the 6th. \n \n \n \n \n20 \nTAF Date/Time",
+      "sections": [
+        "20 \nTAF Date/Time"
+      ]
+    },
+    {
+      "page": 22,
+      "text": "How do I determine the time and type of changes that will occur? \n \nTAF \nKSTL 051130Z 051212 14008KT 5SM BR BKN030 \nWS010/18025KT \nTEMPO 1316 1 1/2SM BR \nFM 1600 16010KT P6SM NSW SKC \nBECMG 2224 20013G20KT 4SM SHRA OVC020 \nPROB40 0006 2SM TSRA OVC008CB \nBECMG 0608 21015KT P6SM NSW SCT040 \n \nCivilian and military forecasters alike encode the time and type of change \nexpected with TEMPO, FM, and BECMG groups. \n \nTEMPO represents a temporary condition. In this example, TEMPO 1316 \n1 1/2SM BR reads, “Temporary condition between 1300Z and 1600Z of \n1 1/2 statute mile visibility in mist.” Only the temporary changing \nconditions are included in TEMPO groups. \n \nFM means “from” and indicates a rapid weather change where all data \ngroups in the previous line are superseded. In this example, FM 1600 \nreads, “From 1600Z … ” \n \nBECMG means “becoming” or a “gradual change” in meteorological \nconditions and becomes the predominant group by the end time listed. \nIn this example, BECMG 2224 reads “Becoming from 2200Z to 2400Z.” \n \nPROB40 (civilian use only) represents a 40% probability or chance of \nconditions occurring along with associated weather conditions (wind, \nvisibility, sky conditions). \n \nIn this example, PROB40 0006 2SM TSRA 0VCOO8CB reads, “40% \nchance between 0000Z and 0600Z of visibility 2 statute miles in moderate \nthunderstorms, 800 overcast cumulonimbus clouds.” \n \n \n \n21 \nTAF Time and Type of Change Expected",
+      "sections": [
+        "1 1/2SM BR reads, “Temporary condition between 1300Z and 1600Z of",
+        "1 1/2 statute mile visibility in mist.” Only the temporary changing",
+        "21 \nTAF Time and Type of Change Expected"
+      ]
+    },
+    {
+      "page": 23,
+      "text": "How do I determine the wind speed and direction? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 WS010/18040KT \nQNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 QNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB OVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 QNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS 520004 \nQNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z M01/11Z \n \nThe data group after the valid time and followed by KT \n(knots) is the forecast wind speed. \n \nThe first three digits within a wind group are the true direction \nto the nearest 10 degrees from which the wind will blow. The \nnext two digits are the sustained speed. If gusts are \nforecasted, the next two or three digits following the “G” are \nthe “gust,” the maximum wind speed in a ten-minute window. \n \nIn this example, 14005KT, 16010KT, 21015G30KT, \n29008KT, 31012G22KT, and 30008KT are the wind \ndirection and speed groups. \n \nIn the first wind group, the wind is forecasted to blow from \n140 degrees (true) at a sustained speed of 05 knots. No gust is \nforecasted. \n \n \n \n \n \n \n22 \nTAF Wind",
+      "sections": [
+        "140 degrees (true) at a sustained speed of 05 knots. No gust is",
+        "22 \nTAF Wind"
+      ]
+    },
+    {
+      "page": 24,
+      "text": "How do I determine the forecast visibility? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 WS010/18040KT \nQNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 QNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB OVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 QNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS 520004 \nQNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z M01/11Z \n \nIn the military and at overseas locations, visibility is forecasted in meters. \nThe 4-character group following the wind is the forecast visibility. In the \nKBLV example, 8000, 3200, 1600, 3200, and 9999 are the forecast \nvisibilities in meters. 9999 is the greatest value forecasted. A value of \n9999 indicates a forecast visibility of greater than 9000 meters (7 statute \nmiles or greater). To convert visibility values from meters to statute miles, \nsee Attachment 3 on p. 33 or see Flight Information Handbook conversion \ntables. \n \nOverseas locations may use the contraction “CAVOK” (ceiling and visibility \nOK). CAVOK is used when there is no significant weather, the visibility is \n10 km or greater, and the ceilings are greater than 5,000 ft. \n \nTAF \nKSTL 051130Z 051212 14008KT 5SM BR BKN030 WS010/18025KT \nTEMPO 1316 1 1/2SM BR \nFM 1600 16010KT P6SM NSW SKC \nBECMG 2224 20013G20KT 4SM SHRA OVC020 \nPROB40 0006 2SM TSRA OVC008CB \nBECOMG 0608 21015KT P6SM NSW SCT040 \n \nIn the CONUS, civilian TAFS forecast visibility in statute miles up to \n6 statute miles, beyond which P6SM is used to indicate forecast visibility \ngreater than 6 statute miles. \n \n \n \n \n23 \nTAF Visibility",
+      "sections": [
+        "9999 indicates a forecast visibility of greater than 9000 meters (7 statute",
+        "10 km or greater, and the ceilings are greater than 5,000 ft.",
+        "6 statute miles, beyond which P6SM is used to indicate forecast visibility",
+        "23 \nTAF Visibility"
+      ]
+    },
+    {
+      "page": 25,
+      "text": "How do I determine if there is any forecast weather? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 WS010/18040KT \nQNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 QNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB OVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 \nQNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS \n520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z \nM01/11Z \n \nThe weather data group (forecast precipitation or obstruction to \nvisibility) follows the visibility data group. \n \nIn this example, BR means “mist,” -SHRA means “light rain \nshowers,” TSRA means a “thunderstorm with moderate rain,” and \n-RA means “light rain.” NSW (no significant weather) is used to \nindicate that the weather or obscuration listed in the previous group \nis no longer expected to occur. Absence of a weather or \nobscuration group means that no weather or obscuration is expected \nduring the forecast period. \n \nTo methodically decode a weather group, look for six key elements \n(depending on the phenomena, one or more may be omitted). In \norder, these elements are: Intensity (symbol preceding the code), \nProximity, Descriptor, Precipitation Description, Obscuration \n(other than precipitation) and Other. \n \nFor a complete table of weather group elements, see Figure 1 on \npage 11. \n \n \n \n24 \nTAF Type of Weather",
+      "sections": [
+        "520004 QNH2952INS",
+        "24 \nTAF Type of Weather"
+      ]
+    },
+    {
+      "page": 26,
+      "text": "How do I determine the layers of forecast clouds? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 WS010/18040KT \nQNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 QNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB OVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 \nQNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS \n520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z \nM01/11Z \n \nCloud height is always forecasted in hundreds of feet. Add two \nzeros to the end of the value given. In this example, FEW030, \nBKN008CB, OVC020, and SKC represent the values 3,000 few, \n2,000 overcast, 800 broken cumulonimbus, and sky clear, \nrespectively. \n \nIn place of cloud layers, vertical visibility in hundreds of feet will \nappear in a TAF cloud group when the sky is forecast to be totally \nobscured. For example, VV002 represents a vertical visibility of \n200 feet. Vertical visibility in a TAF represents the forecast ceiling. \n \nSky coverage (eighths): \nSKC Sky clear \nFEW Few -- 0-2 eighths \nSCT Scattered -- 3-4 eighths \nBKN * Broken -- 5-7 eighths \nOVC * Overcast -- 8 eighths \n* Constitutes a “ceiling” \n \n \n25 \nTAF Clouds",
+      "sections": [
+        "520004 QNH2952INS",
+        "200 feet. Vertical visibility in a TAF represents the forecast ceiling.",
+        "25 \nTAF Clouds"
+      ]
+    },
+    {
+      "page": 27,
+      "text": "How do I determine if wind shear is in the forecast? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 \nWS010/18040KT QNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 \nQNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB \nOVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 \nQNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS \n520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS \nT08/18Z M01/11Z \n \nA wind shear group is included if non-convective low-level winds \n(up to 2,000 feet) will change in speed and/or direction and result in \na shearing action. WS indicates forecast wind shear and is followed \nby a 3-digit height in hundreds of feet AGL, a slant character, ”/,” \nand forecast wind at the height indicated. WS010/18040KT reads, \n“forecast wind shear at 1,000 feet above the station; wind at 1,000 \nfeet is from 180 degrees (true) at 40 knots.” \n \nThe remark WSCONDS is used to indicate the potential for wind \nshear when there is not enough information available to reliably \npredict the height, direction and speed of the wind shear. WSCONDS \nis normally used beyond the first 6 hours of the TAF. \n \nFor some locations, the wind shear group will follow the minimum \naltimeter setting group (in the TAF remarks) instead of following \nthe cloud group. \n \n \n \n26 \nTAF Wind Shear",
+      "sections": [
+        "520004 QNH2952INS",
+        "26 \nTAF Wind Shear"
+      ]
+    },
+    {
+      "page": 28,
+      "text": "How do I determine forecast icing conditions? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 QNH2960INS \nBECMG 1617 29008KT 3200 -RA OVC030 620304 QNH2958INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z M01/11Z \n \nIf forecasted, the icing group will be prefixed by the number 6, and follows \nthe cloud group. To decode, follow these instructions: \n1. Find the icing designator “6” following the cloud group (620304). \n2. The next digit gives icing type and intensity (620304). See Figure 3. \n3. The next three digits give the base of the icing layer in hundreds of feet \n(620304). \n4. The last digit provides the icing layer depth in thousands of feet \n(620304), so add this value to the base height to determine the top limit \nof the icing conditions. \n \nIn the above example, the icing forecast will read, “light rime icing (in \ncloud) from 3,000 to 7,000 feet.” \n \nFigure 3. Icing Intensity Decode Table \nCODE DECODE \n0 Trace Icing or None (see note) \n1 Light Mixed Icing \n2 Light Rime Icing In Cloud \n3 Light Clear Icing In Precipitation \n4 Moderate Mixed Icing \n5 Moderate Rime Icing In Cloud \n6 Moderate Clear Icing In Precipitation \n7 Severe Mixed Icing \n8 Severe Rime Icing In Cloud \n9 Severe Clear Icing In Precipitation \nNote: Air Force code “0” means a trace of icing, \n World Meteorological Organization code “0” means no icing \n \n27 \nTAF Icing",
+      "sections": [
+        "0 Trace Icing or None (see note)",
+        "1 Light Mixed Icing",
+        "2 Light Rime Icing In Cloud",
+        "3 Light Clear Icing In Precipitation",
+        "4 Moderate Mixed Icing",
+        "5 Moderate Rime Icing In Cloud",
+        "6 Moderate Clear Icing In Precipitation",
+        "7 Severe Mixed Icing",
+        "8 Severe Rime Icing In Cloud",
+        "9 Severe Clear Icing In Precipitation"
+      ]
+    },
+    {
+      "page": 29,
+      "text": "How do I determine forecast turbulence conditions? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 QNH2960INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS T08/18Z M01/11Z \n \nIf forecasted, the turbulence code will be prefixed by the number 5, and \nwill follow the cloud or icing group. To decode, follow these instructions: \n1. Look for the turbulence designator “5” that follows the cloud or icing \ngroup (520004). \n2. The next digit will determine the intensity (520004). See Figure 4. \n3. The next three digits will determine the base limit of the turbulence \nlayer in hundreds of feet AGL (520004). \n4. The last digit will determine the turbulence layer depth in thousands of \nfeet (520004), so add this value to the base height to determine the top \nlimit of the turbulence conditions. \n \nIn the above example, the turbulence forecast will read, “occasional \nmoderate turbulence in clear air from the surface to 4,000 feet.” \n \nFigure 4. Turbulence Intensity Decode Table \nCODE DECODE \n0 None \n1 Light turbulence \n2 Moderate turbulence in clear air, occasional \n3 Moderate turbulence in clear air, frequent \n4 Moderate turbulence in cloud, occasional \n5 Moderate turbulence in cloud, frequent \n6 Severe turbulence in clear air, occasional \n7 Severe turbulence in clear air, frequent \n8 Severe turbulence in cloud, occasional \n9 Severe turbulence in cloud, frequent \nX Extreme turbulence \nNote: Occasional is defined as occurring less than 1/3 of the time \n \n28 \nTAF Turbulence",
+      "sections": [
+        "0 None",
+        "1 Light turbulence",
+        "2 Moderate turbulence in clear air, occasional",
+        "3 Moderate turbulence in clear air, frequent",
+        "4 Moderate turbulence in cloud, occasional",
+        "5 Moderate turbulence in cloud, frequent",
+        "6 Severe turbulence in clear air, occasional",
+        "7 Severe turbulence in clear air, frequent",
+        "8 Severe turbulence in cloud, occasional",
+        "9 Severe turbulence in cloud, frequent"
+      ]
+    },
+    {
+      "page": 30,
+      "text": "How do I determine the forecast lowest altimeter setting? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 \nWS010/18040KT QNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 \nQNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB \nOVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 \nQNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 \nWSCONDS 520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS \nT08/18Z M01/11Z \n \nForecast minimum altimeter settings are only found in \nmilitary forecasts. These are near the end of the line, \nbeginning with QNH (minimum) and ending with INS \n(inches). To convert altimeter settings from inches Hg to \nhectopascals (millibars), use Attachment 4 on page 34\n or use \nFlight Information Handbook conversion tables. \n \nIn this example, QNH2960INS, QNH2959INS, \nQNH2958INS, QNH2952INS, and QNH2950INS are read \nas minimum altimeter settings of 29.60, 29.59, 29.58, 29.52, \nand 29.50 inches of mercury, respectively. \n \n \n \n \n \n29 \nTAF Minimum Altimeter Setting",
+      "sections": [
+        "29 \nTAF Minimum Altimeter Setting"
+      ]
+    },
+    {
+      "page": 31,
+      "text": "How do I determine the forecast temperatures? \n \nTAF \nKBLV 051212 14005KT 8000 BR FEW030 WS010/18040KT \nQNH2960INS \nBECMG 1314 16010KT 3200 -SHRA OVC020 QNH2959INS \nTEMPO 1416 21015G30KT 1600 TSRA BKN008CB OVC020 \nBECMG 1617 29008KT 3200 -RA OVC030 620304 \nQNH2958INS \nBECMG 1819 31012G22KT 9999 NSW SCT040 WSCONDS \n520004 QNH2952INS \nBECMG 2021 30008KT 9999 SKC QNH2950INS TM08/18Z \n01/11Z \n \nForecast temperatures for the forecast period are routinely found \nonly in military TAFs. They are found on the last line, following \nthe minimum altimeter, beginning with the designator “T,” \nmaximum temperature first. To convert temperature units from \nCelsius to Fahrenheit, use Attachment 2 on page 32 or use Flight \nInformation Handbook conversion tables. \n \nIn this example, 08/18Z indicates a forecast maximum \ntemperature of 8°C at 1800Z, and TM01/11Z indicates a forecast \nminimum temperature of -1°C at 1100Z. \n \n \n \n \n NORMAN R. SEIP, Maj Gen, USAF \n Acting Deputy Chief of Staff \n Air and Space Operations \n \n \n \n \n \n \n30 \nTAF Temperatures",
+      "sections": [
+        "520004 QNH2952INS",
+        "30 \nTAF Temperatures"
+      ]
+    },
+    {
+      "page": 32,
+      "text": "GLOSSARY OF REFERENCES \nAND SUPPORTING INFORMATION \n \nReferences \n \nAFMAN 15-111, Surface Weather Observations \n \nAFMAN 15-124, Meteorological Codes \n \nICAO Document 8896AN/893/4, Manual of Aeronautical Meteorological Practice, \nISBN 92-9194-345-2 \n \nAFMAN 15-111 USAFESUP1, United States Air Forces in Europe Supplement to \nSurface Weather Observations \n \nFAA Order 7340.1, Contractions \n \nAbbreviations and Acronyms \n \nAGL— Above Ground Level \nFAA— Federal Aviation Administration \nICAO— International Civil Aviation Organization \nMETAR— Aviation Routine Weather Report \nNATO— North Atlantic Treaty Organisation \nRVR— Runway Visual Range \nTAF— Terminal Aerodrome Forecast \nUTC— Coordinated Universal Time, sometimes called “zulu time” \n \n \n \n \n \n \n \n31 \nAttachment 1",
+      "sections": [
+        "31 \nAttachment 1"
+      ]
+    },
+    {
+      "page": 33,
+      "text": "TEMPERATURE CONVERSION \nDegrees Fahrenheit to Degrees Celsius \nºF ºF ºF ºF \nFrom To ºC From To ºC From To ºC From To ºC \n128.3 130.0 54 83.3 85.0 29 38.3 40.0 04 -4.8 -3.1 M20\n126.5 128.2 53 81.5 83.2 28 36.3 38.2 03 -6.6 -4.9 M21\n124.7 126.4 52 79.7 81.4 27 34.7 36.2 02 -8.4 -6.7 M22\n122.9 124.6 51 77.9 79.6 26 32.9 34.6 01 -10.2 -8.5 M23\n121.1 122.8 50 76.1 77.8 25 32.0 32.8 00 -12.0 -10.3 M24\n119.3 121.0 49 74.3 76.0 24 31.2 31.9 M00 -13.8 -12.1 M25\n117.5 119.2 48 72.5 74.2 23 29.4 31.1 M01 -15.6 -13.9 M26\n115.7 117.4 47 70.7 72.4 22 27.6 29.3 M02 -17.4 -15.7 M27\n113.9 115.6 46 68.9 70.6 21 25.8 27.5 M03 -19.2 -17.5 M28\n112.1 113.8 45 67.1 68.8 20 24.0 25.7 M04 -21.0 -19.3 M29\n110.3 112.0 44 65.3 67.0 19 22.2 23.9 M05 -22.8 -21.1 M30\n108.5 110.2 43 63.5 65.2 18 20.4 22.1 M06 -24.6 -22.9 M31\n106.7 108.4 42 61.7 63.4 17 18.6 20.3 M07 -26.4 -24.7 M32\n104.9 106.6 41 59.9 61.6 16 16.8 18.5 M08 -28.2 -26.5 M33\n103.1 104.8 40 58.1 59.8 15 15.0 16.7 M09 -30.0 -28.3 M34\n101.3 103.0 39 56.3 58.0 14 13.2 14.9 M10 -31.8 -30.1 M35\n99.5 101.2 38 54.5 56.2 13 11.4 13.1 M11 -33.6 -31.9 M36\n97.7 99.4 37 52.7 54.4 12 9.6 11.3 M12 -35.4 -33.7 M37\n95.9 97.6 36 50.9 52.6 11 7.8 9.5 M13 -37.2 -35.5 M38\n94.1 95.8 35 49.1 50.8 10 6.0 7.7 M14 -39.0 -37.3 M39\n92.3 94.0 34 47.3 49.0 09 4.2 5.9 M15 -40.8 -39.1 M40\n90.5 92.2 33 45.5 47.2 08 2.4 4.1 M16 -42.6 -40.9 M41\n88.7 90.4 32 43.7 45.4 07 0.6 2.3 M17 -44.4 -42.7 M42\n86.9 88.6 31 41.9 43.6 06 -1.2 +0.5 M18 -46.2 -44.5 M43\n85.1 86.8 30 40.1 41.8 05 -3.0 -1.3 M19 -48.0 -46.5 M44\n \n32 \nAttachment 2",
+      "sections": [
+        "128.3 130.0 54 83.3 85.0 29 38.3 40.0 04 -4.8 -3.1 M20",
+        "126.5 128.2 53 81.5 83.2 28 36.3 38.2 03 -6.6 -4.9 M21",
+        "124.7 126.4 52 79.7 81.4 27 34.7 36.2 02 -8.4 -6.7 M22",
+        "122.9 124.6 51 77.9 79.6 26 32.9 34.6 01 -10.2 -8.5 M23",
+        "121.1 122.8 50 76.1 77.8 25 32.0 32.8 00 -12.0 -10.3 M24",
+        "119.3 121.0 49 74.3 76.0 24 31.2 31.9 M00 -13.8 -12.1 M25",
+        "117.5 119.2 48 72.5 74.2 23 29.4 31.1 M01 -15.6 -13.9 M26",
+        "115.7 117.4 47 70.7 72.4 22 27.6 29.3 M02 -17.4 -15.7 M27",
+        "113.9 115.6 46 68.9 70.6 21 25.8 27.5 M03 -19.2 -17.5 M28",
+        "112.1 113.8 45 67.1 68.8 20 24.0 25.7 M04 -21.0 -19.3 M29"
+      ]
+    },
+    {
+      "page": 34,
+      "text": "REPORTABLE VISIBILITY CONVERSION \nStatute Miles (SM) to Meters (m) \nSTATUTE \nMILES METERS \nSTATUTE \nMILES METERS \nSTATUTE \nMILES METERS \n0 0000 1-1/8 1800 2-3/4 4400 \n- 0050 - 1900 - 4500 \n1/16 0100 1-1/4 2000 - 4600 \n- 0150 - 2100 - 4700 \n1/8 0200 1-3/8 2200 3 4800 \n- 0250 - 2300 - 4900 \n3/16 0300 1-1/2 2400 - 5000 \n- 0350 - 2500 4 6000 \n¼ 0400 1-5/8 2600 - 7000 \n- 0450 - 2700 5 8000 \n5/16 0500 1-3/4 2800 6 9000 \n- 0550 - 2900 7 9999 \n3/8 0600 1-7/8 3000 8 9999 \n- 0650 - 3100 9 9999 \n- 0700 2 3200 10 9999 \n- 0750 - 3300 11 9999 \n½ 0800 - 3400 12 9999 \n- 0900 - 3500 13 9999 \n5/8 1000 2-1/4 3600 14 9999 \n- 1100 - 3700 15 9999 \n¾ 1200 - 3800 20 9999 \n- 1300 - 3900 25 9999 \n7/8 1400 2-1/2 4000 30 9999 \n- 1500 - 4100 35 9999 \n1 1600 - 4200 40 9999 \n- 1700 - 4300 Etc. 9999 \nDouble underline marks a change in increment \n \n \n33 \nAttachment 3",
+      "sections": [
+        "0 0000 1-1/8 1800 2-3/4 4400",
+        "1 1600 - 4200 40 9999",
+        "33 \nAttachment 3"
+      ]
+    },
+    {
+      "page": 35,
+      "text": "PRESSURE CONVERSION \nMillibars (mb)* to Inches of Mercury (inches Hg) \n _ _ _0 _ _ _1 _ _ _2 _ _ _3 _ _ _4 _ _ _5 _ _ _6 _ _ _7 _ _ _8 _ _ _9\n094_ 27.76 27.79 27.82 27. 85 27.88 27.91 27.94 27.96 27.99 28.02\n095_ 28.05 28.08 28.11 28. 14 28.17 28.20 28.23 28.26 28.29 28.32\n096_ 28.35 28.38 28.41 28. 44 28.47 28.50 28.53 28.56 28.59 28.61\n097_ 28.64 28.67 28.70 28.73 28.76 28.79 28.82 28.85 28.88 28.91\n098_ 28.94 28.97 29.00 29.03 29.06 29.09 29.12 29.15 29.18 29.21\n099_ 29.23 29.26 29.29 29.32 29.35 29.38 29.41 29.44 29.47 29.50\n100_ 29.53 29.56 29.59 29. 62 29.65 29.68 29.71 29.74 29.77 29.80\n101_ 29.83 29.85 29.88 29. 91 29.94 29.97 30.00 30.03 30.06 30.09\n102_ 30.12 30.15 30.18 30. 21 30.24 30.27 30.30 30.33 30.36 30.39\n103_ 30.42 30.45 30.47 30.50 30.53 30.56 30.59 30.62 30.65 30.68\n104_ 30.71 30.74 30.77 30.80 30.83 30.86 30.89 30.92 30.95 30.98\n105_ 31.01 31.04 31.07 31.10 31.12 31.15 31.18 31.21 31.24 31.27\n \n* A millibar (mb) is equal to a hectopascal (hPa) \n \n \n \n \n \n \n \n34 \nAttachment 4",
+      "sections": [
+        "34 \nAttachment 4"
+      ]
+    }
+  ],
+  "extractionMethod": "PYPDF_TEXT"
+}

@@ -1,0 +1,2 @@
+import {scoreFlight004BValidation} from "./flight-004b-validation-score";
+export function validateAircraftStructure(input:{conceptId:string;name:string;definition:string;topic:string;sourceReferences:Array<{sourceId:string;page?:number;section?:string}>;rawEvidenceText:string}){return scoreFlight004BValidation({knowledgeId:input.conceptId,knowledgeType:"CONCEPT",topicId:input.topic,sourceReferences:input.sourceReferences,rawEvidenceText:input.rawEvidenceText,structureCompleteness:input.definition.trim()?1:.5,conceptClarity:input.name.trim()&&input.definition.trim()?1:.5});}

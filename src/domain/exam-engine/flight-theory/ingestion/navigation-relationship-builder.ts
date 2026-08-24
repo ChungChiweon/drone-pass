@@ -1,0 +1,3 @@
+const allowed=new Set(["MEASURED_BY","DETECTED_BY","PART_OF","DEPENDS_ON","PROVIDES_INPUT_TO","AFFECTS","SUPPORTS","CONTRASTS_WITH","COMMONLY_CONFUSED_WITH","RESULTS_IN"]);
+export type NavigationRelationship={relationshipId:string;sourceKnowledgeId:string;targetKnowledgeId:string;relationType:string;evidence:string;sourceLocator:{sourceId:string;page:number;section:string};direction:"SOURCE_TO_TARGET";confidence:number};
+export function buildNavigationRelationship(input:NavigationRelationship,ids:ReadonlySet<string>):NavigationRelationship|null{return ids.has(input.sourceKnowledgeId)&&ids.has(input.targetKnowledgeId)&&allowed.has(input.relationType)&&Boolean(input.evidence&&input.sourceLocator.sourceId&&input.sourceLocator.page)?structuredClone(input):null}

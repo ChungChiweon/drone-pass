@@ -21,5 +21,8 @@ dev-server*.log
 work/*.log
 work/*export*.json
 tsconfig.tsbuildinfo
+tmp/
+**/__pycache__/
+*.pyc
 
 .vercel

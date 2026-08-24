@@ -1,0 +1,2 @@
+import type {TechnicalSourceCandidate} from "./source-gap-acquisition-types";
+export function validateUasRelevance(s:TechnicalSourceCandidate){const vendorBlocked=Boolean(s.vendorSpecific&&s.authority!=="REFERENCE_ONLY");const generalOnly=!s.uasSpecific;return {valid:!vendorBlocked,vendorBlocked,generalOnly,limitations:generalOnly?["GENERAL_TECH_ONLY","Do not infer manufacturer-specific behavior"]:[]}}

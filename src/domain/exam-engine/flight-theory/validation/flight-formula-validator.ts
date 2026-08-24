@@ -1,0 +1,1 @@
+export function validateFlightFormula(rawExpression:string,evidence:string){const complete=/^[LD]\s*=/.test(rawExpression)&&/[ρV].*S/.test(rawExpression);return {status:complete?"VALIDATED_WITH_WARNING" as const:"BLOCKED_FORMULA" as const,warnings:complete?["OCR_NORMALIZATION_REVIEW_REQUIRED"]:[],blockers:complete?[]:["FORMULA_STRUCTURE_INCOMPLETE"],evidence}}

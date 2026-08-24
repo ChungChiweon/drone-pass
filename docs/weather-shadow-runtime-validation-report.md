@@ -1,0 +1,22 @@
+# Weather Shadow Runtime Validation Report
+
+- Canonical input: **46** (`sha256-997183193f3e9fe99f2b9523c197814923a3685c9b4b7814c914989f3902bd91`)
+- Distribution: `{'concepts': 5, 'phenomena': 7, 'hazards': 7, 'observations': 6, 'weatherCodes': 6, 'operationalImpacts': 4, 'relationships': 11}`
+- Compatibility: `{'DIRECTLY_COMPATIBLE': 11, 'COMPATIBLE_WITH_WEATHER_ADAPTER': 24, 'RELATIONSHIP_ONLY': 11}`
+- Question eligible: **35**, compiler compatible: **35**
+- Classic: attempted 35, generated 30, skipped 5, failed 0
+- Graph: nodes 35, relations 11, usable units 13, backed questions 12, GraphUsageScore 0.4
+- Question types: `{'CONCEPT_DEFINITION': 5, 'PHENOMENON_IDENTIFICATION': 7, 'HAZARD_IDENTIFICATION': 7, 'OBSERVATION_INTERPRETATION': 6, 'WEATHER_CODE_MEANING': 5}`
+- Knowledge type yield: `{'Concept': {'canonical': 5, 'eligible': 5, 'generated': 5}, 'Phenomenon': {'canonical': 7, 'eligible': 7, 'generated': 7}, 'Hazard': {'canonical': 7, 'eligible': 7, 'generated': 7}, 'Observation': {'canonical': 6, 'eligible': 6, 'generated': 6}, 'WeatherCode': {'canonical': 6, 'eligible': 6, 'generated': 5}, 'OperationalImpact': {'canonical': 4, 'eligible': 4, 'generated': 0}}`
+- Quality: `{'averageScore': 0.86, 'uniquenessFailures': 0, 'duplicateDistractors': 0, 'semanticOptionDuplicates': 0, 'unsupportedInference': 0, 'sourceTraceFailures': 0, 'explanationSourceMismatch': 0, 'knowledgeTypeMisuse': 0, 'unsafeDistractors': 0}`
+- WeatherCode: source trace preserved; SIGMET/AIRMET example order was not promoted to an absolute rule.
+- Hazard: definition/condition only; no avoidance, stop-flight, or drone impact inference.
+- Observation: no missing instrument or threshold was invented.
+- Semantic duplicates: exact 0, semantic 0.
+- Topic runtime coverage: `{'NO_KNOWLEDGE': 34, 'RUNTIME_READY': 10, 'RUNTIME_READY_WITH_GAPS': 3}`
+- Template gaps: 5
+- Performance ms: `{'packBuild': 2.931, 'classicCompile': 0.296, 'graphBuild': 0.1, 'graphGeneration': 0.296}`
+- Final: **WEATHER_RUNTIME_READY_WITH_GAPS**
+- Remaining gaps: Five misclassified observation records, 2025 observation guideline PDF missing, Hazard operational guidance limited, Drone-specific OperationalImpact remains zero
+- Recommendation: improve source-grounded distractor pools and topic mapping before production integration.
+- Mutation guard: **0**; canonical v1/v2/v3, raw Weather 57, Legal/Active data were not changed.

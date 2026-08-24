@@ -1,0 +1,41 @@
+{
+  "sourceId": "kma-basic-weather-analysis",
+  "canonicalTitle": "기초 기상분석",
+  "issuingOrganization": "기상청",
+  "authority": "OFFICIAL_METEOROLOGICAL",
+  "sourceType": "OFFICIAL_EDUCATION",
+  "publicationDate": "2014-09-16",
+  "currentnessStatus": "POSSIBLY_OUTDATED",
+  "officialPageUrl": "https://www.kma.go.kr/down/e-learning/beginning/beginning_02.pdf",
+  "downloadUrl": "https://www.kma.go.kr/down/e-learning/beginning/beginning_02.pdf",
+  "fileType": "PDF",
+  "subjectCoverage": [
+    "항공기상"
+  ],
+  "weatherTopics": [
+    "atmosphere",
+    "pressure",
+    "temperature",
+    "humidity",
+    "wind",
+    "cloud",
+    "precipitation",
+    "fog",
+    "visibility",
+    "air-mass",
+    "front",
+    "high-pressure",
+    "low-pressure",
+    "typhoon",
+    "weather-chart"
+  ],
+  "containsTables": true,
+  "containsDiagrams": true,
+  "containsWeatherSymbols": true,
+  "containsObservationExamples": false,
+  "extractionStatus": "READY_FOR_INGESTION",
+  "validationStatus": "OFFICIAL_DOMAIN_VERIFIED",
+  "notes": [],
+  "localPath": "data/sources/drone-license/weather/official/korea-meteorological-administration/kma-basic-weather-analysis/original/source.pdf",
+  "checksum": "sha256-44fb3a20909d208b2b748ec99444c36108f28aae9d6456a0ce7e1f674cdc44bb"
+}

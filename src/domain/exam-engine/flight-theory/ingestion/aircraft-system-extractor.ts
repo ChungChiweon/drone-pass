@@ -1,0 +1,2 @@
+import type {AircraftSystem,FlightSourceReference} from "../knowledge";
+export function extractAircraftSystem(input:{systemId:string;components:string[];evidence:string;sourceReference:FlightSourceReference;purposeEvidence?:string}):AircraftSystem|null{if(!input.evidence.trim())return null;return {systemId:input.systemId,components:[...input.components],purpose:input.purposeEvidence?.trim()??"",inputs:[],outputs:[],dependencies:[],failureModes:[],sourceReferences:[input.sourceReference]};}
